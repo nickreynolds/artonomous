@@ -1,3 +1,5 @@
+[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/artonomous-dev/Lobby)
+
 # Artonomous
 
 Artonomous is a self-sustaining, self-improving, autonomous artist.
