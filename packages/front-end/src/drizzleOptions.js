@@ -1,5 +1,5 @@
 import Artonomous from "./../contracts/Artonomous.json";
-
+console.log("Artonomous: ", Artonomous);
 const drizzleOptions = {
   web3: {
     block: false,

@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 
 import "./App.css";
-
+import NavBar from "./layouts/navbar/NavBar";
 class App extends Component {
   render() {
-    return <div className="App">{this.props.children}</div>;
+    return (
+      <div>
+        <NavBar />
+        {this.props.children}
+      </div>
+    );
   }
 }
 

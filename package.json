@@ -1,5 +1,21 @@
 {
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "lerna": "^2.8.0"
+  },
+  "scripts": {
+    "ganache": "ganache-cli -p 8545 --networkId 50 -d -m \"${npm_package_config_mnemonic}\" --noVMErrorsOnRPCResponse",
+    "migrate": "lerna run --scope @artonomous/contracts migrate:ganache",
+    "publish:artifacts": "ncp ./packages/contracts/build/contracts/Artonomous.json ./packages/front-end/contracts/Artonomous.json",
+    "preparelocal": "run-s migrate publish:artifacts"
+  },
+  "dependencies": {
+    "ganache-cli": "^6.1.8",
+    "ncp": "^2.0.0",
+    "npm-run-all": "^4.1.3",
+    "run-s": "^0.0.0"
   }
 }

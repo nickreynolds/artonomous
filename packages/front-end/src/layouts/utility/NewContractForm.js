@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 class NewContractForm extends Component {
   constructor(props, context) {
     super(props);
-
+    console.log("construct form");
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 

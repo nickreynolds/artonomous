@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { ContractData } from "drizzle-react-components";
 import NewContractForm from "../utility/NewContractForm";
-class Home extends Component {
+class Generators extends Component {
   render() {
-    console.log("Home.js");
+    console.log("Generators.js");
     return (
       <main className="container">
         <div className="pure-g">
           <div className="pure-u-1-1 header">
-            <h1>Artonomous</h1>
+            <h1>Generators</h1>
           </div>
 
           <div className="pure-u-1-1">
@@ -46,4 +46,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Generators;
