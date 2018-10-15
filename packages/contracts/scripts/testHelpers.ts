@@ -10,6 +10,6 @@ export function configureChai(chai: any): void {
 }
 
 export async function advanceEvmTime(seconds: number): Promise<void> {
-    await web3.currentProvider.send({jsonrpc: "2.0", method: "evm_increaseTime", params: [seconds], id: 123});
-    await web3.currentProvider.send({jsonrpc: "2.0", method: "evm_mine", id: 123});
+  await web3.currentProvider.send({ jsonrpc: "2.0", method: "evm_increaseTime", params: [seconds], id: 123 });
+  await web3.currentProvider.send({ jsonrpc: "2.0", method: "evm_mine", id: 123 });
 }

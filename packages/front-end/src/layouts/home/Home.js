@@ -14,7 +14,7 @@ class Home extends Component {
           <div className="pure-u-1-1">
             <p>
               <strong>Staking</strong>:{" "}
-              <ContractData contract="Artonomous" method="artonomousStaking" />
+              <ContractData contract="Artonomous" method="registry" />
             </p>
             <p>
               <strong>Piece Token</strong>:{" "}

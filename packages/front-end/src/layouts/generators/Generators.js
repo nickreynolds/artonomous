@@ -9,36 +9,7 @@ class Generators extends Component {
         <div className="pure-g">
           <div className="pure-u-1-1 header">
             <h1>Generators</h1>
-          </div>
-
-          <div className="pure-u-1-1">
-            <p>
-              <strong>Staking</strong>:{" "}
-              <ContractData contract="Artonomous" method="artonomousStaking" />
-            </p>
-            <p>
-              <strong>Piece Token</strong>:{" "}
-              <ContractData contract="Artonomous" method="pieceToken" />
-            </p>
-            <p>
-              <strong>Beneficiary</strong>:{" "}
-              <ContractData contract="Artonomous" method="beneficiary" />
-            </p>
-            <p>
-              <strong>Auction Length (in seconds)</strong>:{" "}
-              <ContractData contract="Artonomous" method="AUCTION_LENGTH" />
-            </p>
-            <p>
-              <strong>Current Auction</strong>:{" "}
-              <ContractData contract="Artonomous" method="currentAuction" />
-              <NewContractForm
-                contract="Artonomous"
-                method="buyArt"
-                methodArgs={{ value: "1000000000000" }}
-              >
-                Buy Art
-              </NewContractForm>
-            </p>
+            <ContractData contract="GeneratorRegistry" method="getToken" />
           </div>
         </div>
       </main>

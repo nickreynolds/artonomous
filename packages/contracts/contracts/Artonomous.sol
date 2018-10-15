@@ -1,11 +1,11 @@
 pragma solidity ^0.4.24;
 
-import "./ArtonomousStaking.sol";
-import "./ArtonomousArtPieceToken.sol";
+import "./GeneratorRegistry.sol";
+import "./tokens/ArtPieceToken.sol";
 
 contract Artonomous {
 
-    event ArtonomousAuctionStarted(uint indexed blockNumber, string generatorHashUsed);
+    event ArtonomousAuctionStarted(uint indexed blockNumber);
     event ArtonomousArtBought(address indexed buyer, uint indexed blockNumber, uint price);
     event ArtonomousArtClaimed(address indexed claimant, uint indexed blockNumber);
 
@@ -15,30 +15,30 @@ contract Artonomous {
         uint startingPrice;
     }
 
-    ArtonomousStaking public artonomousStaking;
-    ArtonomousArtPieceToken public pieceToken;
+    GeneratorRegistry public registry;
+    ArtPieceToken public pieceToken;
     address public beneficiary; // receives ether gained from purchases
 
     uint public AUCTION_LENGTH = 86400; // 24 hours
     Auction public currentAuction;
 
     constructor(address stakingAddr, address beneficiaryAddr) public {
-        artonomousStaking = ArtonomousStaking(stakingAddr);
-        pieceToken = new ArtonomousArtPieceToken("artonomous-token", "ARTO");
+        registry = GeneratorRegistry(stakingAddr);
+        pieceToken = new ArtPieceToken("ArtPieceToken", "ART");
         beneficiary = beneficiaryAddr;
         startAuction();
     }
 
     function startAuction() internal {
         require(currentAuction.blockNumber == 0);
-        string memory currentGeneratorHash = artonomousStaking.currentGeneratorHash();
-        pieceToken.mint(this, block.number, currentGeneratorHash);
+        Generator currentGenerator = registry.getActiveGenerator();
+        pieceToken.mint(this, block.number, currentGenerator);
         currentAuction = Auction({
             blockNumber: block.number,
             endTime: now + AUCTION_LENGTH,
             startingPrice: getStartingPrice()
         });
-        emit ArtonomousAuctionStarted(block.number, currentGeneratorHash);
+        emit ArtonomousAuctionStarted(block.number);
     }
 
     // placeholder

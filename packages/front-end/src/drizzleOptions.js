@@ -1,5 +1,10 @@
 import Artonomous from "./../contracts/Artonomous.json";
-console.log("Artonomous: ", Artonomous);
+import GeneratorRegistry from "../contracts/GeneratorRegistry.json";
+import GeneratorFactory from "../contracts/GeneratorFactory.json";
+import SoulToken from "../contracts/SoulToken.json";
+// console.log("Artonomous: ", Artonomous);
+// console.log("GeneratorRegistry: ", GeneratorRegistry);
+// console.log("SoulToken: ", SoulToken);
 const drizzleOptions = {
   web3: {
     block: false,
@@ -8,7 +13,7 @@ const drizzleOptions = {
       url: "ws://127.0.0.1:8545"
     }
   },
-  contracts: [Artonomous],
+  contracts: [Artonomous, GeneratorRegistry, GeneratorFactory, SoulToken],
   events: {
     SimpleStorage: ["StorageSet"]
   },
