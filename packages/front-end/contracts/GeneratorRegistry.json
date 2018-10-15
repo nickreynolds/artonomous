@@ -171,7 +171,7 @@
         "id": 374,
         "nodeType": "ImportDirective",
         "scope": 448,
-        "sourceUnit": 1211,
+        "sourceUnit": 5180,
         "src": "26:71:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -317,7 +317,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_StandardToken_$1210",
+              "typeIdentifier": "t_contract$_StandardToken_$5179",
               "typeString": "contract StandardToken"
             },
             "typeName": {
@@ -325,10 +325,10 @@
               "id": 385,
               "name": "StandardToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1210,
+              "referencedDeclaration": 5179,
               "src": "376:13:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StandardToken_$1210",
+                "typeIdentifier": "t_contract$_StandardToken_$5179",
                 "typeString": "contract StandardToken"
               }
             },
@@ -424,7 +424,7 @@
                       "referencedDeclaration": 386,
                       "src": "533:5:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StandardToken_$1210",
+                        "typeIdentifier": "t_contract$_StandardToken_$5179",
                         "typeString": "contract StandardToken"
                       }
                     },
@@ -439,13 +439,13 @@
                       "referencedDeclaration": 393,
                       "src": "541:6:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StandardToken_$1210",
+                        "typeIdentifier": "t_contract$_StandardToken_$5179",
                         "typeString": "contract StandardToken"
                       }
                     },
                     "src": "533:14:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1210",
+                      "typeIdentifier": "t_contract$_StandardToken_$5179",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -477,7 +477,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_StandardToken_$1210",
+                    "typeIdentifier": "t_contract$_StandardToken_$5179",
                     "typeString": "contract StandardToken"
                   },
                   "typeName": {
@@ -485,10 +485,10 @@
                     "id": 392,
                     "name": "StandardToken",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1210,
+                    "referencedDeclaration": 5179,
                     "src": "494:13:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1210",
+                      "typeIdentifier": "t_contract$_StandardToken_$5179",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -810,7 +810,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2746,
+                          "referencedDeclaration": 6715,
                           "src": "908:3:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -961,7 +961,7 @@
                     "referencedDeclaration": 386,
                     "src": "1011:5:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1210",
+                      "typeIdentifier": "t_contract$_StandardToken_$5179",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -1060,7 +1060,7 @@
         "id": 374,
         "nodeType": "ImportDirective",
         "scope": 448,
-        "sourceUnit": 1211,
+        "sourceUnit": 5180,
         "src": "26:71:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1206,7 +1206,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_StandardToken_$1210",
+              "typeIdentifier": "t_contract$_StandardToken_$5179",
               "typeString": "contract StandardToken"
             },
             "typeName": {
@@ -1214,10 +1214,10 @@
               "id": 385,
               "name": "StandardToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1210,
+              "referencedDeclaration": 5179,
               "src": "376:13:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StandardToken_$1210",
+                "typeIdentifier": "t_contract$_StandardToken_$5179",
                 "typeString": "contract StandardToken"
               }
             },
@@ -1313,7 +1313,7 @@
                       "referencedDeclaration": 386,
                       "src": "533:5:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StandardToken_$1210",
+                        "typeIdentifier": "t_contract$_StandardToken_$5179",
                         "typeString": "contract StandardToken"
                       }
                     },
@@ -1328,13 +1328,13 @@
                       "referencedDeclaration": 393,
                       "src": "541:6:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StandardToken_$1210",
+                        "typeIdentifier": "t_contract$_StandardToken_$5179",
                         "typeString": "contract StandardToken"
                       }
                     },
                     "src": "533:14:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1210",
+                      "typeIdentifier": "t_contract$_StandardToken_$5179",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -1366,7 +1366,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_StandardToken_$1210",
+                    "typeIdentifier": "t_contract$_StandardToken_$5179",
                     "typeString": "contract StandardToken"
                   },
                   "typeName": {
@@ -1374,10 +1374,10 @@
                     "id": 392,
                     "name": "StandardToken",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1210,
+                    "referencedDeclaration": 5179,
                     "src": "494:13:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1210",
+                      "typeIdentifier": "t_contract$_StandardToken_$5179",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -1699,7 +1699,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2746,
+                          "referencedDeclaration": 6715,
                           "src": "908:3:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1850,7 +1850,7 @@
                     "referencedDeclaration": 386,
                     "src": "1011:5:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1210",
+                      "typeIdentifier": "t_contract$_StandardToken_$5179",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -1927,6 +1927,12 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {
+    "4": {
+      "events": {},
+      "links": {},
+      "address": "0x84630d88bf1dcaa99d1b03ed8746c5c1c78f58e5",
+      "transactionHash": "0x976ea59eb3db056e1a26fd2de7d18e3740f24e608f169bf9232da998fdf3bea3"
+    },
     "50": {
       "events": {},
       "links": {},
@@ -1935,5 +1941,5 @@
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-15T03:31:43.833Z"
+  "updatedAt": "2018-10-15T05:55:19.724Z"
 }

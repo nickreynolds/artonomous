@@ -637,14 +637,14 @@
     "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/tokens/SoulToken.sol",
     "exportedSymbols": {
       "SoulToken": [
-        4270
+        4261
       ]
     },
-    "id": 4271,
+    "id": 4262,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4199,
+        "id": 4190,
         "literals": [
           "solidity",
           "^",
@@ -657,10 +657,10 @@
       {
         "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/tokens/EthBondingCurve.sol",
         "file": "./EthBondingCurve.sol",
-        "id": 4200,
+        "id": 4191,
         "nodeType": "ImportDirective",
-        "scope": 4271,
-        "sourceUnit": 4111,
+        "scope": 4262,
+        "sourceUnit": 4102,
         "src": "26:31:12",
         "symbolAliases": [],
         "unitAlias": ""
@@ -671,55 +671,55 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 4201,
+              "id": 4192,
               "name": "EthBondingCurve",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4110,
+              "referencedDeclaration": 4101,
               "src": "81:15:12",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_EthBondingCurve_$4110",
+                "typeIdentifier": "t_contract$_EthBondingCurve_$4101",
                 "typeString": "contract EthBondingCurve"
               }
             },
-            "id": 4202,
+            "id": 4193,
             "nodeType": "InheritanceSpecifier",
             "src": "81:15:12"
           }
         ],
         "contractDependencies": [
-          3600,
-          3892,
-          4110,
-          4736,
-          4832,
-          4909,
-          4941,
-          5188
+          3591,
+          3883,
+          4101,
+          4727,
+          4823,
+          4900,
+          4932,
+          5179
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 4270,
+        "id": 4261,
         "linearizedBaseContracts": [
-          4270,
-          4110,
-          4736,
-          3892,
-          3600,
-          5188,
-          4832,
-          4909,
-          4941
+          4261,
+          4101,
+          4727,
+          3883,
+          3591,
+          5179,
+          4823,
+          4900,
+          4932
         ],
         "name": "SoulToken",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": true,
-            "id": 4205,
+            "id": 4196,
             "name": "name",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "101:41:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -728,7 +728,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 4203,
+              "id": 4194,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "101:6:12",
@@ -740,7 +740,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "536f756c546f6b656e",
-              "id": 4204,
+              "id": 4195,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -759,10 +759,10 @@
           },
           {
             "constant": true,
-            "id": 4208,
+            "id": 4199,
             "name": "symbol",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "146:37:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -771,7 +771,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 4206,
+              "id": 4197,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "146:6:12",
@@ -783,7 +783,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "534f4c",
-              "id": 4207,
+              "id": 4198,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -802,10 +802,10 @@
           },
           {
             "constant": true,
-            "id": 4211,
+            "id": 4202,
             "name": "decimals",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "187:35:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -814,7 +814,7 @@
               "typeString": "uint8"
             },
             "typeName": {
-              "id": 4209,
+              "id": 4200,
               "name": "uint8",
               "nodeType": "ElementaryTypeName",
               "src": "187:5:12",
@@ -826,7 +826,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "3138",
-              "id": 4210,
+              "id": 4201,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -845,10 +845,10 @@
           },
           {
             "constant": true,
-            "id": 4219,
+            "id": 4210,
             "name": "INITIAL_SUPPLY",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "227:61:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -857,7 +857,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 4212,
+              "id": 4203,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "227:7:12",
@@ -872,7 +872,7 @@
                 "typeIdentifier": "t_rational_2000000000000000000000000_by_1",
                 "typeString": "int_const 2000000000000000000000000"
               },
-              "id": 4218,
+              "id": 4209,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -880,7 +880,7 @@
               "leftExpression": {
                 "argumentTypes": null,
                 "hexValue": "32303030303030",
-                "id": 4213,
+                "id": 4204,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
@@ -906,7 +906,7 @@
                       "typeIdentifier": "t_rational_1000000000000000000_by_1",
                       "typeString": "int_const 1000000000000000000"
                     },
-                    "id": 4216,
+                    "id": 4207,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -914,7 +914,7 @@
                     "leftExpression": {
                       "argumentTypes": null,
                       "hexValue": "3130",
-                      "id": 4214,
+                      "id": 4205,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -934,7 +934,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "3138",
-                      "id": 4215,
+                      "id": 4206,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -956,7 +956,7 @@
                     }
                   }
                 ],
-                "id": 4217,
+                "id": 4208,
                 "isConstant": false,
                 "isInlineArray": false,
                 "isLValue": false,
@@ -979,10 +979,10 @@
           },
           {
             "constant": true,
-            "id": 4227,
+            "id": 4218,
             "name": "INITIAL_PRICE",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "292:55:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -991,7 +991,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 4220,
+              "id": 4211,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "292:7:12",
@@ -1006,7 +1006,7 @@
                 "typeIdentifier": "t_rational_390000000000000_by_1",
                 "typeString": "int_const 390000000000000"
               },
-              "id": 4226,
+              "id": 4217,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1014,7 +1014,7 @@
               "leftExpression": {
                 "argumentTypes": null,
                 "hexValue": "3339",
-                "id": 4221,
+                "id": 4212,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
@@ -1040,7 +1040,7 @@
                       "typeIdentifier": "t_rational_10000000000000_by_1",
                       "typeString": "int_const 10000000000000"
                     },
-                    "id": 4224,
+                    "id": 4215,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -1048,7 +1048,7 @@
                     "leftExpression": {
                       "argumentTypes": null,
                       "hexValue": "3130",
-                      "id": 4222,
+                      "id": 4213,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1068,7 +1068,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "3133",
-                      "id": 4223,
+                      "id": 4214,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1090,7 +1090,7 @@
                     }
                   }
                 ],
-                "id": 4225,
+                "id": 4216,
                 "isConstant": false,
                 "isInlineArray": false,
                 "isLValue": false,
@@ -1113,10 +1113,10 @@
           },
           {
             "constant": true,
-            "id": 4230,
+            "id": 4221,
             "name": "CURVE_RATIO",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "351:43:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1125,7 +1125,7 @@
               "typeString": "uint32"
             },
             "typeName": {
-              "id": 4228,
+              "id": 4219,
               "name": "uint32",
               "nodeType": "ElementaryTypeName",
               "src": "351:6:12",
@@ -1137,7 +1137,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "313530303030",
-              "id": 4229,
+              "id": 4220,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1156,10 +1156,10 @@
           },
           {
             "constant": true,
-            "id": 4244,
+            "id": 4235,
             "name": "INITAL_BALANCE",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "398:108:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1168,7 +1168,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 4231,
+              "id": 4222,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "398:7:12",
@@ -1183,7 +1183,7 @@
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
               },
-              "id": 4243,
+              "id": 4234,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1194,7 +1194,7 @@
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 },
-                "id": 4236,
+                "id": 4227,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
@@ -1205,18 +1205,18 @@
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
                   },
-                  "id": 4234,
+                  "id": 4225,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
                   "lValueRequested": false,
                   "leftExpression": {
                     "argumentTypes": null,
-                    "id": 4232,
+                    "id": 4223,
                     "name": "CURVE_RATIO",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 4230,
+                    "referencedDeclaration": 4221,
                     "src": "439:11:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint32",
@@ -1227,11 +1227,11 @@
                   "operator": "*",
                   "rightExpression": {
                     "argumentTypes": null,
-                    "id": 4233,
+                    "id": 4224,
                     "name": "INITIAL_SUPPLY",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 4219,
+                    "referencedDeclaration": 4210,
                     "src": "453:14:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -1248,11 +1248,11 @@
                 "operator": "*",
                 "rightExpression": {
                   "argumentTypes": null,
-                  "id": 4235,
+                  "id": 4226,
                   "name": "INITIAL_PRICE",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 4227,
+                  "referencedDeclaration": 4218,
                   "src": "470:13:12",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
@@ -1276,7 +1276,7 @@
                       "typeIdentifier": "t_rational_1000000000000000000000000_by_1",
                       "typeString": "int_const 1000000000000000000000000"
                     },
-                    "id": 4241,
+                    "id": 4232,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -1284,7 +1284,7 @@
                     "leftExpression": {
                       "argumentTypes": null,
                       "hexValue": "31303030303030",
-                      "id": 4237,
+                      "id": 4228,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1307,7 +1307,7 @@
                         "typeIdentifier": "t_rational_1000000000000000000_by_1",
                         "typeString": "int_const 1000000000000000000"
                       },
-                      "id": 4240,
+                      "id": 4231,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1315,7 +1315,7 @@
                       "leftExpression": {
                         "argumentTypes": null,
                         "hexValue": "3130",
-                        "id": 4238,
+                        "id": 4229,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1335,7 +1335,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "3138",
-                        "id": 4239,
+                        "id": 4230,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1363,7 +1363,7 @@
                     }
                   }
                 ],
-                "id": 4242,
+                "id": 4233,
                 "isConstant": false,
                 "isInlineArray": false,
                 "isLValue": false,
@@ -1386,25 +1386,25 @@
           },
           {
             "body": {
-              "id": 4268,
+              "id": 4259,
               "nodeType": "Block",
               "src": "532:137:12",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 4249,
+                    "id": 4240,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 4247,
+                      "id": 4238,
                       "name": "reserveRatio",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3907,
+                      "referencedDeclaration": 3898,
                       "src": "538:12:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint32",
@@ -1415,11 +1415,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 4248,
+                      "id": 4239,
                       "name": "CURVE_RATIO",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4230,
+                      "referencedDeclaration": 4221,
                       "src": "553:11:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint32",
@@ -1432,25 +1432,25 @@
                       "typeString": "uint32"
                     }
                   },
-                  "id": 4250,
+                  "id": 4241,
                   "nodeType": "ExpressionStatement",
                   "src": "538:26:12"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 4253,
+                    "id": 4244,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 4251,
+                      "id": 4242,
                       "name": "totalSupply_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4751,
+                      "referencedDeclaration": 4742,
                       "src": "570:12:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1461,11 +1461,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 4252,
+                      "id": 4243,
                       "name": "INITIAL_SUPPLY",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4219,
+                      "referencedDeclaration": 4210,
                       "src": "585:14:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1478,25 +1478,25 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 4254,
+                  "id": 4245,
                   "nodeType": "ExpressionStatement",
                   "src": "570:29:12"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 4257,
+                    "id": 4248,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 4255,
+                      "id": 4246,
                       "name": "poolBalance",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3905,
+                      "referencedDeclaration": 3896,
                       "src": "605:11:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1507,11 +1507,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 4256,
+                      "id": 4247,
                       "name": "INITAL_BALANCE",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4244,
+                      "referencedDeclaration": 4235,
                       "src": "619:14:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1524,25 +1524,25 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 4258,
+                  "id": 4249,
                   "nodeType": "ExpressionStatement",
                   "src": "605:28:12"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 4266,
+                    "id": 4257,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 4259,
+                      "id": 4250,
                       "name": "gasPrice",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3910,
+                      "referencedDeclaration": 3901,
                       "src": "639:8:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1557,7 +1557,7 @@
                         "typeIdentifier": "t_rational_26000000000_by_1",
                         "typeString": "int_const 26000000000"
                       },
-                      "id": 4265,
+                      "id": 4256,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1565,7 +1565,7 @@
                       "leftExpression": {
                         "argumentTypes": null,
                         "hexValue": "3236",
-                        "id": 4260,
+                        "id": 4251,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1591,7 +1591,7 @@
                               "typeIdentifier": "t_rational_1000000000_by_1",
                               "typeString": "int_const 1000000000"
                             },
-                            "id": 4263,
+                            "id": 4254,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1599,7 +1599,7 @@
                             "leftExpression": {
                               "argumentTypes": null,
                               "hexValue": "3130",
-                              "id": 4261,
+                              "id": 4252,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -1619,7 +1619,7 @@
                             "rightExpression": {
                               "argumentTypes": null,
                               "hexValue": "39",
-                              "id": 4262,
+                              "id": 4253,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -1641,7 +1641,7 @@
                             }
                           }
                         ],
-                        "id": 4264,
+                        "id": 4255,
                         "isConstant": false,
                         "isInlineArray": false,
                         "isLValue": false,
@@ -1666,14 +1666,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 4267,
+                  "id": 4258,
                   "nodeType": "ExpressionStatement",
                   "src": "639:25:12"
                 }
               ]
             },
             "documentation": null,
-            "id": 4269,
+            "id": 4260,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -1681,26 +1681,26 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4245,
+              "id": 4236,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "522:2:12"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4246,
+              "id": 4237,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "532:0:12"
             },
-            "scope": 4270,
+            "scope": 4261,
             "src": "511:158:12",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 4271,
+        "scope": 4262,
         "src": "59:612:12"
       }
     ],
@@ -1710,14 +1710,14 @@
     "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/tokens/SoulToken.sol",
     "exportedSymbols": {
       "SoulToken": [
-        4270
+        4261
       ]
     },
-    "id": 4271,
+    "id": 4262,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4199,
+        "id": 4190,
         "literals": [
           "solidity",
           "^",
@@ -1730,10 +1730,10 @@
       {
         "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/tokens/EthBondingCurve.sol",
         "file": "./EthBondingCurve.sol",
-        "id": 4200,
+        "id": 4191,
         "nodeType": "ImportDirective",
-        "scope": 4271,
-        "sourceUnit": 4111,
+        "scope": 4262,
+        "sourceUnit": 4102,
         "src": "26:31:12",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1744,55 +1744,55 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 4201,
+              "id": 4192,
               "name": "EthBondingCurve",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4110,
+              "referencedDeclaration": 4101,
               "src": "81:15:12",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_EthBondingCurve_$4110",
+                "typeIdentifier": "t_contract$_EthBondingCurve_$4101",
                 "typeString": "contract EthBondingCurve"
               }
             },
-            "id": 4202,
+            "id": 4193,
             "nodeType": "InheritanceSpecifier",
             "src": "81:15:12"
           }
         ],
         "contractDependencies": [
-          3600,
-          3892,
-          4110,
-          4736,
-          4832,
-          4909,
-          4941,
-          5188
+          3591,
+          3883,
+          4101,
+          4727,
+          4823,
+          4900,
+          4932,
+          5179
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 4270,
+        "id": 4261,
         "linearizedBaseContracts": [
-          4270,
-          4110,
-          4736,
-          3892,
-          3600,
-          5188,
-          4832,
-          4909,
-          4941
+          4261,
+          4101,
+          4727,
+          3883,
+          3591,
+          5179,
+          4823,
+          4900,
+          4932
         ],
         "name": "SoulToken",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": true,
-            "id": 4205,
+            "id": 4196,
             "name": "name",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "101:41:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1801,7 +1801,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 4203,
+              "id": 4194,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "101:6:12",
@@ -1813,7 +1813,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "536f756c546f6b656e",
-              "id": 4204,
+              "id": 4195,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1832,10 +1832,10 @@
           },
           {
             "constant": true,
-            "id": 4208,
+            "id": 4199,
             "name": "symbol",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "146:37:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1844,7 +1844,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 4206,
+              "id": 4197,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "146:6:12",
@@ -1856,7 +1856,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "534f4c",
-              "id": 4207,
+              "id": 4198,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1875,10 +1875,10 @@
           },
           {
             "constant": true,
-            "id": 4211,
+            "id": 4202,
             "name": "decimals",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "187:35:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1887,7 +1887,7 @@
               "typeString": "uint8"
             },
             "typeName": {
-              "id": 4209,
+              "id": 4200,
               "name": "uint8",
               "nodeType": "ElementaryTypeName",
               "src": "187:5:12",
@@ -1899,7 +1899,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "3138",
-              "id": 4210,
+              "id": 4201,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1918,10 +1918,10 @@
           },
           {
             "constant": true,
-            "id": 4219,
+            "id": 4210,
             "name": "INITIAL_SUPPLY",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "227:61:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1930,7 +1930,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 4212,
+              "id": 4203,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "227:7:12",
@@ -1945,7 +1945,7 @@
                 "typeIdentifier": "t_rational_2000000000000000000000000_by_1",
                 "typeString": "int_const 2000000000000000000000000"
               },
-              "id": 4218,
+              "id": 4209,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1953,7 +1953,7 @@
               "leftExpression": {
                 "argumentTypes": null,
                 "hexValue": "32303030303030",
-                "id": 4213,
+                "id": 4204,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
@@ -1979,7 +1979,7 @@
                       "typeIdentifier": "t_rational_1000000000000000000_by_1",
                       "typeString": "int_const 1000000000000000000"
                     },
-                    "id": 4216,
+                    "id": 4207,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -1987,7 +1987,7 @@
                     "leftExpression": {
                       "argumentTypes": null,
                       "hexValue": "3130",
-                      "id": 4214,
+                      "id": 4205,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2007,7 +2007,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "3138",
-                      "id": 4215,
+                      "id": 4206,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2029,7 +2029,7 @@
                     }
                   }
                 ],
-                "id": 4217,
+                "id": 4208,
                 "isConstant": false,
                 "isInlineArray": false,
                 "isLValue": false,
@@ -2052,10 +2052,10 @@
           },
           {
             "constant": true,
-            "id": 4227,
+            "id": 4218,
             "name": "INITIAL_PRICE",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "292:55:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2064,7 +2064,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 4220,
+              "id": 4211,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "292:7:12",
@@ -2079,7 +2079,7 @@
                 "typeIdentifier": "t_rational_390000000000000_by_1",
                 "typeString": "int_const 390000000000000"
               },
-              "id": 4226,
+              "id": 4217,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -2087,7 +2087,7 @@
               "leftExpression": {
                 "argumentTypes": null,
                 "hexValue": "3339",
-                "id": 4221,
+                "id": 4212,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
@@ -2113,7 +2113,7 @@
                       "typeIdentifier": "t_rational_10000000000000_by_1",
                       "typeString": "int_const 10000000000000"
                     },
-                    "id": 4224,
+                    "id": 4215,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -2121,7 +2121,7 @@
                     "leftExpression": {
                       "argumentTypes": null,
                       "hexValue": "3130",
-                      "id": 4222,
+                      "id": 4213,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2141,7 +2141,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "3133",
-                      "id": 4223,
+                      "id": 4214,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2163,7 +2163,7 @@
                     }
                   }
                 ],
-                "id": 4225,
+                "id": 4216,
                 "isConstant": false,
                 "isInlineArray": false,
                 "isLValue": false,
@@ -2186,10 +2186,10 @@
           },
           {
             "constant": true,
-            "id": 4230,
+            "id": 4221,
             "name": "CURVE_RATIO",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "351:43:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2198,7 +2198,7 @@
               "typeString": "uint32"
             },
             "typeName": {
-              "id": 4228,
+              "id": 4219,
               "name": "uint32",
               "nodeType": "ElementaryTypeName",
               "src": "351:6:12",
@@ -2210,7 +2210,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "313530303030",
-              "id": 4229,
+              "id": 4220,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -2229,10 +2229,10 @@
           },
           {
             "constant": true,
-            "id": 4244,
+            "id": 4235,
             "name": "INITAL_BALANCE",
             "nodeType": "VariableDeclaration",
-            "scope": 4270,
+            "scope": 4261,
             "src": "398:108:12",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2241,7 +2241,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 4231,
+              "id": 4222,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "398:7:12",
@@ -2256,7 +2256,7 @@
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
               },
-              "id": 4243,
+              "id": 4234,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -2267,7 +2267,7 @@
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 },
-                "id": 4236,
+                "id": 4227,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
@@ -2278,18 +2278,18 @@
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
                   },
-                  "id": 4234,
+                  "id": 4225,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
                   "lValueRequested": false,
                   "leftExpression": {
                     "argumentTypes": null,
-                    "id": 4232,
+                    "id": 4223,
                     "name": "CURVE_RATIO",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 4230,
+                    "referencedDeclaration": 4221,
                     "src": "439:11:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint32",
@@ -2300,11 +2300,11 @@
                   "operator": "*",
                   "rightExpression": {
                     "argumentTypes": null,
-                    "id": 4233,
+                    "id": 4224,
                     "name": "INITIAL_SUPPLY",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 4219,
+                    "referencedDeclaration": 4210,
                     "src": "453:14:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -2321,11 +2321,11 @@
                 "operator": "*",
                 "rightExpression": {
                   "argumentTypes": null,
-                  "id": 4235,
+                  "id": 4226,
                   "name": "INITIAL_PRICE",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 4227,
+                  "referencedDeclaration": 4218,
                   "src": "470:13:12",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
@@ -2349,7 +2349,7 @@
                       "typeIdentifier": "t_rational_1000000000000000000000000_by_1",
                       "typeString": "int_const 1000000000000000000000000"
                     },
-                    "id": 4241,
+                    "id": 4232,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -2357,7 +2357,7 @@
                     "leftExpression": {
                       "argumentTypes": null,
                       "hexValue": "31303030303030",
-                      "id": 4237,
+                      "id": 4228,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2380,7 +2380,7 @@
                         "typeIdentifier": "t_rational_1000000000000000000_by_1",
                         "typeString": "int_const 1000000000000000000"
                       },
-                      "id": 4240,
+                      "id": 4231,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2388,7 +2388,7 @@
                       "leftExpression": {
                         "argumentTypes": null,
                         "hexValue": "3130",
-                        "id": 4238,
+                        "id": 4229,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2408,7 +2408,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "3138",
-                        "id": 4239,
+                        "id": 4230,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2436,7 +2436,7 @@
                     }
                   }
                 ],
-                "id": 4242,
+                "id": 4233,
                 "isConstant": false,
                 "isInlineArray": false,
                 "isLValue": false,
@@ -2459,25 +2459,25 @@
           },
           {
             "body": {
-              "id": 4268,
+              "id": 4259,
               "nodeType": "Block",
               "src": "532:137:12",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 4249,
+                    "id": 4240,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 4247,
+                      "id": 4238,
                       "name": "reserveRatio",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3907,
+                      "referencedDeclaration": 3898,
                       "src": "538:12:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint32",
@@ -2488,11 +2488,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 4248,
+                      "id": 4239,
                       "name": "CURVE_RATIO",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4230,
+                      "referencedDeclaration": 4221,
                       "src": "553:11:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint32",
@@ -2505,25 +2505,25 @@
                       "typeString": "uint32"
                     }
                   },
-                  "id": 4250,
+                  "id": 4241,
                   "nodeType": "ExpressionStatement",
                   "src": "538:26:12"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 4253,
+                    "id": 4244,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 4251,
+                      "id": 4242,
                       "name": "totalSupply_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4751,
+                      "referencedDeclaration": 4742,
                       "src": "570:12:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2534,11 +2534,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 4252,
+                      "id": 4243,
                       "name": "INITIAL_SUPPLY",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4219,
+                      "referencedDeclaration": 4210,
                       "src": "585:14:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2551,25 +2551,25 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 4254,
+                  "id": 4245,
                   "nodeType": "ExpressionStatement",
                   "src": "570:29:12"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 4257,
+                    "id": 4248,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 4255,
+                      "id": 4246,
                       "name": "poolBalance",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3905,
+                      "referencedDeclaration": 3896,
                       "src": "605:11:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2580,11 +2580,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 4256,
+                      "id": 4247,
                       "name": "INITAL_BALANCE",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4244,
+                      "referencedDeclaration": 4235,
                       "src": "619:14:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2597,25 +2597,25 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 4258,
+                  "id": 4249,
                   "nodeType": "ExpressionStatement",
                   "src": "605:28:12"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 4266,
+                    "id": 4257,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 4259,
+                      "id": 4250,
                       "name": "gasPrice",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3910,
+                      "referencedDeclaration": 3901,
                       "src": "639:8:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2630,7 +2630,7 @@
                         "typeIdentifier": "t_rational_26000000000_by_1",
                         "typeString": "int_const 26000000000"
                       },
-                      "id": 4265,
+                      "id": 4256,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2638,7 +2638,7 @@
                       "leftExpression": {
                         "argumentTypes": null,
                         "hexValue": "3236",
-                        "id": 4260,
+                        "id": 4251,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2664,7 +2664,7 @@
                               "typeIdentifier": "t_rational_1000000000_by_1",
                               "typeString": "int_const 1000000000"
                             },
-                            "id": 4263,
+                            "id": 4254,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -2672,7 +2672,7 @@
                             "leftExpression": {
                               "argumentTypes": null,
                               "hexValue": "3130",
-                              "id": 4261,
+                              "id": 4252,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -2692,7 +2692,7 @@
                             "rightExpression": {
                               "argumentTypes": null,
                               "hexValue": "39",
-                              "id": 4262,
+                              "id": 4253,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -2714,7 +2714,7 @@
                             }
                           }
                         ],
-                        "id": 4264,
+                        "id": 4255,
                         "isConstant": false,
                         "isInlineArray": false,
                         "isLValue": false,
@@ -2739,14 +2739,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 4267,
+                  "id": 4258,
                   "nodeType": "ExpressionStatement",
                   "src": "639:25:12"
                 }
               ]
             },
             "documentation": null,
-            "id": 4269,
+            "id": 4260,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -2754,26 +2754,26 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4245,
+              "id": 4236,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "522:2:12"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4246,
+              "id": 4237,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "532:0:12"
             },
-            "scope": 4270,
+            "scope": 4261,
             "src": "511:158:12",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 4271,
+        "scope": 4262,
         "src": "59:612:12"
       }
     ],
@@ -2784,6 +2784,12 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {
+    "4": {
+      "events": {},
+      "links": {},
+      "address": "0x9e4f8f6e1a511f5bf44a7547dff08f48da794623",
+      "transactionHash": "0x8e9866aaae1cd6be153e5e89986f4d4732365f0de28c4e06f955ec4a82944bb0"
+    },
     "50": {
       "events": {},
       "links": {},
@@ -2792,5 +2798,5 @@
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-15T03:31:42.884Z"
+  "updatedAt": "2018-10-15T05:53:34.735Z"
 }
