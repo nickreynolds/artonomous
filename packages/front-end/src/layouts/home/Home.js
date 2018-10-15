@@ -27,6 +27,9 @@ class Home extends Component {
               <strong>Piece Token</strong>: <ContractData contract="Artonomous" method="pieceToken" />
             </p>
             <p>
+              <strong>Piece Token Owner</strong>: <ContractData contract="ArtPieceToken" method="owner" />
+            </p>
+            <p>
               <strong>Beneficiary</strong>: <ContractData contract="Artonomous" method="beneficiary" />
             </p>
             <p>
@@ -40,6 +43,9 @@ class Home extends Component {
                 blockNum={auctionData.value[0]}
               />
             )}
+            <NewContractForm contract="Artonomous" method="startAuction">
+              Start Auction
+            </NewContractForm>
             <NewContractForm contract="Artonomous" method="buyArt" methodArgs={{ value: "1000000000000000" }}>
               Buy Art
             </NewContractForm>

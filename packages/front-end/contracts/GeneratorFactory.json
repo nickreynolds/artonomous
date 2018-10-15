@@ -1703,18 +1703,44 @@
   },
   "networks": {
     "4": {
-      "events": {},
+      "events": {
+        "0x00fffc2da0b561cae30d9826d37709e9421c4725faebc226cbbb7ef5fc5e7349": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "proxy",
+              "type": "address"
+            }
+          ],
+          "name": "ProxyCreated",
+          "type": "event"
+        }
+      },
       "links": {},
-      "address": "0xb674f3fa5e530d72bf61238abb15d46ef1a323d5",
-      "transactionHash": "0x8d9cb06e4b68e1ea7140a394175c0f777ca27f18c07a943a80e80bbe5d86316c"
+      "address": "0x97a3292a62fa115c281f65d7fb28bd67f024f0c0",
+      "transactionHash": "0xeda3d1a079817d8b1d9d620c4376cb2205990cb70f2df7bd5b28cd692a874038"
     },
     "50": {
-      "events": {},
+      "events": {
+        "0x00fffc2da0b561cae30d9826d37709e9421c4725faebc226cbbb7ef5fc5e7349": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "proxy",
+              "type": "address"
+            }
+          ],
+          "name": "ProxyCreated",
+          "type": "event"
+        }
+      },
       "links": {},
-      "address": "0x72440269630e393d38975db7fa7cb4d14e7ec061",
-      "transactionHash": "0x6a6197c893edd2c1b04aa84c8e6afed22ae8c345a5b73ddac4da899b68737bdc"
+      "address": "0xe982e462b094850f12af94d21d470e21be9d0e9c",
+      "transactionHash": "0xe49dad763ea06d2e902f7ed70087384560313819b607d7b294ab6ca77f07f6b5"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-15T05:54:21.081Z"
+  "updatedAt": "2018-10-15T18:31:39.671Z"
 }
