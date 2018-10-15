@@ -22,9 +22,9 @@ contract Artonomous {
     uint public AUCTION_LENGTH = 86400; // 24 hours
     Auction public currentAuction;
 
-    constructor(address stakingAddr, address beneficiaryAddr) public {
+    constructor(address stakingAddr, address beneficiaryAddr, address artToken) public {
         registry = GeneratorRegistry(stakingAddr);
-        pieceToken = new ArtPieceToken("ArtPieceToken", "ART");
+        pieceToken = ArtPieceToken(artToken);
         beneficiary = beneficiaryAddr;
         startAuction();
     }

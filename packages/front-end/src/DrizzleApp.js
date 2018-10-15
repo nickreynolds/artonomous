@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import "./App.css";
-import NavBarContainer from "./layouts/navbar/NavBarContainer";
+import NavBar from "./layouts/navbar/NavBar";
 class DrizzleApp extends Component {
   render() {
     const { children } = this.props;
@@ -11,7 +11,7 @@ class DrizzleApp extends Component {
 
     return (
       <div>
-        <NavBarContainer drizzle={this.props.drizzle} drizzleState={this.props.drizzleState} />
+        <NavBar drizzle={this.props.drizzle} drizzleState={this.props.drizzleState} />
         {childrenWithProps}
       </div>
     );

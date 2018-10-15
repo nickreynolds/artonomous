@@ -9,7 +9,6 @@ contract GeneratorRegistry {
     // event RegistryEntryEV(address indexed registryEntry, bytes32 indexed eventType);
     event RegistryEntryEVT(bytes32 indexed context, address registryEntry, bytes32 eventType);
 
-    GeneratorFactory public factory;
     StandardToken public token;
     Generator public activeGenerator;
     Generator[] public generators;
@@ -25,10 +24,6 @@ contract GeneratorRegistry {
     function addGenerator(Generator _generator) public {
         activeGenerator = _generator;
         generators.push(_generator);
-    }
-
-    function setFactory(GeneratorFactory _factory) public {
-        factory = _factory;
     }
 
     function fireRegistryEvent(bytes32 _eventType) public {

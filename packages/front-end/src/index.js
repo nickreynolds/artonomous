@@ -6,8 +6,8 @@ import { Drizzle, generateStore } from "drizzle";
 import { DrizzleProvider, DrizzleContext } from "drizzle-react";
 // Layouts
 import App from "./App";
-import HomeContainer from "./layouts/home/HomeContainer";
-import GeneratorsContainer from "./layouts/generators/GeneratorsContainer";
+import Home from "./layouts/home/Home";
+import Generators from "./layouts/generators/Generators";
 import { LoadingContainer } from "drizzle-react-components";
 
 import store from "./store";
@@ -22,14 +22,14 @@ ReactDOM.render(
       <LoadingContainer>
         <Router history={history}>
           <Route path="/" component={App}>
-            <IndexRoute component={HomeContainer} />
+            <IndexRoute component={Home} />
           </Route>
           <Route path="/generators" component={App}>
-            <IndexRoute component={GeneratorsContainer} />
+            <IndexRoute component={Generators} />
           </Route>
         </Router>
       </LoadingContainer>
     </DrizzleProvider>
   </DrizzleContext.Provider>,
-  document.getElementById("root")
+  document.getElementById("root"),
 );

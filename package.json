@@ -9,7 +9,7 @@
   "scripts": {
     "ganache": "ganache-cli -p 8545 --networkId 50 -d -m \"${npm_package_config_mnemonic}\" --noVMErrorsOnRPCResponse",
     "migrate": "lerna run --scope @artonomous/contracts migrate:ganache",
-    "publish:artifacts": "ncp ./packages/contracts/build/contracts/Artonomous.json ./packages/front-end/contracts/Artonomous.json && ncp ./packages/contracts/build/contracts/GeneratorRegistry.json ./packages/front-end/contracts/GeneratorRegistry.json && ncp ./packages/contracts/build/contracts/GeneratorFactory.json ./packages/front-end/contracts/GeneratorFactory.json && ncp ./packages/contracts/build/contracts/SoulToken.json ./packages/front-end/contracts/SoulToken.json",
+    "publish:artifacts": "ncp ./packages/contracts/build/contracts/Artonomous.json ./packages/front-end/contracts/Artonomous.json && ncp ./packages/contracts/build/contracts/ArtPieceToken.json ./packages/front-end/contracts/ArtPieceToken.json && ncp ./packages/contracts/build/contracts/GeneratorRegistry.json ./packages/front-end/contracts/GeneratorRegistry.json && ncp ./packages/contracts/build/contracts/GeneratorFactory.json ./packages/front-end/contracts/GeneratorFactory.json && ncp ./packages/contracts/build/contracts/SoulToken.json ./packages/front-end/contracts/SoulToken.json && ncp ./packages/contracts/build/contracts/Generator.json ./packages/front-end/contracts/Generator.json",
     "preparelocal": "run-s migrate publish:artifacts",
     "prettier": "prettier --config .prettierrc.yaml --write --list-different './**/*.{ts,tsx,json,md}'"
   },

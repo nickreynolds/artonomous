@@ -61,10 +61,82 @@
 13 error Compiling zos-lib/contracts/upgradeability/UpgradeabilityProxy.sol...
 13 error Compiling zos-lib/contracts/upgradeability/UpgradeabilityProxyFactory.sol...
 13 error
-13 error /Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/Generator.sol:28:12: TypeError: Tuple component cannot be empty.
-13 error     return (
-13 error            ^ (Relevant source part starts here and spans across multiple lines).
-13 error [31mCompilation failed. See above.[39m
+13 error Compilation warnings encountered:
+13 error
+13 error zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol:55:34: Warning: Function declared as view, but this expression (potentially) modifies the state and thus requires non-payable (the default) or payable.
+13 error   function admin() external view ifAdmin returns (address) {
+13 error                                  ^-----^
+13 error ,zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol:62:43: Warning: Function declared as view, but this expression (potentially) modifies the state and thus requires non-payable (the default) or payable.
+13 error   function implementation() external view ifAdmin returns (address) {
+13 error                                           ^-----^
+13 error ,zos-lib/contracts/upgradeability/Proxy.sol:56:3: Warning: Function state mutability can be restricted to pure
+13 error   function _willFallback() internal {
+13 error   ^ (Relevant source part starts here and spans across multiple lines).
+13 error
+13 error Writing artifacts to ./build/contracts
+13 error
+13 error Using network 'ganache'.
+13 error
+13 error Running migration: 1_initial_migration.js
+13 error   Replacing Migrations...
+13 error   ... 0x08e6934d29da9d4f9530378584a15c056dff3c73d63c1e9fb0f325273495954b
+13 error   Migrations: 0xcf7f9472fab9372b34d96fbe1b57966b13951dbf
+13 error Saving successful migration to network...
+13 error   ... 0xf0c3aaee04d271b4d935bb329395d10416bb1687d5fdadd42e435a6599b28e91
+13 error Saving artifacts...
+13 error Running migration: 2_deploy_soul.js
+13 error   Replacing SoulToken...
+13 error   ... 0xf869372a4c6fcfde548d7be4620ae5abdfba61666ffa4fa6eb6a15976d401b9f
+13 error   SoulToken: 0xe39caecb7ed0e02194727aa60cf5d8a0fc6b273c
+13 error Saving successful migration to network...
+13 error   ... 0x247f1baf7093d63f9a8234bfcbe80f81f50599ca47b79b17fabc66d1741583f6
+13 error Saving artifacts...
+13 error Running migration: 3_deploy_generator_registry.js
+13 error   Running step...
+13 error   Replacing GeneratorRegistry...
+13 error   ... 0xe0b338e3b65681b3e7aeee54556c1972f701d86bd458c399b0830193f47a46bc
+13 error   GeneratorRegistry: 0xfd8643cee37dae121ca0e84fd2ceeb49e828b493
+13 error Saving successful migration to network...
+13 error   ... 0x7f33fe7be3d3f028699faa1b3426b22355b8386102457db7b8e4af286ec94894
+13 error Saving artifacts...
+13 error Running migration: 4_deploy_generator_factory.js
+13 error   Running step...
+13 error   Replacing Generator...
+13 error   ... 0x7c26f248226d97c781deae59c77fab62701b0d6e2954dd47313198375ef8102b
+13 error   Generator: 0x9095b8e8a5a4e7fcb7f569ddc325eab089732b26
+13 error   Replacing GeneratorFactory...
+13 error   ... 0xe07c4815cddf22e44eda9d6f9925ed4bb4f7140dfd6c10b69add10e0a7f888bd
+13 error   GeneratorFactory: 0x8ab4affe16b8986f4e049f24a7f67701312e2b8d
+13 error Saving successful migration to network...
+13 error   ... 0x0b9dabd3c6736160094b81b7431b3fe6516288912b105e226222cd7acce40d8d
+13 error Saving artifacts...
+13 error Running migration: 5_deploy_art_piece_token.js
+13 error   Replacing ArtPieceToken...
+13 error   ... 0xd4b6e1207c4437cb8a466c98dab8f784699fe8c6e49930223ff615a8f8085861
+13 error   ArtPieceToken: 0x51e8ab3c2885860c34d38922c5a9b54215b8cc9b
+13 error Saving successful migration to network...
+13 error   ... 0xecec85fb6d29099b4439aa2648dafe5376d3ff64f41fd0d345a9efe2205fdd5f
+13 error Saving artifacts...
+13 error Running migration: 6_deploy_artonomous.js
+13 error beneficiary:  0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1
+13 error ArtPieceToken.address 0x51e8ab3c2885860c34d38922c5a9b54215b8cc9b
+13 error   Replacing Artonomous...
+13 error   ... 0xd6c3697d0b9ccc9c91b30b7d0c4895befcce1f86c047d7be3b9cb110fed028f4
+13 error Error encountered, bailing. Network state unknown. Review successful transactions manually.
+13 error Error: The contract code couldn't be stored, please check your gas amount.
+13 error     at Object.callback (/usr/local/lib/node_modules/truffle/build/webpack:/~/web3/lib/web3/contract.js:147:1)
+13 error     at /usr/local/lib/node_modules/truffle/build/webpack:/~/web3/lib/web3/method.js:142:1
+13 error     at /usr/local/lib/node_modules/truffle/build/webpack:/~/web3/lib/web3/requestmanager.js:89:1
+13 error     at /usr/local/lib/node_modules/truffle/build/webpack:/packages/truffle-migrate/index.js:225:1
+13 error     at /usr/local/lib/node_modules/truffle/build/webpack:/packages/truffle-provider/wrapper.js:134:1
+13 error     at XMLHttpRequest.request.onreadystatechange (/usr/local/lib/node_modules/truffle/build/webpack:/~/web3/lib/web3/httpprovider.js:128:1)
+13 error     at XMLHttpRequestEventTarget.dispatchEvent (/usr/local/lib/node_modules/truffle/build/webpack:/~/xhr2/lib/xhr2.js:64:1)
+13 error     at XMLHttpRequest._setReadyState (/usr/local/lib/node_modules/truffle/build/webpack:/~/xhr2/lib/xhr2.js:354:1)
+13 error     at XMLHttpRequest._onHttpResponseEnd (/usr/local/lib/node_modules/truffle/build/webpack:/~/xhr2/lib/xhr2.js:509:1)
+13 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/truffle/build/webpack:/~/xhr2/lib/xhr2.js:469:1)
+13 error     at IncomingMessage.emit (events.js:185:15)
+13 error     at endReadableNT (_stream_readable.js:1106:12)
+13 error     at process._tickCallback (internal/process/next_tick.js:114:19)
 13 error info If you think this is a bug, please open a bug report with the information provided in "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/yarn-error.log".
 13 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 13 error info If you think this is a bug, please open a bug report with the information provided in "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/yarn-error.log".
