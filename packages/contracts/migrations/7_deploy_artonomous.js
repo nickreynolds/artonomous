@@ -5,5 +5,5 @@ var ArtPieceToken = artifacts.require("./ArtPieceToken.sol");
 module.exports = function(deployer, network, accounts) {
   console.log("GeneratorRegistry.address: ", GeneratorRegistry.address);
   console.log("ArtPieceToken.address: ", ArtPieceToken.address);
-  await deployer.deploy(Artonomous, GeneratorRegistry.address, ArtPieceToken.address);
+  deployer.deploy(Artonomous, GeneratorRegistry.address, ArtPieceToken.address);
 };

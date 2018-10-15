@@ -33,4 +33,8 @@ contract GeneratorRegistry {
     function getToken() public view returns (address) {
         return token;
     }
+
+    function getGenerators() public view returns (Generator[]) {
+        return generators;
+    }
 }
