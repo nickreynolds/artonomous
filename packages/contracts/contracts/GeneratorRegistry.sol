@@ -11,8 +11,8 @@ contract GeneratorRegistry {
 
     GeneratorFactory public factory;
     StandardToken public token;
-    Generator activeGenerator;
-    Generator[] generators;
+    Generator public activeGenerator;
+    Generator[] public generators;
 
     constructor(StandardToken _token) public {
         token = _token;
