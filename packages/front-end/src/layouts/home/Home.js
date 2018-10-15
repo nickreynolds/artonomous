@@ -40,7 +40,7 @@ class Home extends Component {
                 blockNum={auctionData.value[0]}
               />
             )}
-            <NewContractForm contract="Artonomous" method="buyArt" methodArgs={{ value: "1000000000000" }}>
+            <NewContractForm contract="Artonomous" method="buyArt" methodArgs={{ value: "1000000000000000" }}>
               Buy Art
             </NewContractForm>
           </div>

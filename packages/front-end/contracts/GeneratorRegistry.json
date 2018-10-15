@@ -148,14 +148,14 @@
     "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/GeneratorRegistry.sol",
     "exportedSymbols": {
       "GeneratorRegistry": [
-        456
+        447
       ]
     },
-    "id": 457,
+    "id": 448,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 382,
+        "id": 373,
         "literals": [
           "solidity",
           "^",
@@ -168,10 +168,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol",
         "file": "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol",
-        "id": 383,
+        "id": 374,
         "nodeType": "ImportDirective",
-        "scope": 457,
-        "sourceUnit": 1220,
+        "scope": 448,
+        "sourceUnit": 1211,
         "src": "26:71:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -179,10 +179,10 @@
       {
         "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/GeneratorFactory.sol",
         "file": "./GeneratorFactory.sol",
-        "id": 384,
+        "id": 375,
         "nodeType": "ImportDirective",
-        "scope": 457,
-        "sourceUnit": 381,
+        "scope": 448,
+        "sourceUnit": 372,
         "src": "99:32:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -190,10 +190,10 @@
       {
         "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/Generator.sol",
         "file": "./Generator.sol",
-        "id": 385,
+        "id": 376,
         "nodeType": "ImportDirective",
-        "scope": 457,
-        "sourceUnit": 319,
+        "scope": 448,
+        "sourceUnit": 310,
         "src": "132:25:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -204,9 +204,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 456,
+        "id": 447,
         "linearizedBaseContracts": [
-          456
+          447
         ],
         "name": "GeneratorRegistry",
         "nodeType": "ContractDefinition",
@@ -214,20 +214,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 393,
+            "id": 384,
             "name": "RegistryEntryEVT",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 392,
+              "id": 383,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 387,
+                  "id": 378,
                   "indexed": true,
                   "name": "context",
                   "nodeType": "VariableDeclaration",
-                  "scope": 393,
+                  "scope": 384,
                   "src": "303:23:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -236,7 +236,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 386,
+                    "id": 377,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "303:7:3",
@@ -250,11 +250,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 389,
+                  "id": 380,
                   "indexed": false,
                   "name": "registryEntry",
                   "nodeType": "VariableDeclaration",
-                  "scope": 393,
+                  "scope": 384,
                   "src": "328:21:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -263,7 +263,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 388,
+                    "id": 379,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "328:7:3",
@@ -277,11 +277,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 391,
+                  "id": 382,
                   "indexed": false,
                   "name": "eventType",
                   "nodeType": "VariableDeclaration",
-                  "scope": 393,
+                  "scope": 384,
                   "src": "351:17:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -290,7 +290,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 390,
+                    "id": 381,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "351:7:3",
@@ -309,26 +309,26 @@
           },
           {
             "constant": false,
-            "id": 395,
+            "id": 386,
             "name": "token",
             "nodeType": "VariableDeclaration",
-            "scope": 456,
+            "scope": 447,
             "src": "376:26:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_StandardToken_$1219",
+              "typeIdentifier": "t_contract$_StandardToken_$1210",
               "typeString": "contract StandardToken"
             },
             "typeName": {
               "contractScope": null,
-              "id": 394,
+              "id": 385,
               "name": "StandardToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1219,
+              "referencedDeclaration": 1210,
               "src": "376:13:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StandardToken_$1219",
+                "typeIdentifier": "t_contract$_StandardToken_$1210",
                 "typeString": "contract StandardToken"
               }
             },
@@ -337,26 +337,26 @@
           },
           {
             "constant": false,
-            "id": 397,
+            "id": 388,
             "name": "activeGenerator",
             "nodeType": "VariableDeclaration",
-            "scope": 456,
+            "scope": 447,
             "src": "408:32:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_Generator_$318",
+              "typeIdentifier": "t_contract$_Generator_$309",
               "typeString": "contract Generator"
             },
             "typeName": {
               "contractScope": null,
-              "id": 396,
+              "id": 387,
               "name": "Generator",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 318,
+              "referencedDeclaration": 309,
               "src": "408:9:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Generator_$318",
+                "typeIdentifier": "t_contract$_Generator_$309",
                 "typeString": "contract Generator"
               }
             },
@@ -365,36 +365,36 @@
           },
           {
             "constant": false,
-            "id": 400,
+            "id": 391,
             "name": "generators",
             "nodeType": "VariableDeclaration",
-            "scope": 456,
+            "scope": 447,
             "src": "446:29:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_contract$_Generator_$318_$dyn_storage",
+              "typeIdentifier": "t_array$_t_contract$_Generator_$309_$dyn_storage",
               "typeString": "contract Generator[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 398,
+                "id": 389,
                 "name": "Generator",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 318,
+                "referencedDeclaration": 309,
                 "src": "446:9:3",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_Generator_$318",
+                  "typeIdentifier": "t_contract$_Generator_$309",
                   "typeString": "contract Generator"
                 }
               },
-              "id": 399,
+              "id": 390,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "446:11:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_contract$_Generator_$318_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_contract$_Generator_$309_$dyn_storage_ptr",
                 "typeString": "contract Generator[]"
               }
             },
@@ -403,28 +403,28 @@
           },
           {
             "body": {
-              "id": 409,
+              "id": 400,
               "nodeType": "Block",
               "src": "523:31:3",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 407,
+                    "id": 398,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 405,
+                      "id": 396,
                       "name": "token",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 395,
+                      "referencedDeclaration": 386,
                       "src": "533:5:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StandardToken_$1219",
+                        "typeIdentifier": "t_contract$_StandardToken_$1210",
                         "typeString": "contract StandardToken"
                       }
                     },
@@ -432,31 +432,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 406,
+                      "id": 397,
                       "name": "_token",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 402,
+                      "referencedDeclaration": 393,
                       "src": "541:6:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StandardToken_$1219",
+                        "typeIdentifier": "t_contract$_StandardToken_$1210",
                         "typeString": "contract StandardToken"
                       }
                     },
                     "src": "533:14:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1219",
+                      "typeIdentifier": "t_contract$_StandardToken_$1210",
                       "typeString": "contract StandardToken"
                     }
                   },
-                  "id": 408,
+                  "id": 399,
                   "nodeType": "ExpressionStatement",
                   "src": "533:14:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 410,
+            "id": 401,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -464,31 +464,31 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 403,
+              "id": 394,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 402,
+                  "id": 393,
                   "name": "_token",
                   "nodeType": "VariableDeclaration",
-                  "scope": 410,
+                  "scope": 401,
                   "src": "494:20:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_StandardToken_$1219",
+                    "typeIdentifier": "t_contract$_StandardToken_$1210",
                     "typeString": "contract StandardToken"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 401,
+                    "id": 392,
                     "name": "StandardToken",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1219,
+                    "referencedDeclaration": 1210,
                     "src": "494:13:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1219",
+                      "typeIdentifier": "t_contract$_StandardToken_$1210",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -500,12 +500,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 404,
+              "id": 395,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "523:0:3"
             },
-            "scope": 456,
+            "scope": 447,
             "src": "482:72:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -513,33 +513,33 @@
           },
           {
             "body": {
-              "id": 417,
+              "id": 408,
               "nodeType": "Block",
               "src": "622:39:3",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 415,
+                    "id": 406,
                     "name": "activeGenerator",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 397,
+                    "referencedDeclaration": 388,
                     "src": "639:15:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Generator_$318",
+                      "typeIdentifier": "t_contract$_Generator_$309",
                       "typeString": "contract Generator"
                     }
                   },
-                  "functionReturnParameters": 414,
-                  "id": 416,
+                  "functionReturnParameters": 405,
+                  "id": 407,
                   "nodeType": "Return",
                   "src": "632:22:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 418,
+            "id": 409,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -547,38 +547,38 @@
             "name": "getActiveGenerator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 411,
+              "id": 402,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "587:2:3"
             },
             "payable": false,
             "returnParameters": {
-              "id": 414,
+              "id": 405,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 413,
+                  "id": 404,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 418,
+                  "scope": 409,
                   "src": "611:9:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_Generator_$318",
+                    "typeIdentifier": "t_contract$_Generator_$309",
                     "typeString": "contract Generator"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 412,
+                    "id": 403,
                     "name": "Generator",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 318,
+                    "referencedDeclaration": 309,
                     "src": "611:9:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Generator_$318",
+                      "typeIdentifier": "t_contract$_Generator_$309",
                       "typeString": "contract Generator"
                     }
                   },
@@ -588,7 +588,7 @@
               ],
               "src": "610:11:3"
             },
-            "scope": 456,
+            "scope": 447,
             "src": "560:101:3",
             "stateMutability": "view",
             "superFunction": null,
@@ -596,28 +596,28 @@
           },
           {
             "body": {
-              "id": 433,
+              "id": 424,
               "nodeType": "Block",
               "src": "718:82:3",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 425,
+                    "id": 416,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 423,
+                      "id": 414,
                       "name": "activeGenerator",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 397,
+                      "referencedDeclaration": 388,
                       "src": "728:15:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Generator_$318",
+                        "typeIdentifier": "t_contract$_Generator_$309",
                         "typeString": "contract Generator"
                       }
                     },
@@ -625,24 +625,24 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 424,
+                      "id": 415,
                       "name": "_generator",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 420,
+                      "referencedDeclaration": 411,
                       "src": "746:10:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Generator_$318",
+                        "typeIdentifier": "t_contract$_Generator_$309",
                         "typeString": "contract Generator"
                       }
                     },
                     "src": "728:28:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Generator_$318",
+                      "typeIdentifier": "t_contract$_Generator_$309",
                       "typeString": "contract Generator"
                     }
                   },
-                  "id": 426,
+                  "id": 417,
                   "nodeType": "ExpressionStatement",
                   "src": "728:28:3"
                 },
@@ -652,14 +652,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 430,
+                        "id": 421,
                         "name": "_generator",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 420,
+                        "referencedDeclaration": 411,
                         "src": "782:10:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_Generator_$318",
+                          "typeIdentifier": "t_contract$_Generator_$309",
                           "typeString": "contract Generator"
                         }
                       }
@@ -667,24 +667,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_contract$_Generator_$318",
+                          "typeIdentifier": "t_contract$_Generator_$309",
                           "typeString": "contract Generator"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 427,
+                        "id": 418,
                         "name": "generators",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 400,
+                        "referencedDeclaration": 391,
                         "src": "766:10:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_contract$_Generator_$318_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_contract$_Generator_$309_$dyn_storage",
                           "typeString": "contract Generator[] storage ref"
                         }
                       },
-                      "id": 429,
+                      "id": 420,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -694,11 +694,11 @@
                       "referencedDeclaration": null,
                       "src": "766:15:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_contract$_Generator_$318_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_contract$_Generator_$309_$returns$_t_uint256_$",
                         "typeString": "function (contract Generator) returns (uint256)"
                       }
                     },
-                    "id": 431,
+                    "id": 422,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -712,14 +712,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 432,
+                  "id": 423,
                   "nodeType": "ExpressionStatement",
                   "src": "766:27:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 434,
+            "id": 425,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -727,31 +727,31 @@
             "name": "addGenerator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 421,
+              "id": 412,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 420,
+                  "id": 411,
                   "name": "_generator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 434,
+                  "scope": 425,
                   "src": "689:20:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_Generator_$318",
+                    "typeIdentifier": "t_contract$_Generator_$309",
                     "typeString": "contract Generator"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 419,
+                    "id": 410,
                     "name": "Generator",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 318,
+                    "referencedDeclaration": 309,
                     "src": "689:9:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Generator_$318",
+                      "typeIdentifier": "t_contract$_Generator_$309",
                       "typeString": "contract Generator"
                     }
                   },
@@ -763,12 +763,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 422,
+              "id": 413,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "718:0:3"
             },
-            "scope": 456,
+            "scope": 447,
             "src": "667:133:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -776,7 +776,7 @@
           },
           {
             "body": {
-              "id": 446,
+              "id": 437,
               "nodeType": "Block",
               "src": "860:78:3",
               "statements": [
@@ -787,7 +787,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "41727447656e657261746f72",
-                        "id": 440,
+                        "id": 431,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -806,18 +806,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 441,
+                          "id": 432,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2755,
+                          "referencedDeclaration": 2746,
                           "src": "908:3:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 442,
+                        "id": 433,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -833,11 +833,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 443,
+                        "id": 434,
                         "name": "_eventType",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 436,
+                        "referencedDeclaration": 427,
                         "src": "920:10:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -860,18 +860,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 439,
+                      "id": 430,
                       "name": "RegistryEntryEVT",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 393,
+                      "referencedDeclaration": 384,
                       "src": "875:16:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_address_$_t_bytes32_$returns$__$",
                         "typeString": "function (bytes32,address,bytes32)"
                       }
                     },
-                    "id": 444,
+                    "id": 435,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -885,14 +885,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 445,
+                  "id": 436,
                   "nodeType": "EmitStatement",
                   "src": "870:61:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 447,
+            "id": 438,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -900,15 +900,15 @@
             "name": "fireRegistryEvent",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 437,
+              "id": 428,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 436,
+                  "id": 427,
                   "name": "_eventType",
                   "nodeType": "VariableDeclaration",
-                  "scope": 447,
+                  "scope": 438,
                   "src": "833:18:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -917,7 +917,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 435,
+                    "id": 426,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "833:7:3",
@@ -934,12 +934,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 438,
+              "id": 429,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "860:0:3"
             },
-            "scope": 456,
+            "scope": 447,
             "src": "806:132:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -947,33 +947,33 @@
           },
           {
             "body": {
-              "id": 454,
+              "id": 445,
               "nodeType": "Block",
               "src": "994:29:3",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 452,
+                    "id": 443,
                     "name": "token",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 395,
+                    "referencedDeclaration": 386,
                     "src": "1011:5:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1219",
+                      "typeIdentifier": "t_contract$_StandardToken_$1210",
                       "typeString": "contract StandardToken"
                     }
                   },
-                  "functionReturnParameters": 451,
-                  "id": 453,
+                  "functionReturnParameters": 442,
+                  "id": 444,
                   "nodeType": "Return",
                   "src": "1004:12:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 455,
+            "id": 446,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -981,22 +981,22 @@
             "name": "getToken",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 448,
+              "id": 439,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "961:2:3"
             },
             "payable": false,
             "returnParameters": {
-              "id": 451,
+              "id": 442,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 450,
+                  "id": 441,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 455,
+                  "scope": 446,
                   "src": "985:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1005,7 +1005,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 449,
+                    "id": 440,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "985:7:3",
@@ -1020,14 +1020,14 @@
               ],
               "src": "984:9:3"
             },
-            "scope": 456,
+            "scope": 447,
             "src": "944:79:3",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 457,
+        "scope": 448,
         "src": "159:866:3"
       }
     ],
@@ -1037,14 +1037,14 @@
     "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/GeneratorRegistry.sol",
     "exportedSymbols": {
       "GeneratorRegistry": [
-        456
+        447
       ]
     },
-    "id": 457,
+    "id": 448,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 382,
+        "id": 373,
         "literals": [
           "solidity",
           "^",
@@ -1057,10 +1057,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol",
         "file": "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol",
-        "id": 383,
+        "id": 374,
         "nodeType": "ImportDirective",
-        "scope": 457,
-        "sourceUnit": 1220,
+        "scope": 448,
+        "sourceUnit": 1211,
         "src": "26:71:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1068,10 +1068,10 @@
       {
         "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/GeneratorFactory.sol",
         "file": "./GeneratorFactory.sol",
-        "id": 384,
+        "id": 375,
         "nodeType": "ImportDirective",
-        "scope": 457,
-        "sourceUnit": 381,
+        "scope": 448,
+        "sourceUnit": 372,
         "src": "99:32:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1079,10 +1079,10 @@
       {
         "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/Generator.sol",
         "file": "./Generator.sol",
-        "id": 385,
+        "id": 376,
         "nodeType": "ImportDirective",
-        "scope": 457,
-        "sourceUnit": 319,
+        "scope": 448,
+        "sourceUnit": 310,
         "src": "132:25:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1093,9 +1093,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 456,
+        "id": 447,
         "linearizedBaseContracts": [
-          456
+          447
         ],
         "name": "GeneratorRegistry",
         "nodeType": "ContractDefinition",
@@ -1103,20 +1103,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 393,
+            "id": 384,
             "name": "RegistryEntryEVT",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 392,
+              "id": 383,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 387,
+                  "id": 378,
                   "indexed": true,
                   "name": "context",
                   "nodeType": "VariableDeclaration",
-                  "scope": 393,
+                  "scope": 384,
                   "src": "303:23:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1125,7 +1125,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 386,
+                    "id": 377,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "303:7:3",
@@ -1139,11 +1139,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 389,
+                  "id": 380,
                   "indexed": false,
                   "name": "registryEntry",
                   "nodeType": "VariableDeclaration",
-                  "scope": 393,
+                  "scope": 384,
                   "src": "328:21:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1152,7 +1152,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 388,
+                    "id": 379,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "328:7:3",
@@ -1166,11 +1166,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 391,
+                  "id": 382,
                   "indexed": false,
                   "name": "eventType",
                   "nodeType": "VariableDeclaration",
-                  "scope": 393,
+                  "scope": 384,
                   "src": "351:17:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1179,7 +1179,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 390,
+                    "id": 381,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "351:7:3",
@@ -1198,26 +1198,26 @@
           },
           {
             "constant": false,
-            "id": 395,
+            "id": 386,
             "name": "token",
             "nodeType": "VariableDeclaration",
-            "scope": 456,
+            "scope": 447,
             "src": "376:26:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_StandardToken_$1219",
+              "typeIdentifier": "t_contract$_StandardToken_$1210",
               "typeString": "contract StandardToken"
             },
             "typeName": {
               "contractScope": null,
-              "id": 394,
+              "id": 385,
               "name": "StandardToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1219,
+              "referencedDeclaration": 1210,
               "src": "376:13:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StandardToken_$1219",
+                "typeIdentifier": "t_contract$_StandardToken_$1210",
                 "typeString": "contract StandardToken"
               }
             },
@@ -1226,26 +1226,26 @@
           },
           {
             "constant": false,
-            "id": 397,
+            "id": 388,
             "name": "activeGenerator",
             "nodeType": "VariableDeclaration",
-            "scope": 456,
+            "scope": 447,
             "src": "408:32:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_Generator_$318",
+              "typeIdentifier": "t_contract$_Generator_$309",
               "typeString": "contract Generator"
             },
             "typeName": {
               "contractScope": null,
-              "id": 396,
+              "id": 387,
               "name": "Generator",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 318,
+              "referencedDeclaration": 309,
               "src": "408:9:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Generator_$318",
+                "typeIdentifier": "t_contract$_Generator_$309",
                 "typeString": "contract Generator"
               }
             },
@@ -1254,36 +1254,36 @@
           },
           {
             "constant": false,
-            "id": 400,
+            "id": 391,
             "name": "generators",
             "nodeType": "VariableDeclaration",
-            "scope": 456,
+            "scope": 447,
             "src": "446:29:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_contract$_Generator_$318_$dyn_storage",
+              "typeIdentifier": "t_array$_t_contract$_Generator_$309_$dyn_storage",
               "typeString": "contract Generator[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 398,
+                "id": 389,
                 "name": "Generator",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 318,
+                "referencedDeclaration": 309,
                 "src": "446:9:3",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_Generator_$318",
+                  "typeIdentifier": "t_contract$_Generator_$309",
                   "typeString": "contract Generator"
                 }
               },
-              "id": 399,
+              "id": 390,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "446:11:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_contract$_Generator_$318_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_contract$_Generator_$309_$dyn_storage_ptr",
                 "typeString": "contract Generator[]"
               }
             },
@@ -1292,28 +1292,28 @@
           },
           {
             "body": {
-              "id": 409,
+              "id": 400,
               "nodeType": "Block",
               "src": "523:31:3",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 407,
+                    "id": 398,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 405,
+                      "id": 396,
                       "name": "token",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 395,
+                      "referencedDeclaration": 386,
                       "src": "533:5:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StandardToken_$1219",
+                        "typeIdentifier": "t_contract$_StandardToken_$1210",
                         "typeString": "contract StandardToken"
                       }
                     },
@@ -1321,31 +1321,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 406,
+                      "id": 397,
                       "name": "_token",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 402,
+                      "referencedDeclaration": 393,
                       "src": "541:6:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StandardToken_$1219",
+                        "typeIdentifier": "t_contract$_StandardToken_$1210",
                         "typeString": "contract StandardToken"
                       }
                     },
                     "src": "533:14:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1219",
+                      "typeIdentifier": "t_contract$_StandardToken_$1210",
                       "typeString": "contract StandardToken"
                     }
                   },
-                  "id": 408,
+                  "id": 399,
                   "nodeType": "ExpressionStatement",
                   "src": "533:14:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 410,
+            "id": 401,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -1353,31 +1353,31 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 403,
+              "id": 394,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 402,
+                  "id": 393,
                   "name": "_token",
                   "nodeType": "VariableDeclaration",
-                  "scope": 410,
+                  "scope": 401,
                   "src": "494:20:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_StandardToken_$1219",
+                    "typeIdentifier": "t_contract$_StandardToken_$1210",
                     "typeString": "contract StandardToken"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 401,
+                    "id": 392,
                     "name": "StandardToken",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1219,
+                    "referencedDeclaration": 1210,
                     "src": "494:13:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1219",
+                      "typeIdentifier": "t_contract$_StandardToken_$1210",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -1389,12 +1389,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 404,
+              "id": 395,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "523:0:3"
             },
-            "scope": 456,
+            "scope": 447,
             "src": "482:72:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1402,33 +1402,33 @@
           },
           {
             "body": {
-              "id": 417,
+              "id": 408,
               "nodeType": "Block",
               "src": "622:39:3",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 415,
+                    "id": 406,
                     "name": "activeGenerator",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 397,
+                    "referencedDeclaration": 388,
                     "src": "639:15:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Generator_$318",
+                      "typeIdentifier": "t_contract$_Generator_$309",
                       "typeString": "contract Generator"
                     }
                   },
-                  "functionReturnParameters": 414,
-                  "id": 416,
+                  "functionReturnParameters": 405,
+                  "id": 407,
                   "nodeType": "Return",
                   "src": "632:22:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 418,
+            "id": 409,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1436,38 +1436,38 @@
             "name": "getActiveGenerator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 411,
+              "id": 402,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "587:2:3"
             },
             "payable": false,
             "returnParameters": {
-              "id": 414,
+              "id": 405,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 413,
+                  "id": 404,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 418,
+                  "scope": 409,
                   "src": "611:9:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_Generator_$318",
+                    "typeIdentifier": "t_contract$_Generator_$309",
                     "typeString": "contract Generator"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 412,
+                    "id": 403,
                     "name": "Generator",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 318,
+                    "referencedDeclaration": 309,
                     "src": "611:9:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Generator_$318",
+                      "typeIdentifier": "t_contract$_Generator_$309",
                       "typeString": "contract Generator"
                     }
                   },
@@ -1477,7 +1477,7 @@
               ],
               "src": "610:11:3"
             },
-            "scope": 456,
+            "scope": 447,
             "src": "560:101:3",
             "stateMutability": "view",
             "superFunction": null,
@@ -1485,28 +1485,28 @@
           },
           {
             "body": {
-              "id": 433,
+              "id": 424,
               "nodeType": "Block",
               "src": "718:82:3",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 425,
+                    "id": 416,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 423,
+                      "id": 414,
                       "name": "activeGenerator",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 397,
+                      "referencedDeclaration": 388,
                       "src": "728:15:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Generator_$318",
+                        "typeIdentifier": "t_contract$_Generator_$309",
                         "typeString": "contract Generator"
                       }
                     },
@@ -1514,24 +1514,24 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 424,
+                      "id": 415,
                       "name": "_generator",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 420,
+                      "referencedDeclaration": 411,
                       "src": "746:10:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Generator_$318",
+                        "typeIdentifier": "t_contract$_Generator_$309",
                         "typeString": "contract Generator"
                       }
                     },
                     "src": "728:28:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Generator_$318",
+                      "typeIdentifier": "t_contract$_Generator_$309",
                       "typeString": "contract Generator"
                     }
                   },
-                  "id": 426,
+                  "id": 417,
                   "nodeType": "ExpressionStatement",
                   "src": "728:28:3"
                 },
@@ -1541,14 +1541,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 430,
+                        "id": 421,
                         "name": "_generator",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 420,
+                        "referencedDeclaration": 411,
                         "src": "782:10:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_Generator_$318",
+                          "typeIdentifier": "t_contract$_Generator_$309",
                           "typeString": "contract Generator"
                         }
                       }
@@ -1556,24 +1556,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_contract$_Generator_$318",
+                          "typeIdentifier": "t_contract$_Generator_$309",
                           "typeString": "contract Generator"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 427,
+                        "id": 418,
                         "name": "generators",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 400,
+                        "referencedDeclaration": 391,
                         "src": "766:10:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_contract$_Generator_$318_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_contract$_Generator_$309_$dyn_storage",
                           "typeString": "contract Generator[] storage ref"
                         }
                       },
-                      "id": 429,
+                      "id": 420,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1583,11 +1583,11 @@
                       "referencedDeclaration": null,
                       "src": "766:15:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_contract$_Generator_$318_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_contract$_Generator_$309_$returns$_t_uint256_$",
                         "typeString": "function (contract Generator) returns (uint256)"
                       }
                     },
-                    "id": 431,
+                    "id": 422,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1601,14 +1601,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 432,
+                  "id": 423,
                   "nodeType": "ExpressionStatement",
                   "src": "766:27:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 434,
+            "id": 425,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1616,31 +1616,31 @@
             "name": "addGenerator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 421,
+              "id": 412,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 420,
+                  "id": 411,
                   "name": "_generator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 434,
+                  "scope": 425,
                   "src": "689:20:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_Generator_$318",
+                    "typeIdentifier": "t_contract$_Generator_$309",
                     "typeString": "contract Generator"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 419,
+                    "id": 410,
                     "name": "Generator",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 318,
+                    "referencedDeclaration": 309,
                     "src": "689:9:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Generator_$318",
+                      "typeIdentifier": "t_contract$_Generator_$309",
                       "typeString": "contract Generator"
                     }
                   },
@@ -1652,12 +1652,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 422,
+              "id": 413,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "718:0:3"
             },
-            "scope": 456,
+            "scope": 447,
             "src": "667:133:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1665,7 +1665,7 @@
           },
           {
             "body": {
-              "id": 446,
+              "id": 437,
               "nodeType": "Block",
               "src": "860:78:3",
               "statements": [
@@ -1676,7 +1676,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "41727447656e657261746f72",
-                        "id": 440,
+                        "id": 431,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1695,18 +1695,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 441,
+                          "id": 432,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2755,
+                          "referencedDeclaration": 2746,
                           "src": "908:3:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 442,
+                        "id": 433,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1722,11 +1722,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 443,
+                        "id": 434,
                         "name": "_eventType",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 436,
+                        "referencedDeclaration": 427,
                         "src": "920:10:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1749,18 +1749,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 439,
+                      "id": 430,
                       "name": "RegistryEntryEVT",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 393,
+                      "referencedDeclaration": 384,
                       "src": "875:16:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_address_$_t_bytes32_$returns$__$",
                         "typeString": "function (bytes32,address,bytes32)"
                       }
                     },
-                    "id": 444,
+                    "id": 435,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1774,14 +1774,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 445,
+                  "id": 436,
                   "nodeType": "EmitStatement",
                   "src": "870:61:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 447,
+            "id": 438,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1789,15 +1789,15 @@
             "name": "fireRegistryEvent",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 437,
+              "id": 428,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 436,
+                  "id": 427,
                   "name": "_eventType",
                   "nodeType": "VariableDeclaration",
-                  "scope": 447,
+                  "scope": 438,
                   "src": "833:18:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1806,7 +1806,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 435,
+                    "id": 426,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "833:7:3",
@@ -1823,12 +1823,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 438,
+              "id": 429,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "860:0:3"
             },
-            "scope": 456,
+            "scope": 447,
             "src": "806:132:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1836,33 +1836,33 @@
           },
           {
             "body": {
-              "id": 454,
+              "id": 445,
               "nodeType": "Block",
               "src": "994:29:3",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 452,
+                    "id": 443,
                     "name": "token",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 395,
+                    "referencedDeclaration": 386,
                     "src": "1011:5:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1219",
+                      "typeIdentifier": "t_contract$_StandardToken_$1210",
                       "typeString": "contract StandardToken"
                     }
                   },
-                  "functionReturnParameters": 451,
-                  "id": 453,
+                  "functionReturnParameters": 442,
+                  "id": 444,
                   "nodeType": "Return",
                   "src": "1004:12:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 455,
+            "id": 446,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1870,22 +1870,22 @@
             "name": "getToken",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 448,
+              "id": 439,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "961:2:3"
             },
             "payable": false,
             "returnParameters": {
-              "id": 451,
+              "id": 442,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 450,
+                  "id": 441,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 455,
+                  "scope": 446,
                   "src": "985:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1894,7 +1894,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 449,
+                    "id": 440,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "985:7:3",
@@ -1909,14 +1909,14 @@
               ],
               "src": "984:9:3"
             },
-            "scope": 456,
+            "scope": 447,
             "src": "944:79:3",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 457,
+        "scope": 448,
         "src": "159:866:3"
       }
     ],
@@ -1930,10 +1930,10 @@
     "50": {
       "events": {},
       "links": {},
-      "address": "0x69774e9a4a003b3576e27bb0ba687b4267657604",
-      "transactionHash": "0x288c9dbac12f19539e9d20bc8f1f6a2928e8c485d541654f17ee1b2c3ce1c4e4"
+      "address": "0x97bd553f21b175f7cc00819cc6494a7fba344180",
+      "transactionHash": "0xb5703816258a7c8c580121d51665ed2b48eabe09f8574d6d03fb8e9171f5481f"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-15T02:33:03.860Z"
+  "updatedAt": "2018-10-15T03:31:43.833Z"
 }

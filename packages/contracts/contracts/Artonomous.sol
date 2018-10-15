@@ -22,17 +22,16 @@ contract Artonomous {
     uint public AUCTION_LENGTH = 86400; // 24 hours
     Auction public currentAuction;
 
-    constructor(address stakingAddr, address beneficiaryAddr, address artToken) public {
+    constructor(address stakingAddr, address artToken) public {
         registry = GeneratorRegistry(stakingAddr);
         pieceToken = ArtPieceToken(artToken);
-        beneficiary = beneficiaryAddr;
-        startAuction();
+        beneficiary = this;
     }
 
-    function startAuction() internal {
+    function startAuction() public {
         require(currentAuction.blockNumber == 0);
         Generator currentGenerator = registry.getActiveGenerator();
-        pieceToken.mint(this, block.number, currentGenerator);
+        pieceToken.mint(this, block.number, address(currentGenerator));
         currentAuction = Auction({
             blockNumber: block.number,
             endTime: now + AUCTION_LENGTH,
@@ -60,7 +59,7 @@ contract Artonomous {
 
         uint remainder = msg.value - buyPrice;
         msg.sender.transfer(remainder); // refund extra
-        beneficiary.transfer(buyPrice); // pay Artonomous' beneficiary
+        // beneficiary.transfer(buyPrice); // pay Artonomous' beneficiary
 
         emit ArtonomousArtBought(msg.sender, blockNumber, buyPrice);
 

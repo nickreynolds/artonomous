@@ -4,9 +4,13 @@ var ArtPieceToken = artifacts.require("./ArtPieceToken.sol");
 
 module.exports = async function(deployer, network, accounts) {
   let beneficiary = accounts[0];
+  console.log("GeneratorRegistry.address: ", GeneratorRegistry.address);
+  console.log("ArtPieceToken.address: ", ArtPieceToken.address);
+  await deployer.deploy(Artonomous, GeneratorRegistry.address, ArtPieceToken.address);
+
   const artPieceToken = await ArtPieceToken.deployed();
-  const generatorRegistry = await GeneratorRegistry.deployed();
-  console.log("beneficiary: ", beneficiary);
-  console.log("ArtPieceToken.address", ArtPieceToken.address);
-  deployer.deploy(Artonomous, generatorRegistry.address, beneficiary, artPieceToken.address);
+  const artonomous = await Artonomous.deployed();
+  await artPieceToken.transferOwnership(artonomous.address);
+
+  await artonomous.startAuction();
 };
