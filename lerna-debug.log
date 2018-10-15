@@ -1,0 +1,106 @@
+0 silly input [ 'migrate:ganache' ]
+1 silly flags { _: [ 'run' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false,
+1 silly flags   scope: '@artonomous/contracts',
+1 silly flags   script: 'migrate:ganache',
+1 silly flags   args: [] }
+2 verbose rootPath /Users/nickreynolds/Artonomous/artonomous
+3 info version 2.11.0
+4 silly existsSync /Users/nickreynolds/Artonomous/artonomous/VERSION
+5 info scope @artonomous/contracts
+6 silly initialize attempt
+7 silly initialize success
+8 silly execute attempt
+9 silly runScriptInDir migrate:ganache [] contracts
+10 silly getExecOpts { cwd: '/Users/nickreynolds/Artonomous/artonomous/packages/contracts' }
+11 error migrate:ganache Errored while running script in '@artonomous/contracts'
+12 error execute callback with error
+13 error Error: Command failed: yarn run migrate:ganache
+13 error warning package.json: No license field
+13 error warning package.json: No license field
+13 error error An unexpected error occurred: "Command failed.
+13 error Exit code: 1
+13 error Command: sh
+13 error Arguments: -c truffle migrate --network=ganache --reset
+13 error Directory: /Users/nickreynolds/Artonomous/artonomous/packages/contracts
+13 error Output:
+13 error ".
+13 error ERROR: "migrate --network=ganache --reset" exited with 1.
+13 error error An unexpected error occurred: "Command failed.
+13 error Exit code: 1
+13 error Command: sh
+13 error Arguments: -c run-s 'migrate --network=ganache --reset'
+13 error Directory: /Users/nickreynolds/Artonomous/artonomous/packages/contracts
+13 error Output:
+13 error ".
+13 error $ run-s 'migrate --network=ganache --reset'
+13 error $ truffle migrate --network=ganache --reset
+13 error Using network 'ganache'.
+13 error
+13 error Running migration: 1_initial_migration.js
+13 error   Replacing Migrations...
+13 error   ... 0xef3e98a942940c1cf05247014be512db649483f2dbd478139795839d0984dc24
+13 error   Migrations: 0x85c36479cd6de396f4b237a7ce4743aaa9ac346b
+13 error Saving successful migration to network...
+13 error   ... 0x2280ac4c4edff06db833f60e84832914d8281d07ff832b90fac26b79e821c401
+13 error Saving artifacts...
+13 error Running migration: 2_deploy_soul.js
+13 error   Replacing SoulToken...
+13 error   ... 0x524d2d623be43a6a40c40fc8318af7ea7cf21591788741c5d2bed39c075d8dfb
+13 error   SoulToken: 0x13331a9e619b4e016f35f29df84c1b14675fe33d
+13 error Saving successful migration to network...
+13 error   ... 0xc4b21fcda8c01664143af65a0159fff9ca7a2d44904473b8e70b3b44aa5e2ba0
+13 error Saving artifacts...
+13 error Running migration: 3_deploy_generator_registry.js
+13 error   Running step...
+13 error   Replacing GeneratorRegistry...
+13 error   ... 0x42e6ebce7fa6d27c4345bcb748714fa3ad6177b95609af4b914b4462508a9ea7
+13 error   GeneratorRegistry: 0xfc4b0b4152fc2dc82a2bbb138769f20d491c1371
+13 error Saving successful migration to network...
+13 error   ... 0x80a4482850db38b633cf25171963b0198e18c35384d6ab93f0df04c9e977e173
+13 error Saving artifacts...
+13 error Running migration: 4_deploy_generator_factory.js
+13 error   Running step...
+13 error   Replacing Generator...
+13 error   ... 0x11211c4773a7f91fd2ee1e98414370069b770cac6b5c22a4e985e4ad1d82881e
+13 error   Generator: 0xbbf69673e44988d2fd7d878edbd1cdda1a70fab7
+13 error   Replacing GeneratorFactory...
+13 error   ... 0xa0aa6f402dc2cb6090c77347abd44fa2c911fcf11e0c6b04525da6c2d6b7bbad
+13 error   GeneratorFactory: 0x63f565ba734faca4da752050b61357ac2b61d030
+13 error Saving successful migration to network...
+13 error   ... 0xd26564f92e8fcccc02df467b01affc20cf798957be5da4bbe45689915d048df7
+13 error Saving artifacts...
+13 error Running migration: 5_deploy_art_piece_token.js
+13 error   Replacing ArtPieceToken...
+13 error   ... 0x6801728c4b2c3469839c6b0792354954c9e834960fa3f7cabda70a101d5a0951
+13 error   ArtPieceToken: 0x90cb112f7e7fd97eda7c3a2d345a641bef360d00
+13 error Saving successful migration to network...
+13 error   ... 0xbeb8cd683d92c961370bf82cea13c8126e2b06b9f317deb86fbe7bb37f12b1d5
+13 error Saving artifacts...
+13 error Running migration: 6_deploy_artonomous.js
+13 error   Running step...
+13 error   Deploying Artonomous...
+13 error   ... 0x316f5e5a045d554db34487b35f3547ed3546c8d7b2c77ce9e6f7f5ef99fcaa49
+13 error Error encountered, bailing. Network state unknown. Review successful transactions manually.
+13 error Error: The contract code couldn't be stored, please check your gas amount.
+13 error     at Object.callback (/usr/local/lib/node_modules/truffle/build/webpack:/~/web3/lib/web3/contract.js:147:1)
+13 error     at /usr/local/lib/node_modules/truffle/build/webpack:/~/web3/lib/web3/method.js:142:1
+13 error     at /usr/local/lib/node_modules/truffle/build/webpack:/~/web3/lib/web3/requestmanager.js:89:1
+13 error     at /usr/local/lib/node_modules/truffle/build/webpack:/packages/truffle-migrate/index.js:225:1
+13 error     at /usr/local/lib/node_modules/truffle/build/webpack:/packages/truffle-provider/wrapper.js:134:1
+13 error     at XMLHttpRequest.request.onreadystatechange (/usr/local/lib/node_modules/truffle/build/webpack:/~/web3/lib/web3/httpprovider.js:128:1)
+13 error     at XMLHttpRequestEventTarget.dispatchEvent (/usr/local/lib/node_modules/truffle/build/webpack:/~/xhr2/lib/xhr2.js:64:1)
+13 error     at XMLHttpRequest._setReadyState (/usr/local/lib/node_modules/truffle/build/webpack:/~/xhr2/lib/xhr2.js:354:1)
+13 error     at XMLHttpRequest._onHttpResponseEnd (/usr/local/lib/node_modules/truffle/build/webpack:/~/xhr2/lib/xhr2.js:509:1)
+13 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/truffle/build/webpack:/~/xhr2/lib/xhr2.js:469:1)
+13 error     at IncomingMessage.emit (events.js:185:15)
+13 error     at endReadableNT (_stream_readable.js:1106:12)
+13 error     at process._tickCallback (internal/process/next_tick.js:114:19)
+13 error info If you think this is a bug, please open a bug report with the information provided in "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/yarn-error.log".
+13 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+13 error info If you think this is a bug, please open a bug report with the information provided in "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/yarn-error.log".
+13 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+13 error
+13 error     at Promise.all.then.arr (/Users/nickreynolds/Artonomous/artonomous/node_modules/execa/index.js:236:11)
+13 error     at <anonymous>

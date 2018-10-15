@@ -1,5 +1,23 @@
 {
-	"devDependencies": {
-		"lerna": "^2.8.0"
-	}
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^2.8.0"
+  },
+  "scripts": {
+    "ganache": "ganache-cli -p 8545 --networkId 50 -d -m \"${npm_package_config_mnemonic}\" --noVMErrorsOnRPCResponse",
+    "migrate": "lerna run --scope @artonomous/contracts migrate:ganache",
+    "publish:artifacts": "ncp ./packages/contracts/build/contracts/Artonomous.json ./packages/front-end/contracts/Artonomous.json && ncp ./packages/contracts/build/contracts/ArtPieceToken.json ./packages/front-end/contracts/ArtPieceToken.json && ncp ./packages/contracts/build/contracts/GeneratorRegistry.json ./packages/front-end/contracts/GeneratorRegistry.json && ncp ./packages/contracts/build/contracts/GeneratorFactory.json ./packages/front-end/contracts/GeneratorFactory.json && ncp ./packages/contracts/build/contracts/SoulToken.json ./packages/front-end/contracts/SoulToken.json && ncp ./packages/contracts/build/contracts/Generator.json ./packages/front-end/contracts/Generator.json",
+    "preparelocal": "run-s migrate publish:artifacts",
+    "prettier": "prettier --config .prettierrc.yaml --write --list-different './**/*.{ts,tsx,json,md}'"
+  },
+  "dependencies": {
+    "ganache-cli": "^6.1.8",
+    "ncp": "^2.0.0",
+    "npm-run-all": "^4.1.3",
+    "prettier": "^1.14.3",
+    "run-s": "^0.0.0"
+  }
 }
