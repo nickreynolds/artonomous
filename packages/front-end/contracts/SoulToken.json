@@ -636,14 +636,21 @@
   "ast": {
     "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/tokens/SoulToken.sol",
     "exportedSymbols": {
-      "SoulToken": [2565]
+      "SoulToken": [
+        2565
+      ]
     },
     "id": 2566,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 2494,
-        "literals": ["solidity", "^", "0.4", ".24"],
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
         "nodeType": "PragmaDirective",
         "src": "0:24:9"
       },
@@ -679,12 +686,31 @@
             "src": "81:15:9"
           }
         ],
-        "contractDependencies": [1895, 2187, 2405, 3031, 3127, 3204, 3236, 3483],
+        "contractDependencies": [
+          1895,
+          2187,
+          2405,
+          3031,
+          3127,
+          3204,
+          3236,
+          3483
+        ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
         "id": 2565,
-        "linearizedBaseContracts": [2565, 2405, 3031, 2187, 1895, 3483, 3127, 3204, 3236],
+        "linearizedBaseContracts": [
+          2565,
+          2405,
+          3031,
+          2187,
+          1895,
+          3483,
+          3127,
+          3204,
+          3236
+        ],
         "name": "SoulToken",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -1683,14 +1709,21 @@
   "legacyAST": {
     "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/tokens/SoulToken.sol",
     "exportedSymbols": {
-      "SoulToken": [2565]
+      "SoulToken": [
+        2565
+      ]
     },
     "id": 2566,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 2494,
-        "literals": ["solidity", "^", "0.4", ".24"],
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
         "nodeType": "PragmaDirective",
         "src": "0:24:9"
       },
@@ -1726,12 +1759,31 @@
             "src": "81:15:9"
           }
         ],
-        "contractDependencies": [1895, 2187, 2405, 3031, 3127, 3204, 3236, 3483],
+        "contractDependencies": [
+          1895,
+          2187,
+          2405,
+          3031,
+          3127,
+          3204,
+          3236,
+          3483
+        ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
         "id": 2565,
-        "linearizedBaseContracts": [2565, 2405, 3031, 2187, 1895, 3483, 3127, 3204, 3236],
+        "linearizedBaseContracts": [
+          2565,
+          2405,
+          3031,
+          2187,
+          1895,
+          3483,
+          3127,
+          3204,
+          3236
+        ],
         "name": "SoulToken",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -2735,10 +2787,10 @@
     "50": {
       "events": {},
       "links": {},
-      "address": "0xfe82e8f24a51e670133f4268cdfc164c49fc3b37",
-      "transactionHash": "0x1044a8a167c10717d6010301b0d3e3a5ec6b84b9802f99de5a3cc5810240f798"
+      "address": "0x393a6a6850e0788e496d73c50a436606e6cca874",
+      "transactionHash": "0xd4a254101c884fe7d3de1ac2228dc4c5385620e0551b8c29244140f1154b7e2e"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-14T22:54:32.912Z"
+  "updatedAt": "2018-10-15T01:11:54.218Z"
 }
