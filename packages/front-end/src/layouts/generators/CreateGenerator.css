@@ -1,0 +1,45 @@
+.page {
+  height: 100%;
+  position: relative;
+}
+
+.editorpage {
+  display: flex;
+  flex-direction: row;
+}
+
+.editorpage .tip {
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+.preview,
+.preview > div {
+  z-index: -1;
+}
+
+.modalWrapper {
+  z-index: 1000;
+}
+
+.actionBar {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0 20px;
+}
+
+.textInput {
+  border: 1px solid #333;
+  font-size: 1.8em;
+  padding: 2px;
+  background: white;
+  font-family: courier new;
+}
+
+.button-large {
+  padding: 10px;
+  margin: 8px;
+  font-size: 0.9em;
+}
