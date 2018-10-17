@@ -78,6 +78,12 @@ The goal for the art bot is that it could run completely client-side: all implem
 
 Thanks to everyone who has contributed thus far! The issues present the work necessary. Feel free to pick up where you can. I'll be writing a more extensive contributors guide soon.
 
+## Developing Locally
+
+To build contracts, deploy them to ganache locally, and copy them into the front-end package so they can be accessed there simply run `yarn preparelocal` from the root directory (with ganache running in another terminal).
+
+Then run `yarn start` from the `/packages/front-end` directory.
+
 ## Licensing
 
 It's imperative that the software used to generate the art is permissively licensed.
