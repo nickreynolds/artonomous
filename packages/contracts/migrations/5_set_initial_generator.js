@@ -4,9 +4,7 @@ const GeneratorFactory = artifacts.require("./GeneratorFactory.sol");
 
 module.exports = function(deployer) {
   return deployer.then(async () => {
-    const registry = await GeneratorRegistry.deployed();
-    await deployer.deploy(GeneratorContract);
-    const generator = await GeneratorContract.deployed();
-    await deployer.deploy(GeneratorFactory, registry.address, generator.address);
+    const factory = await GeneratorFactory.deployed();
+    await factory.createGenerator("initial generator", "bad-url");
   });
 };

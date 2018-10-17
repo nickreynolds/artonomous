@@ -136,22 +136,36 @@
       "payable": false,
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getGenerators",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b506040516020806102ef833981016040525160008054600160a060020a03909216600160a060020a031990921691909117905561029d806100526000396000f3006080604052600436106100825763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631fad9b63811461008757806321df0da7146100bb578063471b2e2a146100d05780634dc045ef146100e55780638a19d297146100fa578063cffafe2614610114578063fc0c546a14610135575b600080fd5b34801561009357600080fd5b5061009f60043561014a565b60408051600160a060020a039092168252519081900360200190f35b3480156100c757600080fd5b5061009f610172565b3480156100dc57600080fd5b5061009f610181565b3480156100f157600080fd5b5061009f610190565b34801561010657600080fd5b5061011260043561019f565b005b34801561012057600080fd5b50610112600160a060020a03600435166101fc565b34801561014157600080fd5b5061009f610262565b600280548290811061015857fe5b600091825260209091200154600160a060020a0316905081565b600054600160a060020a031690565b600154600160a060020a031690565b600154600160a060020a031681565b604080513381526020810183905281517f41727447656e657261746f720000000000000000000000000000000000000000927f2af7bec8d40bdee9862a707f3b13ee2c6e4a4a0a5b3165e2f4e14d5d8b9b5c4c928290030190a250565b60018054600160a060020a0390921673ffffffffffffffffffffffffffffffffffffffff19928316811782556002805492830181556000527f405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace9091018054909216179055565b600054600160a060020a0316815600a165627a7a723058207f9a2a335a63747318531402a697f3a690d8466c346243b7e7697ac7d1f893f10029",
-  "deployedBytecode": "0x6080604052600436106100825763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631fad9b63811461008757806321df0da7146100bb578063471b2e2a146100d05780634dc045ef146100e55780638a19d297146100fa578063cffafe2614610114578063fc0c546a14610135575b600080fd5b34801561009357600080fd5b5061009f60043561014a565b60408051600160a060020a039092168252519081900360200190f35b3480156100c757600080fd5b5061009f610172565b3480156100dc57600080fd5b5061009f610181565b3480156100f157600080fd5b5061009f610190565b34801561010657600080fd5b5061011260043561019f565b005b34801561012057600080fd5b50610112600160a060020a03600435166101fc565b34801561014157600080fd5b5061009f610262565b600280548290811061015857fe5b600091825260209091200154600160a060020a0316905081565b600054600160a060020a031690565b600154600160a060020a031690565b600154600160a060020a031681565b604080513381526020810183905281517f41727447656e657261746f720000000000000000000000000000000000000000927f2af7bec8d40bdee9862a707f3b13ee2c6e4a4a0a5b3165e2f4e14d5d8b9b5c4c928290030190a250565b60018054600160a060020a0390921673ffffffffffffffffffffffffffffffffffffffff19928316811782556002805492830181556000527f405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace9091018054909216179055565b600054600160a060020a0316815600a165627a7a723058207f9a2a335a63747318531402a697f3a690d8466c346243b7e7697ac7d1f893f10029",
-  "sourceMap": "159:866:3:-;;;482:72;8:9:-1;5:2;;;30:1;27;20:12;5:2;482:72:3;;;;;;;;;;;;;533:5;:14;;-1:-1:-1;;;;;533:14:3;;;-1:-1:-1;;;;;;533:14:3;;;;;;;;;159:866;;;;;;",
-  "deployedSourceMap": "159:866:3:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;446:29;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;446:29:3;;;;;;;;;-1:-1:-1;;;;;446:29:3;;;;;;;;;;;;;;944:79;;8:9:-1;5:2;;;30:1;27;20:12;5:2;944:79:3;;;;560:101;;8:9:-1;5:2;;;30:1;27;20:12;5:2;560:101:3;;;;408:32;;8:9:-1;5:2;;;30:1;27;20:12;5:2;408:32:3;;;;806:132;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;806:132:3;;;;;;;667:133;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;667:133:3;-1:-1:-1;;;;;667:133:3;;;;;376:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;376:26:3;;;;446:29;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;446:29:3;;-1:-1:-1;446:29:3;:::o;944:79::-;985:7;1011:5;-1:-1:-1;;;;;1011:5:3;944:79;:::o;560:101::-;639:15;;-1:-1:-1;;;;;639:15:3;560:101;:::o;408:32::-;;;-1:-1:-1;;;;;408:32:3;;:::o;806:132::-;875:56;;;908:10;875:56;;;;;;;;;;;;;;;;;;;;806:132;:::o;667:133::-;728:15;:28;;-1:-1:-1;;;;;728:28:3;;;-1:-1:-1;;728:28:3;;;;;;;766:10;27::-1;;23:18;;;45:23;;728:15:3;766:27;;;;;;;;;;;;;667:133::o;376:26::-;;;-1:-1:-1;;;;;376:26:3;;:::o",
-  "source": "pragma solidity ^0.4.24;\n\nimport \"openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol\";\n\nimport \"./GeneratorFactory.sol\";\nimport \"./Generator.sol\";\n\ncontract GeneratorRegistry {\n    // event RegistryEntryEV(address indexed registryEntry, bytes32 indexed eventType);\n    event RegistryEntryEVT(bytes32 indexed context, address registryEntry, bytes32 eventType);\n\n    StandardToken public token;\n    Generator public activeGenerator;\n    Generator[] public generators;\n\n    constructor(StandardToken _token) public {\n        token = _token;\n    }\n\n    function getActiveGenerator() public view returns (Generator) {\n        return activeGenerator;\n    }\n\n    function addGenerator(Generator _generator) public {\n        activeGenerator = _generator;\n        generators.push(_generator);\n    }\n\n    function fireRegistryEvent(bytes32 _eventType) public {\n        emit RegistryEntryEVT(\"ArtGenerator\", msg.sender, _eventType);\n    }\n\n    function getToken() public view returns (address) {\n        return token;\n    }\n}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516020806103c1833981016040525160008054600160a060020a03909216600160a060020a031990921691909117905561036f806100526000396000f30060806040526004361061008d5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631fad9b63811461009257806321df0da7146100c6578063471b2e2a146100db5780634dc045ef146100f0578063695478f1146101055780638a19d2971461016a578063cffafe2614610184578063fc0c546a146101a5575b600080fd5b34801561009e57600080fd5b506100aa6004356101ba565b60408051600160a060020a039092168252519081900360200190f35b3480156100d257600080fd5b506100aa6101e2565b3480156100e757600080fd5b506100aa6101f1565b3480156100fc57600080fd5b506100aa610200565b34801561011157600080fd5b5061011a61020f565b60408051602080825283518183015283519192839290830191858101910280838360005b8381101561015657818101518382015260200161013e565b505050509050019250505060405180910390f35b34801561017657600080fd5b50610182600435610271565b005b34801561019057600080fd5b50610182600160a060020a03600435166102ce565b3480156101b157600080fd5b506100aa610334565b60028054829081106101c857fe5b600091825260209091200154600160a060020a0316905081565b600054600160a060020a031690565b600154600160a060020a031690565b600154600160a060020a031681565b6060600280548060200260200160405190810160405280929190818152602001828054801561026757602002820191906000526020600020905b8154600160a060020a03168152600190910190602001808311610249575b5050505050905090565b604080513381526020810183905281517f41727447656e657261746f720000000000000000000000000000000000000000927f2af7bec8d40bdee9862a707f3b13ee2c6e4a4a0a5b3165e2f4e14d5d8b9b5c4c928290030190a250565b60018054600160a060020a0390921673ffffffffffffffffffffffffffffffffffffffff19928316811782556002805492830181556000527f405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace9091018054909216179055565b600054600160a060020a0316815600a165627a7a72305820090d8a43dbcaf62bdf75aaa101826d4f9f60eabb706d597f6f92fd5e6c4ccacd0029",
+  "deployedBytecode": "0x60806040526004361061008d5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631fad9b63811461009257806321df0da7146100c6578063471b2e2a146100db5780634dc045ef146100f0578063695478f1146101055780638a19d2971461016a578063cffafe2614610184578063fc0c546a146101a5575b600080fd5b34801561009e57600080fd5b506100aa6004356101ba565b60408051600160a060020a039092168252519081900360200190f35b3480156100d257600080fd5b506100aa6101e2565b3480156100e757600080fd5b506100aa6101f1565b3480156100fc57600080fd5b506100aa610200565b34801561011157600080fd5b5061011a61020f565b60408051602080825283518183015283519192839290830191858101910280838360005b8381101561015657818101518382015260200161013e565b505050509050019250505060405180910390f35b34801561017657600080fd5b50610182600435610271565b005b34801561019057600080fd5b50610182600160a060020a03600435166102ce565b3480156101b157600080fd5b506100aa610334565b60028054829081106101c857fe5b600091825260209091200154600160a060020a0316905081565b600054600160a060020a031690565b600154600160a060020a031690565b600154600160a060020a031681565b6060600280548060200260200160405190810160405280929190818152602001828054801561026757602002820191906000526020600020905b8154600160a060020a03168152600190910190602001808311610249575b5050505050905090565b604080513381526020810183905281517f41727447656e657261746f720000000000000000000000000000000000000000927f2af7bec8d40bdee9862a707f3b13ee2c6e4a4a0a5b3165e2f4e14d5d8b9b5c4c928290030190a250565b60018054600160a060020a0390921673ffffffffffffffffffffffffffffffffffffffff19928316811782556002805492830181556000527f405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace9091018054909216179055565b600054600160a060020a0316815600a165627a7a72305820090d8a43dbcaf62bdf75aaa101826d4f9f60eabb706d597f6f92fd5e6c4ccacd0029",
+  "sourceMap": "159:965:3:-;;;482:72;8:9:-1;5:2;;;30:1;27;20:12;5:2;482:72:3;;;;;;;;;;;;;533:5;:14;;-1:-1:-1;;;;;533:14:3;;;-1:-1:-1;;;;;;533:14:3;;;;;;;;;159:965;;;;;;",
+  "deployedSourceMap": "159:965:3:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;446:29;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;446:29:3;;;;;;;;;-1:-1:-1;;;;;446:29:3;;;;;;;;;;;;;;944:79;;8:9:-1;5:2;;;30:1;27;20:12;5:2;944:79:3;;;;560:101;;8:9:-1;5:2;;;30:1;27;20:12;5:2;560:101:3;;;;408:32;;8:9:-1;5:2;;;30:1;27;20:12;5:2;408:32:3;;;;1029:93;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1029:93:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:100:-1;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;1029:93:3;;;;;;;;;;;;;;;;;806:132;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;806:132:3;;;;;;;667:133;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;667:133:3;-1:-1:-1;;;;;667:133:3;;;;;376:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;376:26:3;;;;446:29;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;446:29:3;;-1:-1:-1;446:29:3;:::o;944:79::-;985:7;1011:5;-1:-1:-1;;;;;1011:5:3;944:79;:::o;560:101::-;639:15;;-1:-1:-1;;;;;639:15:3;560:101;:::o;408:32::-;;;-1:-1:-1;;;;;408:32:3;;:::o;1029:93::-;1075:11;1105:10;1098:17;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1098:17:3;;;;;;;;;;;;;;;;;;;;;;;1029:93;:::o;806:132::-;875:56;;;908:10;875:56;;;;;;;;;;;;;;;;;;;;806:132;:::o;667:133::-;728:15;:28;;-1:-1:-1;;;;;728:28:3;;;-1:-1:-1;;728:28:3;;;;;;;766:10;27::-1;;23:18;;;45:23;;728:15:3;766:27;;;;;;;;;;;;;667:133::o;376:26::-;;;-1:-1:-1;;;;;376:26:3;;:::o",
+  "source": "pragma solidity ^0.4.24;\n\nimport \"openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol\";\n\nimport \"./GeneratorFactory.sol\";\nimport \"./Generator.sol\";\n\ncontract GeneratorRegistry {\n    // event RegistryEntryEV(address indexed registryEntry, bytes32 indexed eventType);\n    event RegistryEntryEVT(bytes32 indexed context, address registryEntry, bytes32 eventType);\n\n    StandardToken public token;\n    Generator public activeGenerator;\n    Generator[] public generators;\n\n    constructor(StandardToken _token) public {\n        token = _token;\n    }\n\n    function getActiveGenerator() public view returns (Generator) {\n        return activeGenerator;\n    }\n\n    function addGenerator(Generator _generator) public {\n        activeGenerator = _generator;\n        generators.push(_generator);\n    }\n\n    function fireRegistryEvent(bytes32 _eventType) public {\n        emit RegistryEntryEVT(\"ArtGenerator\", msg.sender, _eventType);\n    }\n\n    function getToken() public view returns (address) {\n        return token;\n    }\n\n    function getGenerators() public view returns (Generator[]) {\n        return generators;\n    }\n}",
   "sourcePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/GeneratorRegistry.sol",
   "ast": {
     "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/GeneratorRegistry.sol",
     "exportedSymbols": {
       "GeneratorRegistry": [
-        447
+        456
       ]
     },
-    "id": 448,
+    "id": 457,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -170,8 +184,8 @@
         "file": "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol",
         "id": 374,
         "nodeType": "ImportDirective",
-        "scope": 448,
-        "sourceUnit": 1211,
+        "scope": 457,
+        "sourceUnit": 1220,
         "src": "26:71:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -181,7 +195,7 @@
         "file": "./GeneratorFactory.sol",
         "id": 375,
         "nodeType": "ImportDirective",
-        "scope": 448,
+        "scope": 457,
         "sourceUnit": 372,
         "src": "99:32:3",
         "symbolAliases": [],
@@ -192,7 +206,7 @@
         "file": "./Generator.sol",
         "id": 376,
         "nodeType": "ImportDirective",
-        "scope": 448,
+        "scope": 457,
         "sourceUnit": 310,
         "src": "132:25:3",
         "symbolAliases": [],
@@ -204,9 +218,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 447,
+        "id": 456,
         "linearizedBaseContracts": [
-          447
+          456
         ],
         "name": "GeneratorRegistry",
         "nodeType": "ContractDefinition",
@@ -312,12 +326,12 @@
             "id": 386,
             "name": "token",
             "nodeType": "VariableDeclaration",
-            "scope": 447,
+            "scope": 456,
             "src": "376:26:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_StandardToken_$1210",
+              "typeIdentifier": "t_contract$_StandardToken_$1219",
               "typeString": "contract StandardToken"
             },
             "typeName": {
@@ -325,10 +339,10 @@
               "id": 385,
               "name": "StandardToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1210,
+              "referencedDeclaration": 1219,
               "src": "376:13:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StandardToken_$1210",
+                "typeIdentifier": "t_contract$_StandardToken_$1219",
                 "typeString": "contract StandardToken"
               }
             },
@@ -340,7 +354,7 @@
             "id": 388,
             "name": "activeGenerator",
             "nodeType": "VariableDeclaration",
-            "scope": 447,
+            "scope": 456,
             "src": "408:32:3",
             "stateVariable": true,
             "storageLocation": "default",
@@ -368,7 +382,7 @@
             "id": 391,
             "name": "generators",
             "nodeType": "VariableDeclaration",
-            "scope": 447,
+            "scope": 456,
             "src": "446:29:3",
             "stateVariable": true,
             "storageLocation": "default",
@@ -424,7 +438,7 @@
                       "referencedDeclaration": 386,
                       "src": "533:5:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StandardToken_$1210",
+                        "typeIdentifier": "t_contract$_StandardToken_$1219",
                         "typeString": "contract StandardToken"
                       }
                     },
@@ -439,13 +453,13 @@
                       "referencedDeclaration": 393,
                       "src": "541:6:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StandardToken_$1210",
+                        "typeIdentifier": "t_contract$_StandardToken_$1219",
                         "typeString": "contract StandardToken"
                       }
                     },
                     "src": "533:14:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1210",
+                      "typeIdentifier": "t_contract$_StandardToken_$1219",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -477,7 +491,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_StandardToken_$1210",
+                    "typeIdentifier": "t_contract$_StandardToken_$1219",
                     "typeString": "contract StandardToken"
                   },
                   "typeName": {
@@ -485,10 +499,10 @@
                     "id": 392,
                     "name": "StandardToken",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1210,
+                    "referencedDeclaration": 1219,
                     "src": "494:13:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1210",
+                      "typeIdentifier": "t_contract$_StandardToken_$1219",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -505,7 +519,7 @@
               "parameters": [],
               "src": "523:0:3"
             },
-            "scope": 447,
+            "scope": 456,
             "src": "482:72:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -588,7 +602,7 @@
               ],
               "src": "610:11:3"
             },
-            "scope": 447,
+            "scope": 456,
             "src": "560:101:3",
             "stateMutability": "view",
             "superFunction": null,
@@ -768,7 +782,7 @@
               "parameters": [],
               "src": "718:0:3"
             },
-            "scope": 447,
+            "scope": 456,
             "src": "667:133:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -810,7 +824,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2746,
+                          "referencedDeclaration": 2755,
                           "src": "908:3:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -939,7 +953,7 @@
               "parameters": [],
               "src": "860:0:3"
             },
-            "scope": 447,
+            "scope": 456,
             "src": "806:132:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -961,7 +975,7 @@
                     "referencedDeclaration": 386,
                     "src": "1011:5:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1210",
+                      "typeIdentifier": "t_contract$_StandardToken_$1219",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -1020,27 +1034,120 @@
               ],
               "src": "984:9:3"
             },
-            "scope": 447,
+            "scope": 456,
             "src": "944:79:3",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 454,
+              "nodeType": "Block",
+              "src": "1088:34:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 452,
+                    "name": "generators",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 391,
+                    "src": "1105:10:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_Generator_$309_$dyn_storage",
+                      "typeString": "contract Generator[] storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 451,
+                  "id": 453,
+                  "nodeType": "Return",
+                  "src": "1098:17:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 455,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getGenerators",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 447,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1051:2:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 451,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 450,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 455,
+                  "src": "1075:11:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_contract$_Generator_$309_$dyn_memory_ptr",
+                    "typeString": "contract Generator[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 448,
+                      "name": "Generator",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 309,
+                      "src": "1075:9:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Generator_$309",
+                        "typeString": "contract Generator"
+                      }
+                    },
+                    "id": 449,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1075:11:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_Generator_$309_$dyn_storage_ptr",
+                      "typeString": "contract Generator[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1074:13:3"
+            },
+            "scope": 456,
+            "src": "1029:93:3",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 448,
-        "src": "159:866:3"
+        "scope": 457,
+        "src": "159:965:3"
       }
     ],
-    "src": "0:1025:3"
+    "src": "0:1124:3"
   },
   "legacyAST": {
     "absolutePath": "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/contracts/GeneratorRegistry.sol",
     "exportedSymbols": {
       "GeneratorRegistry": [
-        447
+        456
       ]
     },
-    "id": 448,
+    "id": 457,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -1059,8 +1166,8 @@
         "file": "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol",
         "id": 374,
         "nodeType": "ImportDirective",
-        "scope": 448,
-        "sourceUnit": 1211,
+        "scope": 457,
+        "sourceUnit": 1220,
         "src": "26:71:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1070,7 +1177,7 @@
         "file": "./GeneratorFactory.sol",
         "id": 375,
         "nodeType": "ImportDirective",
-        "scope": 448,
+        "scope": 457,
         "sourceUnit": 372,
         "src": "99:32:3",
         "symbolAliases": [],
@@ -1081,7 +1188,7 @@
         "file": "./Generator.sol",
         "id": 376,
         "nodeType": "ImportDirective",
-        "scope": 448,
+        "scope": 457,
         "sourceUnit": 310,
         "src": "132:25:3",
         "symbolAliases": [],
@@ -1093,9 +1200,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 447,
+        "id": 456,
         "linearizedBaseContracts": [
-          447
+          456
         ],
         "name": "GeneratorRegistry",
         "nodeType": "ContractDefinition",
@@ -1201,12 +1308,12 @@
             "id": 386,
             "name": "token",
             "nodeType": "VariableDeclaration",
-            "scope": 447,
+            "scope": 456,
             "src": "376:26:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_StandardToken_$1210",
+              "typeIdentifier": "t_contract$_StandardToken_$1219",
               "typeString": "contract StandardToken"
             },
             "typeName": {
@@ -1214,10 +1321,10 @@
               "id": 385,
               "name": "StandardToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1210,
+              "referencedDeclaration": 1219,
               "src": "376:13:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StandardToken_$1210",
+                "typeIdentifier": "t_contract$_StandardToken_$1219",
                 "typeString": "contract StandardToken"
               }
             },
@@ -1229,7 +1336,7 @@
             "id": 388,
             "name": "activeGenerator",
             "nodeType": "VariableDeclaration",
-            "scope": 447,
+            "scope": 456,
             "src": "408:32:3",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1257,7 +1364,7 @@
             "id": 391,
             "name": "generators",
             "nodeType": "VariableDeclaration",
-            "scope": 447,
+            "scope": 456,
             "src": "446:29:3",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1313,7 +1420,7 @@
                       "referencedDeclaration": 386,
                       "src": "533:5:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StandardToken_$1210",
+                        "typeIdentifier": "t_contract$_StandardToken_$1219",
                         "typeString": "contract StandardToken"
                       }
                     },
@@ -1328,13 +1435,13 @@
                       "referencedDeclaration": 393,
                       "src": "541:6:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StandardToken_$1210",
+                        "typeIdentifier": "t_contract$_StandardToken_$1219",
                         "typeString": "contract StandardToken"
                       }
                     },
                     "src": "533:14:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1210",
+                      "typeIdentifier": "t_contract$_StandardToken_$1219",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -1366,7 +1473,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_StandardToken_$1210",
+                    "typeIdentifier": "t_contract$_StandardToken_$1219",
                     "typeString": "contract StandardToken"
                   },
                   "typeName": {
@@ -1374,10 +1481,10 @@
                     "id": 392,
                     "name": "StandardToken",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1210,
+                    "referencedDeclaration": 1219,
                     "src": "494:13:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1210",
+                      "typeIdentifier": "t_contract$_StandardToken_$1219",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -1394,7 +1501,7 @@
               "parameters": [],
               "src": "523:0:3"
             },
-            "scope": 447,
+            "scope": 456,
             "src": "482:72:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1477,7 +1584,7 @@
               ],
               "src": "610:11:3"
             },
-            "scope": 447,
+            "scope": 456,
             "src": "560:101:3",
             "stateMutability": "view",
             "superFunction": null,
@@ -1657,7 +1764,7 @@
               "parameters": [],
               "src": "718:0:3"
             },
-            "scope": 447,
+            "scope": 456,
             "src": "667:133:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1699,7 +1806,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2746,
+                          "referencedDeclaration": 2755,
                           "src": "908:3:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1828,7 +1935,7 @@
               "parameters": [],
               "src": "860:0:3"
             },
-            "scope": 447,
+            "scope": 456,
             "src": "806:132:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1850,7 +1957,7 @@
                     "referencedDeclaration": 386,
                     "src": "1011:5:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StandardToken_$1210",
+                      "typeIdentifier": "t_contract$_StandardToken_$1219",
                       "typeString": "contract StandardToken"
                     }
                   },
@@ -1909,31 +2016,130 @@
               ],
               "src": "984:9:3"
             },
-            "scope": 447,
+            "scope": 456,
             "src": "944:79:3",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 454,
+              "nodeType": "Block",
+              "src": "1088:34:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 452,
+                    "name": "generators",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 391,
+                    "src": "1105:10:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_Generator_$309_$dyn_storage",
+                      "typeString": "contract Generator[] storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 451,
+                  "id": 453,
+                  "nodeType": "Return",
+                  "src": "1098:17:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 455,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getGenerators",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 447,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1051:2:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 451,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 450,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 455,
+                  "src": "1075:11:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_contract$_Generator_$309_$dyn_memory_ptr",
+                    "typeString": "contract Generator[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 448,
+                      "name": "Generator",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 309,
+                      "src": "1075:9:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Generator_$309",
+                        "typeString": "contract Generator"
+                      }
+                    },
+                    "id": 449,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1075:11:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_Generator_$309_$dyn_storage_ptr",
+                      "typeString": "contract Generator[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1074:13:3"
+            },
+            "scope": 456,
+            "src": "1029:93:3",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 448,
-        "src": "159:866:3"
+        "scope": 457,
+        "src": "159:965:3"
       }
     ],
-    "src": "0:1025:3"
+    "src": "0:1124:3"
   },
   "compiler": {
     "name": "solc",
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {
+    "4": {
+      "events": {},
+      "links": {},
+      "address": "0x37b780c2368350f01bde551e430c61ad37a8ba7b",
+      "transactionHash": "0xd5726a9b0f772e8ab7410efea645d32b42d1b257222f712a05ba5b1a99d242f9"
+    },
     "50": {
       "events": {},
       "links": {},
-      "address": "0x97bd553f21b175f7cc00819cc6494a7fba344180",
-      "transactionHash": "0xb5703816258a7c8c580121d51665ed2b48eabe09f8574d6d03fb8e9171f5481f"
+      "address": "0x2f3efa6bbdc5faf4dc1a600765c7b7829e47be10",
+      "transactionHash": "0x85ae501627f8a718c5cc49add07601d752bb578aaf70766faff8cb5eef81eaa6"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-15T03:31:43.833Z"
+  "updatedAt": "2018-10-17T00:37:28.117Z"
 }

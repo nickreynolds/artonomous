@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { DrizzleContext } from "drizzle-react";
-import "./App.css";
 import DrizzleApp from "./DrizzleApp";
 console.log("well 1");
 export default props => (

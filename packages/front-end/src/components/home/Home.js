@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { ContractData } from "drizzle-react-components";
 import NewContractForm from "../utility/NewContractForm";
-import ArtPiece from "./ArtPiece";
+import ArtPiece from "../artPiece/ArtPiece";
 class Home extends Component {
   state = { auctionkey: null };
   componentDidMount() {
@@ -25,6 +25,9 @@ class Home extends Component {
             </p>
             <p>
               <strong>Piece Token</strong>: <ContractData contract="Artonomous" method="pieceToken" />
+            </p>
+            <p>
+              <strong>Piece Token Owner</strong>: <ContractData contract="ArtPieceToken" method="owner" />
             </p>
             <p>
               <strong>Beneficiary</strong>: <ContractData contract="Artonomous" method="beneficiary" />

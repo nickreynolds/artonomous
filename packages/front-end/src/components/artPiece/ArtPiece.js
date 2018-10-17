@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ContractData } from "drizzle-react-components";
 import NewContractForm from "../utility/NewContractForm";
+import ArtPieceRendererContainer from "./ArtPieceRendererContainer";
 class ArtPiece extends Component {
   state = { artPieceKey: null, ownerKey: null };
   componentDidMount() {
@@ -23,6 +24,13 @@ class ArtPiece extends Component {
         <p>Block Number: {this.props.blockNum}</p>
         <p>Current Owner: {ownerData && ownerData.value}</p>
         <p>Generator of Piece: {auctionData && auctionData.value}</p>
+        {auctionData && (
+          <ArtPieceRendererContainer
+            drizzle={this.props.drizzle}
+            drizzleState={this.props.drizzleState}
+            generator={auctionData.value}
+          />
+        )}
       </div>
     );
   }

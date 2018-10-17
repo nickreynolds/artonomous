@@ -19,6 +19,15 @@
 13 error Error: Command failed: yarn run migrate:ganache
 13 error warning package.json: No license field
 13 error warning package.json: No license field
+13 error /Users/nickreynolds/Artonomous/artonomous/packages/contracts/migrations/9_extra_for_test.js:5
+13 error     const arty = await Artonomous.deployed();
+13 error                  ^^^^^
+13 error
+13 error SyntaxError: await is only valid in async function
+13 error     at new Script (vm.js:51:7)
+13 error     at Object.createScript (vm.js:136:10)
+13 error     at /usr/local/lib/node_modules/truffle/build/webpack:/packages/truffle-require/require.js:96:1
+13 error     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:532:3)
 13 error error An unexpected error occurred: "Command failed.
 13 error Exit code: 1
 13 error Command: sh
@@ -40,63 +49,66 @@
 13 error
 13 error Running migration: 1_initial_migration.js
 13 error   Replacing Migrations...
-13 error   ... 0xef3e98a942940c1cf05247014be512db649483f2dbd478139795839d0984dc24
-13 error   Migrations: 0x85c36479cd6de396f4b237a7ce4743aaa9ac346b
+13 error   ... 0x376ce05293fd8a509394c0e29649c5e0dcbcdc5a349d513aa250683dbd0476a1
+13 error   Migrations: 0x5f8e26facc23fa4cbd87b8d9dbbd33d5047abde1
 13 error Saving successful migration to network...
-13 error   ... 0x2280ac4c4edff06db833f60e84832914d8281d07ff832b90fac26b79e821c401
+13 error   ... 0xec36ed1bcb909f7404d689ead101a1370b6e7de9590adfba74f31a72915c8413
 13 error Saving artifacts...
 13 error Running migration: 2_deploy_soul.js
 13 error   Replacing SoulToken...
-13 error   ... 0x524d2d623be43a6a40c40fc8318af7ea7cf21591788741c5d2bed39c075d8dfb
-13 error   SoulToken: 0x13331a9e619b4e016f35f29df84c1b14675fe33d
+13 error   ... 0xe2fdeb79e9799653a574350968272ed310e96c28388f715417be1ffa66999074
+13 error   SoulToken: 0xd86c8f0327494034f60e25074420bccf560d5610
 13 error Saving successful migration to network...
-13 error   ... 0xc4b21fcda8c01664143af65a0159fff9ca7a2d44904473b8e70b3b44aa5e2ba0
+13 error   ... 0x340895a5ed7bfac050c20f3fb047e0b8ddc067ecacf9833f2f4ff1c3099b2d7f
 13 error Saving artifacts...
 13 error Running migration: 3_deploy_generator_registry.js
 13 error   Running step...
 13 error   Replacing GeneratorRegistry...
-13 error   ... 0x42e6ebce7fa6d27c4345bcb748714fa3ad6177b95609af4b914b4462508a9ea7
-13 error   GeneratorRegistry: 0xfc4b0b4152fc2dc82a2bbb138769f20d491c1371
+13 error   ... 0xdaca8f8048f728e1707b9a33d05413c60a3e30499acd30aa55d2cbff5c7cf30b
+13 error   GeneratorRegistry: 0xad888d0ade988ebee74b8d4f39bf29a8d0fe8a8d
 13 error Saving successful migration to network...
-13 error   ... 0x80a4482850db38b633cf25171963b0198e18c35384d6ab93f0df04c9e977e173
+13 error   ... 0xfca0f2b56a00726ef332ddae2c00f525e1b1d1f6fdcdd89ba81ea437a9866a90
 13 error Saving artifacts...
 13 error Running migration: 4_deploy_generator_factory.js
 13 error   Running step...
 13 error   Replacing Generator...
-13 error   ... 0x11211c4773a7f91fd2ee1e98414370069b770cac6b5c22a4e985e4ad1d82881e
-13 error   Generator: 0xbbf69673e44988d2fd7d878edbd1cdda1a70fab7
+13 error   ... 0x79cd24e90f9c31c08a277ab122ea42afec9cafb1ba01c36878a6fc8cc585e5fa
+13 error   Generator: 0x5017a545b09ab9a30499de7f431df0855bcb7275
 13 error   Replacing GeneratorFactory...
-13 error   ... 0xa0aa6f402dc2cb6090c77347abd44fa2c911fcf11e0c6b04525da6c2d6b7bbad
-13 error   GeneratorFactory: 0x63f565ba734faca4da752050b61357ac2b61d030
+13 error   ... 0x3c4cd884028d980825db4980fd4be3a8cb111aa939e949dde4d1d42a2a6104bf
+13 error   GeneratorFactory: 0x86072cbff48da3c1f01824a6761a03f105bcc697
 13 error Saving successful migration to network...
-13 error   ... 0xd26564f92e8fcccc02df467b01affc20cf798957be5da4bbe45689915d048df7
+13 error   ... 0xb4a63dd43f7c9cbd1790f3602a8701a077da0325dcb7fea48792c9c48c58e963
 13 error Saving artifacts...
-13 error Running migration: 5_deploy_art_piece_token.js
-13 error   Replacing ArtPieceToken...
-13 error   ... 0x6801728c4b2c3469839c6b0792354954c9e834960fa3f7cabda70a101d5a0951
-13 error   ArtPieceToken: 0x90cb112f7e7fd97eda7c3a2d345a641bef360d00
-13 error Saving successful migration to network...
-13 error   ... 0xbeb8cd683d92c961370bf82cea13c8126e2b06b9f317deb86fbe7bb37f12b1d5
-13 error Saving artifacts...
-13 error Running migration: 6_deploy_artonomous.js
+13 error Running migration: 5_set_initial_generator.js
 13 error   Running step...
-13 error   Deploying Artonomous...
-13 error   ... 0x316f5e5a045d554db34487b35f3547ed3546c8d7b2c77ce9e6f7f5ef99fcaa49
-13 error Error encountered, bailing. Network state unknown. Review successful transactions manually.
-13 error Error: The contract code couldn't be stored, please check your gas amount.
-13 error     at Object.callback (/usr/local/lib/node_modules/truffle/build/webpack:/~/web3/lib/web3/contract.js:147:1)
-13 error     at /usr/local/lib/node_modules/truffle/build/webpack:/~/web3/lib/web3/method.js:142:1
-13 error     at /usr/local/lib/node_modules/truffle/build/webpack:/~/web3/lib/web3/requestmanager.js:89:1
-13 error     at /usr/local/lib/node_modules/truffle/build/webpack:/packages/truffle-migrate/index.js:225:1
-13 error     at /usr/local/lib/node_modules/truffle/build/webpack:/packages/truffle-provider/wrapper.js:134:1
-13 error     at XMLHttpRequest.request.onreadystatechange (/usr/local/lib/node_modules/truffle/build/webpack:/~/web3/lib/web3/httpprovider.js:128:1)
-13 error     at XMLHttpRequestEventTarget.dispatchEvent (/usr/local/lib/node_modules/truffle/build/webpack:/~/xhr2/lib/xhr2.js:64:1)
-13 error     at XMLHttpRequest._setReadyState (/usr/local/lib/node_modules/truffle/build/webpack:/~/xhr2/lib/xhr2.js:354:1)
-13 error     at XMLHttpRequest._onHttpResponseEnd (/usr/local/lib/node_modules/truffle/build/webpack:/~/xhr2/lib/xhr2.js:509:1)
-13 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/truffle/build/webpack:/~/xhr2/lib/xhr2.js:469:1)
-13 error     at IncomingMessage.emit (events.js:185:15)
-13 error     at endReadableNT (_stream_readable.js:1106:12)
-13 error     at process._tickCallback (internal/process/next_tick.js:114:19)
+13 error   ... 0x5a4aa3cf4c3ba2c300b5fe75bf70706e24d9032dab26b9ec6fcd865aeef83cab
+13 error Saving successful migration to network...
+13 error   ... 0x315dbcb52aa19fde9f1d5b603e27829b28fe701aa0ab5984d88d285b313b38c7
+13 error Saving artifacts...
+13 error Running migration: 6_deploy_art_piece_token.js
+13 error   Replacing ArtPieceToken...
+13 error   ... 0xe3d35165057fefc65d14132e706eb23f92a207e4895afd62aee4819633844916
+13 error   ArtPieceToken: 0x970e8f18ebfea0b08810f33a5a40438b9530fbcf
+13 error Saving successful migration to network...
+13 error   ... 0x1b61429c916afd6fa3c33cab2a47f4f9c35bd64d6fdd1f708a2769b017daf289
+13 error Saving artifacts...
+13 error Running migration: 7_deploy_artonomous.js
+13 error GeneratorRegistry.address:  0xad888d0ade988ebee74b8d4f39bf29a8d0fe8a8d
+13 error ArtPieceToken.address:  0x970e8f18ebfea0b08810f33a5a40438b9530fbcf
+13 error   Replacing Artonomous...
+13 error   ... 0xa9c8a4180cf580fde4b9d0f1c2e35033fc07fdaffccf98ea7c1f71cb8b8aa99a
+13 error   Artonomous: 0xaf5c4c6c7920b4883bc6252e9d9b8fe27187cf68
+13 error Saving successful migration to network...
+13 error   ... 0x2711eb381b557c485f6bd62e67a7755a3d73861d249fca43caae2932f83cb75d
+13 error Saving artifacts...
+13 error Running migration: 8_transfer_token_ownership.js
+13 error   Running step...
+13 error   ... 0xeed99395688c82fcc2544e8eef5dc4eb98a17dbd2f20da932a7f88e21948f1a8
+13 error Saving successful migration to network...
+13 error   ... 0xf981effb11bdafde54c3a05c72d819644cbee867799ba7a60e7e39fda9b8d25b
+13 error Saving artifacts...
+13 error Running migration: 9_extra_for_test.js
 13 error info If you think this is a bug, please open a bug report with the information provided in "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/yarn-error.log".
 13 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 13 error info If you think this is a bug, please open a bug report with the information provided in "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/yarn-error.log".
