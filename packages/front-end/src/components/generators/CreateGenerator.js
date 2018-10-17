@@ -11,8 +11,6 @@ import * as fsapi from "../../fsapi";
 
 import sizer from "react-sizer";
 
-import "./CreateGenerator.css";
-
 class CreateGenerator extends React.Component {
   static propTypes = {
     width: PropTypes.number.isRequired,
@@ -20,19 +18,21 @@ class CreateGenerator extends React.Component {
   };
 
   state = {
-    code: `function setup() {
+    code: `const random64 = "$RANDOM_HASH";
+    
+function setup() {
   createCanvas(400, 400);
 }
-
 function draw() {
-  background(220);
+  background(random64.charCodeAt(0)+random64.charCodeAt(1)*5, random64.charCodeAt(2)*2, 30);
 }`,
-    app: `function setup() {
+    app: `const random64 = "$RANDOM_HASH";
+    
+function setup() {
   createCanvas(400, 400);
 }
-
 function draw() {
-  background(220);
+  background(random64.charCodeAt(0)+random64.charCodeAt(1)*5, random64.charCodeAt(2)*2, 30);
 }`,
     isProcessing: false,
   };

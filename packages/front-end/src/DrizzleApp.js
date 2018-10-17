@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import "./App.css";
 import NavBar from "./components/navbar/NavBar";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 class DrizzleApp extends Component {
   render() {
     const { children } = this.props;
@@ -11,8 +11,10 @@ class DrizzleApp extends Component {
 
     return (
       <div>
-        <NavBar drizzle={this.props.drizzle} drizzleState={this.props.drizzleState} />
-        {childrenWithProps}
+        <MuiThemeProvider>
+          <NavBar drizzle={this.props.drizzle} drizzleState={this.props.drizzleState} />
+          {childrenWithProps}
+        </MuiThemeProvider>
       </div>
     );
   }
