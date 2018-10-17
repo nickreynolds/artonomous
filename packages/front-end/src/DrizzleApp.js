@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import "./App.css";
-import NavBar from "./layouts/navbar/NavBar";
+import NavBar from "./components/navbar/NavBar";
 class DrizzleApp extends Component {
   render() {
     const { children } = this.props;

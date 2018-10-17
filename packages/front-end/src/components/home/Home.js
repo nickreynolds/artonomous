@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { ContractData } from "drizzle-react-components";
 import NewContractForm from "../utility/NewContractForm";
-import ArtPiece from "./ArtPiece";
+import ArtPiece from "../artPiece/ArtPiece";
 class Home extends Component {
   state = { auctionkey: null };
   componentDidMount() {
@@ -43,9 +43,6 @@ class Home extends Component {
                 blockNum={auctionData.value[0]}
               />
             )}
-            <NewContractForm contract="Artonomous" method="startAuction">
-              Start Auction
-            </NewContractForm>
             <NewContractForm contract="Artonomous" method="buyArt" methodArgs={{ value: "1000000000000000" }}>
               Buy Art
             </NewContractForm>

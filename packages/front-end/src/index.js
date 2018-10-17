@@ -6,9 +6,9 @@ import { Drizzle, generateStore } from "drizzle";
 import { DrizzleProvider, DrizzleContext } from "drizzle-react";
 // Layouts
 import App from "./App";
-import Home from "./layouts/home/Home";
-import Generators from "./layouts/generators/Generators";
-import CreateGenerator from "./layouts/generators/CreateGenerator";
+import Home from "./components/home/Home";
+import Generators from "./components/generators/Generators";
+import CreateGenerator from "./components/generators/CreateGenerator";
 import { LoadingContainer } from "drizzle-react-components";
 
 import store from "./store";

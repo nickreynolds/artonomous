@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { ContractData } from "drizzle-react-components";
 import NewContractForm from "../utility/NewContractForm";
+import { Link } from "react-router";
+
 class Generators extends Component {
   state = { tokenKey: null, generatorsKey: null, activeGeneratorKey: null };
   componentDidMount() {
@@ -29,6 +31,7 @@ class Generators extends Component {
         <div className="pure-g">
           <div className="pure-u-1-1 header">
             <h1>Generators</h1>
+            <Link to="/createGenerator">Create Generator</Link>
             SOUL Token Addr: {tokenAddr && tokenAddr.value}
             Generators: {generators && generators.value}
             Active Generator: {activeGenerator && activeGenerator.value}
