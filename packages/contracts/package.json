@@ -28,7 +28,7 @@
     "build": "run-p --aggregate-output compile:*",
     "compile:typescript": "tsc",
     "compile:solidity": "truffle compile",
-    "migrate": "truffle migrate",
+    "migrate": "yarn build && truffle migrate",
     "migrate:ganache": "run-s 'migrate --network=ganache --reset'",
     "tsc": "tsc"
   }

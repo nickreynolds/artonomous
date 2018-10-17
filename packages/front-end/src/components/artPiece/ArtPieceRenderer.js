@@ -12,6 +12,7 @@ export default class ArtPieceRenderer extends React.Component {
   };
 
   componentDidMount() {
+    console.log("url: ", this.props.url);
     fsapi.getTextFileFromPath(this.props.url.split("/")[0]).then(code => {
       this.setState({ code });
     });
