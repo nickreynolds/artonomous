@@ -48,11 +48,9 @@ class NewContractForm extends Component {
     if (this.methodArgs != null) {
       args = this.methodArgs;
     }
+    console.log("args: ", args);
     args.from = this.props.accounts[this.props.accountIndex];
-    this.contracts[this.props.contract].methods[this.props.method].cacheSend(
-      ...Object.values(this.state),
-      args
-    );
+    this.contracts[this.props.contract].methods[this.props.method].cacheSend(...Object.values(this.state), args);
   }
 
   handleInputChange(event) {
@@ -80,9 +78,7 @@ class NewContractForm extends Component {
       <form className="pure-form pure-form-stacked">
         {this.inputs.map((input, index) => {
           var inputType = this.translateType(input.type);
-          var inputLabel = this.props.labels
-            ? this.props.labels[index]
-            : input.name;
+          var inputLabel = this.props.labels ? this.props.labels[index] : input.name;
           // check if input type is struct and if so loop out struct fields as well
           return (
             <input
@@ -95,12 +91,7 @@ class NewContractForm extends Component {
             />
           );
         })}
-        <button
-          key="submit"
-          className="pure-button"
-          type="button"
-          onClick={this.handleSubmit}
-        >
+        <button key="submit" className="pure-button" type="button" onClick={this.handleSubmit}>
           {this.props.children}
         </button>
       </form>
@@ -109,7 +100,7 @@ class NewContractForm extends Component {
 }
 
 NewContractForm.contextTypes = {
-  drizzle: PropTypes.object
+  drizzle: PropTypes.object,
 };
 
 /*
@@ -120,7 +111,7 @@ const mapStateToProps = state => {
   return {
     accounts: state.accounts,
     accountBalances: state.accountBalances,
-    contracts: state.contracts
+    contracts: state.contracts,
   };
 };
 

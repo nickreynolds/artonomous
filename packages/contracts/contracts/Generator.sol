@@ -20,8 +20,6 @@ contract Generator is Initializable {
     registry = _registry;
     creator = _creator;
     sourceUri = _sourceUri;
-
-    registry.fireRegistryEvent("constructed");
   }
 
   function getGenerator() public view returns (string, address, string) {

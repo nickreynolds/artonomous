@@ -45,6 +45,7 @@ class NavBar extends Component {
     console.log("this.props:", this.props);
     console.log("render with dataKey: ", this.state.dataKey);
     const balance = this.props.drizzleState.contracts.SoulToken.balanceOf[this.state.dataKey];
+    const registryAddress = this.props.drizzle.contracts.GeneratorRegistry.address;
     console.log("balance: ", balance);
     return (
       <NavDiv>
@@ -59,6 +60,9 @@ class NavBar extends Component {
             <NavSpan>SOUL balance: {balance && balance.value}</NavSpan>{" "}
             <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: "100000000000000000" }}>
               Buy .1 ETH of SOUL
+            </NewContractForm>
+            <NewContractForm contract="SoulToken" method="approve">
+              Approve Registry To Spend 1000 SOUL
             </NewContractForm>
           </NavLI>
         </NavUL>

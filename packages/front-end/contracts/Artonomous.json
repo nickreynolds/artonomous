@@ -173,8 +173,8 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x60806040526201518060035534801561001757600080fd5b5060405160408061065783398101604052805160209091015160008054600160a060020a03938416600160a060020a031991821617909155600180549390921692811692909217905560028054909116301790556105dd8061007a6000396000f30060806040526004361061008d5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166338af3eed8114610092578063496a698d146100c35780634e9e136d146100f657806355d4169214610100578063635af9ad146101155780636b64c7691461013c5780637b10399914610151578063d92f20f414610166575b600080fd5b34801561009e57600080fd5b506100a761017b565b60408051600160a060020a039092168252519081900360200190f35b3480156100cf57600080fd5b506100d861018a565b60408051938452602084019290925282820152519081900360600190f35b6100fe610196565b005b34801561010c57600080fd5b506100a76102e2565b34801561012157600080fd5b5061012a6102f1565b60408051918252519081900360200190f35b34801561014857600080fd5b506100fe6102f7565b34801561015d57600080fd5b506100a76104a6565b34801561017257600080fd5b506100fe6104b5565b600254600160a060020a031681565b60045460055460065483565b6004546000808083116101a857600080fd5b60055442106101b657600080fd5b6006546101c2906105a5565b9150348211156101d157600080fd5b600154604080517f23b872dd000000000000000000000000000000000000000000000000000000008152306004820152336024820152604481018690529051600160a060020a03909216916323b872dd9160648082019260009290919082900301818387803b15801561024357600080fd5b505af1158015610257573d6000803e3d6000fd5b5050600060048190556005819055600681905560405134869003945033935084156108fc0292508491818181858888f1935050505015801561029d573d6000803e3d6000fd5b50604080518381529051849133917f682553da668235675371295b1cda200992ebe5c26835d6f26b9658340f3b5f189181900360200190a36102dd6102f7565b505050565b600154600160a060020a031681565b60035481565b6004546000901561030757600080fd5b6000809054906101000a9004600160a060020a0316600160a060020a031663471b2e2a6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15801561037257600080fd5b505af1158015610386573d6000803e3d6000fd5b505050506040513d602081101561039c57600080fd5b5051600154604080517f0d4d1513000000000000000000000000000000000000000000000000000000008152306004820152436024820152600160a060020a0380851660448301529151939450911691630d4d1513916064808201926020929091908290030181600087803b15801561041457600080fd5b505af1158015610428573d6000803e3d6000fd5b505050506040513d602081101561043e57600080fd5b505060408051606081018252438152600354420160208201529081016104626105a8565b9052805160045560208101516005556040908101516006555143907f88f30d4843736b55afaa342b7fbcc8c3c666f2451fb4fcda585d98dcc484f55590600090a250565b600054600160a060020a031681565b600454600081116104c557600080fd5b6005544210156104d457600080fd5b600154604080517f23b872dd000000000000000000000000000000000000000000000000000000008152306004820152336024820152604481018490529051600160a060020a03909216916323b872dd9160648082019260009290919082900301818387803b15801561054657600080fd5b505af115801561055a573d6000803e3d6000fd5b505060006004819055600581905560068190556040518493503392507ff567a0a57233e406978940ccd12ded9982296245a1dcaeff95e906cd2988fb5c9190a36105a26102f7565b50565b90565b64e8d4a51000905600a165627a7a723058207c46db4d6d367cf6097e9b7d885d94c92f522cb61f08de5cb416ae8371f47ff60029",
-  "deployedBytecode": "0x60806040526004361061008d5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166338af3eed8114610092578063496a698d146100c35780634e9e136d146100f657806355d4169214610100578063635af9ad146101155780636b64c7691461013c5780637b10399914610151578063d92f20f414610166575b600080fd5b34801561009e57600080fd5b506100a761017b565b60408051600160a060020a039092168252519081900360200190f35b3480156100cf57600080fd5b506100d861018a565b60408051938452602084019290925282820152519081900360600190f35b6100fe610196565b005b34801561010c57600080fd5b506100a76102e2565b34801561012157600080fd5b5061012a6102f1565b60408051918252519081900360200190f35b34801561014857600080fd5b506100fe6102f7565b34801561015d57600080fd5b506100a76104a6565b34801561017257600080fd5b506100fe6104b5565b600254600160a060020a031681565b60045460055460065483565b6004546000808083116101a857600080fd5b60055442106101b657600080fd5b6006546101c2906105a5565b9150348211156101d157600080fd5b600154604080517f23b872dd000000000000000000000000000000000000000000000000000000008152306004820152336024820152604481018690529051600160a060020a03909216916323b872dd9160648082019260009290919082900301818387803b15801561024357600080fd5b505af1158015610257573d6000803e3d6000fd5b5050600060048190556005819055600681905560405134869003945033935084156108fc0292508491818181858888f1935050505015801561029d573d6000803e3d6000fd5b50604080518381529051849133917f682553da668235675371295b1cda200992ebe5c26835d6f26b9658340f3b5f189181900360200190a36102dd6102f7565b505050565b600154600160a060020a031681565b60035481565b6004546000901561030757600080fd5b6000809054906101000a9004600160a060020a0316600160a060020a031663471b2e2a6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15801561037257600080fd5b505af1158015610386573d6000803e3d6000fd5b505050506040513d602081101561039c57600080fd5b5051600154604080517f0d4d1513000000000000000000000000000000000000000000000000000000008152306004820152436024820152600160a060020a0380851660448301529151939450911691630d4d1513916064808201926020929091908290030181600087803b15801561041457600080fd5b505af1158015610428573d6000803e3d6000fd5b505050506040513d602081101561043e57600080fd5b505060408051606081018252438152600354420160208201529081016104626105a8565b9052805160045560208101516005556040908101516006555143907f88f30d4843736b55afaa342b7fbcc8c3c666f2451fb4fcda585d98dcc484f55590600090a250565b600054600160a060020a031681565b600454600081116104c557600080fd5b6005544210156104d457600080fd5b600154604080517f23b872dd000000000000000000000000000000000000000000000000000000008152306004820152336024820152604481018490529051600160a060020a03909216916323b872dd9160648082019260009290919082900301818387803b15801561054657600080fd5b505af115801561055a573d6000803e3d6000fd5b505060006004819055600581905560068190556040518493503392507ff567a0a57233e406978940ccd12ded9982296245a1dcaeff95e906cd2988fb5c9190a36105a26102f7565b50565b90565b64e8d4a51000905600a165627a7a723058207c46db4d6d367cf6097e9b7d885d94c92f522cb61f08de5cb416ae8371f47ff60029",
+  "bytecode": "0x60806040526201518060035534801561001757600080fd5b5060405160408061065783398101604052805160209091015160008054600160a060020a03938416600160a060020a031991821617909155600180549390921692811692909217905560028054909116301790556105dd8061007a6000396000f30060806040526004361061008d5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166338af3eed8114610092578063496a698d146100c35780634e9e136d146100f657806355d4169214610100578063635af9ad146101155780636b64c7691461013c5780637b10399914610151578063d92f20f414610166575b600080fd5b34801561009e57600080fd5b506100a761017b565b60408051600160a060020a039092168252519081900360200190f35b3480156100cf57600080fd5b506100d861018a565b60408051938452602084019290925282820152519081900360600190f35b6100fe610196565b005b34801561010c57600080fd5b506100a76102e2565b34801561012157600080fd5b5061012a6102f1565b60408051918252519081900360200190f35b34801561014857600080fd5b506100fe6102f7565b34801561015d57600080fd5b506100a76104a6565b34801561017257600080fd5b506100fe6104b5565b600254600160a060020a031681565b60045460055460065483565b6004546000808083116101a857600080fd5b60055442106101b657600080fd5b6006546101c2906105a5565b9150348211156101d157600080fd5b600154604080517f23b872dd000000000000000000000000000000000000000000000000000000008152306004820152336024820152604481018690529051600160a060020a03909216916323b872dd9160648082019260009290919082900301818387803b15801561024357600080fd5b505af1158015610257573d6000803e3d6000fd5b5050600060048190556005819055600681905560405134869003945033935084156108fc0292508491818181858888f1935050505015801561029d573d6000803e3d6000fd5b50604080518381529051849133917f682553da668235675371295b1cda200992ebe5c26835d6f26b9658340f3b5f189181900360200190a36102dd6102f7565b505050565b600154600160a060020a031681565b60035481565b6004546000901561030757600080fd5b6000809054906101000a9004600160a060020a0316600160a060020a031663471b2e2a6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15801561037257600080fd5b505af1158015610386573d6000803e3d6000fd5b505050506040513d602081101561039c57600080fd5b5051600154604080517f0d4d1513000000000000000000000000000000000000000000000000000000008152306004820152436024820152600160a060020a0380851660448301529151939450911691630d4d1513916064808201926020929091908290030181600087803b15801561041457600080fd5b505af1158015610428573d6000803e3d6000fd5b505050506040513d602081101561043e57600080fd5b505060408051606081018252438152600354420160208201529081016104626105a8565b9052805160045560208101516005556040908101516006555143907f88f30d4843736b55afaa342b7fbcc8c3c666f2451fb4fcda585d98dcc484f55590600090a250565b600054600160a060020a031681565b600454600081116104c557600080fd5b6005544210156104d457600080fd5b600154604080517f23b872dd000000000000000000000000000000000000000000000000000000008152306004820152336024820152604481018490529051600160a060020a03909216916323b872dd9160648082019260009290919082900301818387803b15801561054657600080fd5b505af115801561055a573d6000803e3d6000fd5b505060006004819055600581905560068190556040518493503392507ff567a0a57233e406978940ccd12ded9982296245a1dcaeff95e906cd2988fb5c9190a36105a26102f7565b50565b90565b64e8d4a51000905600a165627a7a723058209ea7a12ba4a754ce47978d09c9262d58f24993e48e1c4ca2cd9f50ec740794020029",
+  "deployedBytecode": "0x60806040526004361061008d5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166338af3eed8114610092578063496a698d146100c35780634e9e136d146100f657806355d4169214610100578063635af9ad146101155780636b64c7691461013c5780637b10399914610151578063d92f20f414610166575b600080fd5b34801561009e57600080fd5b506100a761017b565b60408051600160a060020a039092168252519081900360200190f35b3480156100cf57600080fd5b506100d861018a565b60408051938452602084019290925282820152519081900360600190f35b6100fe610196565b005b34801561010c57600080fd5b506100a76102e2565b34801561012157600080fd5b5061012a6102f1565b60408051918252519081900360200190f35b34801561014857600080fd5b506100fe6102f7565b34801561015d57600080fd5b506100a76104a6565b34801561017257600080fd5b506100fe6104b5565b600254600160a060020a031681565b60045460055460065483565b6004546000808083116101a857600080fd5b60055442106101b657600080fd5b6006546101c2906105a5565b9150348211156101d157600080fd5b600154604080517f23b872dd000000000000000000000000000000000000000000000000000000008152306004820152336024820152604481018690529051600160a060020a03909216916323b872dd9160648082019260009290919082900301818387803b15801561024357600080fd5b505af1158015610257573d6000803e3d6000fd5b5050600060048190556005819055600681905560405134869003945033935084156108fc0292508491818181858888f1935050505015801561029d573d6000803e3d6000fd5b50604080518381529051849133917f682553da668235675371295b1cda200992ebe5c26835d6f26b9658340f3b5f189181900360200190a36102dd6102f7565b505050565b600154600160a060020a031681565b60035481565b6004546000901561030757600080fd5b6000809054906101000a9004600160a060020a0316600160a060020a031663471b2e2a6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15801561037257600080fd5b505af1158015610386573d6000803e3d6000fd5b505050506040513d602081101561039c57600080fd5b5051600154604080517f0d4d1513000000000000000000000000000000000000000000000000000000008152306004820152436024820152600160a060020a0380851660448301529151939450911691630d4d1513916064808201926020929091908290030181600087803b15801561041457600080fd5b505af1158015610428573d6000803e3d6000fd5b505050506040513d602081101561043e57600080fd5b505060408051606081018252438152600354420160208201529081016104626105a8565b9052805160045560208101516005556040908101516006555143907f88f30d4843736b55afaa342b7fbcc8c3c666f2451fb4fcda585d98dcc484f55590600090a250565b600054600160a060020a031681565b600454600081116104c557600080fd5b6005544210156104d457600080fd5b600154604080517f23b872dd000000000000000000000000000000000000000000000000000000008152306004820152336024820152604481018490529051600160a060020a03909216916323b872dd9160648082019260009290919082900301818387803b15801561054657600080fd5b505af115801561055a573d6000803e3d6000fd5b505060006004819055600581905560068190556040518493503392507ff567a0a57233e406978940ccd12ded9982296245a1dcaeff95e906cd2988fb5c9190a36105a26102f7565b50565b90565b64e8d4a51000905600a165627a7a723058209ea7a12ba4a754ce47978d09c9262d58f24993e48e1c4ca2cd9f50ec740794020029",
   "sourceMap": "98:2584:0:-;;;646:5;617:34;;705:190;8:9:-1;5:2;;;30:1;27;20:12;5:2;705:190:0;;;;;;;;;;;;;;;;;;;773:8;:41;;-1:-1:-1;;;;;773:41:0;;;-1:-1:-1;;;;;;773:41:0;;;;;;;;824:36;;;;;;;;;;;;;;;870:11;:18;;;;;884:4;870:18;;;98:2584;;;;;;",
   "deployedSourceMap": "98:2584:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;544:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;544:26:0;;;;;;;;-1:-1:-1;;;;;544:26:0;;;;;;;;;;;;;;669:29;;8:9:-1;5:2;;;30:1;27;20:12;5:2;669:29:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1482:656;;;;;;507:31;;8:9:-1;5:2;;;30:1;27;20:12;5:2;507:31:0;;;;617:34;;8:9:-1;5:2;;;30:1;27;20:12;5:2;617:34:0;;;;;;;;;;;;;;;;;;;;901:456;;8:9:-1;5:2;;;30:1;27;20:12;5:2;901:456:0;;;;468:33;;8:9:-1;5:2;;;30:1;27;20:12;5:2;468:33:0;;;;2325:355;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2325:355:0;;;;544:26;;;-1:-1:-1;;;;;544:26:0;;:::o;669:29::-;;;;;;;;:::o;1482:656::-;1546:14;:26;1527:16;;1590:15;;;1582:24;;;;;;1624:22;;1649:3;-1:-1:-1;1616:37:0;;;;;;1692:28;;1680:41;;:11;:41::i;:::-;1664:57;-1:-1:-1;1739:9:0;:21;-1:-1:-1;1739:21:0;1731:30;;;;;;1773:10;;:54;;;;;;1797:4;1773:54;;;;1803:10;1773:54;;;;;;;;;;;;-1:-1:-1;;;;;1773:10:0;;;;:23;;:54;;;;;:10;;:54;;;;;;;;:10;;:54;;;5:2:-1;;;;30:1;27;20:12;5:2;1773:54:0;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;-1:-1;;1844:14:0;;1837:21;;;;;;;;;;;1916:30;;1886:9;:20;;;;-1:-1:-1;1916:10:0;;-1:-1:-1;1916:30:0;;;;;-1:-1:-1;1886:20:0;;1916:30;1844:14;1916:30;1886:20;1916:10;:30;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;-1:-1;2052:54:0;;;;;;;;2084:11;;2072:10;;2052:54;;;;;;;;;2117:14;:12;:14::i;:::-;1482:656;;;:::o;507:31::-;;;-1:-1:-1;;;;;507:31:0;;:::o;617:34::-;;;;:::o;901:456::-;950:14;:26;992;;950:31;942:40;;;;;;1021:8;;;;;;;;;-1:-1:-1;;;;;1021:8:0;-1:-1:-1;;;;;1021:27:0;;:29;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1021:29:0;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;1021:29:0;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1021:29:0;1060:10;;:62;;;;;;1076:4;1060:62;;;;1082:12;1060:62;;;;-1:-1:-1;;;;;1060:62:0;;;;;;;;;1021:29;;-1:-1:-1;1060:10:0;;;:15;;:62;;;;;1021:29;;1060:62;;;;;;;;:10;;:62;;;5:2:-1;;;;30:1;27;20:12;5:2;1060:62:0;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;1060:62:0;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;;1149:148:0;;;;;;;;1184:12;1149:148;;1225:14;;1219:3;:20;1060:62;1149:148;;;;;;1268:18;:16;:18::i;:::-;1149:148;;1132:165;;:14;:165;;;;;;;;;;;;;;1312:38;1337:12;;1312:38;;1132:165;;1312:38;901:456;:::o;468:33::-;;;-1:-1:-1;;;;;468:33:0;;:::o;2325:355::-;2383:14;:26;2364:16;2427:15;;2419:24;;;;;;2461:22;;2487:3;-1:-1:-1;2461:29:0;2453:38;;;;;;2502:10;;:54;;;;;;2526:4;2502:54;;;;2532:10;2502:54;;;;;;;;;;;;-1:-1:-1;;;;;2502:10:0;;;;:23;;:54;;;;;:10;;:54;;;;;;;;:10;;:54;;;5:2:-1;;;;30:1;27;20:12;5:2;2502:54:0;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;-1:-1;;2573:14:0;;2566:21;;;;;;;;;;;2603:45;;2636:11;;-1:-1:-1;2624:10:0;;-1:-1:-1;2603:45:0;;2573:14;2603:45;2659:14;:12;:14::i;:::-;2325:355;:::o;2163:107::-;2250:13;2163:107::o;1382:94::-;1456:13;1382:94;:::o",
   "source": "pragma solidity ^0.4.24;\n\nimport \"./GeneratorRegistry.sol\";\nimport \"./tokens/ArtPieceToken.sol\";\n\ncontract Artonomous {\n\n    event ArtonomousAuctionStarted(uint indexed blockNumber);\n    event ArtonomousArtBought(address indexed buyer, uint indexed blockNumber, uint price);\n    event ArtonomousArtClaimed(address indexed claimant, uint indexed blockNumber);\n\n    struct Auction {\n        uint blockNumber;\n        uint endTime;\n        uint startingPrice;\n    }\n\n    GeneratorRegistry public registry;\n    ArtPieceToken public pieceToken;\n    address public beneficiary; // receives ether gained from purchases\n\n    uint public AUCTION_LENGTH = 86400; // 24 hours\n    Auction public currentAuction;\n\n    constructor(address stakingAddr, address artToken) public {\n        registry = GeneratorRegistry(stakingAddr);\n        pieceToken = ArtPieceToken(artToken);\n        beneficiary = this;\n    }\n\n    function startAuction() public {\n        require(currentAuction.blockNumber == 0);\n        Generator currentGenerator = registry.getActiveGenerator();\n        pieceToken.mint(this, block.number, address(currentGenerator));\n        currentAuction = Auction({\n            blockNumber: block.number,\n            endTime: now + AUCTION_LENGTH,\n            startingPrice: getStartingPrice()\n        });\n        emit ArtonomousAuctionStarted(block.number);\n    }\n\n    // placeholder\n    function getStartingPrice() internal pure returns (uint) {\n        return 1000000000000;\n    }\n\n    function buyArt() external payable {\n        uint blockNumber = currentAuction.blockNumber;\n        require(blockNumber > 0);\n        require(currentAuction.endTime > now);\n\n        uint buyPrice = getBuyPrice(currentAuction.startingPrice);\n        require(msg.value >= buyPrice);\n\n\n        pieceToken.transferFrom(this, msg.sender, blockNumber);\n        delete currentAuction;\n\n        uint remainder = msg.value - buyPrice;\n        msg.sender.transfer(remainder); // refund extra\n        // beneficiary.transfer(buyPrice); // pay Artonomous' beneficiary\n\n        emit ArtonomousArtBought(msg.sender, blockNumber, buyPrice);\n\n        startAuction();\n    }\n\n    // placeholder\n    function getBuyPrice(uint startingPrice) internal pure returns (uint) {\n        return startingPrice;\n    }\n\n    // after 24 hours, anyone can claim for free\n    function claimArt() external {\n        uint blockNumber = currentAuction.blockNumber;\n        require(blockNumber > 0);\n        require(currentAuction.endTime <= now);\n\n        pieceToken.transferFrom(this, msg.sender, blockNumber);\n        delete currentAuction;\n\n        emit ArtonomousArtClaimed(msg.sender, blockNumber);\n\n        startAuction();\n    }\n}\n",
@@ -206,7 +206,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 244,
-        "sourceUnit": 457,
+        "sourceUnit": 634,
         "src": "26:33:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -217,7 +217,7 @@
         "id": 3,
         "nodeType": "ImportDirective",
         "scope": 244,
-        "sourceUnit": 542,
+        "sourceUnit": 719,
         "src": "60:36:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -541,7 +541,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_GeneratorRegistry_$456",
+              "typeIdentifier": "t_contract$_GeneratorRegistry_$633",
               "typeString": "contract GeneratorRegistry"
             },
             "typeName": {
@@ -549,10 +549,10 @@
               "id": 29,
               "name": "GeneratorRegistry",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 456,
+              "referencedDeclaration": 633,
               "src": "468:17:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_GeneratorRegistry_$456",
+                "typeIdentifier": "t_contract$_GeneratorRegistry_$633",
                 "typeString": "contract GeneratorRegistry"
               }
             },
@@ -569,7 +569,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+              "typeIdentifier": "t_contract$_ArtPieceToken_$718",
               "typeString": "contract ArtPieceToken"
             },
             "typeName": {
@@ -577,10 +577,10 @@
               "id": 31,
               "name": "ArtPieceToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 541,
+              "referencedDeclaration": 718,
               "src": "507:13:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                 "typeString": "contract ArtPieceToken"
               }
             },
@@ -707,7 +707,7 @@
                       "referencedDeclaration": 30,
                       "src": "773:8:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_GeneratorRegistry_$456",
+                        "typeIdentifier": "t_contract$_GeneratorRegistry_$633",
                         "typeString": "contract GeneratorRegistry"
                       }
                     },
@@ -741,10 +741,10 @@
                         "name": "GeneratorRegistry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 456,
+                        "referencedDeclaration": 633,
                         "src": "784:17:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_GeneratorRegistry_$456_$",
+                          "typeIdentifier": "t_type$_t_contract$_GeneratorRegistry_$633_$",
                           "typeString": "type(contract GeneratorRegistry)"
                         }
                       },
@@ -758,13 +758,13 @@
                       "nodeType": "FunctionCall",
                       "src": "784:30:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_GeneratorRegistry_$456",
+                        "typeIdentifier": "t_contract$_GeneratorRegistry_$633",
                         "typeString": "contract GeneratorRegistry"
                       }
                     },
                     "src": "773:41:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_GeneratorRegistry_$456",
+                      "typeIdentifier": "t_contract$_GeneratorRegistry_$633",
                       "typeString": "contract GeneratorRegistry"
                     }
                   },
@@ -789,7 +789,7 @@
                       "referencedDeclaration": 32,
                       "src": "824:10:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                        "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                         "typeString": "contract ArtPieceToken"
                       }
                     },
@@ -823,10 +823,10 @@
                         "name": "ArtPieceToken",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 541,
+                        "referencedDeclaration": 718,
                         "src": "837:13:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_ArtPieceToken_$541_$",
+                          "typeIdentifier": "t_type$_t_contract$_ArtPieceToken_$718_$",
                           "typeString": "type(contract ArtPieceToken)"
                         }
                       },
@@ -840,13 +840,13 @@
                       "nodeType": "FunctionCall",
                       "src": "837:23:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                        "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                         "typeString": "contract ArtPieceToken"
                       }
                     },
                     "src": "824:36:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                      "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                       "typeString": "contract ArtPieceToken"
                     }
                   },
@@ -883,7 +883,7 @@
                       "name": "this",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2818,
+                      "referencedDeclaration": 2995,
                       "src": "884:4:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_Artonomous_$243",
@@ -1070,10 +1070,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2758,
-                        2759
+                        2935,
+                        2936
                       ],
-                      "referencedDeclaration": 2758,
+                      "referencedDeclaration": 2935,
                       "src": "942:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1113,7 +1113,7 @@
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Generator_$309",
+                        "typeIdentifier": "t_contract$_Generator_$303",
                         "typeString": "contract Generator"
                       },
                       "typeName": {
@@ -1121,10 +1121,10 @@
                         "id": 73,
                         "name": "Generator",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 309,
+                        "referencedDeclaration": 303,
                         "src": "992:9:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_Generator_$309",
+                          "typeIdentifier": "t_contract$_Generator_$303",
                           "typeString": "contract Generator"
                         }
                       },
@@ -1147,7 +1147,7 @@
                         "referencedDeclaration": 30,
                         "src": "1021:8:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_GeneratorRegistry_$456",
+                          "typeIdentifier": "t_contract$_GeneratorRegistry_$633",
                           "typeString": "contract GeneratorRegistry"
                         }
                       },
@@ -1158,10 +1158,10 @@
                       "lValueRequested": false,
                       "memberName": "getActiveGenerator",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 409,
+                      "referencedDeclaration": 457,
                       "src": "1021:27:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_external_view$__$returns$_t_contract$_Generator_$309_$",
+                        "typeIdentifier": "t_function_external_view$__$returns$_t_contract$_Generator_$303_$",
                         "typeString": "function () view external returns (contract Generator)"
                       }
                     },
@@ -1175,7 +1175,7 @@
                     "nodeType": "FunctionCall",
                     "src": "1021:29:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Generator_$309",
+                      "typeIdentifier": "t_contract$_Generator_$303",
                       "typeString": "contract Generator"
                     }
                   },
@@ -1192,7 +1192,7 @@
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2818,
+                        "referencedDeclaration": 2995,
                         "src": "1076:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_Artonomous_$243",
@@ -1207,7 +1207,7 @@
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2745,
+                          "referencedDeclaration": 2922,
                           "src": "1082:5:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
@@ -1240,7 +1240,7 @@
                             "referencedDeclaration": 74,
                             "src": "1104:16:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_Generator_$309",
+                              "typeIdentifier": "t_contract$_Generator_$303",
                               "typeString": "contract Generator"
                             }
                           }
@@ -1248,7 +1248,7 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_Generator_$309",
+                              "typeIdentifier": "t_contract$_Generator_$303",
                               "typeString": "contract Generator"
                             }
                           ],
@@ -1304,7 +1304,7 @@
                         "referencedDeclaration": 32,
                         "src": "1060:10:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                          "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                           "typeString": "contract ArtPieceToken"
                         }
                       },
@@ -1315,7 +1315,7 @@
                       "lValueRequested": false,
                       "memberName": "mint",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 528,
+                      "referencedDeclaration": 705,
                       "src": "1060:15:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$_t_address_$returns$_t_uint256_$",
@@ -1374,7 +1374,7 @@
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2745,
+                            "referencedDeclaration": 2922,
                             "src": "1184:5:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_block",
@@ -1412,7 +1412,7 @@
                             "name": "now",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2757,
+                            "referencedDeclaration": 2934,
                             "src": "1219:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1524,7 +1524,7 @@
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2745,
+                          "referencedDeclaration": 2922,
                           "src": "1337:5:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
@@ -1834,10 +1834,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2758,
-                        2759
+                        2935,
+                        2936
                       ],
-                      "referencedDeclaration": 2758,
+                      "referencedDeclaration": 2935,
                       "src": "1582:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1914,7 +1914,7 @@
                           "name": "now",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2757,
+                          "referencedDeclaration": 2934,
                           "src": "1649:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1939,10 +1939,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2758,
-                        2759
+                        2935,
+                        2936
                       ],
-                      "referencedDeclaration": 2758,
+                      "referencedDeclaration": 2935,
                       "src": "1616:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2091,7 +2091,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2755,
+                            "referencedDeclaration": 2932,
                             "src": "1739:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -2145,10 +2145,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2758,
-                        2759
+                        2935,
+                        2936
                       ],
-                      "referencedDeclaration": 2758,
+                      "referencedDeclaration": 2935,
                       "src": "1731:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2183,7 +2183,7 @@
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2818,
+                        "referencedDeclaration": 2995,
                         "src": "1797:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_Artonomous_$243",
@@ -2198,7 +2198,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2755,
+                          "referencedDeclaration": 2932,
                           "src": "1803:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2257,7 +2257,7 @@
                         "referencedDeclaration": 32,
                         "src": "1773:10:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                          "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                           "typeString": "contract ArtPieceToken"
                         }
                       },
@@ -2268,7 +2268,7 @@
                       "lValueRequested": false,
                       "memberName": "transferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1668,
+                      "referencedDeclaration": 1845,
                       "src": "1773:23:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -2379,7 +2379,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2755,
+                        "referencedDeclaration": 2932,
                         "src": "1886:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -2457,7 +2457,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2755,
+                          "referencedDeclaration": 2932,
                           "src": "1916:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2522,7 +2522,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2755,
+                          "referencedDeclaration": 2932,
                           "src": "2072:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2923,10 +2923,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2758,
-                        2759
+                        2935,
+                        2936
                       ],
-                      "referencedDeclaration": 2758,
+                      "referencedDeclaration": 2935,
                       "src": "2419:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3003,7 +3003,7 @@
                           "name": "now",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2757,
+                          "referencedDeclaration": 2934,
                           "src": "2487:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -3028,10 +3028,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2758,
-                        2759
+                        2935,
+                        2936
                       ],
-                      "referencedDeclaration": 2758,
+                      "referencedDeclaration": 2935,
                       "src": "2453:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3066,7 +3066,7 @@
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2818,
+                        "referencedDeclaration": 2995,
                         "src": "2526:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_Artonomous_$243",
@@ -3081,7 +3081,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2755,
+                          "referencedDeclaration": 2932,
                           "src": "2532:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -3140,7 +3140,7 @@
                         "referencedDeclaration": 32,
                         "src": "2502:10:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                          "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                           "typeString": "contract ArtPieceToken"
                         }
                       },
@@ -3151,7 +3151,7 @@
                       "lValueRequested": false,
                       "memberName": "transferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1668,
+                      "referencedDeclaration": 1845,
                       "src": "2502:23:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -3222,7 +3222,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2755,
+                          "referencedDeclaration": 2932,
                           "src": "2624:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -3395,7 +3395,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 244,
-        "sourceUnit": 457,
+        "sourceUnit": 634,
         "src": "26:33:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -3406,7 +3406,7 @@
         "id": 3,
         "nodeType": "ImportDirective",
         "scope": 244,
-        "sourceUnit": 542,
+        "sourceUnit": 719,
         "src": "60:36:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -3730,7 +3730,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_GeneratorRegistry_$456",
+              "typeIdentifier": "t_contract$_GeneratorRegistry_$633",
               "typeString": "contract GeneratorRegistry"
             },
             "typeName": {
@@ -3738,10 +3738,10 @@
               "id": 29,
               "name": "GeneratorRegistry",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 456,
+              "referencedDeclaration": 633,
               "src": "468:17:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_GeneratorRegistry_$456",
+                "typeIdentifier": "t_contract$_GeneratorRegistry_$633",
                 "typeString": "contract GeneratorRegistry"
               }
             },
@@ -3758,7 +3758,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+              "typeIdentifier": "t_contract$_ArtPieceToken_$718",
               "typeString": "contract ArtPieceToken"
             },
             "typeName": {
@@ -3766,10 +3766,10 @@
               "id": 31,
               "name": "ArtPieceToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 541,
+              "referencedDeclaration": 718,
               "src": "507:13:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                 "typeString": "contract ArtPieceToken"
               }
             },
@@ -3896,7 +3896,7 @@
                       "referencedDeclaration": 30,
                       "src": "773:8:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_GeneratorRegistry_$456",
+                        "typeIdentifier": "t_contract$_GeneratorRegistry_$633",
                         "typeString": "contract GeneratorRegistry"
                       }
                     },
@@ -3930,10 +3930,10 @@
                         "name": "GeneratorRegistry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 456,
+                        "referencedDeclaration": 633,
                         "src": "784:17:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_GeneratorRegistry_$456_$",
+                          "typeIdentifier": "t_type$_t_contract$_GeneratorRegistry_$633_$",
                           "typeString": "type(contract GeneratorRegistry)"
                         }
                       },
@@ -3947,13 +3947,13 @@
                       "nodeType": "FunctionCall",
                       "src": "784:30:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_GeneratorRegistry_$456",
+                        "typeIdentifier": "t_contract$_GeneratorRegistry_$633",
                         "typeString": "contract GeneratorRegistry"
                       }
                     },
                     "src": "773:41:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_GeneratorRegistry_$456",
+                      "typeIdentifier": "t_contract$_GeneratorRegistry_$633",
                       "typeString": "contract GeneratorRegistry"
                     }
                   },
@@ -3978,7 +3978,7 @@
                       "referencedDeclaration": 32,
                       "src": "824:10:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                        "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                         "typeString": "contract ArtPieceToken"
                       }
                     },
@@ -4012,10 +4012,10 @@
                         "name": "ArtPieceToken",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 541,
+                        "referencedDeclaration": 718,
                         "src": "837:13:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_ArtPieceToken_$541_$",
+                          "typeIdentifier": "t_type$_t_contract$_ArtPieceToken_$718_$",
                           "typeString": "type(contract ArtPieceToken)"
                         }
                       },
@@ -4029,13 +4029,13 @@
                       "nodeType": "FunctionCall",
                       "src": "837:23:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                        "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                         "typeString": "contract ArtPieceToken"
                       }
                     },
                     "src": "824:36:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                      "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                       "typeString": "contract ArtPieceToken"
                     }
                   },
@@ -4072,7 +4072,7 @@
                       "name": "this",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2818,
+                      "referencedDeclaration": 2995,
                       "src": "884:4:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_Artonomous_$243",
@@ -4259,10 +4259,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2758,
-                        2759
+                        2935,
+                        2936
                       ],
-                      "referencedDeclaration": 2758,
+                      "referencedDeclaration": 2935,
                       "src": "942:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -4302,7 +4302,7 @@
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Generator_$309",
+                        "typeIdentifier": "t_contract$_Generator_$303",
                         "typeString": "contract Generator"
                       },
                       "typeName": {
@@ -4310,10 +4310,10 @@
                         "id": 73,
                         "name": "Generator",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 309,
+                        "referencedDeclaration": 303,
                         "src": "992:9:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_Generator_$309",
+                          "typeIdentifier": "t_contract$_Generator_$303",
                           "typeString": "contract Generator"
                         }
                       },
@@ -4336,7 +4336,7 @@
                         "referencedDeclaration": 30,
                         "src": "1021:8:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_GeneratorRegistry_$456",
+                          "typeIdentifier": "t_contract$_GeneratorRegistry_$633",
                           "typeString": "contract GeneratorRegistry"
                         }
                       },
@@ -4347,10 +4347,10 @@
                       "lValueRequested": false,
                       "memberName": "getActiveGenerator",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 409,
+                      "referencedDeclaration": 457,
                       "src": "1021:27:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_external_view$__$returns$_t_contract$_Generator_$309_$",
+                        "typeIdentifier": "t_function_external_view$__$returns$_t_contract$_Generator_$303_$",
                         "typeString": "function () view external returns (contract Generator)"
                       }
                     },
@@ -4364,7 +4364,7 @@
                     "nodeType": "FunctionCall",
                     "src": "1021:29:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Generator_$309",
+                      "typeIdentifier": "t_contract$_Generator_$303",
                       "typeString": "contract Generator"
                     }
                   },
@@ -4381,7 +4381,7 @@
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2818,
+                        "referencedDeclaration": 2995,
                         "src": "1076:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_Artonomous_$243",
@@ -4396,7 +4396,7 @@
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2745,
+                          "referencedDeclaration": 2922,
                           "src": "1082:5:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
@@ -4429,7 +4429,7 @@
                             "referencedDeclaration": 74,
                             "src": "1104:16:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_Generator_$309",
+                              "typeIdentifier": "t_contract$_Generator_$303",
                               "typeString": "contract Generator"
                             }
                           }
@@ -4437,7 +4437,7 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_Generator_$309",
+                              "typeIdentifier": "t_contract$_Generator_$303",
                               "typeString": "contract Generator"
                             }
                           ],
@@ -4493,7 +4493,7 @@
                         "referencedDeclaration": 32,
                         "src": "1060:10:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                          "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                           "typeString": "contract ArtPieceToken"
                         }
                       },
@@ -4504,7 +4504,7 @@
                       "lValueRequested": false,
                       "memberName": "mint",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 528,
+                      "referencedDeclaration": 705,
                       "src": "1060:15:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$_t_address_$returns$_t_uint256_$",
@@ -4563,7 +4563,7 @@
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2745,
+                            "referencedDeclaration": 2922,
                             "src": "1184:5:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_block",
@@ -4601,7 +4601,7 @@
                             "name": "now",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2757,
+                            "referencedDeclaration": 2934,
                             "src": "1219:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -4713,7 +4713,7 @@
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2745,
+                          "referencedDeclaration": 2922,
                           "src": "1337:5:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
@@ -5023,10 +5023,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2758,
-                        2759
+                        2935,
+                        2936
                       ],
-                      "referencedDeclaration": 2758,
+                      "referencedDeclaration": 2935,
                       "src": "1582:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -5103,7 +5103,7 @@
                           "name": "now",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2757,
+                          "referencedDeclaration": 2934,
                           "src": "1649:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -5128,10 +5128,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2758,
-                        2759
+                        2935,
+                        2936
                       ],
-                      "referencedDeclaration": 2758,
+                      "referencedDeclaration": 2935,
                       "src": "1616:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -5280,7 +5280,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2755,
+                            "referencedDeclaration": 2932,
                             "src": "1739:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -5334,10 +5334,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2758,
-                        2759
+                        2935,
+                        2936
                       ],
-                      "referencedDeclaration": 2758,
+                      "referencedDeclaration": 2935,
                       "src": "1731:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -5372,7 +5372,7 @@
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2818,
+                        "referencedDeclaration": 2995,
                         "src": "1797:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_Artonomous_$243",
@@ -5387,7 +5387,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2755,
+                          "referencedDeclaration": 2932,
                           "src": "1803:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -5446,7 +5446,7 @@
                         "referencedDeclaration": 32,
                         "src": "1773:10:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                          "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                           "typeString": "contract ArtPieceToken"
                         }
                       },
@@ -5457,7 +5457,7 @@
                       "lValueRequested": false,
                       "memberName": "transferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1668,
+                      "referencedDeclaration": 1845,
                       "src": "1773:23:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -5568,7 +5568,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2755,
+                        "referencedDeclaration": 2932,
                         "src": "1886:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -5646,7 +5646,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2755,
+                          "referencedDeclaration": 2932,
                           "src": "1916:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -5711,7 +5711,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2755,
+                          "referencedDeclaration": 2932,
                           "src": "2072:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -6112,10 +6112,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2758,
-                        2759
+                        2935,
+                        2936
                       ],
-                      "referencedDeclaration": 2758,
+                      "referencedDeclaration": 2935,
                       "src": "2419:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -6192,7 +6192,7 @@
                           "name": "now",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2757,
+                          "referencedDeclaration": 2934,
                           "src": "2487:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -6217,10 +6217,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2758,
-                        2759
+                        2935,
+                        2936
                       ],
-                      "referencedDeclaration": 2758,
+                      "referencedDeclaration": 2935,
                       "src": "2453:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -6255,7 +6255,7 @@
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2818,
+                        "referencedDeclaration": 2995,
                         "src": "2526:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_Artonomous_$243",
@@ -6270,7 +6270,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2755,
+                          "referencedDeclaration": 2932,
                           "src": "2532:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -6329,7 +6329,7 @@
                         "referencedDeclaration": 32,
                         "src": "2502:10:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ArtPieceToken_$541",
+                          "typeIdentifier": "t_contract$_ArtPieceToken_$718",
                           "typeString": "contract ArtPieceToken"
                         }
                       },
@@ -6340,7 +6340,7 @@
                       "lValueRequested": false,
                       "memberName": "transferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1668,
+                      "referencedDeclaration": 1845,
                       "src": "2502:23:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -6411,7 +6411,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2755,
+                          "referencedDeclaration": 2932,
                           "src": "2624:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -6675,10 +6675,10 @@
         }
       },
       "links": {},
-      "address": "0xbcfc9461b73d7fb423552d6cd594f406f7b0585d",
-      "transactionHash": "0xab1bdab2743bc5b8020e9f5682a4f95aa280f1c8ca33f507e3a8bfde7b63290f"
+      "address": "0x5b9b42d6e4b2e4bf8d42eba32d46918e10899b66",
+      "transactionHash": "0x48d1e9c9bf9766692df54702fbed62cd05321278c5fd6b233e573cfb23524687"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-17T14:14:01.059Z"
+  "updatedAt": "2018-10-19T19:42:28.511Z"
 }

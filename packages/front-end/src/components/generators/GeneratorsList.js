@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import ArtPieceRendererContainer from "../artPiece/ArtPieceRendererContainer";
-import { Grid } from "material-ui";
+import Generator from "./Generator";
 
 import { withStyles } from "@material-ui/core/styles";
 import GridList from "material-ui/GridList";
@@ -28,11 +27,11 @@ class GeneratorsList extends Component {
     return (
       <div>
         {this.props.generators && (
-          <GridList cellHeight={500} cols={3}>
+          <GridList cellHeight={550} cols={3}>
             {this.props.generators.reverse().map(generator => {
               return (
                 <GridListTile>
-                  <ArtPieceRendererContainer {...this.props} generator={generator} />
+                  <Generator {...this.props} generator={generator} />
                 </GridListTile>
               );
             })}
