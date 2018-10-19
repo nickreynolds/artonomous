@@ -9,7 +9,7 @@ import { DrizzleContext } from "drizzle-react";
 
 const NavDiv = styled.div`
   min-width: 100%;
-  max-height: 20px;
+  max-height: 30px;
 `;
 
 const NavUL = styled.ul`
@@ -58,9 +58,13 @@ class NavBar extends Component {
           </NavLI>
           <NavLI>
             <NavSpan>SOUL balance: {balance && balance.value}</NavSpan>{" "}
+          </NavLI>
+          <NavLI>
             <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: "100000000000000000" }}>
               Buy .1 ETH of SOUL
             </NewContractForm>
+          </NavLI>
+          <NavLI>
             <NewContractForm
               contract="SoulToken"
               method="approve"

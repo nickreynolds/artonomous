@@ -44,14 +44,10 @@ class NewContractForm extends Component {
   handleSubmit() {
     // Get arguments for method and put them into an object
     var args = new Object();
-    console.log("methodargs: ", this.methodArgs);
     if (this.methodArgs != null) {
       args = this.methodArgs;
     }
-    console.log("args: ", args);
     args.from = this.props.accounts[this.props.accountIndex];
-    console.log("this.state: ", this.state);
-    console.log("Object.values(this.state): ", Object.values(this.state));
     this.contracts[this.props.contract].methods[this.props.method].cacheSend(...Object.values(this.state), args);
   }
 
@@ -63,13 +59,10 @@ class NewContractForm extends Component {
     switch (true) {
       case /^uint/.test(type):
         return "number";
-        break;
       case /^string/.test(type) || /^bytes/.test(type):
         return "text";
-        break;
       case /^bool/.test(type):
         return "checkbox";
-        break;
       default:
         return "text";
     }
@@ -77,7 +70,7 @@ class NewContractForm extends Component {
 
   render() {
     return (
-      <form className="pure-form pure-form-stacked">
+      <span>
         {!this.props.hideInputs &&
           this.inputs.map((input, index) => {
             var inputType = this.translateType(input.type);
@@ -94,10 +87,10 @@ class NewContractForm extends Component {
               />
             );
           })}
-        <button key="submit" className="pure-button" type="button" onClick={this.handleSubmit}>
+        <button key="submit" width="100px" type="button" onClick={this.handleSubmit}>
           {this.props.children}
         </button>
-      </form>
+      </span>
     );
   }
 }
