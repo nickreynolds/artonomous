@@ -18,7 +18,12 @@ class GeneratorsList extends Component {
         <br />
         <span>Generator Address: {this.props.generator}</span>
         <ArtPieceRendererContainer {...this.props} />
-        <NewContractForm contract="GeneratorRegistry" method="depositStake">
+        <NewContractForm
+          contract="GeneratorRegistry"
+          method="depositStake"
+          initialMethodArgs={["0", "1000"]}
+          hideInputs={true}
+        >
           Stake 1000 SOUL
         </NewContractForm>
       </div>

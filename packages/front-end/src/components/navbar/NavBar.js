@@ -61,7 +61,12 @@ class NavBar extends Component {
             <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: "100000000000000000" }}>
               Buy .1 ETH of SOUL
             </NewContractForm>
-            <NewContractForm contract="SoulToken" method="approve">
+            <NewContractForm
+              contract="SoulToken"
+              method="approve"
+              initialMethodArgs={[registryAddress, "10000"]}
+              hideInputs={true}
+            >
               Approve Registry To Spend 1000 SOUL
             </NewContractForm>
           </NavLI>

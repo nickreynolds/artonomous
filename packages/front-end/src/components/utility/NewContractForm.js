@@ -31,7 +31,7 @@ class NewContractForm extends Component {
         this.inputs = abi[i].inputs;
 
         for (var i = 0; i < this.inputs.length; i++) {
-          initialState[this.inputs[i].name] = "";
+          initialState[this.inputs[i].name] = this.props.initialMethodArgs[i];
         }
 
         break;
@@ -50,6 +50,8 @@ class NewContractForm extends Component {
     }
     console.log("args: ", args);
     args.from = this.props.accounts[this.props.accountIndex];
+    console.log("this.state: ", this.state);
+    console.log("Object.values(this.state): ", Object.values(this.state));
     this.contracts[this.props.contract].methods[this.props.method].cacheSend(...Object.values(this.state), args);
   }
 
@@ -76,21 +78,22 @@ class NewContractForm extends Component {
   render() {
     return (
       <form className="pure-form pure-form-stacked">
-        {this.inputs.map((input, index) => {
-          var inputType = this.translateType(input.type);
-          var inputLabel = this.props.labels ? this.props.labels[index] : input.name;
-          // check if input type is struct and if so loop out struct fields as well
-          return (
-            <input
-              key={input.name}
-              type={inputType}
-              name={input.name}
-              value={this.state[input.name]}
-              placeholder={inputLabel}
-              onChange={this.handleInputChange}
-            />
-          );
-        })}
+        {!this.props.hideInputs &&
+          this.inputs.map((input, index) => {
+            var inputType = this.translateType(input.type);
+            var inputLabel = this.props.labels ? this.props.labels[index] : input.name;
+            // check if input type is struct and if so loop out struct fields as well
+            return (
+              <input
+                key={input.name}
+                type={inputType}
+                name={input.name}
+                value={this.state[input.name]}
+                placeholder={inputLabel}
+                onChange={this.handleInputChange}
+              />
+            );
+          })}
         <button key="submit" className="pure-button" type="button" onClick={this.handleSubmit}>
           {this.props.children}
         </button>
