@@ -71,7 +71,7 @@ class NavBar extends Component {
               initialMethodArgs={[registryAddress, "10000"]}
               hideInputs={true}
             >
-              Approve Registry To Spend 1000 SOUL
+              Approve Registry To Spend 10,000 SOUL
             </NewContractForm>
           </NavLI>
         </NavUL>

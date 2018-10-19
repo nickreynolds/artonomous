@@ -21,10 +21,10 @@ class GeneratorsList extends Component {
         <NewContractForm
           contract="GeneratorRegistry"
           method="depositStake"
-          initialMethodArgs={["0", "1000"]}
+          initialMethodArgs={[this.props.generator, "1000"]}
           hideInputs={true}
         >
-          Stake 1000 SOUL
+          Stake 1,000 SOUL
         </NewContractForm>
       </div>
     );

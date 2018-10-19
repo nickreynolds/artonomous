@@ -37,20 +37,16 @@ contract GeneratorRegistry {
         generators.push(_generator);
     }
 
-    function depositStake(uint generatorIndex, uint stake) public {
-        require(generatorIndex < generators.length);
-        Generator g = generators[generatorIndex];
-        stakeByGenerator[address(g)] += stake;
-        stakeByUserByGenerator[msg.sender][address(g)] += stake;
+    function depositStake(address generatorAddress, uint stake) public {
+        stakeByGenerator[generatorAddress] += stake;
+        stakeByUserByGenerator[msg.sender][generatorAddress] += stake;
         require(token.transferFrom(msg.sender, this, stake), "unable to transfer tokens, check that GeneratorRegistry is approved as a spender");
     }
 
-    function withdrawStake(uint generatorIndex, uint stake) public {
-        require(generatorIndex < generators.length);
-        Generator g = generators[generatorIndex];
-        require(stakeByUserByGenerator[msg.sender][address(g)] >= stake);
-        stakeByGenerator[address(g)] -= stake;
-        stakeByUserByGenerator[msg.sender][address(g)] -= stake;
+    function withdrawStake(address generatorAddress, uint stake) public {
+        require(stakeByUserByGenerator[msg.sender][generatorAddress] >= stake);
+        stakeByGenerator[generatorAddress] -= stake;
+        stakeByUserByGenerator[msg.sender][generatorAddress] -= stake;
 
         require(token.transfer(msg.sender, stake), "unable to transfer tokens");
     }
