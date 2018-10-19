@@ -9,7 +9,7 @@ import { DrizzleContext } from "drizzle-react";
 
 const NavDiv = styled.div`
   min-width: 100%;
-  max-height: 20px;
+  max-height: 30px;
 `;
 
 const NavUL = styled.ul`
@@ -45,6 +45,7 @@ class NavBar extends Component {
     console.log("this.props:", this.props);
     console.log("render with dataKey: ", this.state.dataKey);
     const balance = this.props.drizzleState.contracts.SoulToken.balanceOf[this.state.dataKey];
+    const registryAddress = this.props.drizzle.contracts.GeneratorRegistry.address;
     console.log("balance: ", balance);
     return (
       <NavDiv>
@@ -57,8 +58,20 @@ class NavBar extends Component {
           </NavLI>
           <NavLI>
             <NavSpan>SOUL balance: {balance && balance.value}</NavSpan>{" "}
+          </NavLI>
+          <NavLI>
             <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: "100000000000000000" }}>
               Buy .1 ETH of SOUL
+            </NewContractForm>
+          </NavLI>
+          <NavLI>
+            <NewContractForm
+              contract="SoulToken"
+              method="approve"
+              initialMethodArgs={[registryAddress, "10000"]}
+              hideInputs={true}
+            >
+              Approve Registry To Spend 10,000 SOUL
             </NewContractForm>
           </NavLI>
         </NavUL>

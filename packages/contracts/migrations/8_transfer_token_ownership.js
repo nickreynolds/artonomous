@@ -6,6 +6,6 @@ module.exports = function(deployer, network, accounts) {
   return deployer.then(async () => {
     const artPieceToken = await ArtPieceToken.deployed();
     const artonomous = await Artonomous.deployed();
-    await artPieceToken.transferOwnership(artonomous.address);
+    //await artPieceToken.transferOwnership(artonomous.address);
   });
 };

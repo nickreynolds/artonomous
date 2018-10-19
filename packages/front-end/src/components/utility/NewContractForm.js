@@ -31,7 +31,7 @@ class NewContractForm extends Component {
         this.inputs = abi[i].inputs;
 
         for (var i = 0; i < this.inputs.length; i++) {
-          initialState[this.inputs[i].name] = "";
+          initialState[this.inputs[i].name] = this.props.initialMethodArgs[i];
         }
 
         break;
@@ -44,15 +44,11 @@ class NewContractForm extends Component {
   handleSubmit() {
     // Get arguments for method and put them into an object
     var args = new Object();
-    console.log("methodargs: ", this.methodArgs);
     if (this.methodArgs != null) {
       args = this.methodArgs;
     }
     args.from = this.props.accounts[this.props.accountIndex];
-    this.contracts[this.props.contract].methods[this.props.method].cacheSend(
-      ...Object.values(this.state),
-      args
-    );
+    this.contracts[this.props.contract].methods[this.props.method].cacheSend(...Object.values(this.state), args);
   }
 
   handleInputChange(event) {
@@ -63,13 +59,10 @@ class NewContractForm extends Component {
     switch (true) {
       case /^uint/.test(type):
         return "number";
-        break;
       case /^string/.test(type) || /^bytes/.test(type):
         return "text";
-        break;
       case /^bool/.test(type):
         return "checkbox";
-        break;
       default:
         return "text";
     }
@@ -77,39 +70,33 @@ class NewContractForm extends Component {
 
   render() {
     return (
-      <form className="pure-form pure-form-stacked">
-        {this.inputs.map((input, index) => {
-          var inputType = this.translateType(input.type);
-          var inputLabel = this.props.labels
-            ? this.props.labels[index]
-            : input.name;
-          // check if input type is struct and if so loop out struct fields as well
-          return (
-            <input
-              key={input.name}
-              type={inputType}
-              name={input.name}
-              value={this.state[input.name]}
-              placeholder={inputLabel}
-              onChange={this.handleInputChange}
-            />
-          );
-        })}
-        <button
-          key="submit"
-          className="pure-button"
-          type="button"
-          onClick={this.handleSubmit}
-        >
+      <span>
+        {!this.props.hideInputs &&
+          this.inputs.map((input, index) => {
+            var inputType = this.translateType(input.type);
+            var inputLabel = this.props.labels ? this.props.labels[index] : input.name;
+            // check if input type is struct and if so loop out struct fields as well
+            return (
+              <input
+                key={input.name}
+                type={inputType}
+                name={input.name}
+                value={this.state[input.name]}
+                placeholder={inputLabel}
+                onChange={this.handleInputChange}
+              />
+            );
+          })}
+        <button key="submit" width="100px" type="button" onClick={this.handleSubmit}>
           {this.props.children}
         </button>
-      </form>
+      </span>
     );
   }
 }
 
 NewContractForm.contextTypes = {
-  drizzle: PropTypes.object
+  drizzle: PropTypes.object,
 };
 
 /*
@@ -120,7 +107,7 @@ const mapStateToProps = state => {
   return {
     accounts: state.accounts,
     accountBalances: state.accountBalances,
-    contracts: state.contracts
+    contracts: state.contracts,
   };
 };
 
