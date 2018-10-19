@@ -28,13 +28,16 @@ class GeneratorsList extends Component {
       <div>
         {this.props.generators && (
           <GridList cellHeight={550} cols={3}>
-            {this.props.generators.reverse().map(generator => {
-              return (
-                <GridListTile>
-                  <Generator {...this.props} generator={generator} />
-                </GridListTile>
-              );
-            })}
+            {this.props.generators
+              .slice()
+              .reverse()
+              .map(generator => {
+                return (
+                  <GridListTile>
+                    <Generator {...this.props} generator={generator} />
+                  </GridListTile>
+                );
+              })}
           </GridList>
         )}
       </div>
