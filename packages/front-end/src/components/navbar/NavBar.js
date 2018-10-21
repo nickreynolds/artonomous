@@ -57,12 +57,20 @@ class NavBar extends Component {
             <NavLink to="/generators">Generators</NavLink>{" "}
           </NavLI>
           <NavLI>
+            <NavLink to="/soul">Soul</NavLink>{" "}
+          </NavLI>
+          <NavLI>
             <NavSpan>SOUL balance: {balance && balance.value}</NavSpan>{" "}
           </NavLI>
           <NavLI>
             <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: "100000000000000000" }}>
               Buy .1 ETH of SOUL
             </NewContractForm>
+            {balance && (
+              <NewContractForm contract="SoulToken" method="sell" initialMethodArgs={[balance.value]}>
+                Sell Your Soul
+              </NewContractForm>
+            )}
           </NavLI>
           <NavLI>
             <NewContractForm

@@ -2,6 +2,7 @@ pragma solidity ^0.4.24;
 
 import "./GeneratorRegistry.sol";
 import "./tokens/ArtPieceToken.sol";
+import "./tokens/SoulToken.sol";
 
 contract Artonomous {
 
@@ -17,15 +18,15 @@ contract Artonomous {
 
     GeneratorRegistry public registry;
     ArtPieceToken public pieceToken;
-    address public beneficiary; // receives ether gained from purchases
+    SoulToken public soulToken;
 
     uint public AUCTION_LENGTH = 86400; // 24 hours
     Auction public currentAuction;
 
-    constructor(address stakingAddr, address artToken) public {
+    constructor(address stakingAddr, address artToken, address soulTokenAddr) public {
         registry = GeneratorRegistry(stakingAddr);
-        pieceToken = ArtPieceToken(artToken);
-        beneficiary = this;
+        pieceToken = ArtPieceToken(artToken);   
+        soulToken = SoulToken(soulTokenAddr);
     }
 
     function startAuction() public {
@@ -42,7 +43,7 @@ contract Artonomous {
 
     // placeholder
     function getStartingPrice() internal pure returns (uint) {
-        return 1000000000000;
+        return 100000000000000000;
     }
 
     function buyArt() external payable {
@@ -59,7 +60,7 @@ contract Artonomous {
 
         uint remainder = msg.value - buyPrice;
         msg.sender.transfer(remainder); // refund extra
-        // beneficiary.transfer(buyPrice); // pay Artonomous' beneficiary
+        soulToken.depositArtPayment.value(buyPrice)();
 
         emit ArtonomousArtBought(msg.sender, blockNumber, buyPrice);
 
