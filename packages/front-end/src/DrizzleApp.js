@@ -11,10 +11,12 @@ class DrizzleApp extends Component {
 
     return (
       <div>
-        <MuiThemeProvider>
-          <NavBar drizzle={this.props.drizzle} drizzleState={this.props.drizzleState} />
-          {childrenWithProps}
-        </MuiThemeProvider>
+        {this.props.initialized && (
+          <MuiThemeProvider>
+            <NavBar drizzle={this.props.drizzle} drizzleState={this.props.drizzleState} />
+            {childrenWithProps}
+          </MuiThemeProvider>
+        )}
       </div>
     );
   }

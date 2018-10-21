@@ -10,7 +10,7 @@ export default props => (
       console.log("props: ", props);
       return (
         <div>
-          <DrizzleApp drizzle={drizzle} drizzleState={drizzleState}>
+          <DrizzleApp drizzle={drizzle} drizzleState={drizzleState} initialized={initialized}>
             {props.children}
           </DrizzleApp>
         </div>
