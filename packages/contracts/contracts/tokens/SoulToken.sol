@@ -18,4 +18,8 @@ contract SoulToken is EthBondingCurve {
     poolBalance = INITAL_BALANCE;
     gasPrice = 26 * (10 ** 9);
   }
+
+  function depositArtPayment() payable {
+      poolBalance += msg.value;
+  }
 }

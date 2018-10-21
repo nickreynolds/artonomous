@@ -9,6 +9,7 @@ import App from "./App";
 import Home from "./components/home/Home";
 import Generators from "./components/generators/Generators";
 import CreateGenerator from "./components/generators/CreateGenerator";
+import SoulDetail from "./components/soulDetail/SoulDetail";
 import { LoadingContainer } from "drizzle-react-components";
 
 import store from "./store";
@@ -30,6 +31,9 @@ ReactDOM.render(
           </Route>
           <Route path="/createGenerator" component={App}>
             <IndexRoute component={CreateGenerator} />
+          </Route>
+          <Route path="/soul" component={App}>
+            <IndexRoute component={SoulDetail} />
           </Route>
         </Router>
       </LoadingContainer>
