@@ -39,14 +39,10 @@ class NavBar extends Component {
       this.props.drizzleState.accounts[0],
     );
     this.setState({ dataKey });
-    console.log("state set with dataKeY: ", dataKey);
   }
   render() {
-    console.log("this.props:", this.props);
-    console.log("render with dataKey: ", this.state.dataKey);
     const balance = this.props.drizzleState.contracts.SoulToken.balanceOf[this.state.dataKey];
     const registryAddress = this.props.drizzle.contracts.GeneratorRegistry.address;
-    console.log("balance: ", balance);
     return (
       <NavDiv>
         <NavUL>

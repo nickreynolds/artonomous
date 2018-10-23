@@ -20,24 +20,20 @@ const drizzle = new Drizzle(drizzleOptions, drizzleStore);
 const history = syncHistoryWithStore(browserHistory, store);
 ReactDOM.render(
   <DrizzleContext.Provider drizzle={drizzle}>
-    <DrizzleProvider store={store} options={drizzleOptions}>
-      <LoadingContainer>
-        <Router history={history}>
-          <Route path="/" component={App}>
-            <IndexRoute component={Home} />
-          </Route>
-          <Route path="/generators" component={App}>
-            <IndexRoute component={Generators} />
-          </Route>
-          <Route path="/createGenerator" component={App}>
-            <IndexRoute component={CreateGenerator} />
-          </Route>
-          <Route path="/soul" component={App}>
-            <IndexRoute component={SoulDetail} />
-          </Route>
-        </Router>
-      </LoadingContainer>
-    </DrizzleProvider>
+    <Router history={history}>
+      <Route path="/" component={App}>
+        <IndexRoute component={Home} />
+      </Route>
+      <Route path="/generators" component={App}>
+        <IndexRoute component={Generators} />
+      </Route>
+      <Route path="/createGenerator" component={App}>
+        <IndexRoute component={CreateGenerator} />
+      </Route>
+      <Route path="/soul" component={App}>
+        <IndexRoute component={SoulDetail} />
+      </Route>
+    </Router>
   </DrizzleContext.Provider>,
   document.getElementById("root"),
 );

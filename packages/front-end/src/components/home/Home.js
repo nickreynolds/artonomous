@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { ContractData } from "drizzle-react-components";
 import NewContractForm from "../utility/NewContractForm";
+import NewContractData from "../utility/NewContractData";
 import ArtPiece from "../artPiece/ArtPiece";
 class Home extends Component {
   state = { auctionkey: null };
@@ -9,9 +9,7 @@ class Home extends Component {
     this.setState({ auctionkey });
   }
   render() {
-    console.log("Home.js");
     const auctionData = this.props.drizzleState.contracts.Artonomous.currentAuction[this.state.auctionkey];
-    console.log("auctionData: ", auctionData);
     return (
       <main className="container">
         <div className="pure-g">
@@ -21,17 +19,25 @@ class Home extends Component {
 
           <div className="pure-u-1-1">
             <p>
-              <strong>Staking</strong>: <ContractData contract="Artonomous" method="registry" />
+              <strong>Staking</strong>: <NewContractData contract="Artonomous" method="registry" />
             </p>
             <p>
-              <strong>Piece Token</strong>: <ContractData contract="Artonomous" method="pieceToken" />
+              <strong>Piece Token</strong>: <NewContractData contract="Artonomous" method="pieceToken" />
             </p>
             <p>
-              <strong>Piece Token Owner</strong>: <ContractData contract="ArtPieceToken" method="owner" />
+              <strong>Piece Token Owner</strong>: <NewContractData contract="ArtPieceToken" method="owner" />
+            </p>{" "}
+            <p>
+              <strong>Soul Balance</strong>:{" "}
+              <NewContractData
+                contract="SoulToken"
+                method="balanceOf"
+                methodArgs={["0xcEC56F1D4Dc439E298D5f8B6ff3Aa6be58Cd6Fdf"]}
+              />
             </p>
             <p>
               <strong>Auction Length (in seconds)</strong>:{" "}
-              <ContractData contract="Artonomous" method="AUCTION_LENGTH" />
+              <NewContractData contract="Artonomous" method="AUCTION_LENGTH" />
             </p>
             {auctionData && (
               <ArtPiece

@@ -1,6 +1,5 @@
-import { drizzleConnect } from "drizzle-react";
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import { DrizzleContext } from "drizzle-react";
 
 /*
  * Create component.
@@ -9,11 +8,10 @@ import PropTypes from "prop-types";
 class NewContractForm extends Component {
   constructor(props, context) {
     super(props);
-    console.log("construct form");
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
-    this.contracts = context.drizzle.contracts;
+    this.contracts = this.props.drizzle.contracts;
 
     // Get the contract ABI
     const abi = this.contracts[this.props.contract].abi;
@@ -47,7 +45,7 @@ class NewContractForm extends Component {
     if (this.methodArgs != null) {
       args = this.methodArgs;
     }
-    args.from = this.props.accounts[this.props.accountIndex];
+    args.from = this.props.drizzleState.accounts[this.props.accountIndex || 0];
     this.contracts[this.props.contract].methods[this.props.method].cacheSend(...Object.values(this.state), args);
   }
 
@@ -95,20 +93,16 @@ class NewContractForm extends Component {
   }
 }
 
-NewContractForm.contextTypes = {
-  drizzle: PropTypes.object,
-};
-
-/*
- * Export connected component.
- */
-
-const mapStateToProps = state => {
-  return {
-    accounts: state.accounts,
-    accountBalances: state.accountBalances,
-    contracts: state.contracts,
-  };
-};
-
-export default drizzleConnect(NewContractForm, mapStateToProps);
+class NewContractFormContainer extends Component {
+  render() {
+    return (
+      <DrizzleContext.Consumer>
+        {drizzleContext => {
+          const { drizzle, drizzleState, initialized } = drizzleContext;
+          return <NewContractForm {...this.props} drizzle={drizzle} drizzleState={drizzleState} />;
+        }}
+      </DrizzleContext.Consumer>
+    );
+  }
+}
+export default NewContractFormContainer;

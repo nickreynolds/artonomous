@@ -5,7 +5,7 @@ import store from "../../store";
 import Generator from "../../../contracts/Generator";
 import ArtPieceRenderer from "./ArtPieceRenderer";
 class ArtPieceRendererContainer extends Component {
-  state = { generatorUri: null, generatorName: null };
+  state = { generatorUri: null, generatorName: null, hash: null };
   componentDidMount() {
     const generatorName = this.props.generator;
     this.setState({ generatorName });
@@ -18,34 +18,28 @@ class ArtPieceRendererContainer extends Component {
         level.setState({ generatorUri: result });
       }
     });
-    // console.log("contract: ", contract);
-    // const contractConfig = {
-    //   contractName: generatorName,
-    //   web3Contract: contract,
-    // };
-    // console.log("contractConfig: ", contractConfig);
-    // const events = [];
-    // const drizzle = this.props.drizzle;
-    // const web3 = this.props.drizzle.web3;
-    // store.dispatch({ type: "ADD_CONTRACT", drizzle, contractConfig, events, web3 });
-    // console.log("this.props.drizzle: ", this.props.drizzle);
-    // console.log("this.props.drizzle.contracts: ", this.props.drizzle.contracts);
-    // console.log("this.props.drizzle.contracts[generatorName]: ", this.props.drizzle.contracts[generatorName]);
-    // console.log(
-    //   "this.props.drizzle.contracts[generatorName].methods: ",
-    //   this.props.drizzle.contracts[generatorName].methods,
-    // );
-    // console.log(
-    //   "this.props.drizzle.contracts[generatorName].methods.sourceUri: ",
-    //   this.props.drizzle.contracts[generatorName].methods.sourceUri,
-    // );
-    //       const generatorUriKey = this.props.drizzle.contracts[this.state.generatorName].methods.sourceUri.cacheCall();
-    //       this.setState({ generatorUriKey });
+    this.setState({ hash: this.props.hash });
+    this.onUpdate();
+  }
+  onUpdate() {
+    const level = this;
+    if (!this.props.hash) {
+      this.props.drizzle.web3.eth.getBlock(this.props.blockNum, function(error, result) {
+        if (result) {
+          level.setState({ hash: result.hash });
+        }
+      });
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.hash && this.props.hash != prevProps.hash) {
+      this.onUpdate();
+    }
   }
 
   render() {
-    if (this.state.generatorName && this.state.generatorUri) {
-      return <ArtPieceRenderer url={this.state.generatorUri} />;
+    if (this.state.generatorName && this.state.generatorUri && this.state.hash) {
+      return <ArtPieceRenderer url={this.state.generatorUri} hash={this.state.hash} />;
     }
     return <div>loading</div>;
   }

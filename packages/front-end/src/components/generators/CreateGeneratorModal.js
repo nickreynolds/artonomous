@@ -11,17 +11,13 @@ export default class CreateGeneratorModal extends React.Component {
 
   submit = async () => {
     const fileResult = this.props.fileResult[0];
-    console.log("fileResult: ", fileResult);
-    console.log("dirzzle: ", this.props.drizzle);
     const txData = await this.props.drizzle.contracts.GeneratorFactory.methods.createGenerator.cacheSend(
       this.state.name,
       [fileResult.hash, fileResult.path].join("/"),
     );
-    console.log("txData: ", txData);
   };
 
   render() {
-    console.log(this.prddops);
     return (
       <div>
         <h1>Publish your creation!</h1>

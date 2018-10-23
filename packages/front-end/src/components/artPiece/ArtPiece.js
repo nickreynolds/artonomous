@@ -5,20 +5,14 @@ import ArtPieceRendererContainer from "./ArtPieceRendererContainer";
 class ArtPiece extends Component {
   state = { artPieceKey: null, ownerKey: null };
   componentDidMount() {
-    console.log("this.props.blockNum: ", this.props.blockNum);
-    console.log("ArtPieceToken: ", this.props.drizzle.contracts.ArtPieceToken);
     const artPieceKey = this.props.drizzle.contracts.ArtPieceToken.methods.getGenerator.cacheCall(this.props.blockNum);
     this.setState({ artPieceKey });
     const ownerKey = this.props.drizzle.contracts.ArtPieceToken.methods.ownerOf.cacheCall(this.props.blockNum);
-    console.log("ownerKey: ", ownerKey);
     this.setState({ ownerKey });
   }
   render() {
-    console.log("ArtPiece.js - blockNum: ", this.props.blockNum);
     const auctionData = this.props.drizzleState.contracts.ArtPieceToken.getGenerator[this.state.artPieceKey];
-    console.log("auctionData: ", auctionData);
     const ownerData = this.props.drizzleState.contracts.ArtPieceToken.ownerOf[this.state.ownerKey];
-    console.log("ownerData: ", ownerData);
     return (
       <div>
         <p>Block Number: {this.props.blockNum}</p>
@@ -29,6 +23,7 @@ class ArtPiece extends Component {
             drizzle={this.props.drizzle}
             drizzleState={this.props.drizzleState}
             generator={auctionData.value}
+            blockNum={this.props.blockNum}
           />
         )}
       </div>
