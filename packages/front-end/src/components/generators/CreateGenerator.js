@@ -10,6 +10,7 @@ import "brace/theme/github";
 import * as fsapi from "../../fsapi";
 
 import sizer from "react-sizer";
+import { sha3_256 } from "js-sha3";
 
 class CreateGenerator extends React.Component {
   static propTypes = {
@@ -35,6 +36,7 @@ function draw() {
   background(random64.charCodeAt(0)+random64.charCodeAt(1)*5, random64.charCodeAt(2)*2, 30);
 }`,
     isProcessing: false,
+    hash: "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3",
   };
   editorDidMount = (editor, monaco) => {};
   onChange = code => {
@@ -65,6 +67,22 @@ function draw() {
     evt.preventDefault();
   };
 
+  randomizeHash = () => {
+    const r2 =
+      Math.random()
+        .toString(36)
+        .substring(2, 15) +
+      Math.random()
+        .toString(36)
+        .substring(2, 15);
+    console.log("r2: ", r2);
+    const r = Math.random() * 1000000;
+    console.log("r: ", r);
+    const hash = "0x" + sha3_256(r2);
+    console.log("hash: ", hash);
+    this.setState({ hash });
+  };
+
   render() {
     const options = {
       selectOnLineNumbers: true,
@@ -89,6 +107,8 @@ function draw() {
           <a onClick={this.submitContract} className="button background-color-soul">
             Submit Code
           </a>
+          <button onClick={this.randomizeHash}>randomize hash</button>
+          <span>hash: {this.state.hash}</span>
         </div>
         <div className="editorpage">
           {!this.state.isProcessing && (
@@ -110,6 +130,7 @@ function draw() {
               height={`${400}px`}
               isPlaying={true}
               code={this.state.app}
+              hash={this.state.hash}
             />
           </div>
         </div>

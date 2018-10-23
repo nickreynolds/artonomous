@@ -9,9 +9,7 @@ class Home extends Component {
     this.setState({ auctionkey });
   }
   render() {
-    console.log("Home.js");
     const auctionData = this.props.drizzleState.contracts.Artonomous.currentAuction[this.state.auctionkey];
-    console.log("auctionData: ", auctionData);
     return (
       <main className="container">
         <div className="pure-g">

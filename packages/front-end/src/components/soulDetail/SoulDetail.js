@@ -5,7 +5,6 @@ class SoulDetail extends Component {
   state = { auctionkey: null };
 
   render() {
-    console.log("soul detail");
     return (
       <div>
         Pool Balance: <NewContractData contract="SoulToken" method="poolBalance" />

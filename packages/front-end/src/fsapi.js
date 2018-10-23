@@ -10,7 +10,6 @@ export function getTextFileFromPath(cid) {
       if (err) {
         return reject(err);
       }
-      console.log("has file! ", file);
       resolve(file.toString("utf-8"));
     });
   });

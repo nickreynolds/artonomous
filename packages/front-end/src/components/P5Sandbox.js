@@ -12,11 +12,10 @@ export default class P5Sandbox extends React.Component {
     code: PropTypes.string.isRequired,
   };
 
-  static defaultProps = {
-    hash: "0x42u4u2",
-  };
-
   getHTML = () => {
+    console.log("this.props.hash: ", this.props.hash);
+    const seed = hashToRandomSeed(this.props.hash.substring(2)).toString();
+    console.log("seed: ", seed);
     return `<!DOCTYPE html>
     <html>
       <head>
@@ -28,8 +27,7 @@ export default class P5Sandbox extends React.Component {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.js"></script>
         <script>
-          randomSeed(${hashToRandomSeed(this.props.hash)});
-          ${this.props.code}
+            ${this.props.code.replace("$RANDOM_HASH", seed)}
         </script>
       </head>
       <body>
@@ -57,6 +55,10 @@ export default class P5Sandbox extends React.Component {
     }
 
     if (this.props.code != prevProps.code) {
+      this.renderSketch();
+    }
+
+    if (this.props.hash != prevProps.hash) {
       this.renderSketch();
     }
   }
