@@ -34,7 +34,7 @@ class HistoryList extends Component {
               .map(event => {
                 return (
                   <GridListTile>
-                    <ArtPiece {...this.props} blockNum={event.blockNumber} />
+                    <ArtPiece {...this.props} blockNum={event.returnValues[1]} />
                   </GridListTile>
                 );
               })}
