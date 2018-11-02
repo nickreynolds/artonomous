@@ -18,11 +18,11 @@ class ArtPieceRendererContainer extends Component {
         level.setState({ generatorUri: result });
       }
     });
-    this.setState({ hash: this.props.hash });
     this.onUpdate();
   }
   onUpdate() {
     const level = this;
+    this.setState({ hash: this.props.hash });
     if (!this.props.hash) {
       this.props.drizzle.web3.eth.getBlock(this.props.blockNum, function(error, result) {
         if (result) {

@@ -8,7 +8,6 @@ contract Artonomous {
 
     event ArtonomousAuctionStarted(uint indexed blockNumber);
     event ArtonomousArtBought(address indexed buyer, uint indexed blockNumber, uint price);
-    event ArtonomousArtClaimed(address indexed claimant, uint indexed blockNumber);
 
     struct Auction {
         uint blockNumber;
@@ -81,7 +80,7 @@ contract Artonomous {
         pieceToken.transferFrom(this, msg.sender, blockNumber);
         delete currentAuction;
 
-        emit ArtonomousArtClaimed(msg.sender, blockNumber);
+        emit ArtonomousArtBought(msg.sender, blockNumber, 0);
 
         startAuction();
     }

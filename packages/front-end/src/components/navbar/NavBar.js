@@ -6,6 +6,8 @@ import { ContractData } from "drizzle-react-components";
 import PropTypes from "prop-types";
 import NewContractForm from "../utility/NewContractForm";
 import { DrizzleContext } from "drizzle-react";
+import Balance from "./Balance";
+import Login from "./Login";
 
 const NavDiv = styled.div`
   min-width: 100%;
@@ -33,16 +35,9 @@ const NavLink = styled(Link)`
 `;
 
 class NavBar extends Component {
-  state = { dataKey: null };
-  componentDidMount() {
-    const dataKey = this.props.drizzle.contracts.SoulToken.methods.balanceOf.cacheCall(
-      this.props.drizzleState.accounts[0],
-    );
-    this.setState({ dataKey });
-  }
   render() {
-    const balance = this.props.drizzleState.contracts.SoulToken.balanceOf[this.state.dataKey];
-    const registryAddress = this.props.drizzle.contracts.GeneratorRegistry.address;
+    const accounts = this.props.drizzleState.accounts;
+    const hasAccount = accounts.hasOwnProperty(0);
     return (
       <NavDiv>
         <NavUL>
@@ -53,31 +48,13 @@ class NavBar extends Component {
             <NavLink to="/generators">Generators</NavLink>{" "}
           </NavLI>
           <NavLI>
+            <NavLink to="/history">History</NavLink>{" "}
+          </NavLI>
+          <NavLI>
             <NavLink to="/soul">Soul</NavLink>{" "}
           </NavLI>
-          <NavLI>
-            <NavSpan>SOUL balance: {balance && balance.value}</NavSpan>{" "}
-          </NavLI>
-          <NavLI>
-            <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: "100000000000000000" }}>
-              Buy .1 ETH of SOUL
-            </NewContractForm>
-            {balance && (
-              <NewContractForm contract="SoulToken" method="sell" initialMethodArgs={[balance.value]}>
-                Sell Your Soul
-              </NewContractForm>
-            )}
-          </NavLI>
-          <NavLI>
-            <NewContractForm
-              contract="SoulToken"
-              method="approve"
-              initialMethodArgs={[registryAddress, "10000"]}
-              hideInputs={true}
-            >
-              Approve Registry To Spend 10,000 SOUL
-            </NewContractForm>
-          </NavLI>
+          {hasAccount && <Balance {...this.props} />}
+          {!hasAccount && <Login {...this.props} />}
         </NavUL>
       </NavDiv>
     );

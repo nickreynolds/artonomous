@@ -16,7 +16,10 @@ const drizzleOptions = {
   },
   contracts: [Artonomous, ArtPieceToken, GeneratorRegistry, GeneratorFactory, SoulToken],
   events: {
-    SimpleStorage: ["StorageSet"],
+    Artonomous: [
+      { eventName: "ArtonomousArtBought", eventOptions: { fromBlock: 0 } },
+      { eventName: "ArtonomousAuctionStarted", eventOptions: { fromBlock: 0 } },
+    ],
   },
   polls: {
     accounts: 1500,
