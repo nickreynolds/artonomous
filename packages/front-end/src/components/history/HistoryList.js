@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import ArtPiece from "../artPiece/ArtPiece";
 
 import { withStyles } from "@material-ui/core/styles";
 import GridList from "material-ui/GridList";
 import GridListTile from "material-ui/GridList/GridTile";
+import ArtPieceHistoryContainer from "./ArtPieceHistoryContainer";
 
 const styles = theme => ({
   root: {
@@ -34,7 +34,7 @@ class HistoryList extends Component {
               .map(event => {
                 return (
                   <GridListTile>
-                    <ArtPiece {...this.props} blockNum={event.returnValues[1]} />
+                    <ArtPieceHistoryContainer {...this.props} event={event} />
                   </GridListTile>
                 );
               })}
