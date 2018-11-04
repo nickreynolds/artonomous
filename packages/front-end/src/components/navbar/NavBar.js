@@ -20,14 +20,19 @@ const NavUL = styled.ul`
   padding: 0;
   overflow: hidden;
   background-color: #000000;
+  display: flex;
+  align-items: center;
 `;
 
 const NavLI = styled.li`
-  display: inline;
+  padding: 10px 10px 10px 10px;
+`;
+const NavSpace = styled.li`
+  flex: 1;
 `;
 
-const NavSpan = styled.span`
-  color: #ffffff;
+const NavLIR = styled.li`
+  margin-right: 10px;
 `;
 
 const NavLink = styled(Link)`
@@ -53,8 +58,9 @@ class NavBar extends Component {
           <NavLI>
             <NavLink to="/soul">Soul</NavLink>{" "}
           </NavLI>
-          {hasAccount && <Balance {...this.props} />}
-          {!hasAccount && <Login {...this.props} />}
+          <NavSpace />
+          <NavLIR>{hasAccount && <Balance {...this.props} />}</NavLIR>
+          <NavLIR>{!hasAccount && <Login {...this.props} />}</NavLIR>
         </NavUL>
       </NavDiv>
     );

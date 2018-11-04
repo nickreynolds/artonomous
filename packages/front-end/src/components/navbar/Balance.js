@@ -24,29 +24,23 @@ class Balance extends Component {
     const registryAddress = this.props.drizzle.contracts.GeneratorRegistry.address;
     return (
       <div>
-        <NavLI>
-          <NavSpan>SOUL balance: {balance && balance.value}</NavSpan>{" "}
-        </NavLI>
-        <NavLI>
-          <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: "100000000000000000" }}>
-            Buy .1 ETH of SOUL
+        <NavSpan>SOUL balance: {balance && balance.value}</NavSpan>{" "}
+        <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: "100000000000000000" }}>
+          Buy .1 ETH of SOUL
+        </NewContractForm>
+        {balance && (
+          <NewContractForm contract="SoulToken" method="sell" initialMethodArgs={[balance.value]}>
+            Sell Your Soul
           </NewContractForm>
-          {balance && (
-            <NewContractForm contract="SoulToken" method="sell" initialMethodArgs={[balance.value]}>
-              Sell Your Soul
-            </NewContractForm>
-          )}
-        </NavLI>
-        <NavLI>
-          <NewContractForm
-            contract="SoulToken"
-            method="approve"
-            initialMethodArgs={[registryAddress, "10000"]}
-            hideInputs={true}
-          >
-            Approve Registry To Spend 10,000 SOUL
-          </NewContractForm>
-        </NavLI>
+        )}
+        <NewContractForm
+          contract="SoulToken"
+          method="approve"
+          initialMethodArgs={[registryAddress, "10000"]}
+          hideInputs={true}
+        >
+          Approve Registry To Spend 10,000 SOUL
+        </NewContractForm>
       </div>
     );
   }
