@@ -7,8 +7,27 @@ const NavLI = styled.li`
   display: inline;
 `;
 
+const NavLink = styled(Link)`
+  color: #ffffff;
+`;
+
 const NavSpan = styled.span`
   color: #ffffff;
+`;
+
+const NavSpanLink = styled.span`
+  color: #ffffff;
+  text-decoration: underline;
+`;
+
+const PopDiv = styled.div`
+  position: fixed;
+  z-index: 1;
+  width: 50%;
+  height: 50%;
+  background-color: gray;
+  right: 5px;
+  top: 50px;
 `;
 
 class Balance extends Component {
@@ -21,26 +40,10 @@ class Balance extends Component {
   }
   render() {
     const balance = this.props.drizzleState.contracts.SoulToken.balanceOf[this.state.dataKey];
-    const registryAddress = this.props.drizzle.contracts.GeneratorRegistry.address;
     return (
       <div>
-        <NavSpan>SOUL balance: {balance && balance.value}</NavSpan>{" "}
-        <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: "100000000000000000" }}>
-          Buy .1 ETH of SOUL
-        </NewContractForm>
-        {balance && (
-          <NewContractForm contract="SoulToken" method="sell" initialMethodArgs={[balance.value]}>
-            Sell Your Soul
-          </NewContractForm>
-        )}
-        <NewContractForm
-          contract="SoulToken"
-          method="approve"
-          initialMethodArgs={[registryAddress, "10000"]}
-          hideInputs={true}
-        >
-          Approve Registry To Spend 10,000 SOUL
-        </NewContractForm>
+        <NavSpan>{balance && <React.Fragment>{balance.value} SOUL</React.Fragment>}</NavSpan>{" "}
+        <NavLink to="soul">Buy/Sell</NavLink>
       </div>
     );
   }
