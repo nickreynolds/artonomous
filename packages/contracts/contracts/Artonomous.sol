@@ -48,7 +48,15 @@ contract Artonomous {
     function buyArt() external payable {
         uint blockNumber = currentAuction.blockNumber;
         require(blockNumber > 0);
-        require(currentAuction.endTime > now);
+        if (currentAuction.endTime > now) {
+            buyArtInternal();
+        } else {
+            claimArtInternal();
+        }
+    }
+
+    function buyArtInternal() internal {
+        uint blockNumber = currentAuction.blockNumber;
 
         uint buyPrice = getBuyPrice(currentAuction.startingPrice);
         require(msg.value >= buyPrice);
@@ -72,10 +80,8 @@ contract Artonomous {
     }
 
     // after 24 hours, anyone can claim for free
-    function claimArt() external {
+    function claimArtInternal() internal {
         uint blockNumber = currentAuction.blockNumber;
-        require(blockNumber > 0);
-        require(currentAuction.endTime <= now);
 
         pieceToken.transferFrom(this, msg.sender, blockNumber);
         delete currentAuction;

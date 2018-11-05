@@ -29,26 +29,47 @@ class SoulDetail extends Component {
   };
 
   render() {
+    console.log("this.props.drizzleState: ", this.props.drizzleState);
+    console.log("this.props.drizzle: ", this.props.drizzle);
     const balance = this.props.drizzleState.contracts.SoulToken.balanceOf[this.state.dataKey];
+    console.log("balance:", balance);
+    const newBalance = balance ? balance.value : 0;
+    console.log("newBalance: ", newBalance);
+    const ethBalance = this.props.drizzleState.accountBalances[this.props.drizzleState.accounts[0]];
+    console.log("ethbalance: ", ethBalance);
     const registryAddress = this.props.drizzle.contracts.GeneratorRegistry.address;
 
     const { ethValue, soulValue } = this.state;
+    console.log("ethValue: ", ethValue);
+    console.log("ethValue.toString(): ", ethValue.toString());
+    const ethValue2 = Number(ethValue * 100000000000000000).toString();
+    console.log("ethValue2: ", ethValue2);
+
+    const testValue = "100000000000000000";
+    console.log("ethValue2 === testValue", ethValue2 === testValue);
     return (
       <SoulDiv>
         <br />
-        <Slider value={ethValue} onChange={this.handleEthSliderChange} />
         <br />
-        <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: this.state.ethValue }}>
-          Buy {this.state.ethValue} ETH of SOUL
+        <Slider value={ethValue} onChange={this.handleEthSliderChange} min={0} max={ethBalance / 100000000000000000} />
+        <br />
+        <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: testValue }}>
+          Buy {testValue} ETH of SOUL
         </NewContractForm>
         <br />
         <br />
         {balance && (
           <React.Fragment>
-            <Slider value={soulValue} onChange={this.handleSoulSliderChange} />
+            <Slider value={soulValue} onChange={this.handleSoulSliderChange} min={0} max={newBalance} />
             <br />
-            <NewContractForm contract="SoulToken" method="sell" initialMethodArgs={[soulValue]}>
-              Sell Your Soul
+            <NewContractForm
+              contract="SoulToken"
+              method="sell"
+              methodArgs={{ from: this.props.drizzleState.accounts[0] }}
+              initialMethodArgs={[testValue]}
+              hideInputs={true}
+            >
+              Sell {testValue} of Your SOUL
             </NewContractForm>
             <br />
             <NewContractForm
