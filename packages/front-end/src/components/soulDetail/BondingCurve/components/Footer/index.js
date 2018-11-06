@@ -1,0 +1,32 @@
+import React from "react";
+import PropTypes from "prop-types";
+import styles from "./footer.module.scss";
+
+const Footer = ({ detail, children, symbol }) => (
+  <div className={styles.bondingcurve_module_footer}>
+    <div className={styles.bondingcurve_module_footer__left}>
+      {symbol && <div className={styles.symbol}>{symbol}</div>}
+      <div className={styles.data_point_detail}>
+        {detail && (
+          <React.Fragment>
+            {detail.title && <div className={styles.data_point_detail__title}>{detail.title}</div>}
+            {detail.sub && <div className={styles.data_point_detail__sub}>{detail.sub}</div>}
+          </React.Fragment>
+        )}
+      </div>
+    </div>
+
+    <div>{children || null}</div>
+  </div>
+);
+
+Footer.propTypes = {
+  detail: PropTypes.shape({
+    title: PropTypes.string,
+    sub: PropTypes.string,
+  }),
+  children: PropTypes.any,
+  symbol: PropTypes.string,
+};
+
+export default Footer;
