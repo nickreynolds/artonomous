@@ -4,8 +4,37 @@ import cn from "classnames";
 import moment from "moment";
 import Footer from "../../Footer";
 import ReactVisTimeline from "./ReactVisTimeline";
-import styles from "./timeline.module.scss";
 import { getWeb3 } from "../../../../../../util/web3/getWeb3";
+import styled from "styled-components";
+
+const StyledFilterUL = styled.ul`
+   {
+    color: $brand-grey-light;
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-family: $font-family-button;
+    font-size: 0.8rem;
+  }
+`;
+
+const StyledFilterLI = styled.li`
+   {
+    padding: 0.3rem;
+    opacity: 0.6;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &.active {
+      color: $brand-black;
+      opacity: 1;
+    }
+  }
+`;
 
 export default class Timeline extends PureComponent {
   static propTypes = {
@@ -133,20 +162,17 @@ export default class Timeline extends PureComponent {
   };
 
   setDetail = selectedItem => {
+    console.log("setDetail: ", selectedItem);
     this.setState({ selectedItem });
   };
 
   render() {
-    console.log("this.props.drizzle: ", this.props.drizzle);
-    console.log("this.props.drizzleState: ", this.props.drizzleState);
     const { activeFilter, selectedItem, minDomain, data, maxValue } = this.state;
     const { height } = this.props;
 
     if (this.state.error) throw this.state.error;
 
     const detail = selectedItem || data.slice(-1)[0];
-
-    console.log("data: ", data);
 
     return (
       <div>
@@ -162,27 +188,23 @@ export default class Timeline extends PureComponent {
         </div>
 
         <Footer
-          symbol="OCN"
+          symbol="ETH"
           detail={
             detail
               ? {
-                  title: `${detail.y.toFixed(4)}`,
+                  title: `${(detail.y * 1000000000000000000).toFixed(4)}`,
                   sub: moment(detail.x).format("lll"),
                 }
               : null
           }
         >
-          <ul className={styles.timeline_filter}>
+          <StyledFilterUL>
             {this.filters.map(filter => (
-              <li
-                key={filter}
-                className={cn({ active: filter === activeFilter })}
-                onClick={this.setFilter.bind(this, filter)}
-              >
+              <StyledFilterLI key={filter} active={filter === activeFilter} onClick={this.setFilter.bind(this, filter)}>
                 {filter}
-              </li>
+              </StyledFilterLI>
             ))}
-          </ul>
+          </StyledFilterUL>
         </Footer>
       </div>
     );

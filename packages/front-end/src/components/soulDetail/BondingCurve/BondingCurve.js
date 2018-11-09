@@ -2,8 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import ErrorBoundary from "react-error-boundary";
 import { getWeb3 } from "../../../util/web3/getWeb3";
-import styles from "./BondingCurve.module.scss";
-import BondingCurveChart from "./components/charts/BondingCurve";
+import BondingCurveChart from "./components/charts/BondingCurve/BondingCurveChart";
 import Timeline from "./components/charts/Timeline/Timeline";
 import ErrorComponent from "./components/Error";
 import Loader from "./components/Loader";
@@ -11,6 +10,73 @@ import Loader from "./components/Loader";
 import "react-vis/dist/style.css";
 import { timeFormatDefaultLocale } from "d3-time-format";
 import english from "d3-time-format/locale/en-US.json";
+
+import styled from "styled-components";
+
+const StyledTabs = styled.ul`
+   {
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0.7rem 0.7rem 0 0.7rem;
+  }
+`;
+
+const StyledTab = styled.li`
+   {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    color: $brand-grey-light;
+    text-transform: uppercase;
+    font-family: $font-family-button;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.1rem;
+    border: none;
+    background: transparent;
+    margin-right: 0.1rem;
+    font-size: $font-size-small;
+    &:focus {
+      outline: none;
+    }
+  }
+`;
+
+const StyledTabButton = styled.button`
+   {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    color: $brand-grey-light;
+    text-transform: uppercase;
+    font-family: $font-family-button;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.1rem;
+    border: none;
+    background: transparent;
+    margin-right: 0.1rem;
+    font-size: $font-size-small;
+    &:focus {
+      outline: none;
+    }
+  }
+`;
+
+const StyledDiv = styled.div`
+   {
+    background: $brand-white;
+    border-radius: 0.2rem;
+  }
+`;
 
 // To prevent overflowing of large month names
 timeFormatDefaultLocale({
@@ -140,7 +206,7 @@ export default class BondingCurve extends PureComponent {
   };
 
   render() {
-    return <div className={styles.bondingModule}>{this.renderContent()}</div>;
+    return <StyledDiv>{this.renderContent()}</StyledDiv>;
   }
 
   renderContent = () => {
@@ -158,24 +224,14 @@ export default class BondingCurve extends PureComponent {
 
     return (
       <React.Fragment>
-        <ul className={styles.tabs}>
-          <li>
-            <button
-              className={isActive("timeline") ? styles.tab__active : styles.tab}
-              onClick={this.toggleTab.bind(this, "timeline")}
-            >
-              Timeline
-            </button>
-          </li>
-          <li>
-            <button
-              className={isActive("bonding-curve") ? styles.tab__active : styles.tab}
-              onClick={this.toggleTab.bind(this, "bonding-curve")}
-            >
-              Bonding Curve
-            </button>
-          </li>
-        </ul>
+        <StyledTabs>
+          <StyledTab>
+            <StyledTabButton onClick={this.toggleTab.bind(this, "timeline")}>Timeline</StyledTabButton>
+          </StyledTab>
+          <StyledTab>
+            <StyledTabButton onClick={this.toggleTab.bind(this, "bonding-curve")}>Bonding Curve</StyledTabButton>
+          </StyledTab>
+        </StyledTabs>
 
         <ErrorBoundary FallbackComponent={this.renderErrorComponent}>
           {error ? this.renderErrorComponent(error) : null}
@@ -183,7 +239,7 @@ export default class BondingCurve extends PureComponent {
           {web3 &&
             !error &&
             contract && (
-              <div className={styles.Tab_content}>
+              <div>
                 <Tab
                   key={activeTab}
                   web3={web3}
