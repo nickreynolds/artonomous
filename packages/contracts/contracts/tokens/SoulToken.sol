@@ -8,8 +8,8 @@ contract SoulToken is EthBondingCurve {
   uint8 public constant decimals = 18;
 
   uint256 public constant INITIAL_SUPPLY = 2000000 * (10 ** 18);
-  uint256 public constant INITIAL_PRICE = 39 * (10 ** 13);
-  uint32 public constant CURVE_RATIO = 150000;
+  uint256 public constant INITIAL_PRICE = 40 * (10 ** 16);
+  uint32 public constant CURVE_RATIO = 350000;
   uint256 public constant INITAL_BALANCE = CURVE_RATIO * INITIAL_SUPPLY * INITIAL_PRICE / (1000000 * 10 ** 18);
 
   constructor() public {

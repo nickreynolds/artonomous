@@ -4,6 +4,7 @@ import NewContractForm from "../utility/NewContractForm";
 import styled from "styled-components";
 import BondingCurve from "./BondingCurve/BondingCurve";
 import BondingCurveArtifact from "./BondingCurve.json";
+import BigNumber from "bignumber.js";
 
 const SoulDiv = styled.div`
   width: 50%;
@@ -38,13 +39,13 @@ class SoulDetail extends Component {
     const { ethValue, soulValue } = this.state;
     const ethValue2 = Number(ethValue * 100000000000000000).toString();
 
-    const testValue = "100000000000000000";
+    const testValue = BigNumber("100000000000000000");
     return (
       <SoulDiv>
         <br />
         <br />
-        <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: testValue }}>
-          Buy {testValue} ETH of SOUL
+        <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: testValue.toString() }}>
+          Buy {testValue.div(1000000000000000000).toString()} ETH of SOUL
         </NewContractForm>
         <br />
         <br />
@@ -55,10 +56,10 @@ class SoulDetail extends Component {
               contract="SoulToken"
               method="sell"
               methodArgs={{ from: this.props.drizzleState.accounts[0] }}
-              initialMethodArgs={[testValue]}
+              initialMethodArgs={[testValue.toString()]}
               hideInputs={true}
             >
-              Sell {testValue} of Your SOUL
+              Sell {testValue.div(1000000000000000000).toString()} of Your SOUL
             </NewContractForm>
             <br />
             <NewContractForm

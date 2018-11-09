@@ -49,7 +49,6 @@ export default class ReactVisTimeline extends PureComponent {
   };
 
   _onMouseLeave = () => {
-    console.log("mouse left");
     const { onShowDetail } = this.props;
 
     this.setState({ hoverValues: null });
@@ -60,7 +59,6 @@ export default class ReactVisTimeline extends PureComponent {
   };
 
   _onNearestX = value => {
-    console.log("mouse nearest x: ", value);
     const { onShowDetail } = this.props;
 
     this.setState({ hoverValues: [value] });

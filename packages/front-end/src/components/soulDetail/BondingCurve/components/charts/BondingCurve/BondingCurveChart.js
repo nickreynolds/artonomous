@@ -48,6 +48,7 @@ export default class BondingCurveChart extends PureComponent {
       //const nOcean = BN(await bondingCurveContract.methods.nOcean().call()).div(scale);
       //const ghostSupply = BN(await bondingCurveContract.methods.ghostSupply().call());
       this.setState({ reserveRatioData, poolBalanceData, totalSupplyData });
+      this.update();
     } catch (ex) {
       console.error("error in did mount: ", ex);
     }
@@ -55,36 +56,39 @@ export default class BondingCurveChart extends PureComponent {
 
   componentDidUpdate(prevProps) {
     if (prevProps.drizzleState.contracts.SoulToken !== this.props.drizzleState.contracts.SoulToken) {
-      const reserveRatioD = this.props.drizzleState.contracts.SoulToken.reserveRatio[this.state.reserveRatioData];
-      const poolBalanceD = this.props.drizzleState.contracts.SoulToken.poolBalance[this.state.poolBalanceData];
-      const totalSupplyD = this.props.drizzleState.contracts.SoulToken.totalSupply[this.state.totalSupplyData];
-      if (reserveRatioD && poolBalanceD && totalSupplyD) {
-        console.log("reserveRationD.value: ", reserveRatioD.value);
-        console.log("poolBalanceD.value: ", poolBalanceD.value);
-        console.log("totalSupplyD.value: ", totalSupplyD.value);
-        const reserveRatio = BigNumber(reserveRatioD.value.toString()).div(1000000);
-        const poolBalance = BigNumber(poolBalanceD.value).div(1000000000000000000);
-        const totalSupply = BigNumber(totalSupplyD.value);
-        try {
-          const params = {
-            reserveRatio,
-            poolBalance,
-            totalSupply,
-            price: poolBalance.div(totalSupply.times(reserveRatio)).toNumber(),
-          };
+      this.update();
+    }
+  }
+  update() {
+    const reserveRatioD = this.props.drizzleState.contracts.SoulToken.reserveRatio[this.state.reserveRatioData];
+    const poolBalanceD = this.props.drizzleState.contracts.SoulToken.poolBalance[this.state.poolBalanceData];
+    const totalSupplyD = this.props.drizzleState.contracts.SoulToken.totalSupply[this.state.totalSupplyData];
+    if (reserveRatioD && poolBalanceD && totalSupplyD) {
+      console.log("reserveRationD.value: ", reserveRatioD.value);
+      console.log("poolBalanceD.value: ", poolBalanceD.value);
+      console.log("totalSupplyD.value: ", totalSupplyD.value);
+      const reserveRatio = BigNumber(reserveRatioD.value.toString()).div(1000000);
+      const poolBalance = BigNumber(poolBalanceD.value).div(1000000000000000000);
+      const totalSupply = BigNumber(totalSupplyD.value);
+      try {
+        const params = {
+          reserveRatio,
+          poolBalance,
+          totalSupply,
+          price: poolBalance.div(totalSupply.times(reserveRatio)).toNumber(),
+        };
 
-          const { data, currentPrice } = this.getChartData(params);
+        const { data, currentPrice } = this.getChartData(params);
 
-          this.setState({
-            params,
-            data,
-            currentPrice,
-            loading: false,
-          });
-        } catch (error) {
-          console.log("error: ", error);
-          this.setState({ error });
-        }
+        this.setState({
+          params,
+          data,
+          currentPrice,
+          loading: false,
+        });
+      } catch (error) {
+        console.log("error: ", error);
+        this.setState({ error });
       }
     }
   }
@@ -153,7 +157,7 @@ export default class BondingCurveChart extends PureComponent {
         )}
 
         <Footer
-          symbol="OCN"
+          symbol="ETH"
           detail={{
             title: `${selectedItem ? selectedItem.value : currentPrice.value.toFixed(4)}`,
             sub: selectedItem

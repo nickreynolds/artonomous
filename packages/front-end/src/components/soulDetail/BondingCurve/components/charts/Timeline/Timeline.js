@@ -90,7 +90,7 @@ export default class Timeline extends PureComponent {
     const thingy = this;
     this.props.drizzleState.contracts.SoulToken.events.forEach(async event => {
       console.log("event: ", event);
-      const price = event.returnValues[2] / event.returnValues[0] / scale;
+      const price = event.returnValues[2] / event.returnValues[1] / scale;
       const block = await web3.eth.getBlock(event.blockNumber);
 
       const date = moment(block.timestamp * 1000).valueOf();
@@ -114,37 +114,6 @@ export default class Timeline extends PureComponent {
     });
   };
 
-  handleEvent = async (event, scale) => {
-    console.log("handle event");
-    try {
-      const { web3 } = this.props;
-
-      const price = event.returnValues._price / scale;
-      const block = await web3.eth.getBlock(event.blockNumber);
-
-      const date = moment(block.timestamp * 1000).valueOf();
-
-      let newMaxValue = this.state.maxValue;
-
-      if (price > this.state.maxValue) {
-        newMaxValue = price;
-      }
-
-      this.setState(prevState => ({
-        data: [
-          ...prevState.data,
-          {
-            y: +price,
-            x: date,
-          },
-        ],
-        maxValue: newMaxValue,
-      }));
-    } catch (err) {
-      throw err;
-    }
-  };
-
   setFilter = filter => {
     let minDomain = 0;
 
@@ -162,7 +131,6 @@ export default class Timeline extends PureComponent {
   };
 
   setDetail = selectedItem => {
-    console.log("setDetail: ", selectedItem);
     this.setState({ selectedItem });
   };
 
@@ -192,7 +160,7 @@ export default class Timeline extends PureComponent {
           detail={
             detail
               ? {
-                  title: `${(detail.y * 1000000000000000000).toFixed(4)}`,
+                  title: `${detail.y.toFixed(20)}`,
                   sub: moment(detail.x).format("lll"),
                 }
               : null
