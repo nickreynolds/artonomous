@@ -70,7 +70,7 @@ export default class BondingCurveChart extends PureComponent {
           loading: false,
         });
       } catch (error) {
-        console.log("error: ", error);
+        console.error("error: ", error);
         this.setState({ error });
       }
     }

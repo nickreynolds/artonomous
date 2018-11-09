@@ -125,58 +125,6 @@ export default class BondingCurve extends PureComponent {
     }
   };
 
-  getContract = async props => {
-    const { contractAddress, contractArtifact, onLoaded } = props;
-
-    // Reset state
-    this.setState({
-      loading: true,
-      contractAddress: null,
-      contract: null,
-      error: null,
-    });
-
-    try {
-      console.log("try 1");
-      // Get network provider and web3 instance.
-      const web3 = await getWeb3();
-      console.log("try 2");
-
-      // Check if connected
-      await web3.eth.net.isListening();
-      console.log("try 3");
-
-      if (!web3.utils.isAddress(contractAddress)) {
-        console.log("try 4");
-        this.setState({
-          loading: false,
-          error: "Invalid address",
-        });
-      } else {
-        console.log("try 5");
-        const contract = new web3.eth.Contract(contractArtifact.abi, contractAddress);
-
-        const code = await web3.eth.getCode(contractAddress);
-
-        console.log("try 6");
-        if (code === "0x") {
-          console.log("try 7");
-          this.setState({
-            loading: false,
-            error: "Invalid contract",
-          });
-        } else {
-          console.log("try 8");
-          onLoaded();
-
-          this.setState({ web3, contract, loading: false });
-        }
-      }
-    } catch (error) {
-      throw error;
-    }
-  };
-
   toggleTab(tabName) {
     this.setState({
       activeTab: tabName,
@@ -244,8 +192,6 @@ export default class BondingCurve extends PureComponent {
                   key={activeTab}
                   web3={web3}
                   height={height}
-                  contractAddress={contractAddress}
-                  bondingCurveContract={contract}
                   drizzle={this.props.drizzle}
                   drizzleState={this.props.drizzleState}
                 />
