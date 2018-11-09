@@ -88,10 +88,6 @@ contract EthBondingCurve is StandardToken, BancorFormula, Ownable {
     gasPrice = _gasPrice;
   }
 
-  function totalSupply() public returns (uint) {
-      return totalSupply_;
-  }
-
   event LogMint(address sender, uint256 amountMinted, uint256 totalCost);
   event LogWithdraw(address sender, uint256 amountWithdrawn, uint256 reward);
   event LogBondingCurve(address sender, string logString, uint256 value);
