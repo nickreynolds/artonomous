@@ -1,14 +1,88 @@
 import React, { Component } from "react";
 import NewContractData from "../utility/NewContractData";
-import ArtPiece from "../artPiece/ArtPiece";
+import NewContractForm from "../utility/NewContractForm";
+import styled from "styled-components";
+import BondingCurve from "./BondingCurve/BondingCurve";
+import BondingCurveArtifact from "./BondingCurve.json";
+
+const SoulDiv = styled.div`
+  width: 50%;
+  top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 class SoulDetail extends Component {
-  state = { auctionkey: null };
+  state = { dataKey: null, ethValue: 0, soulValue: 0, contractAddress: "0x96eaf28b6e59defc8f736faa1681d41382d3aa32" };
+  componentDidMount() {
+    const dataKey = this.props.drizzle.contracts.SoulToken.methods.balanceOf.cacheCall(
+      this.props.drizzleState.accounts[0],
+    );
+    this.setState({ dataKey });
+  }
+
+  handleEthSliderChange = (event, value) => {
+    this.setState({ ethValue: value });
+  };
+
+  handleSoulSliderChange = (event, value) => {
+    this.setState({ soulValue: value });
+  };
 
   render() {
+    const balance = this.props.drizzleState.contracts.SoulToken.balanceOf[this.state.dataKey];
+    const newBalance = balance ? balance.value : 0;
+    const ethBalance = this.props.drizzleState.accountBalances[this.props.drizzleState.accounts[0]];
+    const registryAddress = this.props.drizzle.contracts.GeneratorRegistry.address;
+    const bondingCurveAddress = this.props.drizzle.contracts.SoulToken.address;
+    const { ethValue, soulValue } = this.state;
+    const ethValue2 = Number(ethValue * 100000000000000000).toString();
+
+    const testValue = "100000000000000000";
     return (
-      <div>
-        Pool Balance: <NewContractData contract="SoulToken" method="poolBalance" />
-      </div>
+      <SoulDiv>
+        <br />
+        <br />
+        <NewContractForm contract="SoulToken" method="buy" methodArgs={{ value: testValue }}>
+          Buy {testValue} ETH of SOUL
+        </NewContractForm>
+        <br />
+        <br />
+        {balance && (
+          <React.Fragment>
+            <br />
+            <NewContractForm
+              contract="SoulToken"
+              method="sell"
+              methodArgs={{ from: this.props.drizzleState.accounts[0] }}
+              initialMethodArgs={[testValue]}
+              hideInputs={true}
+            >
+              Sell {testValue} of Your SOUL
+            </NewContractForm>
+            <br />
+            <NewContractForm
+              contract="SoulToken"
+              method="approve"
+              initialMethodArgs={[registryAddress, "10000"]}
+              hideInputs={true}
+            >
+              Approve Registry To Spend 10,000 SOUL
+            </NewContractForm>
+          </React.Fragment>
+        )}
+        <BondingCurve
+          contractAddress={bondingCurveAddress}
+          contractArtifact={BondingCurveArtifact}
+          settings={{
+            poolBalance: 4000000,
+            totalSupply: 1000000,
+            reserveRatio: 0.2,
+          }}
+          drizzle={this.props.drizzle}
+          drizzleState={this.props.drizzleState}
+        />
+      </SoulDiv>
     );
   }
 }
