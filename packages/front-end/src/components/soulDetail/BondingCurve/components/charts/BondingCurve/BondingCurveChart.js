@@ -89,45 +89,47 @@ export default class BondingCurveChart extends PureComponent {
     }
   }
 
-  getChartData({ totalSupply, reserveRatio, poolBalance, price: currentPrice }) {
-    // TODO - remark - Not sure how much we should display
+  calculateSaleReturn(props) {
+    let { state } = this;
 
-    /*
-          * TODO - remark - Not sure if we need to display buy prices if supply < total supply like https://bondingcurves.relevant.community/
-          * If so, we'll need to do something like this. The issue is that when doing this, we can't have a variable supply/pool balance to calculate the price.
-          * When using a variable amount like relevant, the calculations didn't seem to be correct for me.
-          * https://github.com/relevant-community/bonding-curve-component/blob/ceba574b9eb740715331e3124635b87b06c3790f/src/Chart.js#L31
-          */
+    let { totalSupply, poolBalance, reserveRatio, amount } = { ...state, ...props };
+    if (!totalSupply || !poolBalance || !reserveRatio || !amount) return "0";
 
-    const total = 100000;
+    if (totalSupply === 0 || reserveRatio === 0 || poolBalance === 0 || amount === 0) return "0";
+    if (amount === totalSupply) return poolBalance;
+    if (reserveRatio === 1) return poolBalance;
 
-    const step = Math.round(total / 100);
-    const amount = BigNumber(step);
+    let result = poolBalance * (1 - (1 - amount / totalSupply) ** (1 / reserveRatio));
+    return result; //Math.round(result * 10000) / 10000;
+  }
 
-    let _supply = BigNumber(10);
-    let _balance = BigNumber(1);
+  calculateBuyPrice(props) {
+    let { state } = this;
+    let { totalSupply, poolBalance, reserveRatio, amount } = { ...state, ...props };
+    if (!totalSupply || !poolBalance || !reserveRatio || !amount) return "0";
+    if (totalSupply === 0 || reserveRatio === 0 || poolBalance === 0 || amount === 0) return "0";
+    let result = poolBalance * ((1 + amount / totalSupply) ** (1 / reserveRatio) - 1);
+    return result; //Math.round(result * 10000) / 10000;
+  }
 
-    const data = [];
+  getChartData({ totalSupply, reserveRatio, poolBalance }) {
+    let data = [];
+    let step = Math.round(totalSupply / 100);
+    let price = poolBalance / (reserveRatio * totalSupply);
+    let currentPrice = { supply: totalSupply, value: price };
 
-    for (let i = step; i < total * 1.5; i += step) {
-      const [tokens, price] = calculateBuyPrice({
-        totalSupply: _supply,
-        amount,
-        poolBalance: _balance,
-        reserveRatio,
-      });
-
-      _supply = _supply.plus(tokens);
-      _balance = _balance.plus(amount);
-
-      data.push({
-        supply: _supply.toNumber(),
-        sell: +price.toFixed(4),
-        value: +price.toFixed(4),
-      });
+    for (let i = step; i < totalSupply * 1.5; i += step) {
+      if (i < totalSupply) {
+        let eth = 1 * this.calculateSaleReturn({ poolBalance, totalSupply, reserveRatio, amount: totalSupply - i });
+        price = (parseFloat(poolBalance, 10) - eth) / (reserveRatio * i);
+        data.push({ supply: i, sell: price, value: price });
+      } else if (i > totalSupply) {
+        let eth = 1 * this.calculateBuyPrice({ poolBalance, totalSupply, reserveRatio, amount: i - totalSupply });
+        price = (eth + parseFloat(poolBalance, 10)) / (reserveRatio * i);
+        data.push({ supply: 1 * i, buy: price, value: 1 * price });
+      }
     }
-
-    return { data, currentPrice: { supply: totalSupply, value: currentPrice } };
+    return { data, currentPrice };
   }
 
   setDetail = selectedItem => {
