@@ -10,14 +10,16 @@ class NewContractForm extends Component {
     super(props);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
+  componentDidMount() {
+    this.methodArgs = this.props.methodArgs ? this.props.methodArgs : [];
     this.contracts = this.props.drizzle.contracts;
 
     // Get the contract ABI
     const abi = this.contracts[this.props.contract].abi;
 
     // Fetch methods arguments and index
-    this.methodArgs = this.props.methodArgs ? this.props.methodArgs : [];
     this.accountIndex = this.props.accountIndex ? this.props.accountIndex : [];
 
     this.inputs = [];
@@ -37,6 +39,35 @@ class NewContractForm extends Component {
     }
 
     this.state = initialState;
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props && this.props.methodArgs) {
+      this.methodArgs = this.props.methodArgs;
+      // Get the contract ABI
+      const abi = this.contracts[this.props.contract].abi;
+
+      // Fetch methods arguments and index
+      this.accountIndex = this.props.accountIndex ? this.props.accountIndex : [];
+
+      this.inputs = [];
+      var initialState = {};
+
+      // Iterate over abi for correct function.
+      for (var i = 0; i < abi.length; i++) {
+        if (abi[i].name === this.props.method) {
+          this.inputs = abi[i].inputs;
+
+          for (var i = 0; i < this.inputs.length; i++) {
+            initialState[this.inputs[i].name] = this.props.initialMethodArgs[i];
+          }
+
+          break;
+        }
+      }
+
+      this.state = initialState;
+    }
   }
 
   handleSubmit() {
@@ -70,6 +101,7 @@ class NewContractForm extends Component {
     return (
       <span>
         {!this.props.hideInputs &&
+          this.inputs &&
           this.inputs.map((input, index) => {
             var inputType = this.translateType(input.type);
             var inputLabel = this.props.labels ? this.props.labels[index] : input.name;
