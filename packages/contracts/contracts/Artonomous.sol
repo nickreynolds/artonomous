@@ -3,8 +3,10 @@ pragma solidity ^0.4.24;
 import "./GeneratorRegistry.sol";
 import "./tokens/ArtPieceToken.sol";
 import "./tokens/SoulToken.sol";
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 
 contract Artonomous {
+    using SafeMath for uint256;
 
     event ArtonomousAuctionStarted(uint indexed blockNumber);
     event ArtonomousArtBought(address indexed buyer, uint indexed blockNumber, uint price);
@@ -19,7 +21,7 @@ contract Artonomous {
     ArtPieceToken public pieceToken;
     SoulToken public soulToken;
 
-    uint public AUCTION_LENGTH = 86400; // 24 hours
+    uint public AUCTION_LENGTH = 360; // 6 minutes
     Auction public currentAuction;
 
     constructor(address stakingAddr, address artToken, address soulTokenAddr) public {
@@ -28,21 +30,25 @@ contract Artonomous {
         soulToken = SoulToken(soulTokenAddr);
     }
 
-    function startAuction() public {
+    function startAuction(uint prevBoughtPrice, uint prevPrice) public {
         require(currentAuction.blockNumber == 0);
         Generator currentGenerator = registry.getActiveGenerator();
         pieceToken.mint(this, block.number, address(currentGenerator));
         currentAuction = Auction({
             blockNumber: block.number,
             endTime: now + AUCTION_LENGTH,
-            startingPrice: getStartingPrice()
+            startingPrice: getStartingPrice(prevBoughtPrice, prevPrice)
         });
         emit ArtonomousAuctionStarted(block.number);
     }
 
     // placeholder
-    function getStartingPrice() internal pure returns (uint) {
-        return 100000000000000000;
+    function getStartingPrice(uint prevBoughtPrice, uint prevPrice) internal pure returns (uint) {
+        if (prevBoughtPrice > 0) {
+            return prevBoughtPrice.mul(20).div(2);
+        } else {
+            return prevPrice.mul(20).div(21);
+        }
     }
 
     function buyArt() external payable {
@@ -58,7 +64,10 @@ contract Artonomous {
     function buyArtInternal() internal {
         uint blockNumber = currentAuction.blockNumber;
 
-        uint buyPrice = getBuyPrice(currentAuction.startingPrice);
+        uint startingPrice = getBuyPrice(currentAuction.startingPrice);
+
+        uint buyPrice = ((currentAuction.endTime - now) / AUCTION_LENGTH) * startingPrice;
+
         require(msg.value >= buyPrice);
 
 
@@ -71,7 +80,7 @@ contract Artonomous {
 
         emit ArtonomousArtBought(msg.sender, blockNumber, buyPrice);
 
-        startAuction();
+        startAuction(buyPrice, startingPrice);
     }
 
     // placeholder
@@ -82,12 +91,13 @@ contract Artonomous {
     // after 24 hours, anyone can claim for free
     function claimArtInternal() internal {
         uint blockNumber = currentAuction.blockNumber;
+        uint startingPrice = getBuyPrice(currentAuction.startingPrice);
 
         pieceToken.transferFrom(this, msg.sender, blockNumber);
         delete currentAuction;
 
         emit ArtonomousArtBought(msg.sender, blockNumber, 0);
 
-        startAuction();
+        startAuction(0, startingPrice);
     }
 }
