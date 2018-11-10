@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import ArtPieceRendererContainer from "../artPiece/ArtPieceRendererContainer";
 import NewContractForm from "../utility/NewContractForm";
+import styled from "styled-components";
+
+const GeneratorDiv = styled.div`
+  border: 1px solid black;
+`;
 
 class GeneratorsList extends Component {
   state = { stakeKey: null };
@@ -13,7 +18,7 @@ class GeneratorsList extends Component {
   render() {
     const stake = this.props.drizzleState.contracts.GeneratorRegistry.getGeneratorStake[this.state.stakeKey];
     return (
-      <div>
+      <GeneratorDiv>
         {stake && <span>SOUL Staked: {stake.value}</span>}
         <br />
         <span>Generator Address: {this.props.generator}</span>
@@ -21,12 +26,13 @@ class GeneratorsList extends Component {
         <NewContractForm
           contract="GeneratorRegistry"
           method="depositStake"
+          methodArgs={{ from: this.props.drizzleState.accounts[0] }}
           initialMethodArgs={[this.props.generator, "1000"]}
           hideInputs={true}
         >
           Stake 1,000 SOUL
         </NewContractForm>
-      </div>
+      </GeneratorDiv>
     );
   }
 }
