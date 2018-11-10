@@ -4,9 +4,6 @@ import GeneratorFactory from "../contracts/GeneratorFactory.json";
 import SoulToken from "../contracts/SoulToken.json";
 import ArtPieceToken from "../contracts/ArtPieceToken.json";
 
-// console.log("Artonomous: ", Artonomous);
-// console.log("GeneratorRegistry: ", GeneratorRegistry);
-// console.log("SoulToken: ", SoulToken);
 const drizzleOptions = {
   web3: {
     block: false,

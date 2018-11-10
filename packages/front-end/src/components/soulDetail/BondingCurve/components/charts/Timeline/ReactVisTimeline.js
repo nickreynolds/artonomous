@@ -80,7 +80,6 @@ export default class ReactVisTimeline extends PureComponent {
             .valueOf(),
         ]
       : null;
-    console.log("hoverValues: ", hoverValues);
     return (
       <StyledChart>
         <FlexibleWidthXYPlot

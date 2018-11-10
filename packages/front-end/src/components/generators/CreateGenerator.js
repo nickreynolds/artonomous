@@ -75,11 +75,7 @@ function draw() {
       Math.random()
         .toString(36)
         .substring(2, 15);
-    console.log("r2: ", r2);
-    const r = Math.random() * 1000000;
-    console.log("r: ", r);
     const hash = "0x" + sha3_256(r2);
-    console.log("hash: ", hash);
     this.setState({ hash });
   };
 

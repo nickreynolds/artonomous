@@ -8,8 +8,6 @@ import ReactVisBondingCurve from "./ReactVisBondingCurve";
 
 export default class BondingCurveChart extends PureComponent {
   static propTypes = {
-    bondingCurveContract: PropTypes.object.isRequired,
-    web3: PropTypes.object.isRequired,
     height: PropTypes.number.isRequired,
   };
 
@@ -70,7 +68,7 @@ export default class BondingCurveChart extends PureComponent {
           loading: false,
         });
       } catch (error) {
-        console.log("error: ", error);
+        console.error("error: ", error);
         this.setState({ error });
       }
     }
