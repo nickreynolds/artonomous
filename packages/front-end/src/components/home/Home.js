@@ -33,9 +33,6 @@ class Home extends Component {
             <NewContractForm contract="Artonomous" method="buyArt" methodArgs={{ value: "100000000000000000" }}>
               Buy Art
             </NewContractForm>
-            <NewContractForm contract="Artonomous" method="claimArt" methodArgs={{ value: "0" }}>
-              Claim Art
-            </NewContractForm>
           </div>
         </div>
       </main>
