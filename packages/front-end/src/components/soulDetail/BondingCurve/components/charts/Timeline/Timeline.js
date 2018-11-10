@@ -64,7 +64,7 @@ export default class Timeline extends PureComponent {
     try {
       if (
         prevProps.contractAddress !== this.props.contractAddress ||
-        prevProps.drizzleState.contracts.SoulToken !== this.props.drizzleState.contracts.SoulToken
+        prevProps.drizzleState.contracts.SoulToken.events !== this.props.drizzleState.contracts.SoulToken.events
       ) {
         this.setState(
           {
