@@ -16,10 +16,23 @@ const SoulDiv = styled.div`
 class SoulDetail extends Component {
   state = { dataKey: null, ethValue: 0, soulValue: 0, contractAddress: "0x96eaf28b6e59defc8f736faa1681d41382d3aa32" };
   componentDidMount() {
-    const dataKey = this.props.drizzle.contracts.SoulToken.methods.balanceOf.cacheCall(
-      this.props.drizzleState.accounts[0],
-    );
-    this.setState({ dataKey });
+    if (this.props.drizzleState.accounts && this.props.drizzleState.accounts[0]) {
+      const dataKey = this.props.drizzle.contracts.SoulToken.methods.balanceOf.cacheCall(
+        this.props.drizzleState.accounts[0],
+      );
+      this.setState({ dataKey });
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.drizzleState.accounts !== this.props.drizzleState.accounts) {
+      if (this.props.drizzleState.accounts && this.props.drizzleState.accounts[0]) {
+        const dataKey = this.props.drizzle.contracts.SoulToken.methods.balanceOf.cacheCall(
+          this.props.drizzleState.accounts[0],
+        );
+        this.setState({ dataKey });
+      }
+    }
   }
 
   handleEthSliderChange = (event, value) => {
@@ -32,13 +45,10 @@ class SoulDetail extends Component {
 
   render() {
     const balance = this.props.drizzleState.contracts.SoulToken.balanceOf[this.state.dataKey];
-    const newBalance = balance ? balance.value : 0;
-    const ethBalance = this.props.drizzleState.accountBalances[this.props.drizzleState.accounts[0]];
     const registryAddress = this.props.drizzle.contracts.GeneratorRegistry.address;
     const bondingCurveAddress = this.props.drizzle.contracts.SoulToken.address;
     const { ethValue, soulValue } = this.state;
     const ethValue2 = Number(ethValue * 100000000000000000).toString();
-
     const testValue = BigNumber("100000000000000000");
     return (
       <SoulDiv>
