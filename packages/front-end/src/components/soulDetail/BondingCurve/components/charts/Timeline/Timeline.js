@@ -86,7 +86,6 @@ export default class Timeline extends PureComponent {
     const web3 = await getWeb3();
     const thingy = this;
     const events = this.props.drizzleState.contracts.SoulToken.events;
-    console.log("events: ", events);
     events.forEach(async event => {
       const price = event.returnValues[2] / event.returnValues[1] / scale;
       const block = await web3.eth.getBlock(event.blockNumber);
