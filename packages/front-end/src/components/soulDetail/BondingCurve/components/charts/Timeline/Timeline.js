@@ -38,10 +38,7 @@ const StyledFilterLI = styled.li`
 
 export default class Timeline extends PureComponent {
   static propTypes = {
-    bondingCurveContract: PropTypes.object.isRequired,
-    web3: PropTypes.object.isRequired,
     height: PropTypes.number.isRequired,
-    contractAddress: PropTypes.string.isRequired,
   };
 
   state = {
@@ -88,7 +85,9 @@ export default class Timeline extends PureComponent {
     const scale = 1;
     const web3 = await getWeb3();
     const thingy = this;
-    this.props.drizzleState.contracts.SoulToken.events.forEach(async event => {
+    const events = this.props.drizzleState.contracts.SoulToken.events;
+    console.log("events: ", events);
+    events.forEach(async event => {
       const price = event.returnValues[2] / event.returnValues[1] / scale;
       const block = await web3.eth.getBlock(event.blockNumber);
 
@@ -107,7 +106,13 @@ export default class Timeline extends PureComponent {
             y: +price,
             x: date,
           },
-        ],
+        ].sort((a, b) => {
+          if (a.x === b.x) {
+            return a.y - b.y;
+          } else {
+            return a.x - b.x;
+          }
+        }),
         maxValue: newMaxValue,
       }));
     });

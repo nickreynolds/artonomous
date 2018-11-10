@@ -104,25 +104,7 @@ export default class BondingCurve extends PureComponent {
     error: false,
     web3: null,
     contract: null,
-    loading: true,
-  };
-
-  componentDidMount = async () => {
-    try {
-      await this.getContract(this.props);
-    } catch (error) {
-      this.setState({ error, loading: false });
-    }
-  };
-
-  componentDidUpdate = async prevProps => {
-    try {
-      if (this.props.contractAddress !== prevProps.contractAddress) {
-        await this.getContract(this.props);
-      }
-    } catch (error) {
-      this.setState({ error, loading: false });
-    }
+    loading: false,
   };
 
   toggleTab(tabName) {
@@ -163,9 +145,6 @@ export default class BondingCurve extends PureComponent {
 
     if (loading) return <Loader style={{ minHeight: height }} />;
 
-    // Unable to load contract
-    if (!loading && !web3 && !error) return null;
-
     const isActive = key => activeTab === key;
 
     const Tab = isActive("timeline") ? Timeline : BondingCurveChart;
@@ -184,19 +163,16 @@ export default class BondingCurve extends PureComponent {
         <ErrorBoundary FallbackComponent={this.renderErrorComponent}>
           {error ? this.renderErrorComponent(error) : null}
 
-          {web3 &&
-            !error &&
-            contract && (
-              <div>
-                <Tab
-                  key={activeTab}
-                  web3={web3}
-                  height={height}
-                  drizzle={this.props.drizzle}
-                  drizzleState={this.props.drizzleState}
-                />
-              </div>
-            )}
+          {!error && (
+            <div>
+              <Tab
+                key={activeTab}
+                height={height}
+                drizzle={this.props.drizzle}
+                drizzleState={this.props.drizzleState}
+              />
+            </div>
+          )}
         </ErrorBoundary>
       </React.Fragment>
     );
