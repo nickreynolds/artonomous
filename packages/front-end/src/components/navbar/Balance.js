@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router";
 import NewContractForm from "../utility/NewContractForm";
+import BigNumber from "bignumber.js";
 
 const NavLI = styled.li`
   display: inline;
@@ -39,10 +40,11 @@ class Balance extends Component {
     this.setState({ dataKey });
   }
   render() {
-    const balance = this.props.drizzleState.contracts.SoulToken.balanceOf[this.state.dataKey];
+    const balanceData = this.props.drizzleState.contracts.SoulToken.balanceOf[this.state.dataKey];
+    const balance = balanceData && BigNumber(balanceData.value).div(1000000000000000000);
     return (
       <div>
-        <NavSpan>{balance && <React.Fragment>{balance.value} SOUL</React.Fragment>}</NavSpan>{" "}
+        <NavSpan>{balanceData && <React.Fragment>{balance.toString()} SOUL</React.Fragment>}</NavSpan>{" "}
         <NavLink to="soul">Buy/Sell</NavLink>
       </div>
     );
