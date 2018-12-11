@@ -52,7 +52,6 @@ class SoulDetail extends Component {
   }
 
   handleEthSliderChange = (event, value) => {
-    console.log("value:", value);
     this.setState({ ethValue: value });
   };
 

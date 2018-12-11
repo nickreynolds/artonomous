@@ -10,7 +10,6 @@ class Home extends Component {
     buyPrice: 0,
   };
   componentDidMount() {
-    console.log("Artonomous: ", this.props.drizzle.contracts.Artonomous);
     const auctionkey = this.props.drizzle.contracts.Artonomous.methods.currentAuction.cacheCall();
     const auctionLengthKey = this.props.drizzle.contracts.Artonomous.methods.AUCTION_LENGTH.cacheCall();
     this.setState({ auctionkey, auctionLengthKey });
@@ -35,7 +34,6 @@ class Home extends Component {
   };
 
   render() {
-    console.log("Artonomous State: ", this.props.drizzleState.contracts.Artonomous);
     const auctionData = this.props.drizzleState.contracts.Artonomous.currentAuction[this.state.auctionkey];
 
     return (
