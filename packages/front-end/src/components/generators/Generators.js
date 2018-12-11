@@ -4,11 +4,7 @@ import { Link } from "react-router";
 import { sha3_256 } from "js-sha3";
 
 class Generators extends Component {
-  state = { generatorsKey: null, hash: "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3" };
-  componentDidMount() {
-    const generatorsKey = this.props.drizzle.contracts.GeneratorRegistry.methods.getGenerators.cacheCall();
-    this.setState({ generatorsKey });
-  }
+  state = { hash: "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3" };
 
   randomizeHash = () => {
     const r2 =
@@ -23,7 +19,15 @@ class Generators extends Component {
   };
 
   render() {
-    const generators = this.props.drizzleState.contracts.GeneratorRegistry.getGenerators[this.state.generatorsKey];
+    console.log(
+      "this.props.drizzleState.contracts.GeneratorRegistry.events: ",
+      this.props.drizzleState.contracts.GeneratorRegistry.events,
+    );
+    const events = this.props.drizzleState.contracts.GeneratorRegistry.events.filter(
+      event => event.event === "GeneratorAdded",
+    );
+    const generators = events.map(e => e.returnValues[0]);
+    console.log("generators: ", generators);
     const props = this.props;
     return (
       <div>
@@ -31,7 +35,7 @@ class Generators extends Component {
         <button onClick={this.randomizeHash}>randomize hash</button>
         <span>hash: {this.state.hash}</span>
         <Link to="/createGenerator">Create Generator</Link>
-        {generators && <GeneratorsList {...props} generators={generators.value} hash={this.state.hash} />}
+        {generators && <GeneratorsList {...props} generators={generators} hash={this.state.hash} />}
       </div>
     );
   }

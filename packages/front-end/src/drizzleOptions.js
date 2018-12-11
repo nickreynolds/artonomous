@@ -22,6 +22,7 @@ const drizzleOptions = {
       { eventName: "LogMint", eventOptions: { fromBlock: 0 } },
       { eventName: "LogWithdraw", eventOptions: { fromBlock: 0 } },
     ],
+    GeneratorRegistry: [{ eventName: "GeneratorAdded", eventOptions: { fromBlock: 0 } }],
   },
   polls: {
     accounts: 1500,

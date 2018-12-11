@@ -24,6 +24,7 @@ const styles = theme => ({
 
 class GeneratorsList extends Component {
   render() {
+    console.log("big ol generators list: ", this.props.generators);
     return (
       <div>
         {this.props.generators && (

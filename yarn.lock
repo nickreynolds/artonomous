@@ -3163,7 +3163,18 @@ drizzle-react@^1.1.1:
     prop-types "^15.5.10"
     react "^16.4.2"
 
-drizzle@^1.0.0, drizzle@^1.1.5:
+drizzle@1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/drizzle/-/drizzle-1.2.4.tgz#903e8d85fa5b718efcfdc9ac3f145fd9c3876a09"
+  dependencies:
+    deepmerge "^2.1.1"
+    eth-block-tracker-es5 "^2.3.2"
+    is-plain-object "^2.0.4"
+    redux "^4.0.0"
+    redux-saga "^0.16.0"
+    web3 "^1.0.0-beta.35"
+
+drizzle@^1.0.0:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/drizzle/-/drizzle-1.2.3.tgz#34a502fb0385061dd92c014f8fbdbcbec565a6b8"
   dependencies:
@@ -10828,7 +10839,7 @@ web3@^0.18.0, web3@^0.18.2, web3@^0.18.4:
     xhr2 "*"
     xmlhttprequest "*"
 
-web3@^1.0.0-beta.34:
+web3@^1.0.0-beta.34, web3@^1.0.0-beta.35:
   version "1.0.0-beta.36"
   resolved "https://registry.yarnpkg.com/web3/-/web3-1.0.0-beta.36.tgz#2954da9e431124c88396025510d840ba731c8373"
   dependencies:

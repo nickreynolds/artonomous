@@ -63,7 +63,7 @@ class SoulDetail extends Component {
   render() {
     const { drizzleState, drizzle } = this.props;
     const balanceData = drizzleState.contracts.SoulToken.balanceOf[this.state.dataKey];
-    const registryAddress = drizzle.contracts.SoulToken.address;
+    const registryAddress = drizzle.contracts.GeneratorRegistry.address;
     const balance = balanceData ? balanceData.value / 1000000000000000000 : 0;
     const ethBalance =
       drizzleState.accounts && drizzleState.accounts[0]
