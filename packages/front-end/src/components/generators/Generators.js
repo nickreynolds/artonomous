@@ -19,15 +19,10 @@ class Generators extends Component {
   };
 
   render() {
-    console.log(
-      "this.props.drizzleState.contracts.GeneratorRegistry.events: ",
-      this.props.drizzleState.contracts.GeneratorRegistry.events,
-    );
     const events = this.props.drizzleState.contracts.GeneratorRegistry.events.filter(
       event => event.event === "GeneratorAdded",
     );
     const generators = events.map(e => e.returnValues[0]);
-    console.log("generators: ", generators);
     const props = this.props;
     return (
       <div>

@@ -10,6 +10,16 @@ class ArtPiece extends Component {
     const ownerKey = this.props.drizzle.contracts.ArtPieceToken.methods.ownerOf.cacheCall(this.props.blockNum);
     this.setState({ ownerKey });
   }
+  componentDidUpdate(prevProps) {
+    if (prevProps.blockNum !== this.props.blockNum) {
+      const artPieceKey = this.props.drizzle.contracts.ArtPieceToken.methods.getGenerator.cacheCall(
+        this.props.blockNum,
+      );
+      this.setState({ artPieceKey });
+      const ownerKey = this.props.drizzle.contracts.ArtPieceToken.methods.ownerOf.cacheCall(this.props.blockNum);
+      this.setState({ ownerKey });
+    }
+  }
   render() {
     const auctionData = this.props.drizzleState.contracts.ArtPieceToken.getGenerator[this.state.artPieceKey];
     const ownerData = this.props.drizzleState.contracts.ArtPieceToken.ownerOf[this.state.ownerKey];

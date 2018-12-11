@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { ContractData } from "drizzle-react-components";
-import NewContractForm from "../utility/NewContractForm";
-import store from "../../store";
 import Generator from "../../../contracts/Generator";
 import * as fsapi from "../../fsapi";
 
