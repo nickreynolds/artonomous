@@ -30,6 +30,7 @@
     "compile:solidity": "truffle compile",
     "migrate": "yarn build && truffle migrate",
     "migrate:ganache": "run-s 'migrate --network=ganache --reset'",
+    "migrate:rinkeby": "run-s 'migrate --network=rinkeby --reset'",
     "tsc": "tsc"
   }
 }

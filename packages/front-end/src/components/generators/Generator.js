@@ -16,7 +16,9 @@ class GeneratorsList extends Component {
     this.setState({ stakeKey });
   }
   render() {
+    console.log("lets go render a generator");
     const stake = this.props.drizzleState.contracts.GeneratorRegistry.getGeneratorStake[this.state.stakeKey];
+    console.log("stake: ", stake);
     return (
       <GeneratorDiv>
         {stake && <span>SOUL Staked: {stake.value}</span>}

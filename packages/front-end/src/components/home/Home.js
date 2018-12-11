@@ -6,18 +6,14 @@ class Home extends Component {
   state = {
     auctionkey: null,
     auctionLengthKey: null,
-    fakeAuctionkey: null,
-    fakeAuctionKey2: null,
     timeLeft: 0,
     buyPrice: 0,
   };
   componentDidMount() {
-    console.log("Artonomous]: ", this.props.drizzle.contracts.Artonomous);
+    console.log("Artonomous: ", this.props.drizzle.contracts.Artonomous);
     const auctionkey = this.props.drizzle.contracts.Artonomous.methods.currentAuction.cacheCall();
-    const fakeAuctionKey = this.props.drizzle.contracts.Artonomous.methods.currentAuctionBlockNumber.cacheCall();
-    const fakeAuctionKey2 = this.props.drizzle.contracts.Artonomous.methods.getCurrentAuctionBlockNumber.cacheCall();
     const auctionLengthKey = this.props.drizzle.contracts.Artonomous.methods.AUCTION_LENGTH.cacheCall();
-    this.setState({ auctionkey, auctionLengthKey, fakeAuctionKey, fakeAuctionKey2 });
+    this.setState({ auctionkey, auctionLengthKey });
     setInterval(this.getPrice, 1000);
     this.getPrice();
   }
@@ -41,12 +37,7 @@ class Home extends Component {
   render() {
     console.log("Artonomous State: ", this.props.drizzleState.contracts.Artonomous);
     const auctionData = this.props.drizzleState.contracts.Artonomous.currentAuction[this.state.auctionkey];
-    const fakeAuctionData = this.props.drizzleState.contracts.Artonomous.currentAuctionBlockNumber[
-      this.state.fakeAuctionKey
-    ];
-    const fakeAuctionData2 = this.props.drizzleState.contracts.Artonomous.getCurrentAuctionBlockNumber[
-      this.state.fakeAuctionKey2
-    ];
+
     return (
       <main className="container">
         <div className="pure-g">
@@ -59,8 +50,7 @@ class Home extends Component {
               <strong>Auction Length (in seconds)</strong>:{" "}
               <NewContractData contract="Artonomous" method="AUCTION_LENGTH" />
             </p>
-            <p>Fake data: {fakeAuctionData && fakeAuctionData.value}</p>
-            <p>Fake data2: {fakeAuctionData2 && fakeAuctionData2.value}</p>
+            <p>Auction Block Number: {auctionData && auctionData.value[0]}</p>
             <p>Time Left: {this.state.timeLeft.toFixed(0)}</p>
             <p>Buy Price: {(this.state.buyPrice / 1000000000000000000).toFixed(6)}</p>
             {auctionData && (

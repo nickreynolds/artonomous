@@ -52,7 +52,7 @@ contract Artonomous {
     // placeholder
     function getStartingPrice(uint256 prevBoughtPrice, uint256 prevPrice) internal pure returns (uint256) {
         if (prevBoughtPrice > 0) {
-            return prevBoughtPrice.mul(2);
+            return prevBoughtPrice.mul(1);
         } else {
             return prevPrice.mul(20).div(30);
         }
