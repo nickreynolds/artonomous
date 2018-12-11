@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/9.10.1/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js preparelocal
+  /usr/local/Cellar/node/9.10.1/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js build
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -11323,7 +11323,7 @@ Lockfile:
       web3 "^0.18.4"
 
 Trace: 
-  Error: Command "preparelocal" not found. Did you mean "prepare:local"?
+  Error: Command "build" not found.
       at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
       at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87307:17
       at Generator.next (<anonymous>)
