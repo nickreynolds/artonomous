@@ -28,14 +28,13 @@ class Home extends Component {
       const nowSeconds = nowDate.getTime() / 1000;
       const secondsLeft = endSeconds - nowSeconds;
       const boundSecondsLeft = secondsLeft > 0 ? secondsLeft : 0;
-      const buyPrice = auctionData.value.startingPrice * (boundSecondsLeft / auctionLength.value);
+      const buyPrice = Math.ceil(auctionData.value.startingPrice * (boundSecondsLeft / auctionLength.value));
       this.setState({ timeLeft: boundSecondsLeft, buyPrice });
     }
   };
 
   render() {
     const auctionData = this.props.drizzleState.contracts.Artonomous.currentAuction[this.state.auctionkey];
-    console.log("will approve: ", this.props.drizzle.contracts.Artonomous.address);
     return (
       <main className="container">
         <div className="pure-g">
@@ -66,10 +65,6 @@ class Home extends Component {
                 methodArgs={[this.props.drizzleState.accounts[0], this.props.drizzle.contracts.Artonomous.address]}
               />
             </p>
-            <p>
-              Reserve Token: <NewContractData contract="Artonomous" method="reserveToken" />
-            </p>
-            <p>TestDaiToken: {this.props.drizzle.contracts.TestDaiToken.address}</p>
             <NewContractForm
               contract="TestDaiToken"
               method="approve"
@@ -87,6 +82,15 @@ class Home extends Component {
               hideInputs={true}
             >
               Buy Art
+            </NewContractForm>
+            <NewContractForm
+              contract="Delegator"
+              method="approveAndBuy"
+              methodArgs={{ from: this.props.drizzleState.accounts[0] }}
+              initialMethodArgs={[this.state.buyPrice.toString()]}
+              hideInputs={true}
+            >
+              Approve and Buy Art
             </NewContractForm>
           </div>
         </div>
