@@ -10,9 +10,15 @@ import "./BancorFormula.sol";
  * inspired by bancor protocol and simondlr
  * https://github.com/bancorprotocol/contracts
  * https://github.com/ConsenSys/curationmarkets/blob/master/CurationMarkets.sol
+ * modified to use ERC20 as reserve currency instead of ETH
  */
-contract EthBondingCurve is StandardToken, BancorFormula, Ownable {
+contract Erc20BondingCurve is StandardToken, BancorFormula, Ownable {
   uint256 public poolBalance;
+  StandardToken public reserveToken;
+
+  constructor (address reserveTokenAddr) public {
+    reserveToken = StandardToken(reserveTokenAddr);
+  }
 
   /*
     reserve ratio, represented in ppm, 1-1000000
@@ -34,25 +40,18 @@ contract EthBondingCurve is StandardToken, BancorFormula, Ownable {
   uint256 public gasPrice = 0 wei; // maximum gas price for bancor transactions
 
   /**
-   * @dev default function
-   * gas ~ 91645
-   */
-  function() public payable {
-    buy();
-  }
-
-  /**
    * @dev Buy tokens
    * gas ~ 77825
    * TODO implement maxAmount that helps prevent miner front-running
    */
-  function buy() validGasPrice public payable returns(bool) {
-    require(msg.value > 0);
-    uint256 tokensToMint = calculatePurchaseReturn(totalSupply_, poolBalance, reserveRatio, msg.value);
+  function buy(uint256 value) validGasPrice public returns(bool) {
+    require(value > 0);
+    require(reserveToken.transferFrom(msg.sender, this, value), "token transfer failure");
+    uint256 tokensToMint = calculatePurchaseReturn(totalSupply_, poolBalance, reserveRatio, value);
     totalSupply_ = totalSupply_.add(tokensToMint);
     balances[msg.sender] = balances[msg.sender].add(tokensToMint);
-    poolBalance = poolBalance.add(msg.value);
-    emit LogMint(msg.sender, tokensToMint, msg.value);
+    poolBalance = poolBalance.add(value);
+    emit LogMint(msg.sender, tokensToMint, value);
     return true;
   }
 
@@ -64,12 +63,12 @@ contract EthBondingCurve is StandardToken, BancorFormula, Ownable {
    */
   function sell(uint256 sellAmount) validGasPrice public returns(bool) {
     require(sellAmount > 0 && balances[msg.sender] >= sellAmount);
-    uint256 ethAmount = calculateSaleReturn(totalSupply_, poolBalance, reserveRatio, sellAmount);
-    msg.sender.transfer(ethAmount);
-    poolBalance = poolBalance.sub(ethAmount);
+    uint256 reserveAmount = calculateSaleReturn(totalSupply_, poolBalance, reserveRatio, sellAmount);
+    require(reserveToken.transferFrom(this, msg.sender, reserveAmount), "token transfer failure");
+    poolBalance = poolBalance.sub(reserveAmount);
     balances[msg.sender] = balances[msg.sender].sub(sellAmount);
     totalSupply_ = totalSupply_.sub(sellAmount);
-    emit LogWithdraw(msg.sender, sellAmount, ethAmount);
+    emit LogWithdraw(msg.sender, sellAmount, reserveAmount);
     return true;
   }
 

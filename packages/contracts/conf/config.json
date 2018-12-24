@@ -1,0 +1,12 @@
+{
+  "networks": {
+    "rinkeby": {
+      "beneficiary": "0xBf9059ddF9e1954E0956f41Bc757c411be602560",
+      "testTokenHolders": ["0xBf9059ddF9e1954E0956f41Bc757c411be602560", "0xcEC56F1D4Dc439E298D5f8B6ff3Aa6be58Cd6Fdf"]
+    },
+    "ganache": {
+      "beneficiary": "0xBf9059ddF9e1954E0956f41Bc757c411be602560",
+      "testTokenHolders": ["0xBf9059ddF9e1954E0956f41Bc757c411be602560", "0xcEC56F1D4Dc439E298D5f8B6ff3Aa6be58Cd6Fdf"]
+    }
+  }
+}

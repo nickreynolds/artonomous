@@ -35,7 +35,7 @@ class Home extends Component {
 
   render() {
     const auctionData = this.props.drizzleState.contracts.Artonomous.currentAuction[this.state.auctionkey];
-
+    console.log("will approve: ", this.props.drizzle.contracts.Artonomous.address);
     return (
       <main className="container">
         <div className="pure-g">
@@ -58,7 +58,34 @@ class Home extends Component {
                 blockNum={auctionData.value[0]}
               />
             )}
-            <NewContractForm contract="Artonomous" method="buyArt" methodArgs={{ value: this.state.buyPrice }}>
+            <p>
+              Allowance:{" "}
+              <NewContractData
+                contract="TestDaiToken"
+                method="allowance"
+                methodArgs={[this.props.drizzleState.accounts[0], this.props.drizzle.contracts.Artonomous.address]}
+              />
+            </p>
+            <p>
+              Reserve Token: <NewContractData contract="Artonomous" method="reserveToken" />
+            </p>
+            <p>TestDaiToken: {this.props.drizzle.contracts.TestDaiToken.address}</p>
+            <NewContractForm
+              contract="TestDaiToken"
+              method="approve"
+              methodArgs={{ from: this.props.drizzleState.accounts[0] }}
+              initialMethodArgs={[this.props.drizzle.contracts.Artonomous.address, this.state.buyPrice.toString()]}
+              hideInputs={true}
+            >
+              Approve Enough
+            </NewContractForm>
+            <NewContractForm
+              contract="Artonomous"
+              method="buyArt"
+              methodArgs={{ from: this.props.drizzleState.accounts[0] }}
+              initialMethodArgs={[this.state.buyPrice.toString()]}
+              hideInputs={true}
+            >
               Buy Art
             </NewContractForm>
           </div>

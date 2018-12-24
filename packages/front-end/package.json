@@ -59,7 +59,7 @@
     "deepmerge": "^2.1.1",
     "drizzle": "1.2.4",
     "eth-block-tracker-es5": "^2.3.2",
-    "ipfs-api": "^24.0.2",
+    "ipfs-api": "26.1.2",
     "is-plain-object": "^2.0.4",
     "jshint": "^2.9.6",
     "loop-protect": "^2.1.6",
