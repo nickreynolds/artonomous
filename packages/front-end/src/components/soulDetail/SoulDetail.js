@@ -25,7 +25,8 @@ class SoulDetail extends Component {
   state = {
     web3: null,
     dataKey: null,
-    ethValue: 0,
+    daiBalanceDataKey: null,
+    daiValue: 0,
     soulValue: 0,
     contractAddress: "0x96eaf28b6e59defc8f736faa1681d41382d3aa32",
   };
@@ -36,7 +37,10 @@ class SoulDetail extends Component {
       const dataKey = this.props.drizzle.contracts.SoulToken.methods.balanceOf.cacheCall(
         this.props.drizzleState.accounts[0],
       );
-      this.setState({ dataKey });
+      const daiBalanceDataKey = this.props.drizzle.contracts.TestDaiToken.methods.balanceOf.cacheCall(
+        this.props.drizzleState.accounts[0],
+      );
+      this.setState({ dataKey, daiBalanceDataKey });
     }
   }
 
@@ -46,13 +50,16 @@ class SoulDetail extends Component {
         const dataKey = this.props.drizzle.contracts.SoulToken.methods.balanceOf.cacheCall(
           this.props.drizzleState.accounts[0],
         );
-        this.setState({ dataKey });
+        const daiBalanceDataKey = this.props.drizzle.contracts.TestDaiToken.methods.balanceOf.cacheCall(
+          this.props.drizzleState.accounts[0],
+        );
+        this.setState({ dataKey, daiBalanceDataKey });
       }
     }
   }
 
-  handleEthSliderChange = (event, value) => {
-    this.setState({ ethValue: value });
+  handleDaiSliderChange = (event, value) => {
+    this.setState({ daiValue: value });
   };
 
   handleSoulSliderChange = (event, value) => {
@@ -64,27 +71,36 @@ class SoulDetail extends Component {
     const balanceData = drizzleState.contracts.SoulToken.balanceOf[this.state.dataKey];
     const registryAddress = drizzle.contracts.GeneratorRegistry.address;
     const balance = balanceData ? balanceData.value / 1000000000000000000 : 0;
-    const ethBalance =
-      drizzleState.accounts && drizzleState.accounts[0]
-        ? drizzleState.accountBalances[drizzleState.accounts[0]] / 1000000000000000000
-        : 0;
+    const daiBalanceData = drizzleState.contracts.TestDaiToken.balanceOf[this.state.daiBalanceDataKey];
+    const daiBalance = daiBalanceData ? daiBalanceData.value / 1000000000000000000 : 0;
 
     const bondingCurveAddress = drizzle.contracts.SoulToken.address;
-    const { ethValue, soulValue } = this.state;
-    const ethValue2 = BigNumber("1000000000000000000").times(ethValue);
+    const { daiValue, soulValue } = this.state;
+    const daiValue2 = BigNumber("1000000000000000000").times(daiValue);
     const soulValue2 = BigNumber("1000000000000000000").times(soulValue);
     const soulBalance = BigNumber("1000000000000000000").times(balance);
     return (
       <SoulDiv>
         <br />
         <BuyDiv>
-          <Slider value={ethValue} min={0} max={ethBalance} onChange={this.handleEthSliderChange} />
+          <Slider value={daiValue} min={0} max={daiBalance} onChange={this.handleDaiSliderChange} />
+          <NewContractForm
+            contract="TestDaiToken"
+            method="approve"
+            methodArgs={{ from: drizzleState.accounts[0] }}
+            initialMethodArgs={[this.props.drizzle.contracts.SoulToken.address, daiValue2.toString()]}
+            hideInputs={true}
+          >
+            Approve SoulToken to Spend {daiValue2.div(1000000000000000000).toString()} DAI
+          </NewContractForm>
           <NewContractForm
             contract="SoulToken"
             method="buy"
-            methodArgs={{ from: drizzleState.accounts[0], value: ethValue2.toString() }}
+            methodArgs={{ from: drizzleState.accounts[0] }}
+            initialMethodArgs={[daiValue2.toString()]}
+            hideInputs={true}
           >
-            Buy {ethValue2.div(1000000000000000000).toString()} ETH of SOUL
+            Buy {daiValue2.div(1000000000000000000).toString()} DAI of SOUL
           </NewContractForm>
         </BuyDiv>
         {balance && (
