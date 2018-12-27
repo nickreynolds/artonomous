@@ -88,7 +88,7 @@ class SoulDetail extends Component {
             contract="TestDaiToken"
             method="approve"
             methodArgs={{ from: drizzleState.accounts[0] }}
-            initialMethodArgs={[this.props.drizzle.contracts.SoulToken.address, daiValue2.toString()]}
+            initialMethodArgs={[this.props.drizzle.contracts.SoulToken.address, daiValue2.toString(10)]}
             hideInputs={true}
           >
             Approve SoulToken to Spend {daiValue2.div(1000000000000000000).toString()} DAI
@@ -97,7 +97,7 @@ class SoulDetail extends Component {
             contract="SoulToken"
             method="buy"
             methodArgs={{ from: drizzleState.accounts[0] }}
-            initialMethodArgs={[daiValue2.toString()]}
+            initialMethodArgs={[daiValue2.toString(10)]}
             hideInputs={true}
           >
             Buy {daiValue2.div(1000000000000000000).toString()} DAI of SOUL
@@ -111,7 +111,7 @@ class SoulDetail extends Component {
                 contract="SoulToken"
                 method="sell"
                 methodArgs={{ from: drizzleState.accounts[0] }}
-                initialMethodArgs={[soulValue2.toString()]}
+                initialMethodArgs={[soulValue2.toString(10)]}
                 hideInputs={true}
               >
                 Sell {soulValue2.div(1000000000000000000).toString()} of Your SOUL
@@ -122,7 +122,7 @@ class SoulDetail extends Component {
               contract="SoulToken"
               method="approve"
               methodArgs={{ from: drizzleState.accounts[0] }}
-              initialMethodArgs={[registryAddress, soulBalance.toString()]}
+              initialMethodArgs={[registryAddress, soulBalance.toString(10)]}
               hideInputs={true}
             >
               Approve Registry To Spend {soulBalance.div(1000000000000000000).toString()} SOUL
