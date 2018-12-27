@@ -47,10 +47,8 @@ class Balance extends Component {
   render() {
     const balanceData = this.props.drizzleState.contracts.SoulToken.balanceOf[this.state.soulBalanceDataKey];
     const balance = balanceData && BigNumber(balanceData.value).div(1000000000000000000);
-    console.log("render 1");
     const daiBalanceData = this.props.drizzleState.contracts.TestDaiToken.balanceOf[this.state.daiBalanceDataKey];
     const daiBalance = daiBalanceData && BigNumber(daiBalanceData.value).div(1000000000000000000);
-    console.log("render 2");
     return (
       <div>
         <NavSpan>{daiBalanceData && <React.Fragment>{daiBalance.toString()} DAI</React.Fragment>}</NavSpan>

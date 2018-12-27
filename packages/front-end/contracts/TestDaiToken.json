@@ -1093,12 +1093,57 @@
       "transactionHash": "0x3f1226f3da72657eabf8ce395a27ef1b7c74c50d3b7ac33329b13f8cb328d1e5"
     },
     "50": {
-      "events": {},
+      "events": {
+        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Approval",
+          "type": "event"
+        },
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event"
+        }
+      },
       "links": {},
-      "address": "0xcfeb869f69431e42cdb54a4f4f105c19c080a601",
-      "transactionHash": "0x169d95ecbbead7e523375d1c98b5f55a962b2b80b4f79c59794c03f79cb1e791"
+      "address": "0xad888d0ade988ebee74b8d4f39bf29a8d0fe8a8d",
+      "transactionHash": "0xa03ada0aba036482eb9fbd5e04149274711afe09d84eca273062482b89aa403b"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-12-26T21:42:17.086Z"
+  "updatedAt": "2018-12-27T21:12:13.336Z"
 }

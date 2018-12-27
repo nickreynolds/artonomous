@@ -44,8 +44,9 @@ contract Artonomous {
     }
 
     function startAuction(uint256 prevBoughtPrice, uint256 prevPrice) public {
-        require(currentAuction.blockNumber == 0);
+        require(currentAuction.blockNumber == 0, "auction already in progress");
         Generator currentGenerator = registry.getActiveGenerator();
+        require(address(currentGenerator) != address(0), "current generator not set");
         pieceToken.mint(this, block.number, address(currentGenerator));
         currentAuction = Auction({
             blockNumber: block.number,
@@ -86,24 +87,21 @@ contract Artonomous {
         Generator currentGenerator = currentAuction.generator;
 
         require(value >= buyPrice);
-        require(reserveToken.transferFrom(msg.sender, this, value));
+        require(reserveToken.transferFrom(msg.sender, this, buyPrice));
 
-        // pieceToken.transferFrom(this, msg.sender, blockNumber);
+        pieceToken.transferFrom(this, msg.sender, blockNumber);
         delete currentAuction;
 
-        // uint256 remainder = value.sub(buyPrice);
-        // require(reserveToken.transfer(msg.sender, remainder), "token transfer failure"); // refund extra
-
         uint256 buyPriceThird = buyPrice.div(3);
-        // require(reserveToken.transfer(beneficiary, buyPriceThird), "token transfer failure");
+        require(reserveToken.transfer(beneficiary, buyPriceThird), "token transfer failure");
         
-        // require(reserveToken.transfer(currentGenerator, buyPriceThird), "token transfer failure");
+        require(reserveToken.transfer(address(currentGenerator), buyPriceThird), "token transfer failure");
 
 
         uint256 buyPriceRemaining = buyPrice.sub(buyPriceThird.mul(2));
 
-        // reserveToken.approve(soulToken, buyPriceRemaining);
-        // soulToken.depositArtPayment(buyPriceRemaining);
+        reserveToken.approve(soulToken, buyPriceRemaining);
+        soulToken.depositArtPayment(buyPriceRemaining);
 
         emit ArtonomousArtBought(msg.sender, blockNumber, buyPriceRemaining);
 

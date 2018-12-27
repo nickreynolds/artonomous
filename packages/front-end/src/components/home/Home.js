@@ -53,39 +53,56 @@ class Home extends Component {
           <p>Auction Block Number: {auctionData && auctionData.value[0]}</p>
           <p>Time Left: {this.state.timeLeft.toFixed(0)}</p>
           <p>Buy Price: {(this.state.buyPrice / 1000000000000000000).toFixed(6)}</p>
-          {auctionData && (
-            <ArtPiece
-              drizzle={this.props.drizzle}
-              drizzleState={this.props.drizzleState}
-              blockNum={auctionData.value[0]}
-            />
-          )}
-          <p>
-            Allowance:{" "}
-            <NewContractData
-              contract="TestDaiToken"
-              method="allowance"
-              methodArgs={[this.props.drizzleState.accounts[0], this.props.drizzle.contracts.Artonomous.address]}
-            />
-          </p>
-          <NewContractForm
-            contract="TestDaiToken"
-            method="approve"
-            methodArgs={{ from: this.props.drizzleState.accounts[0] }}
-            initialMethodArgs={[this.props.drizzle.contracts.Artonomous.address, this.state.buyPrice.toString()]}
-            hideInputs={true}
-          >
-            Approve Enough
-          </NewContractForm>
-          <NewContractForm
-            contract="Artonomous"
-            method="buyArt"
-            methodArgs={{ from: this.props.drizzleState.accounts[0] }}
-            initialMethodArgs={[this.state.buyPrice.toString()]}
-            hideInputs={true}
-          >
-            Buy Art
-          </NewContractForm>
+          {auctionData &&
+            auctionData.value[0] > 0 && (
+              <div>
+                <ArtPiece
+                  drizzle={this.props.drizzle}
+                  drizzleState={this.props.drizzleState}
+                  blockNum={auctionData.value[0]}
+                />
+
+                <p>
+                  Allowance:{" "}
+                  <NewContractData
+                    contract="TestDaiToken"
+                    method="allowance"
+                    methodArgs={[this.props.drizzleState.accounts[0], this.props.drizzle.contracts.Artonomous.address]}
+                  />
+                </p>
+                <NewContractForm
+                  contract="TestDaiToken"
+                  method="approve"
+                  methodArgs={{ from: this.props.drizzleState.accounts[0] }}
+                  initialMethodArgs={[this.props.drizzle.contracts.Artonomous.address, this.state.buyPrice.toString()]}
+                  hideInputs={true}
+                >
+                  Approve Enough
+                </NewContractForm>
+                <NewContractForm
+                  contract="Artonomous"
+                  method="buyArt"
+                  methodArgs={{ from: this.props.drizzleState.accounts[0] }}
+                  initialMethodArgs={[this.state.buyPrice.toString()]}
+                  hideInputs={true}
+                >
+                  Buy Art
+                </NewContractForm>
+              </div>
+            )}
+
+          {auctionData &&
+            auctionData.value[0] == 0 && (
+              <NewContractForm
+                contract="Artonomous"
+                method="startAuction"
+                methodArgs={{ from: this.props.drizzleState.accounts[0] }}
+                initialMethodArgs={["1000000000000000000", "0"]}
+                hideInputs={true}
+              >
+                Start Auction
+              </NewContractForm>
+            )}
         </div>
       </HomeDiv>
     );

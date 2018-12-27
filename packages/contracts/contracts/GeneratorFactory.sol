@@ -9,6 +9,7 @@ import "./Generator.sol";
  * @title Base Factory contract for creating Generator contracts
  */
 contract GeneratorFactory is UpgradeabilityProxyFactory {
+  event GeneratorCreated(address generator);
   GeneratorRegistry public registry;
   address public implementation;
 
@@ -17,9 +18,11 @@ contract GeneratorFactory is UpgradeabilityProxyFactory {
     implementation = _implementation;
   }
 
-  function createGenerator(string name, string sourceUri) public {
+  function createGenerator(string name, string sourceUri) public returns (address) {
     Generator generator = Generator(this.createProxy(registry, implementation));
     registry.addGenerator(generator);
     generator.initialize(registry, name, msg.sender, sourceUri);
+    emit GeneratorCreated(generator);
+    return address(generator);
   }
 }

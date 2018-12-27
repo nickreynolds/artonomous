@@ -28,7 +28,7 @@ contract Erc20BondingCurve is StandardToken, BancorFormula, Ownable {
     multiple will depends on contract initialization,
     specificallytotalAmount and poolBalance parameters
     we might want to add an 'initialize' function that will allow
-    the owner to send ether to the contract and mint a given amount of tokens
+    the owner to send erc20 to the contract and mint a given amount of tokens
   */
   uint32 public reserveRatio;
 
@@ -64,7 +64,7 @@ contract Erc20BondingCurve is StandardToken, BancorFormula, Ownable {
   function sell(uint256 sellAmount) validGasPrice public returns(bool) {
     require(sellAmount > 0 && balances[msg.sender] >= sellAmount);
     uint256 reserveAmount = calculateSaleReturn(totalSupply_, poolBalance, reserveRatio, sellAmount);
-    require(reserveToken.transferFrom(this, msg.sender, reserveAmount), "token transfer failure");
+    require(reserveToken.transfer(msg.sender, reserveAmount), "token transfer failure");
     poolBalance = poolBalance.sub(reserveAmount);
     balances[msg.sender] = balances[msg.sender].sub(sellAmount);
     totalSupply_ = totalSupply_.sub(sellAmount);
