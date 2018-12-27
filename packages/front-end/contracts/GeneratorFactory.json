@@ -2092,11 +2092,23 @@
           ],
           "name": "ProxyCreated",
           "type": "event"
+        },
+        "0xcb653ba871830986ba8e345d02bfdad623212a4bea3e0ea8557a677a8b9d6183": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "generator",
+              "type": "address"
+            }
+          ],
+          "name": "GeneratorCreated",
+          "type": "event"
         }
       },
       "links": {},
-      "address": "0xb6ea70c04fae0625cf14f39b4cdfef2de32896cf",
-      "transactionHash": "0x669de8c4d82a3fb45ba17589623c144117db796a0c3f368120842a7a93a87385"
+      "address": "0xdda5bdcf9c4b140ee8087631467749bc8932037a",
+      "transactionHash": "0x9d35adca7beb5af128f3f5f2c76f159022f050be8d0a50597138924a322f7b13"
     },
     "50": {
       "events": {
@@ -2131,5 +2143,5 @@
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-12-27T21:12:12.446Z"
+  "updatedAt": "2018-12-27T21:23:50.200Z"
 }
