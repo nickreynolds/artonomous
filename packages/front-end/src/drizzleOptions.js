@@ -3,6 +3,7 @@ import GeneratorRegistry from "../contracts/GeneratorRegistry.json";
 import GeneratorFactory from "../contracts/GeneratorFactory.json";
 import SoulToken from "../contracts/SoulToken.json";
 import ArtPieceToken from "../contracts/ArtPieceToken.json";
+import TestDaiToken from "../contracts/TestDaiToken.json";
 
 const drizzleOptions = {
   web3: {
@@ -12,7 +13,7 @@ const drizzleOptions = {
       url: "ws://127.0.0.1:8545",
     },
   },
-  contracts: [Artonomous, ArtPieceToken, GeneratorRegistry, GeneratorFactory, SoulToken],
+  contracts: [Artonomous, ArtPieceToken, GeneratorRegistry, GeneratorFactory, SoulToken, TestDaiToken],
   events: {
     Artonomous: [
       { eventName: "ArtonomousArtBought", eventOptions: { fromBlock: 0 } },

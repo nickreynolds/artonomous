@@ -1,8 +1,8 @@
 pragma solidity ^0.4.24;
 
-import "./EthBondingCurve.sol";
+import "./Erc20BondingCurve.sol";
 
-contract SoulToken is EthBondingCurve {
+contract SoulToken is Erc20BondingCurve {
   string public constant name = "SoulToken";
   string public constant symbol = "SOL";
   uint8 public constant decimals = 18;
@@ -12,14 +12,15 @@ contract SoulToken is EthBondingCurve {
   uint32 public constant CURVE_RATIO = 350000;
   uint256 public constant INITAL_BALANCE = CURVE_RATIO * INITIAL_SUPPLY * INITIAL_PRICE / (1000000 * 10 ** 18);
 
-  constructor() public {
+  constructor(address reserveTokenAddr) public Erc20BondingCurve(reserveTokenAddr) {
     reserveRatio = CURVE_RATIO;
     totalSupply_ = INITIAL_SUPPLY;
     poolBalance = INITAL_BALANCE;
     gasPrice = 26 * (10 ** 9);
   }
 
-  function depositArtPayment() payable {
-      poolBalance += msg.value;
+  function depositArtPayment(uint256 value) public {
+    require(reserveToken.transferFrom(msg.sender, this, value), "token transfer failure");
+    poolBalance += value;
   }
 }

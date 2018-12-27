@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/9.10.1/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js build
+  /usr/local/Cellar/node/9.10.1/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js prepare:local
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -27,7 +27,7 @@ npm manifest:
       "ganache": "ganache-cli -p 8545 --networkId 50 -d -m \"${npm_package_config_mnemonic}\" --noVMErrorsOnRPCResponse",
       "migrate:ganache": "lerna run --scope @artonomous/contracts migrate:ganache",
       "migrate:rinkeby": "lerna run --scope @artonomous/contracts migrate:rinkeby",
-      "publish:artifacts": "ncp ./packages/contracts/build/contracts/Artonomous.json ./packages/front-end/contracts/Artonomous.json && ncp ./packages/contracts/build/contracts/ArtPieceToken.json ./packages/front-end/contracts/ArtPieceToken.json && ncp ./packages/contracts/build/contracts/GeneratorRegistry.json ./packages/front-end/contracts/GeneratorRegistry.json && ncp ./packages/contracts/build/contracts/GeneratorFactory.json ./packages/front-end/contracts/GeneratorFactory.json && ncp ./packages/contracts/build/contracts/SoulToken.json ./packages/front-end/contracts/SoulToken.json && ncp ./packages/contracts/build/contracts/Generator.json ./packages/front-end/contracts/Generator.json",
+      "publish:artifacts": "ncp ./packages/contracts/build/contracts/Artonomous.json ./packages/front-end/contracts/Artonomous.json && ncp ./packages/contracts/build/contracts/ArtPieceToken.json ./packages/front-end/contracts/ArtPieceToken.json && ncp ./packages/contracts/build/contracts/GeneratorRegistry.json ./packages/front-end/contracts/GeneratorRegistry.json && ncp ./packages/contracts/build/contracts/GeneratorFactory.json ./packages/front-end/contracts/GeneratorFactory.json && ncp ./packages/contracts/build/contracts/SoulToken.json ./packages/front-end/contracts/SoulToken.json && ncp ./packages/contracts/build/contracts/Generator.json ./packages/front-end/contracts/Generator.json && ncp ./packages/contracts/build/contracts/TestDaiToken.json ./packages/front-end/contracts/TestDaiToken.json",
       "prepare:local": "run-s build:contracts migrate:ganache publish:artifacts",
       "prepare:rinkeby": "run-s build:contracts migrate:rinkeby publish:artifacts",
       "prettier": "prettier --config .prettierrc.yaml --write --list-different './**/*.{ts,tsx,json,md}'"
@@ -412,7 +412,7 @@ Lockfile:
       inherits "^2.0.1"
       minimalistic-assert "^1.0.0"
   
-  asn1.js@^5.0.0:
+  asn1.js@^5.0.0, asn1.js@^5.0.1:
     version "5.0.1"
     resolved "https://registry.yarnpkg.com/asn1.js/-/asn1.js-5.0.1.tgz#7668b56416953f0ce3421adbb3893ace59c96f59"
     dependencies:
@@ -1121,14 +1121,6 @@ Lockfile:
       babel-runtime "^6.22.0"
       babel-types "^6.24.1"
   
-  babel-polyfill@6.23.0:
-    version "6.23.0"
-    resolved "https://registry.yarnpkg.com/babel-polyfill/-/babel-polyfill-6.23.0.tgz#8364ca62df8eafb830499f699177466c3b03499d"
-    dependencies:
-      babel-runtime "^6.22.0"
-      core-js "^2.4.0"
-      regenerator-runtime "^0.10.0"
-  
   babel-polyfill@^6.26.0:
     version "6.26.0"
     resolved "https://registry.yarnpkg.com/babel-polyfill/-/babel-polyfill-6.26.0.tgz#379937abc67d7895970adc621f284cd966cf2153"
@@ -1417,15 +1409,9 @@ Lockfile:
     version "3.2.0"
     resolved "https://registry.yarnpkg.com/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
   
-  big.js@^5.1.2:
-    version "5.2.1"
-    resolved "https://registry.yarnpkg.com/big.js/-/big.js-5.2.1.tgz#0abb06f3acd00509e8385ebe20b1b41419612cb9"
-    dependencies:
-      opencollective "^1.0.3"
-  
-  bignumber.js@^6.0.0:
-    version "6.0.0"
-    resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-6.0.0.tgz#bbfa047644609a5af093e9cbd83b0461fa3f6002"
+  big.js@^5.2.2:
+    version "5.2.2"
+    resolved "https://registry.yarnpkg.com/big.js/-/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
   
   bignumber.js@^7.2.0, bignumber.js@^7.2.1:
     version "7.2.1"
@@ -1455,6 +1441,10 @@ Lockfile:
     version "1.3.0"
     resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.3.0.tgz#b346f6ecf6a95f5a815c5839fc7cdb22502f1ed7"
   
+  bindings@^1.3.0:
+    version "1.3.1"
+    resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.3.1.tgz#21fc7c6d67c18516ec5aaa2815b145ff77b26ea5"
+  
   bip39@^2.2.0:
     version "2.5.0"
     resolved "https://registry.yarnpkg.com/bip39/-/bip39-2.5.0.tgz#51cbd5179460504a63ea3c000db3f787ca051235"
@@ -1474,6 +1464,13 @@ Lockfile:
   bl@^1.0.0:
     version "1.2.2"
     resolved "http://registry.npmjs.org/bl/-/bl-1.2.2.tgz#a160911717103c07410cef63ef51b397c025af9c"
+    dependencies:
+      readable-stream "^2.3.5"
+      safe-buffer "^5.1.1"
+  
+  bl@^2.1.2:
+    version "2.1.2"
+    resolved "https://registry.yarnpkg.com/bl/-/bl-2.1.2.tgz#591182cb9f3f2eff3beb1e76dabedfb5c5fa9a26"
     dependencies:
       readable-stream "^2.3.5"
       safe-buffer "^5.1.1"
@@ -1527,11 +1524,11 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   
-  borc@^2.0.2:
-    version "2.0.3"
-    resolved "https://registry.yarnpkg.com/borc/-/borc-2.0.3.tgz#08845ea73a6d3211120928ee3929f8dc2de9f52e"
+  borc@^2.0.3:
+    version "2.0.4"
+    resolved "https://registry.yarnpkg.com/borc/-/borc-2.0.4.tgz#52926dc561137188c6ca9fe01c9542576529a689"
     dependencies:
-      bignumber.js "^6.0.0"
+      bignumber.js "^7.2.1"
       commander "^2.15.0"
       ieee754 "^1.1.8"
       json-text-sequence "^0.1"
@@ -1973,12 +1970,21 @@ Lockfile:
     version "1.6.0"
     resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-1.6.0.tgz#2ca20dbb9ceb32d4524a683303313f0304b1e497"
   
-  cids@^0.5.3, cids@~0.5.2, cids@~0.5.3, cids@~0.5.4, cids@~0.5.5:
+  cids@~0.5.4, cids@~0.5.5:
     version "0.5.5"
     resolved "https://registry.yarnpkg.com/cids/-/cids-0.5.5.tgz#03fffeccdac2bf82c5b6334a563b0b87858eb841"
     dependencies:
       class-is "^1.1.0"
       multibase "~0.5.0"
+      multicodec "~0.2.7"
+      multihashes "~0.4.14"
+  
+  cids@~0.5.6:
+    version "0.5.7"
+    resolved "https://registry.yarnpkg.com/cids/-/cids-0.5.7.tgz#bc5034bddcb9396fbf1cb60ad5498c976133de53"
+    dependencies:
+      class-is "^1.1.0"
+      multibase "~0.6.0"
       multicodec "~0.2.7"
       multihashes "~0.4.14"
   
@@ -2875,6 +2881,12 @@ Lockfile:
     dependencies:
       ms "^2.1.1"
   
+  debug@^4.1.0:
+    version "4.1.0"
+    resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.0.tgz#373687bffa678b38b1cd91f861b63850035ddc87"
+    dependencies:
+      ms "^2.1.1"
+  
   decamelize-keys@^1.0.0:
     version "1.1.0"
     resolved "https://registry.yarnpkg.com/decamelize-keys/-/decamelize-keys-1.1.0.tgz#d171a87933252807eb3cb61dc1c1445d078df2d9"
@@ -3076,7 +3088,7 @@ Lockfile:
     version "1.0.3"
     resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
   
-  detect-node@^2.0.3:
+  detect-node@^2.0.4:
     version "2.0.4"
     resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.4.tgz#014ee8f8f669c5c58023da64b8179c083a28c46c"
   
@@ -3290,7 +3302,7 @@ Lockfile:
     dependencies:
       iconv-lite "~0.4.13"
   
-  end-of-stream@^1.0.0, end-of-stream@^1.1.0:
+  end-of-stream@^1.0.0, end-of-stream@^1.1.0, end-of-stream@^1.4.1:
     version "1.4.1"
     resolved "https://registry.yarnpkg.com/end-of-stream/-/end-of-stream-1.4.1.tgz#ed29634d19baba463b6ce6b80a37213eab71ec43"
     dependencies:
@@ -4045,7 +4057,7 @@ Lockfile:
     version "3.0.2"
     resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   
-  external-editor@^2.0.1, external-editor@^2.0.4:
+  external-editor@^2.0.4:
     version "2.2.0"
     resolved "http://registry.npmjs.org/external-editor/-/external-editor-2.2.0.tgz#045511cfd8d133f3846673d1047c154e214ad3d5"
     dependencies:
@@ -4573,7 +4585,7 @@ Lockfile:
       once "^1.3.0"
       path-is-absolute "^1.0.0"
   
-  glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@^7.1.2, glob@~7.1.2:
+  glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@~7.1.2:
     version "7.1.3"
     resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.3.tgz#3960832d3f1574108342dafd3a67b332c0969df1"
     dependencies:
@@ -5051,24 +5063,6 @@ Lockfile:
       bowser "^1.7.3"
       css-in-js-utils "^2.0.0"
   
-  inquirer@3.0.6:
-    version "3.0.6"
-    resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-3.0.6.tgz#e04aaa9d05b7a3cb9b0f407d04375f0447190347"
-    dependencies:
-      ansi-escapes "^1.1.0"
-      chalk "^1.0.0"
-      cli-cursor "^2.1.0"
-      cli-width "^2.0.0"
-      external-editor "^2.0.1"
-      figures "^2.0.0"
-      lodash "^4.3.0"
-      mute-stream "0.0.7"
-      run-async "^2.2.0"
-      rx "^4.1.0"
-      string-width "^2.0.0"
-      strip-ansi "^3.0.0"
-      through "^2.3.6"
-  
   inquirer@^0.12.0:
     version "0.12.0"
     resolved "http://registry.npmjs.org/inquirer/-/inquirer-0.12.0.tgz#1ef2bfd63504df0bc75785fff8c2c41df12f077e"
@@ -5140,76 +5134,80 @@ Lockfile:
     version "1.8.0"
     resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.8.0.tgz#eaa33d6ddd7ace8f7f6fe0c9ca0440e706738b1e"
   
-  ipfs-api@^24.0.2:
-    version "24.0.2"
-    resolved "https://registry.yarnpkg.com/ipfs-api/-/ipfs-api-24.0.2.tgz#c245ce859f40fde0bf24f7fbe829f048f08c8279"
+  ipfs-api@26.1.2:
+    version "26.1.2"
+    resolved "https://registry.yarnpkg.com/ipfs-api/-/ipfs-api-26.1.2.tgz#6b53d4720455060ad39784336234a4acc54d4332"
     dependencies:
       async "^2.6.1"
-      big.js "^5.1.2"
+      big.js "^5.2.2"
+      bl "^2.1.2"
       bs58 "^4.0.1"
-      cids "~0.5.3"
+      cids "~0.5.5"
       concat-stream "^1.6.2"
-      debug "^3.1.0"
-      detect-node "^2.0.3"
+      debug "^4.1.0"
+      detect-node "^2.0.4"
+      end-of-stream "^1.4.1"
       flatmap "0.0.3"
-      glob "^7.1.2"
-      ipfs-block "~0.7.1"
-      ipfs-unixfs "~0.1.15"
-      ipld-dag-cbor "~0.12.1"
-      ipld-dag-pb "~0.14.6"
-      is-ipfs "~0.4.2"
+      glob "^7.1.3"
+      ipfs-block "~0.8.0"
+      ipfs-unixfs "~0.1.16"
+      ipld-dag-cbor "~0.13.0"
+      ipld-dag-pb "~0.14.11"
+      is-ipfs "~0.4.7"
       is-pull-stream "0.0.0"
       is-stream "^1.1.0"
-      libp2p-crypto "~0.13.0"
+      libp2p-crypto "~0.14.0"
+      lodash "^4.17.11"
       lru-cache "^4.1.3"
       multiaddr "^5.0.0"
-      multibase "~0.4.0"
-      multihashes "~0.4.13"
+      multibase "~0.5.0"
+      multihashes "~0.4.14"
       ndjson "^1.5.0"
       once "^1.4.0"
-      peer-id "~0.11.0"
+      peer-id "~0.12.0"
       peer-info "~0.14.1"
       promisify-es6 "^1.0.3"
-      pull-defer "~0.2.2"
+      pull-defer "~0.2.3"
       pull-pushable "^2.2.0"
       pull-stream-to-stream "^1.3.4"
       pump "^3.0.0"
       qs "^6.5.2"
-      readable-stream "^2.3.6"
-      stream-http "^2.8.3"
+      readable-stream "^3.0.6"
+      stream-http "^3.0.0"
       stream-to-pull-stream "^1.7.2"
       streamifier "~0.1.1"
-      tar-stream "^1.6.1"
+      tar-stream "^1.6.2"
+      through2 "^2.0.3"
   
-  ipfs-block@~0.7.1:
-    version "0.7.1"
-    resolved "https://registry.yarnpkg.com/ipfs-block/-/ipfs-block-0.7.1.tgz#f506d6159219e19690d3ab863c039cba293d1e40"
+  ipfs-block@~0.8.0:
+    version "0.8.0"
+    resolved "https://registry.yarnpkg.com/ipfs-block/-/ipfs-block-0.8.0.tgz#1004bcc67dad0413c70fc6d56e86537716debd7d"
     dependencies:
-      cids "^0.5.3"
+      cids "~0.5.5"
       class-is "^1.1.0"
   
-  ipfs-unixfs@~0.1.15:
-    version "0.1.15"
-    resolved "https://registry.yarnpkg.com/ipfs-unixfs/-/ipfs-unixfs-0.1.15.tgz#c204da10019daa048eea465ce8f9c6f350ecef00"
+  ipfs-unixfs@~0.1.16:
+    version "0.1.16"
+    resolved "https://registry.yarnpkg.com/ipfs-unixfs/-/ipfs-unixfs-0.1.16.tgz#41140f4359f1b8fe7a970052663331091c5f54c4"
     dependencies:
-      protons "^1.0.0"
+      protons "^1.0.1"
   
-  ipld-dag-cbor@~0.12.1:
-    version "0.12.1"
-    resolved "https://registry.yarnpkg.com/ipld-dag-cbor/-/ipld-dag-cbor-0.12.1.tgz#1f88a9e36f2d842566b4767fc1132667a0ac121e"
+  ipld-dag-cbor@~0.13.0:
+    version "0.13.0"
+    resolved "https://registry.yarnpkg.com/ipld-dag-cbor/-/ipld-dag-cbor-0.13.0.tgz#d1a258fcf7acd21a36993596ccfd1486dc5b9cca"
     dependencies:
-      async "^2.6.0"
-      borc "^2.0.2"
+      async "^2.6.1"
+      borc "^2.0.3"
       bs58 "^4.0.1"
-      cids "~0.5.2"
-      is-circular "^1.0.1"
-      multihashes "~0.4.12"
+      cids "~0.5.5"
+      is-circular "^1.0.2"
+      multihashes "~0.4.14"
       multihashing-async "~0.5.1"
       traverse "~0.6.6"
   
-  ipld-dag-pb@~0.14.6:
-    version "0.14.10"
-    resolved "https://registry.yarnpkg.com/ipld-dag-pb/-/ipld-dag-pb-0.14.10.tgz#dc9f249da949337682d26263e47578b0ebb51896"
+  ipld-dag-pb@~0.14.11:
+    version "0.14.11"
+    resolved "https://registry.yarnpkg.com/ipld-dag-pb/-/ipld-dag-pb-0.14.11.tgz#df235a301fec8443cf933387cebb38e42c22c2a8"
     dependencies:
       async "^2.6.1"
       bs58 "^4.0.1"
@@ -5268,7 +5266,7 @@ Lockfile:
     dependencies:
       ci-info "^1.5.0"
   
-  is-circular@^1.0.1:
+  is-circular@^1.0.2:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/is-circular/-/is-circular-1.0.2.tgz#2e0ab4e9835f4c6b0ea2b9855a84acd501b8366c"
   
@@ -5387,6 +5385,15 @@ Lockfile:
       bs58 "4.0.1"
       cids "~0.5.5"
       multibase "~0.4.0"
+      multihashes "~0.4.13"
+  
+  is-ipfs@~0.4.7:
+    version "0.4.8"
+    resolved "https://registry.yarnpkg.com/is-ipfs/-/is-ipfs-0.4.8.tgz#ea229aef6230433ad1e8df930c49c5e773422c3f"
+    dependencies:
+      bs58 "4.0.1"
+      cids "~0.5.6"
+      multibase "~0.6.0"
       multihashes "~0.4.13"
   
   is-my-ip-valid@^1.0.0:
@@ -6284,6 +6291,25 @@ Lockfile:
       tweetnacl "^1.0.0"
       webcrypto-shim "github:dignifiedquire/webcrypto-shim#master"
   
+  libp2p-crypto@~0.14.0:
+    version "0.14.1"
+    resolved "https://registry.yarnpkg.com/libp2p-crypto/-/libp2p-crypto-0.14.1.tgz#c88e0cfb05c9fd877444b13baf5c45be5ca5c14e"
+    dependencies:
+      asn1.js "^5.0.1"
+      async "^2.6.1"
+      browserify-aes "^1.2.0"
+      bs58 "^4.0.1"
+      keypair "^1.0.1"
+      libp2p-crypto-secp256k1 "~0.2.2"
+      multihashing-async "~0.5.1"
+      node-forge "~0.7.6"
+      pem-jwk "^1.5.1"
+      protons "^1.0.1"
+      rsa-pem-to-jwk "^1.1.3"
+      tweetnacl "^1.0.0"
+      ursa-optional "~0.9.9"
+      webcrypto-shim "github:dignifiedquire/webcrypto-shim#master"
+  
   load-json-file@^1.0.0:
     version "1.1.0"
     resolved "http://registry.npmjs.org/load-json-file/-/load-json-file-1.1.0.tgz#956905708d58b4bab4c2261b04f59f31c99374c0"
@@ -6494,7 +6520,7 @@ Lockfile:
     version "4.17.10"
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
   
-  "lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.15.0, lodash@^4.16.2, lodash@^4.16.4, lodash@^4.17.10, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.10:
+  "lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.15.0, lodash@^4.16.2, lodash@^4.16.4, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.10:
     version "4.17.11"
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   
@@ -6835,13 +6861,13 @@ Lockfile:
     version "0.0.8"
     resolved "http://registry.npmjs.org/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
   
-  minimist@1.2.0, minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0, minimist@~1.2.0:
-    version "1.2.0"
-    resolved "http://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
-  
   minimist@^0.1.0:
     version "0.1.0"
     resolved "http://registry.npmjs.org/minimist/-/minimist-0.1.0.tgz#99df657a52574c21c9057497df742790b2b4c0de"
+  
+  minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0, minimist@~1.2.0:
+    version "1.2.0"
+    resolved "http://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
   
   minimist@~0.0.1:
     version "0.0.10"
@@ -6945,13 +6971,19 @@ Lockfile:
     dependencies:
       base-x "3.0.4"
   
+  multibase@~0.6.0:
+    version "0.6.0"
+    resolved "https://registry.yarnpkg.com/multibase/-/multibase-0.6.0.tgz#0216e350614c7456da5e8e5b20d3fcd4c9104f56"
+    dependencies:
+      base-x "3.0.4"
+  
   multicodec@~0.2.7:
     version "0.2.7"
     resolved "https://registry.yarnpkg.com/multicodec/-/multicodec-0.2.7.tgz#44dcb902b7ccd8065c4c348fe9987acf14a0679d"
     dependencies:
       varint "^5.0.0"
   
-  multihashes@~0.4.12, multihashes@~0.4.13, multihashes@~0.4.14:
+  multihashes@~0.4.13, multihashes@~0.4.14:
     version "0.4.14"
     resolved "https://registry.yarnpkg.com/multihashes/-/multihashes-0.4.14.tgz#774db9a161f81a8a27dc60788f91248e020f5244"
     dependencies:
@@ -7013,7 +7045,7 @@ Lockfile:
     version "2.10.0"
     resolved "http://registry.npmjs.org/nan/-/nan-2.10.0.tgz#96d0cd610ebd58d4b4de9cc0c6828cda99c7548f"
   
-  nan@^2.0.8, nan@^2.2.1, nan@^2.3.3, nan@^2.9.2:
+  nan@^2.0.8, nan@^2.11.1, nan@^2.2.1, nan@^2.3.3, nan@^2.9.2:
     version "2.11.1"
     resolved "https://registry.yarnpkg.com/nan/-/nan-2.11.1.tgz#90e22bccb8ca57ea4cd37cc83d3819b52eea6766"
   
@@ -7086,13 +7118,6 @@ Lockfile:
     dependencies:
       lodash.toarray "^4.4.0"
   
-  node-fetch@1.6.3:
-    version "1.6.3"
-    resolved "http://registry.npmjs.org/node-fetch/-/node-fetch-1.6.3.tgz#dc234edd6489982d58e8f0db4f695029abcd8c04"
-    dependencies:
-      encoding "^0.1.11"
-      is-stream "^1.0.1"
-  
   node-fetch@2.1.2:
     version "2.1.2"
     resolved "http://registry.npmjs.org/node-fetch/-/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
@@ -7104,7 +7129,7 @@ Lockfile:
       encoding "^0.1.11"
       is-stream "^1.0.1"
   
-  node-forge@^0.7.1, node-forge@^0.7.5:
+  node-forge@^0.7.1, node-forge@^0.7.5, node-forge@~0.7.6:
     version "0.7.6"
     resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.7.6.tgz#fdf3b418aee1f94f0ef642cd63486c77ca9724ac"
   
@@ -7378,17 +7403,6 @@ Lockfile:
   open@0.0.5:
     version "0.0.5"
     resolved "https://registry.yarnpkg.com/open/-/open-0.0.5.tgz#42c3e18ec95466b6bf0dc42f3a2945c3f0cad8fc"
-  
-  opencollective@^1.0.3:
-    version "1.0.3"
-    resolved "https://registry.yarnpkg.com/opencollective/-/opencollective-1.0.3.tgz#aee6372bc28144583690c3ca8daecfc120dd0ef1"
-    dependencies:
-      babel-polyfill "6.23.0"
-      chalk "1.1.3"
-      inquirer "3.0.6"
-      minimist "1.2.0"
-      node-fetch "1.6.3"
-      opn "4.0.2"
   
   openzeppelin-solidity@^1.12.0, openzeppelin-solidity@^1.9.0:
     version "1.12.0"
@@ -7675,11 +7689,12 @@ Lockfile:
       lodash "^4.17.5"
       multihashes "~0.4.13"
   
-  peer-id@~0.11.0:
-    version "0.11.0"
-    resolved "https://registry.yarnpkg.com/peer-id/-/peer-id-0.11.0.tgz#71bd3fad8fed00e1e0868e5861c79de46ceb3788"
+  peer-id@~0.12.0:
+    version "0.12.0"
+    resolved "https://registry.yarnpkg.com/peer-id/-/peer-id-0.12.0.tgz#a3ccc4badee5daf68c2c4e1e77045f1456ad8493"
     dependencies:
       async "^2.6.1"
+      class-is "^1.1.0"
       libp2p-crypto "~0.13.0"
       lodash "^4.17.10"
       multihashes "~0.4.13"
@@ -8156,7 +8171,7 @@ Lockfile:
     version "3.3.2"
     resolved "https://registry.yarnpkg.com/protocol-buffers-schema/-/protocol-buffers-schema-3.3.2.tgz#00434f608b4e8df54c59e070efeefc37fb4bb859"
   
-  protons@^1.0.0, protons@^1.0.1:
+  protons@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/protons/-/protons-1.0.1.tgz#1c107144c07fc2d1cb8b6cb76451e6a938237676"
     dependencies:
@@ -8201,7 +8216,7 @@ Lockfile:
       randombytes "^2.0.1"
       safe-buffer "^5.1.2"
   
-  pull-defer@~0.2.2:
+  pull-defer@~0.2.3:
     version "0.2.3"
     resolved "https://registry.yarnpkg.com/pull-defer/-/pull-defer-0.2.3.tgz#4ee09c6d9e227bede9938db80391c3dac489d113"
   
@@ -8625,6 +8640,14 @@ Lockfile:
       string_decoder "~1.1.1"
       util-deprecate "~1.0.1"
   
+  readable-stream@^3.0.6:
+    version "3.0.6"
+    resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.0.6.tgz#351302e4c68b5abd6a2ed55376a7f9a25be3057a"
+    dependencies:
+      inherits "^2.0.3"
+      string_decoder "^1.1.1"
+      util-deprecate "^1.0.1"
+  
   readdirp@^2.0.0:
     version "2.2.1"
     resolved "https://registry.yarnpkg.com/readdirp/-/readdirp-2.2.1.tgz#0e87622a3325aa33e892285caf8b4e846529a525"
@@ -9034,10 +9057,6 @@ Lockfile:
   rx-lite@^3.1.2:
     version "3.1.2"
     resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-3.1.2.tgz#19ce502ca572665f3b647b10939f97fd1615f102"
-  
-  rx@^4.1.0:
-    version "4.1.0"
-    resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
   
   safe-buffer@5.1.2, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@^5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
     version "5.1.2"
@@ -9539,7 +9558,7 @@ Lockfile:
       duplexer "~0.1.1"
       through "~2.3.4"
   
-  stream-http@^2.3.1, stream-http@^2.8.3:
+  stream-http@^2.3.1:
     version "2.8.3"
     resolved "https://registry.yarnpkg.com/stream-http/-/stream-http-2.8.3.tgz#b2d242469288a5a27ec4fe8933acf623de6514fc"
     dependencies:
@@ -9547,6 +9566,15 @@ Lockfile:
       inherits "^2.0.1"
       readable-stream "^2.3.6"
       to-arraybuffer "^1.0.0"
+      xtend "^4.0.0"
+  
+  stream-http@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/stream-http/-/stream-http-3.0.0.tgz#bd6d3c52610098699e25eb2dfcd188e30e0d12e4"
+    dependencies:
+      builtin-status-codes "^3.0.0"
+      inherits "^2.0.1"
+      readable-stream "^3.0.6"
       xtend "^4.0.0"
   
   stream-to-pull-stream@^1.7.2:
@@ -9598,6 +9626,12 @@ Lockfile:
   string_decoder@^0.10.25, string_decoder@~0.10.x:
     version "0.10.31"
     resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
+  
+  string_decoder@^1.1.1:
+    version "1.2.0"
+    resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.2.0.tgz#fe86e738b19544afe70469243b2a1ee9240eae8d"
+    dependencies:
+      safe-buffer "~5.1.0"
   
   string_decoder@~1.1.1:
     version "1.1.1"
@@ -9790,7 +9824,7 @@ Lockfile:
       string.prototype.trim "~1.1.2"
       through "~2.3.8"
   
-  tar-stream@^1.5.2, tar-stream@^1.6.1:
+  tar-stream@^1.5.2, tar-stream@^1.6.2:
     version "1.6.2"
     resolved "https://registry.yarnpkg.com/tar-stream/-/tar-stream-1.6.2.tgz#8ea55dab37972253d9a9af90fdcd559ae435c555"
     dependencies:
@@ -10271,6 +10305,13 @@ Lockfile:
       punycode "1.3.2"
       querystring "0.2.0"
   
+  ursa-optional@~0.9.9:
+    version "0.9.10"
+    resolved "https://registry.yarnpkg.com/ursa-optional/-/ursa-optional-0.9.10.tgz#f2eabfe0b6001dbf07a78740cd0a6e5ba6eb2554"
+    dependencies:
+      bindings "^1.3.0"
+      nan "^2.11.1"
+  
   use@^3.1.0:
     version "3.1.1"
     resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
@@ -10293,7 +10334,7 @@ Lockfile:
     version "3.0.0"
     resolved "https://registry.yarnpkg.com/utf8/-/utf8-3.0.0.tgz#f052eed1364d696e769ef058b183df88c87f69d1"
   
-  util-deprecate@~1.0.1:
+  util-deprecate@^1.0.1, util-deprecate@~1.0.1:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   
@@ -11323,14 +11364,17 @@ Lockfile:
       web3 "^0.18.4"
 
 Trace: 
-  Error: Command "build" not found.
-      at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
-      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87307:17
-      at Generator.next (<anonymous>)
-      at step (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:98:30)
-      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:116:14
-      at new Promise (<anonymous>)
-      at new F (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:23451:28)
-      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:95:12
-      at runCommand (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87312:22)
-      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87412:14)
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c run-s build:contracts migrate:ganache publish:artifacts
+  Directory: /Users/nickreynolds/Artonomous/artonomous
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:915:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)

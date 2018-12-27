@@ -26,6 +26,7 @@ const NavUL = styled.ul`
 
 const NavLI = styled.li`
   padding: 10px 10px 10px 10px;
+  font-family: "Karla", sans-serif;
 `;
 const NavSpace = styled.li`
   flex: 1;
@@ -33,6 +34,7 @@ const NavSpace = styled.li`
 
 const NavLIR = styled.li`
   margin-right: 10px;
+  font-family: "Karla", sans-serif;
 `;
 
 const NavLink = styled(Link)`
