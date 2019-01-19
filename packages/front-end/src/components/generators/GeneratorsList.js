@@ -1,48 +1,85 @@
 import React, { Component } from "react";
 import Generator from "./Generator";
+import styled from "styled-components";
 
-import { withStyles } from "@material-ui/core/styles";
-import GridList from "material-ui/GridList";
-import GridListTile from "material-ui/GridList/GridTile";
+const GeneratorsDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
 
-const styles = theme => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    backgroundColor: theme.palette.background.paper,
-    width: 1500,
-  },
-  gridList: {
-    width: 1500,
-  },
-  subheader: {
-    width: "100%",
-  },
-});
+const GeneratorGrid = styled.div`
+  max-width: 95%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+`;
+
+const GridListItem = styled.div`
+  height: 650px;
+  flex-basis: 20%;
+  -ms-flex: auto;
+  width: 400px;
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  box-sizing: border-box;
+`;
 
 class GeneratorsList extends Component {
   render() {
+    console.log("generators: ", this.props.generators);
     return (
-      <div>
+      <GeneratorsDiv>
         {this.props.generators && (
-          <GridList cellHeight={550} cols={3}>
+          <GeneratorGrid>
             {this.props.generators
               .slice()
               .reverse()
               .map(generator => {
                 return (
-                  <GridListTile>
+                  <GridListItem>
                     <Generator {...this.props} generator={generator} />
-                  </GridListTile>
+                  </GridListItem>
                 );
               })}
-          </GridList>
+            {this.props.generators
+              .slice()
+              .reverse()
+              .map(generator => {
+                return (
+                  <GridListItem>
+                    <Generator {...this.props} generator={generator} />
+                  </GridListItem>
+                );
+              })}
+            {this.props.generators
+              .slice()
+              .reverse()
+              .map(generator => {
+                return (
+                  <GridListItem>
+                    <Generator {...this.props} generator={generator} />
+                  </GridListItem>
+                );
+              })}
+            {this.props.generators
+              .slice()
+              .reverse()
+              .map(generator => {
+                return (
+                  <GridListItem>
+                    <Generator {...this.props} generator={generator} />
+                  </GridListItem>
+                );
+              })}
+          </GeneratorGrid>
         )}
-      </div>
+      </GeneratorsDiv>
     );
   }
 }
 
-export default withStyles(styles)(GeneratorsList);
+export default GeneratorsList;

@@ -6,6 +6,7 @@ import Generator from "../../../contracts/Generator";
 import ArtPieceRenderer from "./ArtPieceRenderer";
 class ArtPieceRendererContainer extends Component {
   state = { generatorUri: null, generatorName: null, hash: null };
+
   componentDidMount() {
     const generatorName = this.props.generator;
     this.setState({ generatorName });

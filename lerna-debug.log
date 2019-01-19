@@ -22,6 +22,23 @@
 13 error warning package.json: No license field
 13 error warning package.json: No license field
 13 error warning package.json: No license field
+13 error - Blocks: 0            Seconds: 0
+13 error - Saving migration to chain.
+13 error - Blocks: 0            Seconds: 0
+13 error - Saving migration to chain.
+13 error - Blocks: 0            Seconds: 0
+13 error - Saving migration to chain.
+13 error - Blocks: 0            Seconds: 0
+13 error - Saving migration to chain.
+13 error - Blocks: 0            Seconds: 0
+13 error - Blocks: 0            Seconds: 0
+13 error - Saving migration to chain.
+13 error - Saving migration to chain.
+13 error - Blocks: 0            Seconds: 0
+13 error - Saving migration to chain.
+13 error - Blocks: 0            Seconds: 0
+13 error - Saving migration to chain.
+13 error - Saving migration to chain.
 13 error error An unexpected error occurred: "Command failed.
 13 error Exit code: 1
 13 error Command: sh
@@ -42,94 +59,216 @@
 13 error $ run-p --aggregate-output compile:*
 13 error $ tsc
 13 error $ truffle compile
-13 error Using network 'ganache'.
+13 error ⚠️  Important ⚠️
+13 error If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
+13 error Try: npm install --save truffle-hdwallet-provider@web3-one
 13 error
-13 error Running migration: 1_initial_migration.js
+13 error
+13 error Starting migrations...
+13 error ======================
+13 error > Network name:    'ganache'
+13 error > Network id:      50
+13 error > Block gas limit: 6721975
+13 error
+13 error
+13 error 1_initial_migration.js
+13 error ======================
 13 error i am the first me.
-13 error   Replacing Migrations...
-13 error   ... 0x7bdce67b87927aff5e4809048e418876884d7cb070c4af043c4ede2d0cbc654f
-13 error   Migrations: 0x0f2d23d60e7dffdaa86deabb3cd27600e6f89295
-13 error Saving successful migration to network...
-13 error   ... 0x5d03f0262b749faec83d2613f18d162624a23f687e70e900a6fb8545b1fa04f1
-13 error Saving artifacts...
-13 error Running migration: 2_deploy_reserve_token.js
+13 error
+13 error    Replacing 'Migrations'
+13 error    ----------------------
+13 error    > transaction hash:    0xad96fc2692b6677202171e7f386f45804297462c2ca2878bda2e7b40325d9bc8
+13 error    > Blocks: 0            Seconds: 0
+13 error    > contract address:    0xFF5181e2210AB92a5c9db93729Bc47332555B9E9
+13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
+13 error    > balance:             97.36450854
+13 error    > gas used:            224195
+13 error    > gas price:           20 gwei
+13 error    > value sent:          0 ETH
+13 error    > total cost:          0.0044839 ETH
+13 error
+13 error
+13 error    > Saving migration to chain.
+13 error    > Saving artifacts
+13 error    -------------------------------------
+13 error    > Total cost:           0.0044839 ETH
+13 error
+13 error
+13 error 2_deploy_reserve_token.js
+13 error =========================
 13 error i am me
-13 error   Replacing TestDaiToken...
-13 error   ... 0x3808cb8c4607ff14699e42681dc6753be1006e40e840c60cbd45b8f09d08b15b
-13 error   TestDaiToken: 0x4173f7614711a24c443183955850ecf673befb84
-13 error Saving successful migration to network...
-13 error   ... 0x9eee8a32edec648d49d56762f6e92fd803b1d9104d812790f5b9aa9d658fe1bc
-13 error   ... 0x74df993053eaeea5a3edfd00cd18531dedab680c19829c12885bc00d9e35b33e
-13 error   ... 0xe7cf7e321efdafa6c7f4217eeafa8790afd86f0943b6f3b7fdd63c13108c661b
-13 error   ... 0xf64016c0427575d1150b5792387e62ecfd2385a68075f12ee9957bf42112e37a
-13 error Saving artifacts...
-13 error Running migration: 3_deploy_soul.js
-13 error test dai address:  0x4173f7614711a24c443183955850ecf673befb84
-13 error   Replacing SoulToken...
-13 error   ... 0x61563c0a2ea6615f575ca48a8470d74f97ad47496f5c2412e83b3f901951d1f5
-13 error   SoulToken: 0x02d2ce42bb523958aec7eb51c01b3925303de9b8
-13 error Saving successful migration to network...
-13 error   ... 0xb8833a8b3e09f13efda5498687e6c93be8711db212f37f208ab57317037c342a
-13 error Saving artifacts...
-13 error Running migration: 4_deploy_generator_registry.js
-13 error   Running step...
-13 error   Replacing GeneratorRegistry...
-13 error   ... 0x5361c90360a276604b435ea63ce6c913d5c87538ad42ce947fe95f39ed40a1ae
-13 error   GeneratorRegistry: 0xb3953a15fb0a7cb7998b75bf0aba7303022e25d8
-13 error Saving successful migration to network...
-13 error   ... 0x39053bd9f814b1c4506d4931a7f781b03de2b41d5ea7489a654ce43c1e18d66d
-13 error Saving artifacts...
-13 error Running migration: 5_deploy_generator_factory.js
-13 error   Running step...
-13 error   Replacing Generator...
-13 error   ... 0x306a121bff7d1e176f4597fec1d3d2200a2276185aad633d79297b9b384767d2
-13 error   Generator: 0xaaf0ccef0c0c355ee764b3d36bccf257c527269b
-13 error   Replacing GeneratorFactory...
-13 error   ... 0x3e995e6cee2a461d267b76c126a78758bedb3f70ed1bcb54cf160d1dcf904e2a
-13 error   GeneratorFactory: 0xd04606af314eab9782c7e4713c6f55fdc5e44146
-13 error Saving successful migration to network...
-13 error   ... 0x7f357be788f3bf83d12f9a5232f815d2ee699736db29bd8fe10f710d8b6b100e
-13 error Saving artifacts...
-13 error Running migration: 6_set_initial_generator.js
-13 error   Running step...
-13 error   ... 0xd0896ec82ec2e53244efe791120e7d281983a5f3a4937dcb4cf3f897984428d7
-13 error Saving successful migration to network...
-13 error   ... 0x05b7e3ddb1ebb2247cc0524fad164c0efec0c2a4feb0e86c9ec22546592723cb
-13 error Saving artifacts...
-13 error Running migration: 7_deploy_art_piece_token.js
-13 error   Replacing ArtPieceToken...
-13 error   ... 0x2573aa1348fdb279924732a772764015c797cb13a05c395e79355d20337d9ccc
-13 error   ArtPieceToken: 0x5aa1721fbf48f6ee7a9122d385248f5c59e774f1
-13 error Saving successful migration to network...
-13 error   ... 0xee24046f705d8fb78804d6ec32b443c4876918714099f98a8c2460cda84b4b8e
-13 error Saving artifacts...
-13 error Running migration: 8_deploy_artonomous.js
-13 error GeneratorRegistry.address:  0xb3953a15fb0a7cb7998b75bf0aba7303022e25d8
-13 error ArtPieceToken.address:  0x5aa1721fbf48f6ee7a9122d385248f5c59e774f1
-13 error SoulToken.address:  0x02d2ce42bb523958aec7eb51c01b3925303de9b8
-13 error   Replacing Artonomous...
-13 error   ... 0x4f6e0c0441fac85dc7d9ff684a9bca2b17d3eb9c9d62a65ccb2f708e35d3d81a
-13 error   Artonomous: 0xab303880c3524ccf05697ba66fbab48a59d35f47
-13 error Saving successful migration to network...
-13 error   ... 0x03e4a1e6debabf0a538b049bc5b487dc7143381eecd1eadc0ad9d3e7553341ba
-13 error Saving artifacts...
-13 error Running migration: 9_transfer_token_ownership.js
-13 error   Running step...
-13 error   ... 0x362babf423253bff32506e589a7ff165f941e810d1c6a1c5f1bb7ce87218f985
-13 error Saving successful migration to network...
-13 error   ... 0x6f8ccc11830d80f7f420a9c7ea2f610badb55e25b9c647ed0d31daea52b5f9c8
-13 error Saving artifacts...
-13 error Running migration: 10_extra_for_test.js
-13 error   Running step...
-13 error   ... 0xbd69b2e6d55b7ed18a8980bb214f4fb2e7ace28a96d7905475f0fd5c097a85fa
-13 error Saving successful migration to network...
-13 error   ... 0x6421f22a149d9d8f823bec532b4c2c6464b2535984fed6f471b5fa937cecc200
-13 error Saving artifacts...
-13 error Running migration: 11_start_auction.js
-13 error Error: Migration /Users/nickreynolds/Artonomous/artonomous/packages/contracts/migrations/11_start_auction.js invalid or does not take any parameters
-13 error     at /usr/local/Cellar/node/9.10.1/lib/node_modules/truffle/build/webpack:/packages/truffle-migrate/index.js:80:1
-13 error     at /usr/local/Cellar/node/9.10.1/lib/node_modules/truffle/build/webpack:/packages/truffle-require/require.js:101:1
-13 error     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:511:3)
+13 error
+13 error    Replacing 'TestDaiToken'
+13 error    ------------------------
+13 error    > transaction hash:    0x0290c94e468be5b415dbadf6779585805b22a146462da0aca918cc012ad4a090
+13 error    > Blocks: 0            Seconds: 0
+13 error    > contract address:    0xC5aFE31AE505594B190AC71EA689B58139d1C354
+13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
+13 error    > balance:             97.35100624
+13 error    > gas used:            633207
+13 error    > gas price:           20 gwei
+13 error    > value sent:          0 ETH
+13 error    > total cost:          0.01266414 ETH
+13 error
+13 error
+13 error    > Saving migration to chain.
+13 error    > Saving artifacts
+13 error    -------------------------------------
+13 error    > Total cost:          0.01266414 ETH
+13 error
+13 error
+13 error 3_deploy_soul.js
+13 error ================
+13 error test dai address:  0xC5aFE31AE505594B190AC71EA689B58139d1C354
+13 error
+13 error    Replacing 'SoulToken'
+13 error    ---------------------
+13 error    > transaction hash:    0xcd43e14378ec91d918ac880f028df3dca961cc992a4e94b7505ce35a06a10478
+13 error    > Blocks: 0            Seconds: 0
+13 error    > contract address:    0x94dFeceb91678ec912ef8f14c72721c102ed2Df7
+13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
+13 error    > balance:             97.26576522
+13 error    > gas used:            4094335
+13 error    > gas price:           20 gwei
+13 error    > value sent:          0 ETH
+13 error    > total cost:          0.0818867 ETH
+13 error
+13 error
+13 error    > Saving migration to chain.
+13 error    > Saving artifacts
+13 error    -------------------------------------
+13 error    > Total cost:           0.0818867 ETH
+13 error
+13 error
+13 error 4_deploy_generator_registry.js
+13 error ==============================
+13 error
+13 error    Replacing 'GeneratorRegistry'
+13 error    -----------------------------
+13 error    > transaction hash:    0x5e56cb4416a881e0b82f5a254e2954cbab19fef55e209ec66a231a4429d2118f
+13 error    > Blocks: 0            Seconds: 0
+13 error    > contract address:    0x9ce4cd6D7f5e8b14c7a3e8e6A257A86Bd5a6EeA0
+13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
+13 error    > balance:             97.23560392
+13 error    > gas used:            1481157
+13 error    > gas price:           20 gwei
+13 error    > value sent:          0 ETH
+13 error    > total cost:          0.02962314 ETH
+13 error
+13 error
+13 error    > Saving migration to chain.
+13 error    > Saving artifacts
+13 error    -------------------------------------
+13 error    > Total cost:          0.02962314 ETH
+13 error
+13 error
+13 error 5_deploy_generator_factory.js
+13 error =============================
+13 error
+13 error    Replacing 'Generator'
+13 error    ---------------------
+13 error    > transaction hash:    0x9f96a627fbccc93edbf39664ec3aaf88580284915e1bf9a1c0fb24dc3c7f7151
+13 error    > Blocks: 0            Seconds: 0
+13 error    > contract address:    0xdC78afe9cFDe0576Ff236667DC8c380615c24Ca9
+13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
+13 error    > balance:             97.2236756
+13 error    > gas used:            569508
+13 error    > gas price:           20 gwei
+13 error    > value sent:          0 ETH
+13 error    > total cost:          0.01139016 ETH
+13 error
+13 error
+13 error    Replacing 'GeneratorFactory'
+13 error    ----------------------------
+13 error    > transaction hash:    0x636af9cdb8706f48b6b5d5553d2fb69d43734e514d46461b47e338c0200d40e7
+13 error    > Blocks: 0            Seconds: 0
+13 error    > contract address:    0xB349FB172D6D5f693b0aA1C6eEc4c61cFd6846f4
+13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
+13 error    > balance:             97.20156756
+13 error    > gas used:            1105402
+13 error    > gas price:           20 gwei
+13 error    > value sent:          0 ETH
+13 error    > total cost:          0.02210804 ETH
+13 error
+13 error
+13 error    > Saving migration to chain.
+13 error    > Saving artifacts
+13 error    -------------------------------------
+13 error    > Total cost:           0.0334982 ETH
+13 error
+13 error
+13 error 6_set_initial_generator.js
+13 error ==========================
+13 error
+13 error    > Saving migration to chain.
+13 error    -------------------------------------
+13 error    > Total cost:                   0 ETH
+13 error
+13 error
+13 error 7_deploy_art_piece_token.js
+13 error ===========================
+13 error
+13 error    Replacing 'ArtPieceToken'
+13 error    -------------------------
+13 error    > transaction hash:    0x991597294df29d3052e280679f539e3fa9543d5d2745324c95d1a0c921da3b54
+13 error    > Blocks: 0            Seconds: 0
+13 error    > contract address:    0x68b86Cd90A44C805b1cCF4808b29C9c7cf73FDFF
+13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
+13 error    > balance:             97.15887798
+13 error    > gas used:            1466146
+13 error    > gas price:           20 gwei
+13 error    > value sent:          0 ETH
+13 error    > total cost:          0.02932292 ETH
+13 error
+13 error
+13 error    > Saving migration to chain.
+13 error    > Saving artifacts
+13 error    -------------------------------------
+13 error    > Total cost:          0.02932292 ETH
+13 error
+13 error
+13 error 8_deploy_artonomous.js
+13 error ======================
+13 error GeneratorRegistry.address:  0x9ce4cd6D7f5e8b14c7a3e8e6A257A86Bd5a6EeA0
+13 error ArtPieceToken.address:  0x68b86Cd90A44C805b1cCF4808b29C9c7cf73FDFF
+13 error SoulToken.address:  0x94dFeceb91678ec912ef8f14c72721c102ed2Df7
+13 error
+13 error    Replacing 'Artonomous'
+13 error    ----------------------
+13 error    > transaction hash:    0x581cf961648c99540b03373d316dbb24c0228b809023de8461c9428eaf5d9bb9
+13 error    > Blocks: 0            Seconds: 0
+13 error    > contract address:    0xe93e3B649d4E01e47dd2170CAFEf0651477649Da
+13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
+13 error    > balance:             97.13813194
+13 error    > gas used:            1010394
+13 error    > gas price:           20 gwei
+13 error    > value sent:          0 ETH
+13 error    > total cost:          0.02020788 ETH
+13 error
+13 error
+13 error    > Saving migration to chain.
+13 error    > Saving artifacts
+13 error    -------------------------------------
+13 error    > Total cost:          0.02020788 ETH
+13 error
+13 error
+13 error 9_transfer_token_ownership.js
+13 error =============================
+13 error
+13 error    > Saving migration to chain.
+13 error    -------------------------------------
+13 error    > Total cost:                   0 ETH
+13 error
+13 error
+13 error 10_extra_for_test.js
+13 error ====================
+13 error Error: Please pass numbers as strings or BigNumber objects to avoid precision errors.
+13 error     at Object.toWei (/usr/local/Cellar/node/9.10.1/lib/node_modules/truffle/build/webpack:/~/web3-utils/src/index.js:267:1)
+13 error     at deployer.then (/Users/nickreynolds/Artonomous/artonomous/packages/contracts/migrations/10_extra_for_test.js:10:27)
+13 error     at <anonymous>
+13 error     at process._tickCallback (internal/process/next_tick.js:189:7)
+13 error Truffle v5.0.0 (core: 5.0.0)
+13 error Node v8.12.0
 13 error info If you think this is a bug, please open a bug report with the information provided in "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/yarn-error.log".
 13 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 13 error info If you think this is a bug, please open a bug report with the information provided in "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/yarn-error.log".

@@ -7,7 +7,7 @@ module.exports = function(deployer, network, accounts) {
       web3.eth.sendTransaction({
         from: accounts[0],
         to: user,
-        value: web3.toWei(1, "ether"),
+        value: web3.utils.toWei("1", "ether"),
       });
     });
   }

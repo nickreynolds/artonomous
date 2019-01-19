@@ -16,9 +16,10 @@ export default class ArtPieceRenderer extends React.Component {
       this.setState({ code });
     });
   }
+
   render() {
     if (this.state.code) {
-      return <P5Sandbox isPlaying={true} width="450px" height="450px" hash={this.props.hash} code={this.state.code} />;
+      return <P5Sandbox isPlaying={true} width="380px" height="380px" hash={this.props.hash} code={this.state.code} />;
     }
     return <div>loading from ipfs...</div>;
   }

@@ -37,12 +37,10 @@ class Balance extends Component {
     const soulBalanceDataKey = this.props.drizzle.contracts.SoulToken.methods.balanceOf.cacheCall(
       this.props.drizzleState.accounts[0],
     );
-    console.log("did mount 1");
     const daiBalanceDataKey = this.props.drizzle.contracts.TestDaiToken.methods.balanceOf.cacheCall(
       this.props.drizzleState.accounts[0],
     );
     this.setState({ soulBalanceDataKey, daiBalanceDataKey });
-    console.log("did mount 2");
   }
   render() {
     const balanceData = this.props.drizzleState.contracts.SoulToken.balanceOf[this.state.soulBalanceDataKey];
