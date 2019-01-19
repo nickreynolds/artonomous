@@ -3,15 +3,41 @@ import GeneratorsList from "./GeneratorsList";
 import { Link } from "react-router";
 import { sha3_256 } from "js-sha3";
 import styled from "styled-components";
+import { RaisedButton } from "material-ui";
+import hashToRandomSeed from "../../hashToRandomSeed";
 
 const GeneratorsBackground = styled.div`
   background-color: #a4a4a4;
   height: 100%;
   width: 100%;
+  top: 10px;
+`;
+
+const GeneratorHeader = styled.ul`
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #a4a4a4;
+  display: flex;
+  align-items: center;
+`;
+
+const RandomizeContainer = styled.li`
+  padding: 10px 10px 10px 10px;
+`;
+const NavSpace = styled.li`
+  flex: 1;
+`;
+
+const CreateContainer = styled.li`
+  margin-right: 10px;
 `;
 
 class Generators extends Component {
-  state = { hash: "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3" };
+  state = { hash: "", seed: 0 };
+
+  componentDidMount = () => {
+    this.randomizeHash();
+  };
 
   randomizeHash = () => {
     const r2 =
@@ -22,7 +48,8 @@ class Generators extends Component {
         .toString(36)
         .substring(2, 15);
     const hash = "0x" + sha3_256(r2);
-    this.setState({ hash });
+    const seed = hashToRandomSeed(hash.substring(2));
+    this.setState({ hash, seed });
   };
 
   render() {
@@ -33,12 +60,22 @@ class Generators extends Component {
     const props = this.props;
     return (
       <GeneratorsBackground>
-        <div>
-          <h1>Generators</h1>
-          <button onClick={this.randomizeHash}>randomize hash</button>
-          <span>hash: {this.state.hash}</span>
-          <Link to="/createGenerator">Create Generator</Link>
-        </div>
+        <GeneratorHeader>
+          <RandomizeContainer>
+            <RaisedButton variant="contained" onClick={this.randomizeHash}>
+              randomize
+            </RaisedButton>
+            <span>
+              {" hash: "}
+              {this.state.hash} {" => seed: "}
+              {this.state.seed}
+            </span>
+          </RandomizeContainer>
+          <NavSpace />
+          <CreateContainer>
+            <RaisedButton primary>Create Generator</RaisedButton>
+          </CreateContainer>
+        </GeneratorHeader>
         <div>{generators && <GeneratorsList {...props} generators={generators} hash={this.state.hash} />}</div>
       </GeneratorsBackground>
     );
