@@ -14,9 +14,7 @@ export const addGeneratorUri = (generator, uri) => {
 const generatorCodeRequests = new Map();
 export const getGeneratorCode = generatorContract => {
   return function(dispatch, getState) {
-    console.log("generatorCodeRequests: ", generatorCodeRequests);
     if (!generatorCodeRequests.get(generatorContract._address)) {
-      console.log("get generator code: ", generatorContract);
       console.log("get generator _address ", generatorContract._address);
       generatorCodeRequests.set(generatorContract._address, true);
       generatorContract.methods.sourceUri().call({}, function(error, result) {

@@ -33,7 +33,8 @@ const InnerSliderDiv = styled.div`
 `;
 
 const InnerButtonDiv = styled.div`
-  max-width: 15%;
+  max-width: 90%;
+  min-width: 90%;
 `;
 
 class GeneratorsList extends Component {
@@ -44,6 +45,16 @@ class GeneratorsList extends Component {
     soulValue: 0,
   };
   componentDidMount() {
+    this.update();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.generator != this.props.generator || prevProps.drizzle != this.props.drizzle) {
+      this.update();
+    }
+  }
+
+  update = () => {
     const stakeKey = this.props.drizzle.contracts.GeneratorRegistry.methods.getGeneratorStake.cacheCall(
       this.props.generator,
     );
@@ -54,7 +65,7 @@ class GeneratorsList extends Component {
       );
     }
     this.setState({ stakeKey, soulBalanceKey });
-  }
+  };
 
   onInfoClick = () => {
     this.setState({ showInfo: !this.state.showInfo });
@@ -70,7 +81,7 @@ class GeneratorsList extends Component {
     const soulBalanceData = drizzleState.contracts.SoulToken.balanceOf[this.state.soulBalanceKey];
     const soulBalance = soulBalanceData ? soulBalanceData.value / 1000000000000000000 : 0;
 
-    const soulValue2 = BigNumber("1000000000000000000").times(soulValue);
+    const soulValue2 = BigNumber("1e18").times(soulValue);
 
     return (
       <GeneratorDiv>
@@ -95,18 +106,19 @@ class GeneratorsList extends Component {
               <InnerSliderDiv>
                 <Slider value={soulValue} min={0} max={soulBalance} onChange={this.handleSoulSliderChange} />
               </InnerSliderDiv>
-              <InnerButtonDiv>
-                <NewContractForm
-                  contract="GeneratorRegistry"
-                  method="depositStake"
-                  methodArgs={{ from: this.props.drizzleState.accounts[0] }}
-                  initialMethodArgs={[this.props.generator, soulValue2.toString(10)]}
-                  hideInputs={true}
-                >
-                  Stake {soulValue2.div(1000000000000000000).toString()} SOUL
-                </NewContractForm>
-              </InnerButtonDiv>
             </SliderDiv>
+            <InnerButtonDiv>
+              <NewContractForm
+                contract="GeneratorRegistry"
+                method="depositStake"
+                methodArgs={{ from: this.props.drizzleState.accounts[0] }}
+                initialMethodArgs={[this.props.generator, soulValue2.toString(10)]}
+                hideInputs={true}
+                width="100%"
+              >
+                Stake {soulValue2.div("1e18").toString()} SOUL
+              </NewContractForm>
+            </InnerButtonDiv>
           </div>
         )}
       </GeneratorDiv>

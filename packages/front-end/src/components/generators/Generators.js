@@ -52,6 +52,11 @@ class Generators extends Component {
     this.setState({ hash, seed });
   };
 
+  createGenerator = () => {
+    console.log("this.props: ", this.props);
+    this.props.router.push("/CreateGenerator");
+  };
+
   render() {
     const events = this.props.drizzleState.contracts.GeneratorRegistry.events.filter(
       event => event.event === "GeneratorAdded",
@@ -73,7 +78,9 @@ class Generators extends Component {
           </RandomizeContainer>
           <NavSpace />
           <CreateContainer>
-            <RaisedButton primary>Create Generator</RaisedButton>
+            <RaisedButton onClick={this.createGenerator} primary>
+              Create Generator
+            </RaisedButton>
           </CreateContainer>
         </GeneratorHeader>
         <div>{generators && <GeneratorsList {...props} generators={generators} hash={this.state.hash} />}</div>

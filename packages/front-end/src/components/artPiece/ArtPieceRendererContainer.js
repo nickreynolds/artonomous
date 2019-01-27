@@ -10,14 +10,25 @@ class ArtPieceRendererContainer extends Component {
   state = { generatorUri: null, generatorName: null, hash: null };
 
   componentDidMount() {
+    this.update();
+    this.onUpdate();
+  }
+
+  componentWillUpdate(prevProps) {
+    if (prevProps.generator != this.props.generator || this.props.drizzle != prevProps.drizzle) {
+      this.update();
+    }
+  }
+
+  update() {
     const generatorName = this.props.generator;
     this.setState({ generatorName });
     const contract = new this.props.drizzle.web3.eth.Contract(Generator.abi, this.props.generator);
 
+    console.log("UPDATE GET GENERATOR: ", contract);
     this.props.dispatch(getGeneratorCode(contract));
-
-    this.onUpdate();
   }
+
   onUpdate() {
     const level = this;
     this.setState({ hash: this.props.hash });
