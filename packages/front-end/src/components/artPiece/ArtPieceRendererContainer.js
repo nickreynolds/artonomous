@@ -4,6 +4,8 @@ import NewContractForm from "../utility/NewContractForm";
 import store from "../../store";
 import Generator from "../../../contracts/Generator";
 import ArtPieceRenderer from "./ArtPieceRenderer";
+import { getGeneratorCode } from "../../redux/actionCreators/generatorActions";
+import { connect } from "react-redux";
 class ArtPieceRendererContainer extends Component {
   state = { generatorUri: null, generatorName: null, hash: null };
 
@@ -11,14 +13,9 @@ class ArtPieceRendererContainer extends Component {
     const generatorName = this.props.generator;
     this.setState({ generatorName });
     const contract = new this.props.drizzle.web3.eth.Contract(Generator.abi, this.props.generator);
-    const level = this;
 
-    // HACK because can't figure out the drizzle stuff
-    contract.methods.sourceUri().call({}, function(error, result) {
-      if (result) {
-        level.setState({ generatorUri: result });
-      }
-    });
+    this.props.dispatch(getGeneratorCode(contract));
+
     this.onUpdate();
   }
   onUpdate() {
@@ -39,11 +36,13 @@ class ArtPieceRendererContainer extends Component {
   }
 
   render() {
-    if (this.state.generatorName && this.state.generatorUri && this.state.hash) {
-      return <ArtPieceRenderer url={this.state.generatorUri} hash={this.state.hash} />;
+    if (this.state.generatorName && this.props.uri && this.state.hash) {
+      return <ArtPieceRenderer url={this.props.uri} hash={this.state.hash} code={this.props.code} />;
     }
     return <div>loading</div>;
   }
 }
-
-export default ArtPieceRendererContainer;
+const mapStateToProps = (state, ownProps) => {
+  return { code: state.generatorCode.get(ownProps.generator), uri: state.generatorUri.get(ownProps.generator) };
+};
+export default connect(mapStateToProps)(ArtPieceRendererContainer);

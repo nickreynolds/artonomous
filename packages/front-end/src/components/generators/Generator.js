@@ -61,7 +61,9 @@ class GeneratorsList extends Component {
     this.setState({ showInfo: !this.state.showInfo });
   };
   handleSoulSliderChange = (event, value) => {
-    this.setState({ soulValue: value });
+    if (value) {
+      this.setState({ soulValue: value });
+    }
   };
   render() {
     const { drizzleState, drizzle, soulValue } = this.props;
@@ -72,6 +74,10 @@ class GeneratorsList extends Component {
 
     const soulValue2 = BigNumber("1000000000000000000").times(soulValue);
     // const soulBalance2 = BigNumber("1000000000000000000").times(soulBalance);
+
+    console.log("soulValue: ", soulValue);
+    console.log("soulValue2: ", soulValue2);
+    console.log("soulBalance: ", soulBalance);
 
     return (
       <GeneratorDiv>

@@ -1573,10 +1573,10 @@
     "50": {
       "events": {},
       "links": {},
-      "address": "0xEdCD6442143188Deb586e182B7900dFb8707Bc27",
-      "transactionHash": "0x5861ac32538670a9358aa91c4675e34536b31a9c3d478d314585b41fae6dbbed"
+      "address": "0x67B5656d60a809915323Bf2C40A8bEF15A152e3e",
+      "transactionHash": "0xf0e6bc35c0e960fd939d0e2cca00ff2fd629931316a1fb0a7ad22037e1674850"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-01-19T17:30:34.870Z"
+  "updatedAt": "2019-01-27T01:05:36.108Z"
 }

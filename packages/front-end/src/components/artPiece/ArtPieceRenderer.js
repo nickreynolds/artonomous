@@ -4,22 +4,9 @@ import P5Sandbox from "../P5Sandbox";
 import * as fsapi from "../../fsapi";
 
 export default class ArtPieceRenderer extends React.Component {
-  static propTypes = {
-    url: PropTypes.string,
-  };
-  state = {
-    code: null,
-  };
-
-  componentDidMount() {
-    fsapi.getTextFileFromPath(this.props.url.split("/")[0]).then(code => {
-      this.setState({ code });
-    });
-  }
-
   render() {
-    if (this.state.code) {
-      return <P5Sandbox isPlaying={true} width="380px" height="380px" hash={this.props.hash} code={this.state.code} />;
+    if (this.props && this.props.code) {
+      return <P5Sandbox isPlaying={true} width="380px" height="380px" hash={this.props.hash} code={this.props.code} />;
     }
     return <div>loading from ipfs...</div>;
   }
