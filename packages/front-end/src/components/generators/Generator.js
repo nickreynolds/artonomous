@@ -8,7 +8,7 @@ import { Slider, Card } from "material-ui";
 
 const GeneratorInfoDiv = styled(Card)`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 const GeneratorDiv = styled(Card)`
@@ -18,7 +18,7 @@ const GeneratorDiv = styled(Card)`
 
 const SliderDiv = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   bottom: 0px;
 `;
@@ -29,6 +29,7 @@ const InnerInputDiv = styled.div`
 
 const InnerSliderDiv = styled.div`
   max-width: 70%;
+  min-width: 70%;
 `;
 
 const InnerButtonDiv = styled.div`
@@ -43,11 +44,9 @@ class GeneratorsList extends Component {
     soulValue: 0,
   };
   componentDidMount() {
-    console.log("this.props.generator: ", this.props.generator);
     const stakeKey = this.props.drizzle.contracts.GeneratorRegistry.methods.getGeneratorStake.cacheCall(
       this.props.generator,
     );
-    console.log("stakeKey: ", stakeKey);
     let soulBalanceKey;
     if (this.props.drizzleState.accounts && this.props.drizzleState.accounts[0]) {
       soulBalanceKey = this.props.drizzle.contracts.SoulToken.methods.balanceOf.cacheCall(
@@ -61,23 +60,17 @@ class GeneratorsList extends Component {
     this.setState({ showInfo: !this.state.showInfo });
   };
   handleSoulSliderChange = (event, value) => {
-    if (value) {
-      this.setState({ soulValue: value });
-    }
+    this.setState({ soulValue: value });
   };
   render() {
-    const { drizzleState, drizzle, soulValue } = this.props;
+    const { drizzleState, drizzle } = this.props;
+    const { soulValue } = this.state;
 
     const stake = this.props.drizzleState.contracts.GeneratorRegistry.getGeneratorStake[this.state.stakeKey];
     const soulBalanceData = drizzleState.contracts.SoulToken.balanceOf[this.state.soulBalanceKey];
     const soulBalance = soulBalanceData ? soulBalanceData.value / 1000000000000000000 : 0;
 
     const soulValue2 = BigNumber("1000000000000000000").times(soulValue);
-    // const soulBalance2 = BigNumber("1000000000000000000").times(soulBalance);
-
-    console.log("soulValue: ", soulValue);
-    console.log("soulValue2: ", soulValue2);
-    console.log("soulBalance: ", soulBalance);
 
     return (
       <GeneratorDiv>
@@ -99,17 +92,8 @@ class GeneratorsList extends Component {
             <ArtPieceRendererContainer {...this.props} />
 
             <SliderDiv>
-              <InnerInputDiv>
-                <input width={"20px"} />
-              </InnerInputDiv>
               <InnerSliderDiv>
-                <Slider
-                  height={"2"}
-                  value={soulValue}
-                  min={0}
-                  max={soulBalance}
-                  onChange={this.handleSoulSliderChange}
-                />
+                <Slider value={soulValue} min={0} max={soulBalance} onChange={this.handleSoulSliderChange} />
               </InnerSliderDiv>
               <InnerButtonDiv>
                 <NewContractForm

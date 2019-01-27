@@ -30,7 +30,6 @@ const GridListItem = styled.div`
 
 class GeneratorsList extends Component {
   render() {
-    console.log("generators: ", this.props.generators);
     return (
       <GeneratorsDiv>
         {this.props.generators && (
