@@ -1,7 +1,7 @@
 import { combineReducers, AnyAction } from "redux";
 import { generatorCode, generatorUri } from "./generatorsReducers";
 import { account, soulBalance, daiBalance } from "./accountReducers";
-import { auctionData, auctionLength } from "./auctionReducers";
+import { auctionData, auctionLength, historicalAuctionIDs, historicalAuctions } from "./auctionReducers";
 
 export default combineReducers({
   generatorCode,
@@ -11,4 +11,6 @@ export default combineReducers({
   daiBalance,
   auctionData,
   auctionLength,
+  historicalAuctionIDs,
+  historicalAuctions,
 });

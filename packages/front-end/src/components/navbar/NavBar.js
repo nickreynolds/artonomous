@@ -11,7 +11,7 @@ import Login from "./Login";
 import { getAccount } from "../../redux/actionCreators/accountActions";
 
 import { connect } from "react-redux";
-import { beginGetCurrentAuction } from "../../redux/actionCreators/auctionActions";
+import { beginGetCurrentAuction, beginGetHistoricalAuctions } from "../../redux/actionCreators/auctionActions";
 
 const NavDiv = styled.div`
   min-width: 100%;
@@ -49,6 +49,7 @@ class NavBar extends Component {
   componentDidMount() {
     this.props.dispatch(getAccount());
     this.props.dispatch(beginGetCurrentAuction());
+    this.props.dispatch(beginGetHistoricalAuctions());
   }
   render() {
     const hasAccount = this.props.account;

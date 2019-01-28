@@ -1,20 +1,27 @@
 import React, { Component } from "react";
 import HistoryList from "./HistoryList";
-
+import { connect } from "react-redux";
 class AuctionHistory extends Component {
   state = {};
 
   render() {
-    const events = this.props.drizzleState.contracts.Artonomous.events.filter(
-      event => event.event === "ArtonomousArtBought",
-    );
     return (
       <div>
         <h1>History</h1>
-        {events && <HistoryList {...this.props} events={events} />}
+        {this.props.historicalAuctionIDs && (
+          <HistoryList
+            {...this.props}
+            auctionIDs={this.props.historicalAuctionIDs}
+            auctions={this.props.historicalAuctions}
+          />
+        )}
       </div>
     );
   }
 }
 
-export default AuctionHistory;
+const mapStateToProps = (state, ownProps) => {
+  const { historicalAuctionIDs, historicalAuctions } = state;
+  return { historicalAuctionIDs, historicalAuctions };
+};
+export default connect(mapStateToProps)(AuctionHistory);

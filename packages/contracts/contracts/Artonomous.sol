@@ -11,7 +11,7 @@ contract Artonomous {
     using SafeMath for uint256;
 
     event ArtonomousAuctionStarted(uint256 indexed blockNumber);
-    event ArtonomousArtBought(address indexed buyer, uint256 indexed blockNumber, uint256 price);
+    event ArtonomousArtBought(address indexed buyer, uint256 indexed blockNumber, address indexed generator, uint256 price);
 
     struct Auction {
         uint256 blockNumber;
@@ -103,7 +103,7 @@ contract Artonomous {
         reserveToken.approve(soulToken, buyPriceRemaining);
         soulToken.depositArtPayment(buyPriceRemaining);
 
-        emit ArtonomousArtBought(msg.sender, blockNumber, buyPriceRemaining);
+        emit ArtonomousArtBought(msg.sender, blockNumber, address(currentGenerator), buyPriceRemaining);
 
         startAuction(buyPrice, startingPrice);
     }

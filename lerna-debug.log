@@ -1,9 +1,9 @@
-0 silly input [ 'migrate:ganache' ]
+0 silly input [ 'build' ]
 1 silly flags { _: [ 'run' ],
 1 silly flags   'reject-cycles': false,
 1 silly flags   rejectCycles: false,
 1 silly flags   scope: '@artonomous/contracts',
-1 silly flags   script: 'migrate:ganache',
+1 silly flags   script: 'build',
 1 silly flags   args: [] }
 2 verbose rootPath /Users/nickreynolds/Artonomous/artonomous
 3 info version 2.11.0
@@ -12,267 +12,37 @@
 6 silly initialize attempt
 7 silly initialize success
 8 silly execute attempt
-9 silly runScriptInDir migrate:ganache [] contracts
-10 silly getExecOpts { cwd: '/Users/nickreynolds/Artonomous/artonomous/packages/contracts' }
-11 error migrate:ganache Errored while running script in '@artonomous/contracts'
+9 silly runScriptInDir build [] contracts
+10 silly getExecOpts { cwd:
+10 silly getExecOpts    '/Users/nickreynolds/Artonomous/artonomous/packages/contracts' }
+11 error build Errored while running script in '@artonomous/contracts'
 12 error execute callback with error
-13 error Error: Command failed: yarn run migrate:ganache
+13 error Error: Command failed: yarn run build
 13 error warning package.json: No license field
 13 error warning package.json: No license field
 13 error warning package.json: No license field
-13 error warning package.json: No license field
-13 error warning package.json: No license field
-13 error - Blocks: 0            Seconds: 0
-13 error - Saving migration to chain.
-13 error - Blocks: 0            Seconds: 0
-13 error - Saving migration to chain.
-13 error - Blocks: 0            Seconds: 0
-13 error - Saving migration to chain.
-13 error - Blocks: 0            Seconds: 0
-13 error - Saving migration to chain.
-13 error - Blocks: 0            Seconds: 0
-13 error - Blocks: 0            Seconds: 0
-13 error - Saving migration to chain.
-13 error - Saving migration to chain.
-13 error - Blocks: 0            Seconds: 0
-13 error - Saving migration to chain.
-13 error - Blocks: 0            Seconds: 0
-13 error - Saving migration to chain.
-13 error - Saving migration to chain.
-13 error error An unexpected error occurred: "Command failed.
-13 error Exit code: 1
-13 error Command: sh
-13 error Arguments: -c yarn build && truffle migrate --network=ganache --reset
-13 error Directory: /Users/nickreynolds/Artonomous/artonomous/packages/contracts
-13 error Output:
-13 error ".
-13 error ERROR: "migrate --network=ganache --reset" exited with 1.
-13 error error An unexpected error occurred: "Command failed.
-13 error Exit code: 1
-13 error Command: sh
-13 error Arguments: -c run-s 'migrate --network=ganache --reset'
-13 error Directory: /Users/nickreynolds/Artonomous/artonomous/packages/contracts
-13 error Output:
-13 error ".
-13 error $ run-s 'migrate --network=ganache --reset'
-13 error $ yarn build && truffle migrate --network=ganache --reset
+13 error error Command failed with exit code 1.
+13 error ERROR: "compile:solidity" exited with 1.
+13 error error Command failed with exit code 1.
 13 error $ run-p --aggregate-output compile:*
 13 error $ tsc
 13 error $ truffle compile
-13 error ⚠️  Important ⚠️
-13 error If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
-13 error Try: npm install --save truffle-hdwallet-provider@web3-one
-13 error
-13 error
-13 error Starting migrations...
-13 error ======================
-13 error > Network name:    'ganache'
-13 error > Network id:      50
-13 error > Block gas limit: 6721975
-13 error
-13 error
-13 error 1_initial_migration.js
-13 error ======================
-13 error i am the first me.
-13 error
-13 error    Replacing 'Migrations'
-13 error    ----------------------
-13 error    > transaction hash:    0xad96fc2692b6677202171e7f386f45804297462c2ca2878bda2e7b40325d9bc8
-13 error    > Blocks: 0            Seconds: 0
-13 error    > contract address:    0xFF5181e2210AB92a5c9db93729Bc47332555B9E9
-13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
-13 error    > balance:             97.36450854
-13 error    > gas used:            224195
-13 error    > gas price:           20 gwei
-13 error    > value sent:          0 ETH
-13 error    > total cost:          0.0044839 ETH
-13 error
-13 error
-13 error    > Saving migration to chain.
-13 error    > Saving artifacts
-13 error    -------------------------------------
-13 error    > Total cost:           0.0044839 ETH
-13 error
-13 error
-13 error 2_deploy_reserve_token.js
-13 error =========================
-13 error i am me
-13 error
-13 error    Replacing 'TestDaiToken'
-13 error    ------------------------
-13 error    > transaction hash:    0x0290c94e468be5b415dbadf6779585805b22a146462da0aca918cc012ad4a090
-13 error    > Blocks: 0            Seconds: 0
-13 error    > contract address:    0xC5aFE31AE505594B190AC71EA689B58139d1C354
-13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
-13 error    > balance:             97.35100624
-13 error    > gas used:            633207
-13 error    > gas price:           20 gwei
-13 error    > value sent:          0 ETH
-13 error    > total cost:          0.01266414 ETH
-13 error
-13 error
-13 error    > Saving migration to chain.
-13 error    > Saving artifacts
-13 error    -------------------------------------
-13 error    > Total cost:          0.01266414 ETH
-13 error
-13 error
-13 error 3_deploy_soul.js
-13 error ================
-13 error test dai address:  0xC5aFE31AE505594B190AC71EA689B58139d1C354
-13 error
-13 error    Replacing 'SoulToken'
-13 error    ---------------------
-13 error    > transaction hash:    0xcd43e14378ec91d918ac880f028df3dca961cc992a4e94b7505ce35a06a10478
-13 error    > Blocks: 0            Seconds: 0
-13 error    > contract address:    0x94dFeceb91678ec912ef8f14c72721c102ed2Df7
-13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
-13 error    > balance:             97.26576522
-13 error    > gas used:            4094335
-13 error    > gas price:           20 gwei
-13 error    > value sent:          0 ETH
-13 error    > total cost:          0.0818867 ETH
-13 error
-13 error
-13 error    > Saving migration to chain.
-13 error    > Saving artifacts
-13 error    -------------------------------------
-13 error    > Total cost:           0.0818867 ETH
-13 error
-13 error
-13 error 4_deploy_generator_registry.js
-13 error ==============================
-13 error
-13 error    Replacing 'GeneratorRegistry'
-13 error    -----------------------------
-13 error    > transaction hash:    0x5e56cb4416a881e0b82f5a254e2954cbab19fef55e209ec66a231a4429d2118f
-13 error    > Blocks: 0            Seconds: 0
-13 error    > contract address:    0x9ce4cd6D7f5e8b14c7a3e8e6A257A86Bd5a6EeA0
-13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
-13 error    > balance:             97.23560392
-13 error    > gas used:            1481157
-13 error    > gas price:           20 gwei
-13 error    > value sent:          0 ETH
-13 error    > total cost:          0.02962314 ETH
-13 error
-13 error
-13 error    > Saving migration to chain.
-13 error    > Saving artifacts
-13 error    -------------------------------------
-13 error    > Total cost:          0.02962314 ETH
-13 error
-13 error
-13 error 5_deploy_generator_factory.js
-13 error =============================
-13 error
-13 error    Replacing 'Generator'
-13 error    ---------------------
-13 error    > transaction hash:    0x9f96a627fbccc93edbf39664ec3aaf88580284915e1bf9a1c0fb24dc3c7f7151
-13 error    > Blocks: 0            Seconds: 0
-13 error    > contract address:    0xdC78afe9cFDe0576Ff236667DC8c380615c24Ca9
-13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
-13 error    > balance:             97.2236756
-13 error    > gas used:            569508
-13 error    > gas price:           20 gwei
-13 error    > value sent:          0 ETH
-13 error    > total cost:          0.01139016 ETH
-13 error
-13 error
-13 error    Replacing 'GeneratorFactory'
-13 error    ----------------------------
-13 error    > transaction hash:    0x636af9cdb8706f48b6b5d5553d2fb69d43734e514d46461b47e338c0200d40e7
-13 error    > Blocks: 0            Seconds: 0
-13 error    > contract address:    0xB349FB172D6D5f693b0aA1C6eEc4c61cFd6846f4
-13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
-13 error    > balance:             97.20156756
-13 error    > gas used:            1105402
-13 error    > gas price:           20 gwei
-13 error    > value sent:          0 ETH
-13 error    > total cost:          0.02210804 ETH
-13 error
-13 error
-13 error    > Saving migration to chain.
-13 error    > Saving artifacts
-13 error    -------------------------------------
-13 error    > Total cost:           0.0334982 ETH
-13 error
-13 error
-13 error 6_set_initial_generator.js
-13 error ==========================
-13 error
-13 error    > Saving migration to chain.
-13 error    -------------------------------------
-13 error    > Total cost:                   0 ETH
-13 error
-13 error
-13 error 7_deploy_art_piece_token.js
-13 error ===========================
-13 error
-13 error    Replacing 'ArtPieceToken'
-13 error    -------------------------
-13 error    > transaction hash:    0x991597294df29d3052e280679f539e3fa9543d5d2745324c95d1a0c921da3b54
-13 error    > Blocks: 0            Seconds: 0
-13 error    > contract address:    0x68b86Cd90A44C805b1cCF4808b29C9c7cf73FDFF
-13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
-13 error    > balance:             97.15887798
-13 error    > gas used:            1466146
-13 error    > gas price:           20 gwei
-13 error    > value sent:          0 ETH
-13 error    > total cost:          0.02932292 ETH
-13 error
-13 error
-13 error    > Saving migration to chain.
-13 error    > Saving artifacts
-13 error    -------------------------------------
-13 error    > Total cost:          0.02932292 ETH
-13 error
-13 error
-13 error 8_deploy_artonomous.js
-13 error ======================
-13 error GeneratorRegistry.address:  0x9ce4cd6D7f5e8b14c7a3e8e6A257A86Bd5a6EeA0
-13 error ArtPieceToken.address:  0x68b86Cd90A44C805b1cCF4808b29C9c7cf73FDFF
-13 error SoulToken.address:  0x94dFeceb91678ec912ef8f14c72721c102ed2Df7
-13 error
-13 error    Replacing 'Artonomous'
-13 error    ----------------------
-13 error    > transaction hash:    0x581cf961648c99540b03373d316dbb24c0228b809023de8461c9428eaf5d9bb9
-13 error    > Blocks: 0            Seconds: 0
-13 error    > contract address:    0xe93e3B649d4E01e47dd2170CAFEf0651477649Da
-13 error    > account:             0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1
-13 error    > balance:             97.13813194
-13 error    > gas used:            1010394
-13 error    > gas price:           20 gwei
-13 error    > value sent:          0 ETH
-13 error    > total cost:          0.02020788 ETH
-13 error
-13 error
-13 error    > Saving migration to chain.
-13 error    > Saving artifacts
-13 error    -------------------------------------
-13 error    > Total cost:          0.02020788 ETH
-13 error
-13 error
-13 error 9_transfer_token_ownership.js
-13 error =============================
-13 error
-13 error    > Saving migration to chain.
-13 error    -------------------------------------
-13 error    > Total cost:                   0 ETH
-13 error
-13 error
-13 error 10_extra_for_test.js
-13 error ====================
-13 error Error: Please pass numbers as strings or BigNumber objects to avoid precision errors.
-13 error     at Object.toWei (/usr/local/Cellar/node/9.10.1/lib/node_modules/truffle/build/webpack:/~/web3-utils/src/index.js:267:1)
-13 error     at deployer.then (/Users/nickreynolds/Artonomous/artonomous/packages/contracts/migrations/10_extra_for_test.js:10:27)
-13 error     at <anonymous>
-13 error     at process._tickCallback (internal/process/next_tick.js:189:7)
-13 error Truffle v5.0.0 (core: 5.0.0)
-13 error Node v8.12.0
-13 error info If you think this is a bug, please open a bug report with the information provided in "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/yarn-error.log".
+13 error Error: The module '/Users/nickreynolds/Artonomous/artonomous/packages/contracts/node_modules/scrypt/build/Release/scrypt.node'
+13 error was compiled against a different Node.js version using
+13 error NODE_MODULE_VERSION 57. This version of Node.js requires
+13 error NODE_MODULE_VERSION 64. Please try re-compiling or re-installing
+13 error the module (for instance, using `npm rebuild` or `npm install`).
+13 error     at Object.Module._extensions..node (internal/modules/cjs/loader.js:718:18)
+13 error     at Module.load (internal/modules/cjs/loader.js:599:32)
+13 error     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+13 error     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+13 error     at Module.require (internal/modules/cjs/loader.js:637:17)
+13 error     at require (internal/modules/cjs/helpers.js:22:18)
+13 error     at Object.<anonymous> (/Users/nickreynolds/Artonomous/artonomous/packages/contracts/node_modules/scrypt/index.js:3:20)
+13 error     at Module._compile (internal/modules/cjs/loader.js:689:30)
+13 error     at Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+13 error     at Object.require.extensions.(anonymous function) [as .js] (/Users/nickreynolds/Artonomous/artonomous/packages/contracts/node_modules/babel-register/lib/node.js:152:7)
 13 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-13 error info If you think this is a bug, please open a bug report with the information provided in "/Users/nickreynolds/Artonomous/artonomous/packages/contracts/yarn-error.log".
 13 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 13 error
 13 error     at Promise.all.then.arr (/Users/nickreynolds/Artonomous/artonomous/node_modules/execa/index.js:236:11)
-13 error     at <anonymous>
