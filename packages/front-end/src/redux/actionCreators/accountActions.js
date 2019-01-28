@@ -1,9 +1,11 @@
 import * as fsapi from "../../fsapi";
 import { getWeb3 } from "../../util/web3/getWeb3";
-import { SoulToken, DaiToken } from "../../wrappers/contractWrappers";
+import { SoulToken, DaiToken, Artonomous } from "../../wrappers/contractWrappers";
 export const SET_ACCOUNT = "SET_ACCOUNT";
 export const SET_SOUL_BALANCE = "SET_SOUL_BALANCE";
 export const SET_DAI_BALANCE = "SET_DAI_BALANCE";
+export const SET_DAI_USER_SOUL_APPROVAL = "SET_DAI_USER_SOUL_APPROVAL";
+export const SET_DAI_USER_ARTONOMOUS_APPROVAL = "SET_DAI_USER_ARTONOMOUS_APPROVAL";
 console.log("SoulToken: ", SoulToken);
 
 export const setAccount = account => {
@@ -14,6 +16,12 @@ export const setSoulBalance = balance => {
 };
 export const setDaiBalance = balance => {
   return { type: SET_DAI_BALANCE, data: { balance } };
+};
+export const setDaiUserSoulApproval = approvalBalance => {
+  return { type: SET_DAI_USER_SOUL_APPROVAL, data: { approvalBalance } };
+};
+export const setDaiUserArtonomousApproval = approvalBalance => {
+  return { type: SET_DAI_USER_ARTONOMOUS_APPROVAL, data: { approvalBalance } };
 };
 
 export const getAccount = () => {
@@ -26,23 +34,27 @@ export const getAccount = () => {
       const account = accounts[0];
       dispatch(setAccount(account));
       SoulToken.events.Transfer({ filter: { from: account }, fromBlock: currentBlock }, (error, event) => {
-        console.log("soul event: ", event);
         getSoulBalance(account, dispatch);
       });
       SoulToken.events.Transfer({ filter: { to: account }, fromBlock: currentBlock }, (error, event) => {
-        console.log("soul event: ", event);
         getSoulBalance(account, dispatch);
       });
       DaiToken.events.Transfer({ filter: { from: account }, fromBlock: currentBlock }, (error, event) => {
-        console.log("dai event: ", event);
         getDaiBalance(account, dispatch);
+        getDaiUserSoulApproval(account, dispatch);
       });
       DaiToken.events.Transfer({ filter: { to: account }, fromBlock: currentBlock }, (error, event) => {
-        console.log("dai event: ", event);
         getDaiBalance(account, dispatch);
       });
+      DaiToken.events.Approval(
+        { filter: { owner: account, spender: SoulToken._address }, fromBlock: currentBlock },
+        (error, event) => {
+          getDaiUserSoulApproval(account, dispatch);
+        },
+      );
       getSoulBalance(account, dispatch);
       getDaiBalance(account, dispatch);
+      getDaiUserSoulApproval(account, dispatch);
     }
   };
 };
@@ -55,4 +67,14 @@ const getSoulBalance = async (account, dispatch) => {
 const getDaiBalance = async (account, dispatch) => {
   const daiBalance = await DaiToken.methods.balanceOf(account).call();
   dispatch(setDaiBalance(daiBalance));
+};
+
+const getDaiUserSoulApproval = async (account, dispatch) => {
+  const approvalBalance = await DaiToken.methods.allowance(account, SoulToken._address).call();
+  dispatch(setDaiUserSoulApproval(approvalBalance));
+};
+
+const getDaiUserArtonomousApproval = async (account, dispatch) => {
+  const approvalBalance = await DaiToken.methods.allowance(account, Artonomous._address).call();
+  dispatch(setDaiUserArtonomousApproval(approvalBalance));
 };

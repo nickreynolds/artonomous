@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Generator from "../../../contracts/Generator";
 import * as fsapi from "../../fsapi";
-import { getGeneratorCode } from "../../redux/actionCreators/generatorActions";
+import { getGeneratorInfo } from "../../redux/actionCreators/generatorActions";
 import { connect } from "react-redux";
 
 class GeneratorInfo extends Component {
@@ -9,10 +9,7 @@ class GeneratorInfo extends Component {
   componentDidMount() {
     const generatorName = this.props.generator;
     this.setState({ generatorName });
-    const contract = new this.props.drizzle.web3.eth.Contract(Generator.abi, this.props.generator);
-
-    console.log("GENERATOR INFO GET GENERATOR: ", contract._address);
-    this.props.dispatch(getGeneratorCode(contract));
+    this.props.dispatch(getGeneratorInfo(this.props.generator));
   }
 
   render() {

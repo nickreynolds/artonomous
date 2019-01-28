@@ -2,6 +2,7 @@ import SoulArtifact from "../../contracts/SoulToken.json";
 import DaiArtifact from "../../contracts/TestDaiToken.json";
 import ArtonomousArtifact from "../../contracts/Artonomous.json";
 import GeneratorArtifact from "../../contracts/Generator.json";
+import GeneratorRegistryArtifact from "../../contracts/GeneratorRegistry.json";
 import { getWeb3 } from "../util/web3/getWeb3.js";
 
 const web3 = getWeb3();
@@ -14,3 +15,7 @@ export const getGenerator = address => {
   console.log("address: ", address);
   return new web3.eth.Contract(GeneratorArtifact.abi, address);
 };
+export const GeneratorRegistry = new web3.eth.Contract(
+  GeneratorRegistryArtifact.abi,
+  GeneratorRegistryArtifact.networks[4].address,
+);

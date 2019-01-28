@@ -4,7 +4,7 @@ import NewContractForm from "../utility/NewContractForm";
 import store from "../../store";
 import Generator from "../../../contracts/Generator";
 import ArtPieceRenderer from "./ArtPieceRenderer";
-import { getGeneratorCode } from "../../redux/actionCreators/generatorActions";
+import { getGeneratorInfo } from "../../redux/actionCreators/generatorActions";
 import { connect } from "react-redux";
 import { getWeb3 } from "../../util/web3/getWeb3";
 
@@ -29,7 +29,7 @@ class ArtPieceRendererContainer extends Component {
     const generatorName = this.props.auctionData.generator;
     this.setState({ generatorName });
 
-    this.props.dispatch(getGeneratorCode(this.props.auctionData.generator));
+    // this.props.dispatch(getGeneratorInfo(this.props.auctionData.generator));
   }
 
   onUpdate() {

@@ -112,11 +112,12 @@ contract Artonomous {
     function claimArtInternal() internal {
         uint256 blockNumber = currentAuction.blockNumber;
         uint256 startingPrice = currentAuction.startingPrice;
+        Generator currentGenerator = currentAuction.generator;
 
         pieceToken.transferFrom(this, msg.sender, blockNumber);
         delete currentAuction;
 
-        emit ArtonomousArtBought(msg.sender, blockNumber, 0);
+        emit ArtonomousArtBought(msg.sender, blockNumber, address(currentGenerator), 0);
 
         startAuction(0, startingPrice);
     }

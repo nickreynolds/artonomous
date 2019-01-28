@@ -5,6 +5,7 @@ import styled from "styled-components";
 import GeneratorInfo from "./GeneratorInfo";
 import BigNumber from "bignumber.js";
 import { Slider, Card } from "material-ui";
+import { connect } from "react-redux";
 
 const GeneratorInfoDiv = styled(Card)`
   display: flex;
@@ -39,32 +40,8 @@ const InnerButtonDiv = styled.div`
 
 class GeneratorsList extends Component {
   state = {
-    stakeKey: null,
-    soulBalanceKey: null,
     showInfo: false,
     soulValue: 0,
-  };
-  componentDidMount() {
-    this.update();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.generator != this.props.generator || prevProps.drizzle != this.props.drizzle) {
-      this.update();
-    }
-  }
-
-  update = () => {
-    const stakeKey = this.props.drizzle.contracts.GeneratorRegistry.methods.getGeneratorStake.cacheCall(
-      this.props.generator,
-    );
-    let soulBalanceKey;
-    if (this.props.drizzleState.accounts && this.props.drizzleState.accounts[0]) {
-      soulBalanceKey = this.props.drizzle.contracts.SoulToken.methods.balanceOf.cacheCall(
-        this.props.drizzleState.accounts[0],
-      );
-    }
-    this.setState({ stakeKey, soulBalanceKey });
   };
 
   onInfoClick = () => {
@@ -74,12 +51,8 @@ class GeneratorsList extends Component {
     this.setState({ soulValue: value });
   };
   render() {
-    const { drizzleState, drizzle } = this.props;
+    const { soulBalance, generator, stake } = this.props;
     const { soulValue } = this.state;
-
-    const stake = this.props.drizzleState.contracts.GeneratorRegistry.getGeneratorStake[this.state.stakeKey];
-    const soulBalanceData = drizzleState.contracts.SoulToken.balanceOf[this.state.soulBalanceKey];
-    const soulBalance = soulBalanceData ? soulBalanceData.value / 1000000000000000000 : 0;
 
     const soulValue2 = BigNumber("1e18").times(soulValue);
 
@@ -87,7 +60,7 @@ class GeneratorsList extends Component {
       <GeneratorDiv>
         {stake && (
           <GeneratorInfoDiv>
-            <span>SOUL Staked: {stake.value}</span>
+            <span>SOUL Staked: {stake}</span>
             <span onClick={this.onInfoClick}>show info</span>
           </GeneratorInfoDiv>
         )}
@@ -100,25 +73,14 @@ class GeneratorsList extends Component {
         )}
         {!this.state.showInfo && (
           <div>
-            <ArtPieceRendererContainer {...this.props} />
+            <ArtPieceRendererContainer auctionData={{ generator }} />
 
             <SliderDiv>
               <InnerSliderDiv>
                 <Slider value={soulValue} min={0} max={soulBalance} onChange={this.handleSoulSliderChange} />
               </InnerSliderDiv>
             </SliderDiv>
-            <InnerButtonDiv>
-              <NewContractForm
-                contract="GeneratorRegistry"
-                method="depositStake"
-                methodArgs={{ from: this.props.drizzleState.accounts[0] }}
-                initialMethodArgs={[this.props.generator, soulValue2.toString(10)]}
-                hideInputs={true}
-                width="100%"
-              >
-                Stake {soulValue2.div("1e18").toString()} SOUL
-              </NewContractForm>
-            </InnerButtonDiv>
+            <InnerButtonDiv />
           </div>
         )}
       </GeneratorDiv>
@@ -126,4 +88,15 @@ class GeneratorsList extends Component {
   }
 }
 
-export default GeneratorsList;
+const mapStateToProps = (state, ownProps) => {
+  const { soulBalance, generatorStakes } = state;
+  console.log("ownProps: ", ownProps);
+  console.log("generatorStakes: ", generatorStakes);
+  return {
+    ...ownProps,
+    soulBalance,
+    stake: generatorStakes.get(ownProps.generator),
+  };
+};
+
+export default connect(mapStateToProps)(GeneratorsList);

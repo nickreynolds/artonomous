@@ -1,4 +1,10 @@
-import { SET_ACCOUNT, SET_SOUL_BALANCE, SET_DAI_BALANCE } from "../actionCreators/accountActions";
+import {
+  SET_ACCOUNT,
+  SET_SOUL_BALANCE,
+  SET_DAI_BALANCE,
+  SET_DAI_USER_SOUL_APPROVAL,
+  SET_DAI_USER_ARTONOMOUS_APPROVAL,
+} from "../actionCreators/accountActions";
 
 export function account(state = "", action) {
   switch (action.type) {
@@ -22,6 +28,24 @@ export function daiBalance(state = 0, action) {
   switch (action.type) {
     case SET_DAI_BALANCE:
       return action.data.balance;
+    default:
+      return state;
+  }
+}
+
+export function daiUserSoulApprovalBalance(state = 0, action) {
+  switch (action.type) {
+    case SET_DAI_USER_SOUL_APPROVAL:
+      return action.data.approvalBalance;
+    default:
+      return state;
+  }
+}
+
+export function daiUserArtonomousApprovalBalance(state = 0, action) {
+  switch (action.type) {
+    case SET_DAI_USER_ARTONOMOUS_APPROVAL:
+      return action.data.approvalBalance;
     default:
       return state;
   }

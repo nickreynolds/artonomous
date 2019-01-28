@@ -5,6 +5,7 @@ import { sha3_256 } from "js-sha3";
 import styled from "styled-components";
 import { RaisedButton } from "material-ui";
 import hashToRandomSeed from "../../hashToRandomSeed";
+import { connect } from "react-redux";
 
 const GeneratorsBackground = styled.div`
   background-color: #a4a4a4;
@@ -58,11 +59,8 @@ class Generators extends Component {
   };
 
   render() {
-    const events = this.props.drizzleState.contracts.GeneratorRegistry.events.filter(
-      event => event.event === "GeneratorAdded",
-    );
-    const generators = events.map(e => e.returnValues[0]);
-    const props = this.props;
+    const { generators } = this.props;
+    console.log("generators: ", generators);
     return (
       <GeneratorsBackground>
         <GeneratorHeader>
@@ -83,10 +81,15 @@ class Generators extends Component {
             </RaisedButton>
           </CreateContainer>
         </GeneratorHeader>
-        <div>{generators && <GeneratorsList {...props} generators={generators} hash={this.state.hash} />}</div>
+        <div>{generators && <GeneratorsList generators={generators} hash={this.state.hash} />}</div>
       </GeneratorsBackground>
     );
   }
 }
-
-export default Generators;
+const mapStateToProps = (state, ownProps) => {
+  const { generatorAddresses } = state;
+  return {
+    generators: generatorAddresses,
+  };
+};
+export default connect(mapStateToProps)(Generators);
