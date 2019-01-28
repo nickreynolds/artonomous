@@ -4,6 +4,7 @@ import NewContractData from "../utility/NewContractData";
 import ArtPiece from "../artPiece/ArtPiece";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import { Artonomous, DaiToken } from "../../wrappers/contractWrappers";
 
 const HomeDiv = styled.div`
   display: flex;
@@ -32,7 +33,7 @@ class Home extends Component {
   getPrice = () => {
     const auctionData = this.props.auctionData;
     const auctionLength = this.props.auctionLength;
-    if (auctionData && auctionLength && auctionLength.value) {
+    if (auctionData && auctionLength) {
       const endTime = auctionData.endTime;
       const endDate = new Date(endTime * 1000);
       const endSeconds = endDate.getTime() / 1000;
@@ -40,20 +41,39 @@ class Home extends Component {
       const nowSeconds = nowDate.getTime() / 1000;
       const secondsLeft = endSeconds - nowSeconds;
       const boundSecondsLeft = secondsLeft > 0 ? secondsLeft : 0;
-      const buyPrice = Math.ceil(auctionData.value.startingPrice * (boundSecondsLeft / auctionLength.value));
+      const buyPrice = Math.ceil(auctionData.startingPrice * (boundSecondsLeft / auctionLength));
       this.setState({ timeLeft: boundSecondsLeft, buyPrice });
     }
   };
 
+  tryApprove = () => {
+    DaiToken.methods
+      .approve(Artonomous._address, this.state.buyPrice.toString())
+      .send({ from: this.props.account })
+      .then(receipt => {
+        console.log("receipt: ", receipt);
+      });
+  };
+
+  tryBuy = () => {
+    Artonomous.methods
+      .buyArt(this.state.buyPrice.toString())
+      .send({ from: this.props.account })
+      .then(receipt => {
+        console.log("receipt:", receipt);
+      });
+  };
+
   render() {
     const { auctionData } = this.props;
-    console.log("auctionData: ", auctionData);
     return (
       <HomeDiv>
         <p>Auction Block Number: {auctionData && auctionData.blockNumber}</p>
         <p>Time Left: {this.state.timeLeft.toFixed(0)}</p>
         <p>Buy Price: {(this.state.buyPrice / 1000000000000000000).toFixed(6)}</p>
         <ArtPiece auctionData={{ ...auctionData }} />
+        <button onClick={this.tryBuy}>try buy</button>
+        <button onClick={this.tryApprove}>try approve</button>
       </HomeDiv>
     );
   }
@@ -113,7 +133,7 @@ class Home extends Component {
 // )}
 
 const mapStateToProps = (state, ownProps) => {
-  const { auctionData, auctionLength } = state;
-  return { auctionData, auctionLength };
+  const { account, auctionData, auctionLength } = state;
+  return { account, auctionData, auctionLength };
 };
 export default connect(mapStateToProps)(Home);

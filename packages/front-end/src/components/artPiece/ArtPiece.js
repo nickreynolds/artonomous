@@ -10,7 +10,6 @@ class ArtPiece extends Component {
   }
   render() {
     const { auctionData } = this.props;
-    console.log("2 auctionData: ", auctionData);
     return (
       <div>
         <p>Block Number: {auctionData.blockNumber}</p>

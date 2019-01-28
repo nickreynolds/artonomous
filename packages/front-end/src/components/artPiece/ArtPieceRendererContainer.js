@@ -27,7 +27,6 @@ class ArtPieceRendererContainer extends Component {
 
   update() {
     const generatorName = this.props.auctionData.generator;
-    // console.log("this.props: ", this.props);
     this.setState({ generatorName });
 
     this.props.dispatch(getGeneratorCode(this.props.auctionData.generator));
@@ -51,9 +50,6 @@ class ArtPieceRendererContainer extends Component {
   }
 
   render() {
-    // console.log("this.state.generatorName: ", this.state.generatorName);
-    console.log("this.props.uri: ", this.props.uri);
-    console.log("this.props.code: ", this.props.code);
     // console.log("this.state.hash: ", this.state.hash);
     if (this.state.generatorName && this.props.uri && this.state.hash) {
       return <ArtPieceRenderer url={this.props.uri} hash={this.state.hash} code={this.props.code} />;
@@ -62,9 +58,7 @@ class ArtPieceRendererContainer extends Component {
   }
 }
 const mapStateToProps = (state, ownProps) => {
-  // console.log("ownProps: ", ownProps);
   const { generatorCode, generatorUri } = state;
-  console.log("generatorCode: ", generatorCode);
   return {
     auctionData: { ...ownProps.auctionData },
     code: generatorCode.get(ownProps.auctionData.generator),
