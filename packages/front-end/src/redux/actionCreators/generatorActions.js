@@ -1,4 +1,5 @@
 import * as fsapi from "../../fsapi";
+import { getGenerator } from "../../wrappers/contractWrappers";
 
 export const ADD_GENERATOR_CODE = "ADD_GENERATOR_CODE";
 export const ADD_GENERATOR_URI = "ADD_GENERATOR_URI";
@@ -12,17 +13,16 @@ export const addGeneratorUri = (generator, uri) => {
 };
 
 const generatorCodeRequests = new Map();
-export const getGeneratorCode = generatorContract => {
-  return function(dispatch, getState) {
-    if (!generatorCodeRequests.get(generatorContract._address)) {
-      console.log("get generator _address ", generatorContract._address);
-      generatorCodeRequests.set(generatorContract._address, true);
-      generatorContract.methods.sourceUri().call({}, function(error, result) {
+export const getGeneratorCode = generatorAddress => {
+  return async function(dispatch, getState) {
+    if (generatorAddress && !generatorCodeRequests.get(generatorAddress)) {
+      const generator = getGenerator(generatorAddress);
+      generatorCodeRequests.set(generatorAddress, true);
+      generator.methods.sourceUri().call({}, function(error, result) {
         if (result) {
-          dispatch(addGeneratorUri(generatorContract._address, result));
-          console.log("result: ", result);
+          dispatch(addGeneratorUri(generatorAddress, result));
           fsapi.getTextFileFromPath(result.split("/")[0]).then(code => {
-            dispatch(addGeneratorCode(generatorContract._address, code));
+            dispatch(addGeneratorCode(generatorAddress, code));
           });
         }
       });

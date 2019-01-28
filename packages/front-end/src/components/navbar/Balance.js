@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router";
-import NewContractForm from "../utility/NewContractForm";
 import BigNumber from "bignumber.js";
+import { connect } from "react-redux";
 
 const NavLI = styled.li`
   display: inline;
@@ -32,30 +32,23 @@ const PopDiv = styled.div`
 `;
 
 class Balance extends Component {
-  state = { soulBalanceDataKey: null, daiBalanceDataKey: null };
-  componentDidMount() {
-    const soulBalanceDataKey = this.props.drizzle.contracts.SoulToken.methods.balanceOf.cacheCall(
-      this.props.drizzleState.accounts[0],
-    );
-    const daiBalanceDataKey = this.props.drizzle.contracts.TestDaiToken.methods.balanceOf.cacheCall(
-      this.props.drizzleState.accounts[0],
-    );
-    this.setState({ soulBalanceDataKey, daiBalanceDataKey });
-  }
+  componentDidMount() {}
   render() {
-    const balanceData = this.props.drizzleState.contracts.SoulToken.balanceOf[this.state.soulBalanceDataKey];
-    const balance = balanceData && BigNumber(balanceData.value).div(1000000000000000000);
-    const daiBalanceData = this.props.drizzleState.contracts.TestDaiToken.balanceOf[this.state.daiBalanceDataKey];
-    const daiBalance = daiBalanceData && BigNumber(daiBalanceData.value).div(1000000000000000000);
+    const soulBalance = this.props.soulBalance;
+    const daiBalance = this.props.daiBalance;
     return (
       <div>
-        <NavSpan>{daiBalanceData && <React.Fragment>{daiBalance.toString()} DAI</React.Fragment>}</NavSpan>
+        <NavSpan>{daiBalance && <React.Fragment>{daiBalance.toString()} DAI</React.Fragment>}</NavSpan>
         {" --- "}
-        <NavSpan>{balanceData && <React.Fragment>{balance.toString()} SOUL</React.Fragment>}</NavSpan>{" "}
+        <NavSpan>{soulBalance && <React.Fragment>{soulBalance.toString()} SOUL</React.Fragment>}</NavSpan>{" "}
         <NavLink to="soul">Buy/Sell</NavLink>
       </div>
     );
   }
 }
 
-export default Balance;
+const mapStateToProps = (state, ownProps) => {
+  const { soulBalance, daiBalance } = state;
+  return { soulBalance, daiBalance };
+};
+export default connect(mapStateToProps)(Balance);

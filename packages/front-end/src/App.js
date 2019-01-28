@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import { DrizzleContext } from "drizzle-react";
-import DrizzleApp from "./DrizzleApp";
-export default props => (
-  <DrizzleContext.Consumer>
-    {drizzleContext => {
-      const { drizzle, drizzleState, initialized } = drizzleContext;
-      return (
-        <div>
-          <DrizzleApp drizzle={drizzle} drizzleState={drizzleState} initialized={initialized}>
-            {props.children}
-          </DrizzleApp>
-        </div>
-      );
-    }}
-  </DrizzleContext.Consumer>
-);
+
+import NavBar from "./components/navbar/NavBar";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <MuiThemeProvider>
+          <NavBar />
+          {this.props.children}
+        </MuiThemeProvider>
+      </div>
+    );
+  }
+}
+
+export default App;

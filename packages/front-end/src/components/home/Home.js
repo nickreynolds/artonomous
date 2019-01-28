@@ -3,6 +3,7 @@ import NewContractForm from "../utility/NewContractForm";
 import NewContractData from "../utility/NewContractData";
 import ArtPiece from "../artPiece/ArtPiece";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 const HomeDiv = styled.div`
   display: flex;
@@ -12,24 +13,27 @@ const HomeDiv = styled.div`
 
 class Home extends Component {
   state = {
-    auctionkey: null,
-    auctionLengthKey: null,
     timeLeft: 0,
     buyPrice: 0,
   };
   componentDidMount() {
-    const auctionkey = this.props.drizzle.contracts.Artonomous.methods.currentAuction.cacheCall();
-    const auctionLengthKey = this.props.drizzle.contracts.Artonomous.methods.AUCTION_LENGTH.cacheCall();
-    this.setState({ auctionkey, auctionLengthKey });
-    setInterval(this.getPrice, 1000);
-    this.getPrice();
+    if (this.props.auctionData) {
+      setInterval(this.getPrice, 1000);
+      this.getPrice();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.auctionData != this.props.auctionData) {
+      this.getPrice();
+    }
   }
 
   getPrice = () => {
-    const auctionData = this.props.drizzleState.contracts.Artonomous.currentAuction[this.state.auctionkey];
-    const auctionLength = this.props.drizzleState.contracts.Artonomous.AUCTION_LENGTH[this.state.auctionLengthKey];
-    if (auctionData && auctionData.value && auctionLength && auctionLength.value) {
-      const endTime = auctionData.value.endTime;
+    const auctionData = this.props.auctionData;
+    const auctionLength = this.props.auctionLength;
+    if (auctionData && auctionLength && auctionLength.value) {
+      const endTime = auctionData.endTime;
       const endDate = new Date(endTime * 1000);
       const endSeconds = endDate.getTime() / 1000;
       const nowDate = new Date();
@@ -42,71 +46,74 @@ class Home extends Component {
   };
 
   render() {
-    const auctionData = this.props.drizzleState.contracts.Artonomous.currentAuction[this.state.auctionkey];
+    const { auctionData } = this.props;
+    console.log("auctionData: ", auctionData);
     return (
       <HomeDiv>
-        <div>
-          <p>
-            <strong>Auction Length (in seconds)</strong>:{" "}
-            <NewContractData contract="Artonomous" method="AUCTION_LENGTH" />
-          </p>
-          <p>Auction Block Number: {auctionData && auctionData.value[0]}</p>
-          <p>Time Left: {this.state.timeLeft.toFixed(0)}</p>
-          <p>Buy Price: {(this.state.buyPrice / 1000000000000000000).toFixed(6)}</p>
-          {auctionData &&
-            auctionData.value[0] > 0 && (
-              <div>
-                <ArtPiece
-                  drizzle={this.props.drizzle}
-                  drizzleState={this.props.drizzleState}
-                  blockNum={auctionData.value[0]}
-                />
-
-                <p>
-                  Allowance:{" "}
-                  <NewContractData
-                    contract="TestDaiToken"
-                    method="allowance"
-                    methodArgs={[this.props.drizzleState.accounts[0], this.props.drizzle.contracts.Artonomous.address]}
-                  />
-                </p>
-                <NewContractForm
-                  contract="TestDaiToken"
-                  method="approve"
-                  methodArgs={{ from: this.props.drizzleState.accounts[0] }}
-                  initialMethodArgs={[this.props.drizzle.contracts.Artonomous.address, this.state.buyPrice.toString()]}
-                  hideInputs={true}
-                >
-                  Approve Enough
-                </NewContractForm>
-                <NewContractForm
-                  contract="Artonomous"
-                  method="buyArt"
-                  methodArgs={{ from: this.props.drizzleState.accounts[0] }}
-                  initialMethodArgs={[this.state.buyPrice.toString()]}
-                  hideInputs={true}
-                >
-                  Buy Art
-                </NewContractForm>
-              </div>
-            )}
-
-          {auctionData &&
-            auctionData.value[0] == 0 && (
-              <NewContractForm
-                contract="Artonomous"
-                method="startAuction"
-                methodArgs={{ from: this.props.drizzleState.accounts[0] }}
-                initialMethodArgs={["1000000000000000000", "0"]}
-                hideInputs={true}
-              >
-                Start Auction
-              </NewContractForm>
-            )}
-        </div>
+        <p>Auction Block Number: {auctionData && auctionData.blockNumber}</p>
+        <p>Time Left: {this.state.timeLeft.toFixed(0)}</p>
+        <p>Buy Price: {(this.state.buyPrice / 1000000000000000000).toFixed(6)}</p>
+        <ArtPiece auctionData={{ ...auctionData }} />
       </HomeDiv>
     );
   }
 }
 
-export default Home;
+// <p>
+// <strong>Auction Length (in seconds)</strong>:{" "}
+// <NewContractData contract="Artonomous" method="AUCTION_LENGTH" />
+// </p>
+// <p>Auction Block Number: {auctionData && auctionData.value[0]}</p>
+// <p>Time Left: {this.state.timeLeft.toFixed(0)}</p>
+// <p>Buy Price: {(this.state.buyPrice / 1000000000000000000).toFixed(6)}</p>
+// {auctionData &&
+// auctionData.value[0] > 0 && (
+//   <div>
+
+//     <p>
+//       Allowance:{" "}
+//       <NewContractData
+//         contract="TestDaiToken"
+//         method="allowance"
+//         methodArgs={[this.props.drizzleState.accounts[0], this.props.drizzle.contracts.Artonomous.address]}
+//       />
+//     </p>
+//     <NewContractForm
+//       contract="TestDaiToken"
+//       method="approve"
+//       methodArgs={{ from: this.props.drizzleState.accounts[0] }}
+//       initialMethodArgs={[this.props.drizzle.contracts.Artonomous.address, this.state.buyPrice.toString()]}
+//       hideInputs={true}
+//     >
+//       Approve Enough
+//     </NewContractForm>
+//     <NewContractForm
+//       contract="Artonomous"
+//       method="buyArt"
+//       methodArgs={{ from: this.props.drizzleState.accounts[0] }}
+//       initialMethodArgs={[this.state.buyPrice.toString()]}
+//       hideInputs={true}
+//     >
+//       Buy Art
+//     </NewContractForm>
+//   </div>
+// )}
+
+// {auctionData &&
+// auctionData.value[0] == 0 && (
+//   <NewContractForm
+//     contract="Artonomous"
+//     method="startAuction"
+//     methodArgs={{ from: this.props.drizzleState.accounts[0] }}
+//     initialMethodArgs={["1000000000000000000", "0"]}
+//     hideInputs={true}
+//   >
+//     Start Auction
+//   </NewContractForm>
+// )}
+
+const mapStateToProps = (state, ownProps) => {
+  const { auctionData, auctionLength } = state;
+  return { auctionData, auctionLength };
+};
+export default connect(mapStateToProps)(Home);
