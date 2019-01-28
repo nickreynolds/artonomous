@@ -17,14 +17,14 @@ export const addGeneratorUri = (generator, uri) => {
 export const addGeneratorAddress = generatorAddress => {
   return { type: ADD_GENERATOR_ADDRESS, data: { generatorAddress } };
 };
-export const addGeneratorName = generatorName => {
-  return { type: ADD_GENERATOR_NAME, data: { generatorName } };
+export const addGeneratorName = (generator, generatorName) => {
+  return { type: ADD_GENERATOR_NAME, data: { generator, generatorName } };
 };
-export const addGeneratorCreator = creator => {
-  return { type: ADD_GENERATOR_CREATOR, data: { creator } };
+export const addGeneratorCreator = (generator, creator) => {
+  return { type: ADD_GENERATOR_CREATOR, data: { generator, creator } };
 };
-export const setGeneratorStake = stake => {
-  return { type: SET_GENERATOR_STAKE, data: { stake } };
+export const setGeneratorStake = (generator, stake) => {
+  return { type: SET_GENERATOR_STAKE, data: { generator, stake } };
 };
 
 const generatorInfoRequests = new Map();
@@ -35,6 +35,9 @@ export const getGeneratorInfo = generatorAddress => {
       const generator = getGenerator(generatorAddress);
       generatorInfoRequests.set(generatorAddress, true);
       const result = await generator.methods.getGenerator().call();
+      const result2 = await GeneratorRegistry.methods.getGeneratorStake(generatorAddress).call();
+      console.log("getStake result: ", result2);
+      dispatch(setGeneratorStake(generatorAddress, result2));
       console.log("result: ", result);
       dispatch(addGeneratorName(generatorAddress, result[0]));
       dispatch(addGeneratorCreator(generatorAddress, result[1]));
@@ -42,7 +45,7 @@ export const getGeneratorInfo = generatorAddress => {
       fsapi.getTextFileFromPath(result[2].split("/")[0]).then(code => {
         dispatch(addGeneratorCode(generatorAddress, code));
       });
-      dispatch(getStake(generatorAddress));
+      // dispatch(getStake(generatorAddress));
     }
   };
 };
