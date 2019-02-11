@@ -30,7 +30,7 @@ export const beginGetCurrentAuction = () => {
 export const beginGetHistoricalAuctions = () => {
   return async function(dispatch, getState) {
     Artonomous.events.ArtonomousArtBought({ filter: {}, fromBlock: 0 }, (error, event) => {
-      // console.log("event.result: ", event);
+      console.log("auction event.result: ", event);
       dispatch(addHistoricalAuction(event));
     });
   };

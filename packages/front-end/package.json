@@ -69,6 +69,7 @@
     "jshint": "^2.9.6",
     "loop-protect": "^2.1.6",
     "material-ui": "^0.20.2",
+    "moment": "^2.24.0",
     "numeral": "^2.0.6",
     "p5": "^0.7.2",
     "prop-types": "^15.6.2",

@@ -1,11 +1,12 @@
 import * as fsapi from "../../fsapi";
 import { getWeb3 } from "../../util/web3/getWeb3";
-import { SoulToken, DaiToken, Artonomous } from "../../wrappers/contractWrappers";
+import { SoulToken, DaiToken, Artonomous, GeneratorRegistry } from "../../wrappers/contractWrappers";
 export const SET_ACCOUNT = "SET_ACCOUNT";
 export const SET_SOUL_BALANCE = "SET_SOUL_BALANCE";
 export const SET_DAI_BALANCE = "SET_DAI_BALANCE";
 export const SET_DAI_USER_SOUL_APPROVAL = "SET_DAI_USER_SOUL_APPROVAL";
 export const SET_DAI_USER_ARTONOMOUS_APPROVAL = "SET_DAI_USER_ARTONOMOUS_APPROVAL";
+export const SET_SOUL_USER_REGISTRY_APPROVAL = "SET_SOUL_USER_REGISTRY_APPROVAL";
 
 export const setAccount = account => {
   return { type: SET_ACCOUNT, data: { account } };
@@ -20,8 +21,10 @@ export const setDaiUserSoulApproval = approvalBalance => {
   return { type: SET_DAI_USER_SOUL_APPROVAL, data: { approvalBalance } };
 };
 export const setDaiUserArtonomousApproval = approvalBalance => {
-  console.log("SET DAI ARTONOMOUS");
   return { type: SET_DAI_USER_ARTONOMOUS_APPROVAL, data: { approvalBalance } };
+};
+export const setSoulUserRegistryApproval = approvalBalance => {
+  return { type: SET_SOUL_USER_REGISTRY_APPROVAL, data: { approvalBalance } };
 };
 
 export const getAccount = () => {
@@ -35,9 +38,11 @@ export const getAccount = () => {
       dispatch(setAccount(account));
       SoulToken.events.Transfer({ filter: { from: account }, fromBlock: currentBlock }, (error, event) => {
         getSoulBalance(account, dispatch);
+        getSoulUserRegistryApproval(account, dispatch);
       });
       SoulToken.events.Transfer({ filter: { to: account }, fromBlock: currentBlock }, (error, event) => {
         getSoulBalance(account, dispatch);
+        getSoulUserRegistryApproval(account, dispatch);
       });
       DaiToken.events.Transfer({ filter: { from: account }, fromBlock: currentBlock }, (error, event) => {
         getDaiBalance(account, dispatch);
@@ -59,10 +64,17 @@ export const getAccount = () => {
           getDaiUserArtonomousApproval(account, dispatch);
         },
       );
+      SoulToken.events.Approval(
+        { filter: { owner: account, spender: GeneratorRegistry._address }, fromBlock: currentBlock },
+        (error, event) => {
+          getSoulUserRegistryApproval(account, dispatch);
+        },
+      );
       getSoulBalance(account, dispatch);
       getDaiBalance(account, dispatch);
       getDaiUserSoulApproval(account, dispatch);
       getDaiUserArtonomousApproval(account, dispatch);
+      getSoulUserRegistryApproval(account, dispatch);
     }
   };
 };
@@ -86,4 +98,9 @@ const getDaiUserArtonomousApproval = async (account, dispatch) => {
   console.log("GET DAI");
   const approvalBalance = await DaiToken.methods.allowance(account, Artonomous._address).call();
   dispatch(setDaiUserArtonomousApproval(approvalBalance));
+};
+
+const getSoulUserRegistryApproval = async (account, dispatch) => {
+  const approvalBalance = await SoulToken.methods.allowance(account, GeneratorRegistry._address).call();
+  dispatch(setSoulUserRegistryApproval(approvalBalance));
 };

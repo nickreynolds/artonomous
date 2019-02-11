@@ -14,6 +14,7 @@ import {
   daiBalance,
   daiUserSoulApprovalBalance,
   daiUserArtonomousApprovalBalance,
+  soulUserRegistryApprovalBalance,
 } from "./accountReducers";
 import { auctionData, auctionLength, historicalAuctionIDs, historicalAuctions } from "./auctionReducers";
 
@@ -30,6 +31,7 @@ export default combineReducers({
   daiBalance,
   daiUserSoulApprovalBalance,
   daiUserArtonomousApprovalBalance,
+  soulUserRegistryApprovalBalance,
   auctionData,
   auctionLength,
   historicalAuctionIDs,

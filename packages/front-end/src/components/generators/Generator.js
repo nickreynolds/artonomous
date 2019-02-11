@@ -8,7 +8,7 @@ import { Slider, Card } from "material-ui";
 import { connect } from "react-redux";
 import { NumericInput } from "../utility/input/Input";
 import { CurrencyInputWithButton } from "../utility/input/InputWithButton";
-import { GeneratorRegistry } from "../../wrappers/contractWrappers";
+import { GeneratorRegistry, SoulToken } from "../../wrappers/contractWrappers";
 
 const GeneratorInfoDiv = styled(Card)`
   display: flex;
@@ -73,16 +73,19 @@ class GeneratorsList extends Component {
     }
   }
   handleStakeButtonClicked = async () => {
-    console.log("stake button clicked");
     if (BigNumber(this.state.soulValue).isGreaterThan(this.props.userStake)) {
       const amountToDeposit = BigNumber(this.state.soulValue).minus(BigNumber(this.props.userStake));
 
+      console.log("this.props.soulUserRegistryApprovalBalance: ", this.props.soulUserRegistryApprovalBalance);
+      console.log("amountToDeposit: ", amountToDeposit);
+      if (BigNumber(this.props.soulUserRegistryApprovalBalance).isLessThan(amountToDeposit)) {
+        console.log("apppppprove")
+        await SoulToken.methods.approve(GeneratorRegistry._address, amountToDeposit).send({ from: this.props.account});
+      }
       await GeneratorRegistry.methods
         .depositStake(this.props.generator, amountToDeposit)
         .send({ from: this.props.account });
-      console.log("deposit more.");
     } else if (BigNumber(this.state.soulValue).isLessThan(this.props.userStake)) {
-      console.log("withdraw some");
       const amountToWithdraw = BigNumber(this.props.userStake).minus(BigNumber(this.state.soulValue));
       await GeneratorRegistry.methods
         .withdrawStake(this.props.generator, amountToWithdraw)
@@ -151,7 +154,7 @@ class GeneratorsList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { soulBalance, generatorStakes, generatorUserStakes, account } = state;
+  const { soulBalance, generatorStakes, generatorUserStakes, account, soulUserRegistryApprovalBalance } = state;
   let userStake;
   if (account && generatorUserStakes && generatorUserStakes.get(ownProps.generator)) {
     userStake = generatorUserStakes.get(ownProps.generator).get(account);
@@ -162,6 +165,7 @@ const mapStateToProps = (state, ownProps) => {
     soulBalance,
     stake: generatorStakes.get(ownProps.generator),
     userStake,
+    soulUserRegistryApprovalBalance,
   };
 };
 

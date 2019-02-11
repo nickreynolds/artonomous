@@ -79,7 +79,7 @@ const getStake = async (generatorAddress, dispatch) => {
 };
 
 const getUserStake = async (generatorAddress, user, dispatch) => {
-  const result = await GeneratorRegistry.methods.getGeneratorUserStake(generatorAddress, user).call();
+  const result = await GeneratorRegistry.methods.getUserGeneratorStake(generatorAddress, user).call();
   dispatch(setGeneratorUserStake(generatorAddress, user, result));
 };
 

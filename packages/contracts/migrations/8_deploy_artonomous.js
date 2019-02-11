@@ -12,11 +12,7 @@ module.exports = function(deployer, network, accounts) {
   console.log("ArtPieceToken.address: ", ArtPieceToken.address);
   console.log("SoulToken.address: ", SoulToken.address);
   let beneficiaryAddress = "0x";
-  if (network === "rinkeby") {
-    beneficiaryAddress = config.networks.rinkeby.beneficiary;
-  } else if (network === "ganache") {
-    beneficiaryAddress = config.networks.ganache.beneficiary;
-  }
+  beneficiaryAddress = config.networks[network].beneficiary;
   deployer.deploy(
     Artonomous,
     GeneratorRegistry.address,
