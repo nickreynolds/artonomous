@@ -54,13 +54,13 @@ class Generators extends Component {
   };
 
   createGenerator = () => {
-    console.log("this.props: ", this.props);
+    // console.log("this.props: ", this.props);
     this.props.router.push("/CreateGenerator");
   };
 
   render() {
     const { generators } = this.props;
-    console.log("generators: ", generators);
+    // console.log("generators: ", generators);
     return (
       <GeneratorsBackground>
         <GeneratorHeader>

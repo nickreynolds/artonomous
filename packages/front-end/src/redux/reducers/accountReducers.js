@@ -43,6 +43,7 @@ export function daiUserSoulApprovalBalance(state = 0, action) {
 }
 
 export function daiUserArtonomousApprovalBalance(state = 0, action) {
+  console.log("daiUserARtonomous action: ", action);
   switch (action.type) {
     case SET_DAI_USER_ARTONOMOUS_APPROVAL:
       return action.data.approvalBalance;

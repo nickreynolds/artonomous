@@ -5,13 +5,23 @@ import ArtPiece from "../artPiece/ArtPiece";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { Artonomous, DaiToken } from "../../wrappers/contractWrappers";
-
+import BigNumber from "bignumber.js";
+import { Card } from "material-ui";
 const HomeDiv = styled.div`
   display: flex;
-  justify-content: center;
   margin-top: 30px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 `;
-
+const AuctionDiv = styled(Card)`
+  left: 10px;
+  width: 400px;
+  height: 500px;
+`;
+const ArtDiv = styled.div`
+  margin-left: 10px;
+`;
 class Home extends Component {
   state = {
     timeLeft: 0,
@@ -46,94 +56,35 @@ class Home extends Component {
     }
   };
 
-  tryApprove = () => {
-    DaiToken.methods
-      .approve(Artonomous._address, this.state.buyPrice.toString())
-      .send({ from: this.props.account })
-      .then(receipt => {
-        console.log("receipt: ", receipt);
-      });
-  };
+  tryBuy = async () => {
+    if (BigNumber(this.state.buyPrice).isGreaterThan(BigNumber(this.props.daiUserArtonomousApprovalBalance))) {
+      await DaiToken.methods
+        .approve(Artonomous._address, this.state.buyPrice.toString())
+        .send({ from: this.props.account });
+    }
 
-  tryBuy = () => {
-    Artonomous.methods
-      .buyArt(this.state.buyPrice.toString())
-      .send({ from: this.props.account })
-      .then(receipt => {
-        console.log("receipt:", receipt);
-      });
+    await Artonomous.methods.buyArt(this.state.buyPrice.toString()).send({ from: this.props.account });
   };
 
   render() {
     const { auctionData } = this.props;
     return (
       <HomeDiv>
-        <p>Auction Block Number: {auctionData && auctionData.blockNumber}</p>
-        <p>Time Left: {this.state.timeLeft.toFixed(0)}</p>
-        <p>Buy Price: {(this.state.buyPrice / 1000000000000000000).toFixed(6)}</p>
-        <ArtPiece auctionData={{ ...auctionData }} />
-        <button onClick={this.tryBuy}>try buy</button>
-        <button onClick={this.tryApprove}>try approve</button>
+        <AuctionDiv>
+          <p>Time Left: {this.state.timeLeft.toFixed(0)}</p>
+          <ArtDiv>
+            <ArtPiece auctionData={{ ...auctionData }} />
+          </ArtDiv>
+          <br />
+        </AuctionDiv>
+        <button onClick={this.tryBuy}>BUY for {(this.state.buyPrice / 1000000000000000000).toFixed(4)} DAI</button>
       </HomeDiv>
     );
   }
 }
 
-// <p>
-// <strong>Auction Length (in seconds)</strong>:{" "}
-// <NewContractData contract="Artonomous" method="AUCTION_LENGTH" />
-// </p>
-// <p>Auction Block Number: {auctionData && auctionData.value[0]}</p>
-// <p>Time Left: {this.state.timeLeft.toFixed(0)}</p>
-// <p>Buy Price: {(this.state.buyPrice / 1000000000000000000).toFixed(6)}</p>
-// {auctionData &&
-// auctionData.value[0] > 0 && (
-//   <div>
-
-//     <p>
-//       Allowance:{" "}
-//       <NewContractData
-//         contract="TestDaiToken"
-//         method="allowance"
-//         methodArgs={[this.props.drizzleState.accounts[0], this.props.drizzle.contracts.Artonomous.address]}
-//       />
-//     </p>
-//     <NewContractForm
-//       contract="TestDaiToken"
-//       method="approve"
-//       methodArgs={{ from: this.props.drizzleState.accounts[0] }}
-//       initialMethodArgs={[this.props.drizzle.contracts.Artonomous.address, this.state.buyPrice.toString()]}
-//       hideInputs={true}
-//     >
-//       Approve Enough
-//     </NewContractForm>
-//     <NewContractForm
-//       contract="Artonomous"
-//       method="buyArt"
-//       methodArgs={{ from: this.props.drizzleState.accounts[0] }}
-//       initialMethodArgs={[this.state.buyPrice.toString()]}
-//       hideInputs={true}
-//     >
-//       Buy Art
-//     </NewContractForm>
-//   </div>
-// )}
-
-// {auctionData &&
-// auctionData.value[0] == 0 && (
-//   <NewContractForm
-//     contract="Artonomous"
-//     method="startAuction"
-//     methodArgs={{ from: this.props.drizzleState.accounts[0] }}
-//     initialMethodArgs={["1000000000000000000", "0"]}
-//     hideInputs={true}
-//   >
-//     Start Auction
-//   </NewContractForm>
-// )}
-
 const mapStateToProps = (state, ownProps) => {
-  const { account, auctionData, auctionLength } = state;
-  return { account, auctionData, auctionLength };
+  const { account, auctionData, auctionLength, daiUserArtonomousApprovalBalance } = state;
+  return { account, auctionData, auctionLength, daiUserArtonomousApprovalBalance };
 };
 export default connect(mapStateToProps)(Home);

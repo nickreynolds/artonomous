@@ -44,36 +44,6 @@ class GeneratorsList extends Component {
                   </GridListItem>
                 );
               })}
-            {this.props.generators
-              .slice()
-              .reverse()
-              .map(generator => {
-                return (
-                  <GridListItem>
-                    <Generator {...this.props} generator={generator} />
-                  </GridListItem>
-                );
-              })}
-            {this.props.generators
-              .slice()
-              .reverse()
-              .map(generator => {
-                return (
-                  <GridListItem>
-                    <Generator {...this.props} generator={generator} />
-                  </GridListItem>
-                );
-              })}
-            {this.props.generators
-              .slice()
-              .reverse()
-              .map(generator => {
-                return (
-                  <GridListItem>
-                    <Generator {...this.props} generator={generator} />
-                  </GridListItem>
-                );
-              })}
           </GeneratorGrid>
         )}
       </GeneratorsDiv>

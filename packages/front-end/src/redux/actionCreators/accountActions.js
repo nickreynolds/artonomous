@@ -6,7 +6,6 @@ export const SET_SOUL_BALANCE = "SET_SOUL_BALANCE";
 export const SET_DAI_BALANCE = "SET_DAI_BALANCE";
 export const SET_DAI_USER_SOUL_APPROVAL = "SET_DAI_USER_SOUL_APPROVAL";
 export const SET_DAI_USER_ARTONOMOUS_APPROVAL = "SET_DAI_USER_ARTONOMOUS_APPROVAL";
-console.log("SoulToken: ", SoulToken);
 
 export const setAccount = account => {
   return { type: SET_ACCOUNT, data: { account } };
@@ -21,6 +20,7 @@ export const setDaiUserSoulApproval = approvalBalance => {
   return { type: SET_DAI_USER_SOUL_APPROVAL, data: { approvalBalance } };
 };
 export const setDaiUserArtonomousApproval = approvalBalance => {
+  console.log("SET DAI ARTONOMOUS");
   return { type: SET_DAI_USER_ARTONOMOUS_APPROVAL, data: { approvalBalance } };
 };
 
@@ -28,7 +28,7 @@ export const getAccount = () => {
   return async function(dispatch, getState) {
     const web3 = await getWeb3();
     const currentBlock = await web3.eth.getBlockNumber();
-    console.log("currentBlock: ", currentBlock);
+    // console.log("currentBlock: ", currentBlock);
     const accounts = await web3.eth.getAccounts();
     if (accounts && accounts.length > 0 && accounts[0]) {
       const account = accounts[0];
@@ -42,6 +42,7 @@ export const getAccount = () => {
       DaiToken.events.Transfer({ filter: { from: account }, fromBlock: currentBlock }, (error, event) => {
         getDaiBalance(account, dispatch);
         getDaiUserSoulApproval(account, dispatch);
+        getDaiUserArtonomousApproval(account, dispatch);
       });
       DaiToken.events.Transfer({ filter: { to: account }, fromBlock: currentBlock }, (error, event) => {
         getDaiBalance(account, dispatch);
@@ -52,9 +53,16 @@ export const getAccount = () => {
           getDaiUserSoulApproval(account, dispatch);
         },
       );
+      DaiToken.events.Approval(
+        { filter: { owner: account, spender: Artonomous._address }, fromBlock: currentBlock },
+        (error, event) => {
+          getDaiUserArtonomousApproval(account, dispatch);
+        },
+      );
       getSoulBalance(account, dispatch);
       getDaiBalance(account, dispatch);
       getDaiUserSoulApproval(account, dispatch);
+      getDaiUserArtonomousApproval(account, dispatch);
     }
   };
 };
@@ -75,6 +83,7 @@ const getDaiUserSoulApproval = async (account, dispatch) => {
 };
 
 const getDaiUserArtonomousApproval = async (account, dispatch) => {
+  console.log("GET DAI");
   const approvalBalance = await DaiToken.methods.allowance(account, Artonomous._address).call();
   dispatch(setDaiUserArtonomousApproval(approvalBalance));
 };

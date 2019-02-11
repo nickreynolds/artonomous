@@ -38,9 +38,29 @@ class Balance extends Component {
     const daiBalance = this.props.daiBalance;
     return (
       <div>
-        <NavSpan>{daiBalance && <React.Fragment>{daiBalance.toString()} DAI</React.Fragment>}</NavSpan>
+        <NavSpan>
+          {daiBalance && (
+            <React.Fragment>
+              {BigNumber("1e-18")
+                .times(daiBalance)
+                .toFixed(4)
+                .toString()}{" "}
+              DAI
+            </React.Fragment>
+          )}
+        </NavSpan>
         {" --- "}
-        <NavSpan>{soulBalance && <React.Fragment>{soulBalance.toString()} SOUL</React.Fragment>}</NavSpan>{" "}
+        <NavSpan>
+          {soulBalance && (
+            <React.Fragment>
+              {BigNumber("1e-18")
+                .times(soulBalance)
+                .toFixed(4)
+                .toString()}{" "}
+              SOUL
+            </React.Fragment>
+          )}
+        </NavSpan>{" "}
         <NavLink to="soul">Buy/Sell</NavLink>
       </div>
     );

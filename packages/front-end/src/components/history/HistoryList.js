@@ -24,7 +24,7 @@ const styles = theme => ({
 
 class HistoryList extends Component {
   render() {
-    console.log("this.props.historicalAuctionIDs: ", this.props.historicalAuctionIDs);
+    // console.log("this.props.historicalAuctionIDs: ", this.props.historicalAuctionIDs);
     return (
       <div>
         {this.props.historicalAuctionIDs && (

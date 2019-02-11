@@ -6,6 +6,7 @@ import {
   generatorCreators,
   generatorNames,
   generatorStakes,
+  generatorUserStakes,
 } from "./generatorsReducers";
 import {
   account,
@@ -23,6 +24,7 @@ export default combineReducers({
   generatorCreators,
   generatorNames,
   generatorStakes,
+  generatorUserStakes,
   account,
   soulBalance,
   daiBalance,
