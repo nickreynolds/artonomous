@@ -76,10 +76,7 @@ class GeneratorsList extends Component {
     if (BigNumber(this.state.soulValue).isGreaterThan(this.props.userStake)) {
       const amountToDeposit = BigNumber(this.state.soulValue).minus(BigNumber(this.props.userStake));
 
-      console.log("this.props.soulUserRegistryApprovalBalance: ", this.props.soulUserRegistryApprovalBalance);
-      console.log("amountToDeposit: ", amountToDeposit);
       if (BigNumber(this.props.soulUserRegistryApprovalBalance).isLessThan(amountToDeposit)) {
-        console.log("apppppprove")
         await SoulToken.methods.approve(GeneratorRegistry._address, amountToDeposit).send({ from: this.props.account});
       }
       await GeneratorRegistry.methods
