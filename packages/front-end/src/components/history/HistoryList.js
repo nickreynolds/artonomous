@@ -24,17 +24,22 @@ const styles = theme => ({
 
 class HistoryList extends Component {
   render() {
+    // console.log("this.props.historicalAuctionIDs: ", this.props.historicalAuctionIDs);
     return (
       <div>
-        {this.props.events && (
+        {this.props.historicalAuctionIDs && (
           <GridList cellHeight={550} cols={3}>
-            {this.props.events
+            {this.props.historicalAuctionIDs
               .slice()
               .reverse()
-              .map(event => {
+              .map(id => {
                 return (
                   <GridListTile>
-                    <ArtPieceHistoryContainer {...this.props} event={event} />
+                    <ArtPieceHistoryContainer
+                      {...this.props}
+                      auctionID={id}
+                      auctionData={this.props.historicalAuctions.get(id)}
+                    />
                   </GridListTile>
                 );
               })}

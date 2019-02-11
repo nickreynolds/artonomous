@@ -7,10 +7,11 @@ const HistoryDiv = styled.div`
 `;
 class ArtPieceHistoryContainer extends Component {
   render() {
+    // console.log("this.props: ", this.props);
     return (
       <HistoryDiv>
-        Bought for: {this.props.event.returnValues[2]} ETH <br />
-        <ArtPiece {...this.props} blockNum={this.props.event.returnValues[1]} />
+        Bought for: {this.props.auctionData.returnValues.price} DAI <br />
+        <ArtPiece {...this.props} auctionData={this.props.auctionData.returnValues} />
       </HistoryDiv>
     );
   }

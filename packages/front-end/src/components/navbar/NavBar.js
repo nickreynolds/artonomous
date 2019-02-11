@@ -8,6 +8,11 @@ import NewContractForm from "../utility/NewContractForm";
 import { DrizzleContext } from "drizzle-react";
 import Balance from "./Balance";
 import Login from "./Login";
+import { getAccount } from "../../redux/actionCreators/accountActions";
+
+import { connect } from "react-redux";
+import { beginGetCurrentAuction, beginGetHistoricalAuctions } from "../../redux/actionCreators/auctionActions";
+import { beginGetGenerators } from "../../redux/actionCreators/generatorActions";
 
 const NavDiv = styled.div`
   min-width: 100%;
@@ -42,9 +47,14 @@ const NavLink = styled(Link)`
 `;
 
 class NavBar extends Component {
+  componentDidMount() {
+    this.props.dispatch(getAccount());
+    this.props.dispatch(beginGetCurrentAuction());
+    this.props.dispatch(beginGetHistoricalAuctions());
+    this.props.dispatch(beginGetGenerators());
+  }
   render() {
-    const accounts = this.props.drizzleState.accounts;
-    const hasAccount = accounts.hasOwnProperty(0);
+    const hasAccount = this.props.account;
     return (
       <NavDiv>
         <NavUL>
@@ -68,5 +78,8 @@ class NavBar extends Component {
     );
   }
 }
-
-export default NavBar;
+const mapStateToProps = (state, ownProps) => {
+  const { account } = state;
+  return { account };
+};
+export default connect(mapStateToProps)(NavBar);

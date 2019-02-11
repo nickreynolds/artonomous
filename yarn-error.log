@@ -1,17 +1,30 @@
 Arguments: 
-  /usr/local/Cellar/node/9.10.1/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js prepare:local
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js
 
 PATH: 
-  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin
 
 Yarn version: 
-  1.5.1
+  1.13.0
 
 Node version: 
-  8.12.0
+  10.15.0
 
 Platform: 
   darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/event-stream/-/event-stream-3.3.6.tgz: Request failed "404 Not Found"
+      at ResponseError.ExtendableBuiltin (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:702:66)
+      at new ResponseError (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:808:124)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:66325:16)
+      at Request.emit (events.js:182:13)
+      at Request.module.exports.Request.onRequestResponse (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:130274:10)
+      at ClientRequest.emit (events.js:187:15)
+      at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:556:21)
+      at HTTPParser.parserOnHeadersComplete (_http_common.js:109:17)
+      at TLSSocket.socketOnData (_http_client.js:442:20)
+      at TLSSocket.emit (events.js:182:13)
 
 npm manifest: 
   {
@@ -11362,19 +11375,3 @@ Lockfile:
       truffle-contract "^3.0.6"
       truffle-provisioner "^0.1.1"
       web3 "^0.18.4"
-
-Trace: 
-  Error: Command failed.
-  Exit code: 1
-  Command: sh
-  Arguments: -c run-s build:contracts migrate:ganache publish:artifacts
-  Directory: /Users/nickreynolds/Artonomous/artonomous
-  Output:
-  
-      at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:30281:17)
-      at emitTwo (events.js:126:13)
-      at ChildProcess.emit (events.js:214:7)
-      at maybeClose (internal/child_process.js:915:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)

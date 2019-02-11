@@ -11,6 +11,8 @@ contract GeneratorRegistry {
     Heap.Data data;
 
     event GeneratorAdded(address generator);
+    event StakeAdded(address generator);
+    event StakeWithdrawn(address generator);
 
     StandardToken public token;
     uint256 public numGenerators = 0;
@@ -45,6 +47,7 @@ contract GeneratorRegistry {
         stakeByUserByGenerator[msg.sender][generatorAddress] += stake;
         data.insert(stakeByGenerator[generatorAddress], idByGenerator[generatorAddress]);
         require(token.transferFrom(msg.sender, this, stake), "unable to transfer tokens, check that GeneratorRegistry is approved as a spender");
+        emit StakeAdded(generatorAddress);
     }
 
     function withdrawStake(address generatorAddress, uint256 stake) public {
@@ -57,6 +60,7 @@ contract GeneratorRegistry {
         data.insert(stakeByGenerator[generatorAddress], idByGenerator[generatorAddress]);
 
         require(token.transfer(msg.sender, stake), "unable to transfer tokens");
+        emit StakeWithdrawn(generatorAddress);
     }
 
     function getToken() public view returns (address) {

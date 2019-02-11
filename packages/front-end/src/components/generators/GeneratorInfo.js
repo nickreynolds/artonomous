@@ -1,32 +1,22 @@
 import React, { Component } from "react";
 import Generator from "../../../contracts/Generator";
 import * as fsapi from "../../fsapi";
+import { getGeneratorInfo } from "../../redux/actionCreators/generatorActions";
+import { connect } from "react-redux";
 
 class GeneratorInfo extends Component {
   state = { generatorUri: null, generatorName: null, hash: null, code: null };
   componentDidMount() {
     const generatorName = this.props.generator;
     this.setState({ generatorName });
-    const contract = new this.props.drizzle.web3.eth.Contract(Generator.abi, this.props.generator);
-    const level = this;
-
-    // HACK because can't figure out the drizzle stuff
-    contract.methods.sourceUri().call({}, function(error, result) {
-      if (result) {
-        level.setState({ generatorUri: result });
-
-        fsapi.getTextFileFromPath(result.split("/")[0]).then(code => {
-          level.setState({ code });
-        });
-      }
-    });
+    this.props.dispatch(getGeneratorInfo(this.props.generator));
   }
 
   render() {
-    if (this.state.generatorName && this.state.generatorUri && this.state.code) {
+    if (this.state.generatorName && this.props.uri && this.props.code) {
       return (
         <div>
-          <code>{this.state.code}</code>
+          <code>{this.props.code}</code>
         </div>
       );
     }
@@ -34,4 +24,7 @@ class GeneratorInfo extends Component {
   }
 }
 
-export default GeneratorInfo;
+const mapStateToProps = (state, ownProps) => {
+  return { code: state.generatorCode.get(ownProps.generator), uri: state.generatorUri.get(ownProps.generator) };
+};
+export default connect(mapStateToProps)(GeneratorInfo);

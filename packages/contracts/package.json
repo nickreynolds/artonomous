@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "openzeppelin-solidity": "^1.12.0",
-    "truffle-hdwallet-provider": "^0.0.6",
+    "truffle": "^5.0.1",
+    "truffle-hdwallet-provider": "^1.0.3",
     "zos-lib": "^1.4.1"
   },
   "scripts": {

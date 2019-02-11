@@ -4,45 +4,65 @@ import NewContractForm from "../utility/NewContractForm";
 import store from "../../store";
 import Generator from "../../../contracts/Generator";
 import ArtPieceRenderer from "./ArtPieceRenderer";
+import { getGeneratorInfo } from "../../redux/actionCreators/generatorActions";
+import { connect } from "react-redux";
+import { getWeb3 } from "../../util/web3/getWeb3";
+
 class ArtPieceRendererContainer extends Component {
   state = { generatorUri: null, generatorName: null, hash: null };
-  componentDidMount() {
-    const generatorName = this.props.generator;
-    this.setState({ generatorName });
-    const contract = new this.props.drizzle.web3.eth.Contract(Generator.abi, this.props.generator);
-    const level = this;
 
-    // HACK because can't figure out the drizzle stuff
-    contract.methods.sourceUri().call({}, function(error, result) {
-      if (result) {
-        level.setState({ generatorUri: result });
-      }
-    });
-    this.onUpdate();
-  }
-  onUpdate() {
-    const level = this;
-    this.setState({ hash: this.props.hash });
-    if (!this.props.hash) {
-      this.props.drizzle.web3.eth.getBlock(this.props.blockNum, function(error, result) {
-        if (result) {
-          level.setState({ hash: result.hash });
-        }
-      });
-    }
-  }
-  componentDidUpdate(prevProps) {
-    if (this.props.hash && this.props.hash != prevProps.hash) {
+  componentDidMount() {
+    if (this.props.auctionData) {
+      this.update();
       this.onUpdate();
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.auctionData != this.props.auctionData) {
+      this.update();
+      this.onUpdate();
+    }
+  }
+
+  update() {
+    const generatorName = this.props.auctionData.generator;
+    this.setState({ generatorName });
+
+    // this.props.dispatch(getGeneratorInfo(this.props.auctionData.generator));
+  }
+
+  onUpdate() {
+    // const level = this;
+    // this.setState({ hash: this.props.hash });
+    // if (!this.props.hash) {
+    //   console.log("go get hash");
+    //   getWeb3().eth.getBlock(this.props.auctionData.blockNumber, function(error, result) {
+    //     console.log("result: ", result);
+    //     console.log("erro: ", error);
+    //     if (result) {
+    //       console.log("set hash");
+    //       level.setState({ hash: result.hash });
+    //     }
+    //   });
+    // }
+    this.setState({ hash: "0x12341234123412341234123412341234123412341234414144" });
+  }
+
   render() {
-    if (this.state.generatorName && this.state.generatorUri && this.state.hash) {
-      return <ArtPieceRenderer url={this.state.generatorUri} hash={this.state.hash} />;
+    // console.log("this.state.hash: ", this.state.hash);
+    if (this.state.generatorName && this.props.uri && this.state.hash) {
+      return <ArtPieceRenderer url={this.props.uri} hash={this.state.hash} code={this.props.code} />;
     }
     return <div>loading</div>;
   }
 }
-
-export default ArtPieceRendererContainer;
+const mapStateToProps = (state, ownProps) => {
+  const { generatorCode, generatorUri } = state;
+  return {
+    auctionData: { ...ownProps.auctionData },
+    code: generatorCode.get(ownProps.auctionData.generator),
+    uri: generatorUri.get(ownProps.auctionData.generator),
+  };
+};
+export default connect(mapStateToProps)(ArtPieceRendererContainer);

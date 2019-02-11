@@ -8,6 +8,7 @@ module.exports = async (deployer, network, accounts) => {
   if (network !== "mainnet") {
     await deployer.deploy(TestDaiToken);
     const token = await TestDaiToken.deployed();
+    console.log("network: ", network)
     const testTokenHolders = config.networks[network].testTokenHolders;
     const holders = [...testTokenHolders, accounts[0]];
     await holders.forEach(async function(holder) {

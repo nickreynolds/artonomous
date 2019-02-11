@@ -8,5 +8,9 @@ module.exports = function(deployer) {
     await deployer.deploy(GeneratorContract);
     const generator = await GeneratorContract.deployed();
     await deployer.deploy(GeneratorFactory, registry.address, generator.address);
+    const factory = await GeneratorFactory.deployed();
+    // console.log("factor: ", factory)
+    // await factory.createGenerator("initial generator", "QmU9dqYZbwAaN4STVN1nZ3PGRFvZe1G1cicGj1QhAtZRy6/upload.p5js");
+
   });
 };

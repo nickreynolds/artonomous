@@ -11,7 +11,7 @@ contract Artonomous {
     using SafeMath for uint256;
 
     event ArtonomousAuctionStarted(uint256 indexed blockNumber);
-    event ArtonomousArtBought(address indexed buyer, uint256 indexed blockNumber, uint256 price);
+    event ArtonomousArtBought(address indexed buyer, uint256 indexed blockNumber, address indexed generator, uint256 price);
 
     struct Auction {
         uint256 blockNumber;
@@ -61,7 +61,7 @@ contract Artonomous {
     // placeholder
     function getStartingPrice(uint256 prevBoughtPrice, uint256 prevPrice) internal pure returns (uint256) {
         if (prevBoughtPrice > 0) {
-            return prevBoughtPrice.mul(1);
+            return prevBoughtPrice.mul(2);
         } else {
             return prevPrice.mul(20).div(30);
         }
@@ -103,7 +103,7 @@ contract Artonomous {
         reserveToken.approve(soulToken, buyPriceRemaining);
         soulToken.depositArtPayment(buyPriceRemaining);
 
-        emit ArtonomousArtBought(msg.sender, blockNumber, buyPriceRemaining);
+        emit ArtonomousArtBought(msg.sender, blockNumber, address(currentGenerator), buyPriceRemaining);
 
         startAuction(buyPrice, startingPrice);
     }
@@ -112,11 +112,12 @@ contract Artonomous {
     function claimArtInternal() internal {
         uint256 blockNumber = currentAuction.blockNumber;
         uint256 startingPrice = currentAuction.startingPrice;
+        Generator currentGenerator = currentAuction.generator;
 
         pieceToken.transferFrom(this, msg.sender, blockNumber);
         delete currentAuction;
 
-        emit ArtonomousArtBought(msg.sender, blockNumber, 0);
+        emit ArtonomousArtBought(msg.sender, blockNumber, address(currentGenerator), 0);
 
         startAuction(0, startingPrice);
     }

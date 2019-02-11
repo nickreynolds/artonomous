@@ -13,9 +13,9 @@ export default class P5Sandbox extends React.Component {
   };
 
   getHTML = () => {
-    console.log("this.props.hash: ", this.props.hash);
+    // console.log("this.props.hash: ", this.props.hash);
     const seed = hashToRandomSeed(this.props.hash.substring(2)).toString();
-    console.log("seed: ", seed);
+    // console.log("seed: ", seed);
     return `<!DOCTYPE html>
     <html>
       <head>

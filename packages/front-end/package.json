@@ -49,7 +49,11 @@
     "webpack": "1.14.0",
     "webpack-dev-server": "1.16.2",
     "webpack-manifest-plugin": "1.1.0",
-    "whatwg-fetch": "1.0.0"
+    "whatwg-fetch": "1.0.0",
+    "@storybook/react": "^4.1.11",
+    "@storybook/addon-actions": "^4.1.11",
+    "@storybook/addon-links": "^4.1.11",
+    "@storybook/addons": "^4.1.11"
   },
   "dependencies": {
     "@material-ui/core": "^3.2.2",
@@ -59,11 +63,13 @@
     "deepmerge": "^2.1.1",
     "drizzle": "1.2.4",
     "eth-block-tracker-es5": "^2.3.2",
+    "immutable": "^4.0.0-rc.12",
     "ipfs-api": "26.1.2",
     "is-plain-object": "^2.0.4",
     "jshint": "^2.9.6",
     "loop-protect": "^2.1.6",
     "material-ui": "^0.20.2",
+    "moment": "^2.24.0",
     "numeral": "^2.0.6",
     "p5": "^0.7.2",
     "prop-types": "^15.6.2",
@@ -75,6 +81,7 @@
     "react-modal": "^3.6.1",
     "react-redux": "^5.0.2",
     "react-router": "^3.2.1",
+    "react-router-dom": "^4.3.1",
     "react-router-redux": "^4.0.7",
     "react-sizer": "^1.0.5",
     "react-vis": "^1.11.4",
@@ -90,7 +97,9 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "chain": "geth --datadir=\"/tmp/eth/60/01\" --nodiscover --maxpeers 0 --port 30301 --rpc --rpcapi \"db,eth,net,web3\" --rpcport 8101 --verbosity 6 console"
+    "chain": "geth --datadir=\"/tmp/eth/60/01\" --nodiscover --maxpeers 0 --port 30301 --rpc --rpcapi \"db,eth,net,web3\" --rpcport 8101 --verbosity 6 console",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "jest": {
     "collectCoverageFrom": [
