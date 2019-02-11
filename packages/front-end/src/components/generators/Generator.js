@@ -133,7 +133,7 @@ class GeneratorsList extends Component {
               placeholder={BigNumber("1e-18").times(soulValue)}
               name="stake"
               buttonText="Update Stake"
-              icon={<span>SOUL</span>}
+              icon={<span></span>}
               value={BigNumber("1e-18").times(soulValue)}
               onChange={this.handleSoulInputChange}
               onButtonClick={() => this.handleStakeButtonClicked()}
