@@ -17,7 +17,7 @@ import {
   daiUserArtonomousApprovalBalance,
   soulUserRegistryApprovalBalance,
 } from "./accountReducers";
-import { auctionData, auctionLength, historicalAuctionIDs, historicalAuctions } from "./auctionReducers";
+import { auctionData, auctionLength, historicalAuctionIDs, historicalAuctions, userToBoughtArts } from "./auctionReducers";
 
 export default combineReducers({
   generatorCode,
@@ -38,4 +38,5 @@ export default combineReducers({
   auctionLength,
   historicalAuctionIDs,
   historicalAuctions,
+  userToBoughtArts
 });

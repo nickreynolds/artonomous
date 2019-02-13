@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { RaisedButton } from "material-ui";
 import hashToRandomSeed from "../../hashToRandomSeed";
 import { connect } from "react-redux";
+import HistoryList from "../history/HistoryList";
 
 const GeneratorsBackground = styled.div`
   background-color: #a4a4a4;
@@ -55,10 +56,10 @@ class MyActivity extends Component {
 
   render() {
     const { generators } = this.props;
-    // console.log("generators: ", generators);
     return (
       <GeneratorsBackground>
         <GeneratorHeader>
+          My Generators:
           <RandomizeContainer>
             <RaisedButton variant="contained" onClick={this.randomizeHash}>
               randomize
@@ -72,14 +73,26 @@ class MyActivity extends Component {
           <NavSpace />
         </GeneratorHeader>
         <div>{generators && <GeneratorsList generators={generators} hash={this.state.hash} />}</div>
+        My Bought Art:
+        <div>
+          {this.props.userBoughtArts && (
+            <HistoryList
+              {...this.props}
+              auctionIDs={this.props.userBoughtArts}
+              auctions={this.props.historicalAuctions}
+            />)}
+        </div>
       </GeneratorsBackground>
     );
   }
 }
 const mapStateToProps = (state, ownProps) => {
-  const { myGeneratorAddresses } = state;
+  const { myGeneratorAddresses, account, userToBoughtArts, historicalAuctions } = state;
+  const userBoughtArts = userToBoughtArts.get(account);
   return {
     generators: myGeneratorAddresses,
+    userBoughtArts,
+    historicalAuctions
   };
 };
 export default connect(mapStateToProps)(MyActivity);

@@ -51,12 +51,11 @@ const HistoryListItem = styled.div`
 
 class HistoryList extends Component {
   render() {
-    // console.log("this.props.historicalAuctionIDs: ", this.props.historicalAuctionIDs);
     return (
       <HistoryDiv>
-        {this.props.historicalAuctionIDs && (
+        {this.props.auctionIDs && (
           <HistoryGrid>
-            {this.props.historicalAuctionIDs
+            {this.props.auctionIDs
               .slice()
               .reverse()
               .map(id => {

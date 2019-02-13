@@ -36,3 +36,17 @@ export function historicalAuctions(state = Map(), action) {
       return state;
   }
 }
+
+export function userToBoughtArts(state = Map(), action) {
+  switch (action.type) {
+    case ADD_HISTORICAL_AUCTION:
+      let userBoughtArts = state.get(action.data.auction.buyer);
+      if (!userBoughtArts) {
+        userBoughtArts = Set();
+      }
+      userBoughtArts = userBoughtArts.add(action.data.auction.blockNumber);
+      return state.set(action.data.auction.buyer, userBoughtArts);
+    default:
+      return state;
+  }
+}
