@@ -31,10 +31,8 @@ export const beginGetHistoricalAuctions = () => {
   return async function(dispatch, getState) {
     Artonomous.events.ArtonomousArtBought({ filter: {}, fromBlock: 0 }, async (error, event) => {
       const web3 = await getWeb3();
-      console.log("auction event.result: ", event);
       const hashResult = await web3.eth.getBlock(event.returnValues.blockNumber);
       const hash = hashResult.hash;
-      console.log("hash: ", hash)
       dispatch(addHistoricalAuction({ hash, ...event.returnValues }));
     });
   };
@@ -43,10 +41,8 @@ export const beginGetHistoricalAuctions = () => {
 const getCurrentAuction = async dispatch => {
   const web3 = await getWeb3();
   const auction = await Artonomous.methods.currentAuction().call();
-  console.log("auction: ", auction);
   const hashResult = await web3.eth.getBlock(auction.blockNumber);
   const hash = hashResult.hash;
-  console.log("hash: ", hash);
   // console.log("auction: ", auction);
   dispatch(setCurrentAuction({ hash, ...auction }));
 };

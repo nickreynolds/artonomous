@@ -2,6 +2,7 @@ import {
   ADD_GENERATOR_CODE,
   ADD_GENERATOR_URI,
   ADD_GENERATOR_ADDRESS,
+  ADD_MY_GENERATOR_ADDRESS,
   ADD_GENERATOR_CREATOR,
   ADD_GENERATOR_NAME,
   SET_GENERATOR_STAKE,
@@ -71,6 +72,15 @@ export function generatorUserStakes(state = Map(), action) {
 export function generatorAddresses(state = Set(), action) {
   switch (action.type) {
     case ADD_GENERATOR_ADDRESS:
+      return state.add(action.data.generatorAddress);
+    default:
+      return state;
+  }
+}
+
+export function myGeneratorAddresses(state = Set(), action) {
+  switch (action.type) {
+    case ADD_MY_GENERATOR_ADDRESS:
       return state.add(action.data.generatorAddress);
     default:
       return state;

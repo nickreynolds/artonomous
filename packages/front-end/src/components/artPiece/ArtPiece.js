@@ -16,7 +16,6 @@ class ArtPiece extends Component {
     if (auctionData) {
       generatorLink = "/generator/" + auctionData.generator;
     }
-    console.log("generator link: ", generatorLink);
     return (
       <div>
         <p>Block Number: {auctionData.blockNumber}</p>

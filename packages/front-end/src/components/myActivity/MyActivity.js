@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GeneratorsList from "./GeneratorsList";
+import GeneratorsList from "../generators/GeneratorsList";
 import { Link } from "react-router";
 import { sha3_256 } from "js-sha3";
 import styled from "styled-components";
@@ -33,7 +33,7 @@ const CreateContainer = styled.li`
   margin-right: 10px;
 `;
 
-class Generators extends Component {
+class MyActivity extends Component {
   state = { hash: "", seed: 0 };
 
   componentDidMount = () => {
@@ -53,11 +53,6 @@ class Generators extends Component {
     this.setState({ hash, seed });
   };
 
-  createGenerator = () => {
-    // console.log("this.props: ", this.props);
-    this.props.router.push("/create-generator");
-  };
-
   render() {
     const { generators } = this.props;
     // console.log("generators: ", generators);
@@ -75,11 +70,6 @@ class Generators extends Component {
             </span>
           </RandomizeContainer>
           <NavSpace />
-          <CreateContainer>
-            <RaisedButton onClick={this.createGenerator} primary>
-              Create Generator
-            </RaisedButton>
-          </CreateContainer>
         </GeneratorHeader>
         <div>{generators && <GeneratorsList generators={generators} hash={this.state.hash} />}</div>
       </GeneratorsBackground>
@@ -87,9 +77,9 @@ class Generators extends Component {
   }
 }
 const mapStateToProps = (state, ownProps) => {
-  const { generatorAddresses } = state;
+  const { myGeneratorAddresses } = state;
   return {
-    generators: generatorAddresses,
+    generators: myGeneratorAddresses,
   };
 };
-export default connect(mapStateToProps)(Generators);
+export default connect(mapStateToProps)(MyActivity);

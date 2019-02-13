@@ -28,22 +28,17 @@ class ArtPieceRendererContainer extends Component {
   update() {
     const generatorName = this.props.auctionData.generator;
     this.setState({ generatorName });
-
-    // this.props.dispatch(getGeneratorInfo(this.props.auctionData.generator));
   }
 
   onUpdate() {
     const level = this;
     this.setState({ hash: this.props.hash });
     if (!this.props.hash) {
-      console.log("go get hash");
-      console.log("auciontData: ", this.props.auctionData);
       this.setState({ hash: this.props.auctionData.hash })
     }
   }
 
   render() {
-    // console.log("this.state.hash: ", this.state.hash);
     if (this.state.generatorName && this.props.uri && this.state.hash) {
       return <ArtPieceRenderer url={this.props.uri} hash={this.state.hash} code={this.props.code} />;
     }

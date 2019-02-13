@@ -5,6 +5,7 @@ import { getGenerator, GeneratorRegistry } from "../../wrappers/contractWrappers
 export const ADD_GENERATOR_CODE = "ADD_GENERATOR_CODE";
 export const ADD_GENERATOR_URI = "ADD_GENERATOR_URI";
 export const ADD_GENERATOR_ADDRESS = "ADD_GENERATOR_ADDRESS";
+export const ADD_MY_GENERATOR_ADDRESS = "ADD_MY_GENERATOR_ADDRESS";
 export const ADD_GENERATOR_NAME = "ADD_GENERATOR_NAME";
 export const ADD_GENERATOR_CREATOR = "ADD_GENERATOR_CREATOR";
 export const SET_GENERATOR_STAKE = "SET_GENERATOR_STAKE";
@@ -18,6 +19,9 @@ export const addGeneratorUri = (generator, uri) => {
 };
 export const addGeneratorAddress = generatorAddress => {
   return { type: ADD_GENERATOR_ADDRESS, data: { generatorAddress } };
+};
+export const addMyGeneratorAddress = generatorAddress => {
+  return { type: ADD_MY_GENERATOR_ADDRESS, data: { generatorAddress } };
 };
 export const addGeneratorName = (generator, generatorName) => {
   return { type: ADD_GENERATOR_NAME, data: { generator, generatorName } };
@@ -50,6 +54,9 @@ export const getGeneratorInfo = generatorAddress => {
       dispatch(setGeneratorStake(generatorAddress, result2));
       dispatch(addGeneratorName(generatorAddress, result[0]));
       dispatch(addGeneratorCreator(generatorAddress, result[1]));
+      if (result[1] == user) {
+        dispatch(addMyGeneratorAddress(generatorAddress));
+      }
       dispatch(addGeneratorUri(generatorAddress, result[2]));
       fsapi.getTextFileFromPath(result[2].split("/")[0]).then(code => {
         dispatch(addGeneratorCode(generatorAddress, code));
@@ -86,6 +93,16 @@ const getUserStake = async (generatorAddress, user, dispatch) => {
 export const beginGetGenerators = () => {
   return async function(dispatch, getState) {
     GeneratorRegistry.events.GeneratorAdded({ filter: {}, fromBlock: 0 }, (error, event) => {
+      // console.log("GeneratorRegistry event: ", event);
+      dispatch(getGeneratorInfo(event.returnValues.generator));
+    });
+  };
+};
+
+export const beginGetMyGenerators = () => {
+  return async function (dispatch, getState) {
+    const user = getState().account;
+    GeneratorRegistry.events.GeneratorAdded({ filter: { from: user }, fromBlock: 0 }, (error, event) => {
       // console.log("GeneratorRegistry event: ", event);
       dispatch(getGeneratorInfo(event.returnValues.generator));
     });
