@@ -17,6 +17,7 @@ import thunk from "redux-thunk";
 import { createStore, applyMiddleware } from "redux";
 
 import reducers from "./redux/reducers";
+import GeneratorPage from "./components/generators/GeneratorPage";
 
 const reduxStore = createStore(reducers, applyMiddleware(thunk));
 
@@ -40,6 +41,9 @@ ReactDOM.render(
       </Route>
       <Route path="/soul" component={App}>
         <IndexRoute component={SoulDetail} />
+      </Route>
+      <Route path="/generator/:generatorAddress" component={App}>
+        <IndexRoute component={GeneratorPage} />
       </Route>
     </Router>
   </Provider>,

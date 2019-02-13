@@ -37,7 +37,12 @@ export const beginGetHistoricalAuctions = () => {
 };
 
 const getCurrentAuction = async dispatch => {
+  const web3 = await getWeb3();
   const auction = await Artonomous.methods.currentAuction().call();
+  console.log("auction: ", auction);
+  const hashResult = await web3.eth.getBlock(auction.blockNumber);
+  const hash = hashResult.hash;
+  console.log("hash: ", hash);
   // console.log("auction: ", auction);
-  dispatch(setCurrentAuction(auction));
+  dispatch(setCurrentAuction({ hash, ...auction }));
 };

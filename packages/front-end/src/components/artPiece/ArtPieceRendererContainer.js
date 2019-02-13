@@ -33,20 +33,13 @@ class ArtPieceRendererContainer extends Component {
   }
 
   onUpdate() {
-    // const level = this;
-    // this.setState({ hash: this.props.hash });
-    // if (!this.props.hash) {
-    //   console.log("go get hash");
-    //   getWeb3().eth.getBlock(this.props.auctionData.blockNumber, function(error, result) {
-    //     console.log("result: ", result);
-    //     console.log("erro: ", error);
-    //     if (result) {
-    //       console.log("set hash");
-    //       level.setState({ hash: result.hash });
-    //     }
-    //   });
-    // }
-    this.setState({ hash: "0x12341234123412341234123412341234123412341234414144" });
+    const level = this;
+    this.setState({ hash: this.props.hash });
+    if (!this.props.hash) {
+      console.log("go get hash");
+      console.log("auciontData: ", this.props.auctionData);
+      this.setState({ hash: this.props.auctionData.hash })
+    }
   }
 
   render() {
@@ -63,6 +56,7 @@ const mapStateToProps = (state, ownProps) => {
     auctionData: { ...ownProps.auctionData },
     code: generatorCode.get(ownProps.auctionData.generator),
     uri: generatorUri.get(ownProps.auctionData.generator),
+    hash: ownProps.hash,
   };
 };
 export default connect(mapStateToProps)(ArtPieceRendererContainer);

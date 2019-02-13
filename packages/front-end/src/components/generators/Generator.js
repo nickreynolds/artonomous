@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import { NumericInput } from "../utility/input/Input";
 import { CurrencyInputWithButton } from "../utility/input/InputWithButton";
 import { GeneratorRegistry, SoulToken } from "../../wrappers/contractWrappers";
+import { FormattedCurrency } from "../utility/FormattedCurrency";
 
 const GeneratorInfoDiv = styled(Card)`
   display: flex;
@@ -42,7 +43,7 @@ const InnerButtonDiv = styled.div`
 `;
 
 const ArtDiv = styled.div`
-  margin-right: 10px;
+  margin-left: 10px;
 `;
 
 class GeneratorsList extends Component {
@@ -113,7 +114,7 @@ class GeneratorsList extends Component {
         {!this.state.showInfo && (
           <div>
             <ArtDiv>
-              <ArtPieceRendererContainer auctionData={{ generator }} />
+              <ArtPieceRendererContainer auctionData={{ generator }} hash={this.props.hash}/>
             </ArtDiv>
 
             <SliderDiv>
@@ -138,11 +139,8 @@ class GeneratorsList extends Component {
               showButton={showButton}
             />
             <span>
-              Total SOUL Staked:{" "}
-              {stake &&
-                BigNumber("1e-18")
-                  .times(stake)
-                  .toString()}
+              Total Stake:{" "}
+              {stake && <FormattedCurrency value={stake} type={"SOUL"}/>}
             </span>
           </div>
         )}

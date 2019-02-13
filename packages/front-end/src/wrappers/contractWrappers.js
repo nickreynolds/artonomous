@@ -3,6 +3,8 @@ import DaiArtifact from "../../contracts/TestDaiToken.json";
 import ArtonomousArtifact from "../../contracts/Artonomous.json";
 import GeneratorArtifact from "../../contracts/Generator.json";
 import GeneratorRegistryArtifact from "../../contracts/GeneratorRegistry.json";
+import GeneratorFactoryArtifact from "../../contracts/GeneratorFactory.json";
+
 import { getWeb3 } from "../util/web3/getWeb3.js";
 
 const web3 = getWeb3();
@@ -19,3 +21,6 @@ export const GeneratorRegistry = new web3.eth.Contract(
   GeneratorRegistryArtifact.abi,
   GeneratorRegistryArtifact.networks[4].address,
 );
+export const GeneratorFactory = new web3.eth.Contract(
+  GeneratorFactoryArtifact.abi, GeneratorFactoryArtifact.networks[4].address
+)
