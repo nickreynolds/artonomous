@@ -1,5 +1,5 @@
 import { SET_CURRENT_AUCTION, SET_AUCTION_LENGTH, ADD_HISTORICAL_AUCTION } from "../actionCreators/auctionActions";
-import { List, Map } from "immutable";
+import { Set, Map } from "immutable";
 
 export function auctionData(state = {}, action) {
   switch (action.type) {
@@ -19,10 +19,10 @@ export function auctionLength(state = 0, action) {
   }
 }
 
-export function historicalAuctionIDs(state = List(), action) {
+export function historicalAuctionIDs(state = Set(), action) {
   switch (action.type) {
     case ADD_HISTORICAL_AUCTION:
-      return state.push(action.data.auction.blockNumber);
+      return state.add(action.data.auction.blockNumber);
     default:
       return state;
   }

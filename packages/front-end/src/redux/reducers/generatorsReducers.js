@@ -7,7 +7,7 @@ import {
   SET_GENERATOR_STAKE,
   SET_GENERATOR_USER_STAKE,
 } from "../actionCreators/generatorActions";
-import { Map, List } from "immutable";
+import { Map, Set } from "immutable";
 
 export function generatorCode(state = Map(), action) {
   switch (action.type) {
@@ -62,17 +62,16 @@ export function generatorUserStakes(state = Map(), action) {
         userMap = Map();
       }
       userMap = userMap.set(action.data.user, action.data.stake);
-      console.log("set generator user map: ", userMap);
       return state.set(action.data.generator, userMap);
     default:
       return state;
   }
 }
 
-export function generatorAddresses(state = List(), action) {
+export function generatorAddresses(state = Set(), action) {
   switch (action.type) {
     case ADD_GENERATOR_ADDRESS:
-      return state.push(action.data.generatorAddress);
+      return state.add(action.data.generatorAddress);
     default:
       return state;
   }

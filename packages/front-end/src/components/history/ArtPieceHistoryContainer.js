@@ -27,10 +27,10 @@ class ArtPieceHistoryContainer extends Component {
       <HistoryDiv>
         <ArtDiv>
           <BoughtForDiv>
-          Bought for: {" "}<FormattedCurrency value={this.props.auctionData.returnValues.price} type={"DAI"}/>
+          Bought for: {" "}<FormattedCurrency value={this.props.auctionData.price} type={"DAI"}/>
           </BoughtForDiv>
           <br />
-          <ArtPiece {...this.props} auctionData={this.props.auctionData.returnValues} />
+          <ArtPiece {...this.props} auctionData={this.props.auctionData} />
         </ArtDiv>
       </HistoryDiv>
     );

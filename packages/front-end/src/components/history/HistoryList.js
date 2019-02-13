@@ -60,12 +60,14 @@ class HistoryList extends Component {
               .slice()
               .reverse()
               .map(id => {
+                const auctionData = this.props.historicalAuctions.get(id);
+                console.log("1 - auctionData: ", auctionData);
                 return (
                   <HistoryListItem>
                     <ArtPieceHistoryContainer
                       {...this.props}
                       auctionID={id}
-                      auctionData={this.props.historicalAuctions.get(id)}
+                      auctionData={auctionData}
                     />
                   </HistoryListItem>
                 );
