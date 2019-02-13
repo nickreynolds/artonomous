@@ -95,6 +95,7 @@ class GeneratorsList extends Component {
 
     const soulValue2 = BigNumber("1e18").times(soulValue);
     const showButton = !BigNumber(soulValue).isEqualTo(BigNumber(userStake));
+    const maxStake = BigNumber(soulBalance).plus(BigNumber(userStake));
     return (
       <GeneratorDiv>
         {stake && (
@@ -120,7 +121,7 @@ class GeneratorsList extends Component {
                 <Slider
                   value={soulValue}
                   min={0}
-                  max={BigNumber(soulBalance).plus(BigNumber(userStake))}
+                  max={maxStake}
                   onChange={this.handleSoulSliderChange}
                 />
               </InnerSliderDiv>

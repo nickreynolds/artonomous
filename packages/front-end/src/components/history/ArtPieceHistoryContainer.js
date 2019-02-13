@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import ArtPiece from "../artPiece/ArtPiece";
 import styled from "styled-components";
+import { Card } from "material-ui";
 
-const HistoryDiv = styled.div`
-  border: 1px solid black;
+const HistoryDiv = styled(Card)`
+left: 10px;
+width: 400px;
+height: 500px;
 `;
+
 class ArtPieceHistoryContainer extends Component {
   render() {
     // console.log("this.props: ", this.props);
