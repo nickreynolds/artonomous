@@ -31,7 +31,6 @@ export const getAccount = () => {
   return async function(dispatch, getState) {
     const web3 = await getWeb3();
     const currentBlock = await web3.eth.getBlockNumber();
-    // console.log("currentBlock: ", currentBlock);
     const accounts = await web3.eth.getAccounts();
     if (accounts && accounts.length > 0 && accounts[0]) {
       const account = accounts[0];
@@ -95,7 +94,6 @@ const getDaiUserSoulApproval = async (account, dispatch) => {
 };
 
 const getDaiUserArtonomousApproval = async (account, dispatch) => {
-  console.log("GET DAI");
   const approvalBalance = await DaiToken.methods.allowance(account, Artonomous._address).call();
   dispatch(setDaiUserArtonomousApproval(approvalBalance));
 };
