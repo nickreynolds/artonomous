@@ -3,9 +3,17 @@ import styled from "styled-components";
 import { Link } from "react-router";
 import BigNumber from "bignumber.js";
 import { connect } from "react-redux";
+import { FormattedCurrency } from "../utility/FormattedCurrency";
+
+const BalanceDiv = styled.ul`
+  display: flex;
+`;
 
 const NavLI = styled.li`
   display: inline;
+  padding: 10px;
+  color: #ffffff;
+  display: flex;
 `;
 
 const NavLink = styled(Link)`
@@ -37,32 +45,25 @@ class Balance extends Component {
     const soulBalance = this.props.soulBalance;
     const daiBalance = this.props.daiBalance;
     return (
-      <div>
-        <NavSpan>
-          {daiBalance && (
+      <BalanceDiv>
+        <NavLI>
+        {daiBalance && (
             <React.Fragment>
-              {BigNumber("1e-18")
-                .times(daiBalance)
-                .toFixed(4)
-                .toString()}{" "}
-              DAI
+              <FormattedCurrency value={daiBalance} type={"DAI"}/>
             </React.Fragment>
           )}
-        </NavSpan>
-        {" --- "}
-        <NavSpan>
+        </NavLI>
+        <NavLI>
           {soulBalance && (
             <React.Fragment>
-              {BigNumber("1e-18")
-                .times(soulBalance)
-                .toFixed(4)
-                .toString()}{" "}
-              SOUL
+            <FormattedCurrency value={soulBalance} type={"SOUL"}/>
             </React.Fragment>
           )}
-        </NavSpan>{" "}
+        </NavLI>
+        <NavLI>
         <NavLink to="soul">Buy/Sell</NavLink>
-      </div>
+        </NavLI>
+      </BalanceDiv>
     );
   }
 }

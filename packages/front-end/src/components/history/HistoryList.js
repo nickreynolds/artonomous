@@ -4,6 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import GridList from "material-ui/GridList";
 import GridListTile from "material-ui/GridList/GridTile";
 import ArtPieceHistoryContainer from "./ArtPieceHistoryContainer";
+import styled from "styled-components";
 
 const styles = theme => ({
   root: {
@@ -22,30 +23,56 @@ const styles = theme => ({
   },
 });
 
+const HistoryDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
+
+const HistoryGrid = styled.div`
+  max-width: 95%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+`;
+
+const HistoryListItem = styled.div`
+  height: 650px;
+  flex-basis: 20%;
+  -ms-flex: auto;
+  width: 400px;
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  box-sizing: border-box;
+`;
+
 class HistoryList extends Component {
   render() {
-    // console.log("this.props.historicalAuctionIDs: ", this.props.historicalAuctionIDs);
     return (
-      <div>
-        {this.props.historicalAuctionIDs && (
-          <GridList cellHeight={550} cols={3}>
-            {this.props.historicalAuctionIDs
+      <HistoryDiv>
+        {this.props.auctionIDs && (
+          <HistoryGrid>
+            {this.props.auctionIDs
               .slice()
               .reverse()
               .map(id => {
+                const auctionData = this.props.historicalAuctions.get(id);
                 return (
-                  <GridListTile>
+                  <HistoryListItem>
                     <ArtPieceHistoryContainer
                       {...this.props}
                       auctionID={id}
-                      auctionData={this.props.historicalAuctions.get(id)}
+                      auctionData={auctionData}
                     />
-                  </GridListTile>
+                  </HistoryListItem>
                 );
               })}
-          </GridList>
+          </HistoryGrid>
         )}
-      </div>
+      </HistoryDiv>
     );
   }
 }

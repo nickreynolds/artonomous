@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import { NumericInput } from "../utility/input/Input";
 import { CurrencyInputWithButton } from "../utility/input/InputWithButton";
 import { GeneratorRegistry, SoulToken } from "../../wrappers/contractWrappers";
+import { FormattedCurrency } from "../utility/FormattedCurrency";
 
 const GeneratorInfoDiv = styled(Card)`
   display: flex;
@@ -17,7 +18,6 @@ const GeneratorInfoDiv = styled(Card)`
 
 const GeneratorDiv = styled(Card)`
   width: 400px;
-  height: 650px;
 `;
 
 const SliderDiv = styled.div`
@@ -42,7 +42,11 @@ const InnerButtonDiv = styled.div`
 `;
 
 const ArtDiv = styled.div`
-  margin-right: 10px;
+  margin-left: 10px;
+`;
+
+const GeneratorNameDiv = styled.div`
+  margin-left: 10px;
 `;
 
 class GeneratorsList extends Component {
@@ -90,11 +94,20 @@ class GeneratorsList extends Component {
     }
   };
   render() {
-    const { soulBalance, generator, stake, userStake } = this.props;
+    const { soulBalance, generator, stake, userStake, auctions, historicalAuctions } = this.props;
     const { soulValue } = this.state;
 
     const soulValue2 = BigNumber("1e18").times(soulValue);
     const showButton = !BigNumber(soulValue).isEqualTo(BigNumber(userStake));
+    const maxStake = BigNumber(soulBalance).plus(BigNumber(userStake));
+    let totalProceeds = new BigNumber(0);
+    if (auctions && historicalAuctions) {
+      auctions.map((id) => {
+        const auction = historicalAuctions.get(id);
+        const buyPrice = auction.price;
+        totalProceeds = totalProceeds.plus(new BigNumber(buyPrice));
+      });
+    }
     return (
       <GeneratorDiv>
         {stake && (
@@ -111,8 +124,11 @@ class GeneratorsList extends Component {
         )}
         {!this.state.showInfo && (
           <div>
+            <GeneratorNameDiv>
+              {this.props.name}
+            </GeneratorNameDiv>
             <ArtDiv>
-              <ArtPieceRendererContainer auctionData={{ generator }} />
+              <ArtPieceRendererContainer auctionData={{ generator }} hash={this.props.hash}/>
             </ArtDiv>
 
             <SliderDiv>
@@ -120,7 +136,7 @@ class GeneratorsList extends Component {
                 <Slider
                   value={soulValue}
                   min={0}
-                  max={BigNumber(soulBalance).plus(BigNumber(userStake))}
+                  max={maxStake}
                   onChange={this.handleSoulSliderChange}
                 />
               </InnerSliderDiv>
@@ -137,11 +153,12 @@ class GeneratorsList extends Component {
               showButton={showButton}
             />
             <span>
-              Total SOUL Staked:{" "}
-              {stake &&
-                BigNumber("1e-18")
-                  .times(stake)
-                  .toString()}
+              Total Stake:{" "}
+              {stake && <FormattedCurrency value={stake} type={"SOUL"}/>}
+            </span>
+            <span>
+              Total Proceeds:{" "}
+              {totalProceeds && <FormattedCurrency value={totalProceeds} type={"DAI"} />}
             </span>
           </div>
         )}
@@ -151,7 +168,7 @@ class GeneratorsList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { soulBalance, generatorStakes, generatorUserStakes, account, soulUserRegistryApprovalBalance } = state;
+  const { soulBalance, generatorStakes, generatorNames, generatorUserStakes, account, soulUserRegistryApprovalBalance, historicalAuctionsByGenerator, historicalAuctions } = state;
   let userStake;
   if (account && generatorUserStakes && generatorUserStakes.get(ownProps.generator)) {
     userStake = generatorUserStakes.get(ownProps.generator).get(account);
@@ -161,6 +178,9 @@ const mapStateToProps = (state, ownProps) => {
     account,
     soulBalance,
     stake: generatorStakes.get(ownProps.generator),
+    name: generatorNames.get(ownProps.generator),
+    auctions: historicalAuctionsByGenerator.get(ownProps.generator),
+    historicalAuctions,
     userStake,
     soulUserRegistryApprovalBalance,
   };

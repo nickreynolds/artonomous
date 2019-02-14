@@ -3,6 +3,12 @@ import Generator from "../../../contracts/Generator";
 import * as fsapi from "../../fsapi";
 import { getGeneratorInfo } from "../../redux/actionCreators/generatorActions";
 import { connect } from "react-redux";
+import Code from 'react-code-prettify';
+import styled from "styled-components";
+
+const CodeDiv = styled.div`
+max-height: 400px;
+`;
 
 class GeneratorInfo extends Component {
   state = { generatorUri: null, generatorName: null, hash: null, code: null };
@@ -15,9 +21,9 @@ class GeneratorInfo extends Component {
   render() {
     if (this.state.generatorName && this.props.uri && this.props.code) {
       return (
-        <div>
-          <code>{this.props.code}</code>
-        </div>
+        <CodeDiv>
+          <Code codeString={this.props.code} language="javascript"/>
+        </CodeDiv>
       );
     }
     return <div>loading</div>;

@@ -95,7 +95,7 @@ contract Artonomous {
         uint256 buyPriceThird = buyPrice.div(3);
         require(reserveToken.transfer(beneficiary, buyPriceThird), "token transfer failure");
         
-        require(reserveToken.transfer(address(currentGenerator), buyPriceThird), "token transfer failure");
+        require(reserveToken.transfer(currentGenerator.owner(), buyPriceThird), "token transfer failure");
 
 
         uint256 buyPriceRemaining = buyPrice.sub(buyPriceThird.mul(2));
@@ -103,7 +103,7 @@ contract Artonomous {
         reserveToken.approve(soulToken, buyPriceRemaining);
         soulToken.depositArtPayment(buyPriceRemaining);
 
-        emit ArtonomousArtBought(msg.sender, blockNumber, address(currentGenerator), buyPriceRemaining);
+        emit ArtonomousArtBought(msg.sender, blockNumber, address(currentGenerator), buyPrice);
 
         startAuction(buyPrice, startingPrice);
     }

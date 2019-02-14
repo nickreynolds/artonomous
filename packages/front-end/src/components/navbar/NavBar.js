@@ -70,6 +70,9 @@ class NavBar extends Component {
           <NavLI>
             <NavLink to="/soul">Soul</NavLink>{" "}
           </NavLI>
+          <NavLI>
+            <NavLink to="/my-activity">My Activity</NavLink>{" "}
+          </NavLI>
           <NavSpace />
           <NavLIR>{hasAccount && <Balance {...this.props} />}</NavLIR>
           <NavLIR>{!hasAccount && <Login {...this.props} />}</NavLIR>

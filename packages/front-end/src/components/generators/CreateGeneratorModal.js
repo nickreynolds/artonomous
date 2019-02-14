@@ -1,6 +1,8 @@
 import React from "react";
+import { GeneratorFactory } from "../../wrappers/contractWrappers";
+import { connect } from "react-redux";
 
-export default class CreateGeneratorModal extends React.Component {
+class CreateGeneratorModal extends React.Component {
   state = {
     name: "",
   };
@@ -11,10 +13,10 @@ export default class CreateGeneratorModal extends React.Component {
 
   submit = async () => {
     const fileResult = this.props.fileResult[0];
-    const txData = await this.props.drizzle.contracts.GeneratorFactory.methods.createGenerator.cacheSend(
+    await GeneratorFactory.methods.createGenerator(
       this.state.name,
       [fileResult.hash, fileResult.path].join("/"),
-    );
+    ).send({from: this.props.account});
   };
 
   render() {
@@ -42,3 +44,10 @@ export default class CreateGeneratorModal extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    account: state.account
+  }
+}
+export default connect(mapStateToProps)(CreateGeneratorModal);

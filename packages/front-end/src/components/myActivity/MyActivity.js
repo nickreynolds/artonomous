@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import GeneratorsList from "./GeneratorsList";
+import GeneratorsList from "../generators/GeneratorsList";
 import { Link } from "react-router";
 import { sha3_256 } from "js-sha3";
 import styled from "styled-components";
 import { RaisedButton } from "material-ui";
 import hashToRandomSeed from "../../hashToRandomSeed";
 import { connect } from "react-redux";
+import HistoryList from "../history/HistoryList";
 
 const GeneratorsBackground = styled.div`
   background-color: #a4a4a4;
@@ -33,7 +34,7 @@ const CreateContainer = styled.li`
   margin-right: 10px;
 `;
 
-class Generators extends Component {
+class MyActivity extends Component {
   state = { hash: "", seed: 0 };
 
   componentDidMount = () => {
@@ -53,17 +54,12 @@ class Generators extends Component {
     this.setState({ hash, seed });
   };
 
-  createGenerator = () => {
-    // console.log("this.props: ", this.props);
-    this.props.router.push("/create-generator");
-  };
-
   render() {
     const { generators } = this.props;
-    // console.log("generators: ", generators);
     return (
       <GeneratorsBackground>
         <GeneratorHeader>
+          My Generators:
           <RandomizeContainer>
             <RaisedButton variant="contained" onClick={this.randomizeHash}>
               randomize
@@ -75,21 +71,28 @@ class Generators extends Component {
             </span>
           </RandomizeContainer>
           <NavSpace />
-          <CreateContainer>
-            <RaisedButton onClick={this.createGenerator} primary>
-              Create Generator
-            </RaisedButton>
-          </CreateContainer>
         </GeneratorHeader>
         <div>{generators && <GeneratorsList generators={generators} hash={this.state.hash} />}</div>
+        My Bought Art:
+        <div>
+          {this.props.userBoughtArts && (
+            <HistoryList
+              {...this.props}
+              auctionIDs={this.props.userBoughtArts}
+              auctions={this.props.historicalAuctions}
+            />)}
+        </div>
       </GeneratorsBackground>
     );
   }
 }
 const mapStateToProps = (state, ownProps) => {
-  const { generatorAddresses } = state;
+  const { myGeneratorAddresses, account, userToBoughtArts, historicalAuctions } = state;
+  const userBoughtArts = userToBoughtArts.get(account);
   return {
-    generators: generatorAddresses,
+    generators: myGeneratorAddresses,
+    userBoughtArts,
+    historicalAuctions
   };
 };
-export default connect(mapStateToProps)(Generators);
+export default connect(mapStateToProps)(MyActivity);

@@ -17,6 +17,8 @@ import thunk from "redux-thunk";
 import { createStore, applyMiddleware } from "redux";
 
 import reducers from "./redux/reducers";
+import GeneratorPage from "./components/generators/GeneratorPage";
+import MyActivity from "./components/myActivity/MyActivity";
 
 const reduxStore = createStore(reducers, applyMiddleware(thunk));
 
@@ -35,11 +37,17 @@ ReactDOM.render(
       <Route path="/history" component={App}>
         <IndexRoute component={AuctionHistory} />
       </Route>
-      <Route path="/createGenerator" component={App}>
+      <Route path="/create-generator" component={App}>
         <IndexRoute component={CreateGenerator} />
       </Route>
       <Route path="/soul" component={App}>
         <IndexRoute component={SoulDetail} />
+      </Route>
+      <Route path="/generator/:generatorAddress" component={App}>
+        <IndexRoute component={GeneratorPage} />
+      </Route>
+      <Route path="/my-activity" component={App}>
+        <IndexRoute component={MyActivity} />
       </Route>
     </Router>
   </Provider>,

@@ -17,7 +17,6 @@ const HomeDiv = styled.div`
 const AuctionDiv = styled(Card)`
   left: 10px;
   width: 400px;
-  height: 500px;
 `;
 const ArtDiv = styled.div`
   margin-left: 10px;

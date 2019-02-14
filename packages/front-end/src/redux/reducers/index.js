@@ -3,6 +3,7 @@ import {
   generatorCode,
   generatorUri,
   generatorAddresses,
+  myGeneratorAddresses,
   generatorCreators,
   generatorNames,
   generatorStakes,
@@ -16,12 +17,13 @@ import {
   daiUserArtonomousApprovalBalance,
   soulUserRegistryApprovalBalance,
 } from "./accountReducers";
-import { auctionData, auctionLength, historicalAuctionIDs, historicalAuctions } from "./auctionReducers";
+import { auctionData, auctionLength, historicalAuctionIDs, historicalAuctions, userToBoughtArts, historicalAuctionsByGenerator } from "./auctionReducers";
 
 export default combineReducers({
   generatorCode,
   generatorUri,
   generatorAddresses,
+  myGeneratorAddresses,
   generatorCreators,
   generatorNames,
   generatorStakes,
@@ -36,4 +38,6 @@ export default combineReducers({
   auctionLength,
   historicalAuctionIDs,
   historicalAuctions,
+  historicalAuctionsByGenerator,
+  userToBoughtArts
 });
