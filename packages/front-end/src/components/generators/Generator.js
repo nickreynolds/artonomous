@@ -18,7 +18,6 @@ const GeneratorInfoDiv = styled(Card)`
 
 const GeneratorDiv = styled(Card)`
   width: 400px;
-  height: 650px;
 `;
 
 const SliderDiv = styled.div`
@@ -95,13 +94,20 @@ class GeneratorsList extends Component {
     }
   };
   render() {
-    const { soulBalance, generator, stake, userStake } = this.props;
+    const { soulBalance, generator, stake, userStake, auctions, historicalAuctions } = this.props;
     const { soulValue } = this.state;
 
     const soulValue2 = BigNumber("1e18").times(soulValue);
     const showButton = !BigNumber(soulValue).isEqualTo(BigNumber(userStake));
     const maxStake = BigNumber(soulBalance).plus(BigNumber(userStake));
-    console.log("name: ", this.props.name);
+    let totalProceeds = new BigNumber(0);
+    if (auctions && historicalAuctions) {
+      auctions.map((id) => {
+        const auction = historicalAuctions.get(id);
+        const buyPrice = auction.price;
+        totalProceeds = totalProceeds.plus(new BigNumber(buyPrice));
+      });
+    }
     return (
       <GeneratorDiv>
         {stake && (
@@ -150,6 +156,10 @@ class GeneratorsList extends Component {
               Total Stake:{" "}
               {stake && <FormattedCurrency value={stake} type={"SOUL"}/>}
             </span>
+            <span>
+              Total Proceeds:{" "}
+              {totalProceeds && <FormattedCurrency value={totalProceeds} type={"DAI"} />}
+            </span>
           </div>
         )}
       </GeneratorDiv>
@@ -158,7 +168,7 @@ class GeneratorsList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { soulBalance, generatorStakes, generatorNames, generatorUserStakes, account, soulUserRegistryApprovalBalance } = state;
+  const { soulBalance, generatorStakes, generatorNames, generatorUserStakes, account, soulUserRegistryApprovalBalance, historicalAuctionsByGenerator, historicalAuctions } = state;
   let userStake;
   if (account && generatorUserStakes && generatorUserStakes.get(ownProps.generator)) {
     userStake = generatorUserStakes.get(ownProps.generator).get(account);
@@ -169,6 +179,8 @@ const mapStateToProps = (state, ownProps) => {
     soulBalance,
     stake: generatorStakes.get(ownProps.generator),
     name: generatorNames.get(ownProps.generator),
+    auctions: historicalAuctionsByGenerator.get(ownProps.generator),
+    historicalAuctions,
     userStake,
     soulUserRegistryApprovalBalance,
   };

@@ -103,7 +103,7 @@ contract Artonomous {
         reserveToken.approve(soulToken, buyPriceRemaining);
         soulToken.depositArtPayment(buyPriceRemaining);
 
-        emit ArtonomousArtBought(msg.sender, blockNumber, address(currentGenerator), buyPriceRemaining);
+        emit ArtonomousArtBought(msg.sender, blockNumber, address(currentGenerator), buyPrice);
 
         startAuction(buyPrice, startingPrice);
     }
