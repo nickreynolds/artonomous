@@ -3,6 +3,7 @@ import { ContractData } from "drizzle-react-components";
 import NewContractForm from "../utility/NewContractForm";
 import ArtPieceRendererContainer from "./ArtPieceRendererContainer";
 import { Link } from "react-router";
+import { connect } from "react-redux";
 
 class ArtPiece extends Component {
   componentDidMount() {}
@@ -18,12 +19,20 @@ class ArtPiece extends Component {
     }
     return (
       <div>
-        <p>Block Number: {auctionData.blockNumber}</p>
-        <p>{auctionData && (<Link to={generatorLink} >Generator of Piece: {auctionData.generator}</Link>)}</p>
+        <p>{auctionData && (<Link to={generatorLink} >{this.props.name} - {auctionData.blockNumber}</Link>)}</p>
         {auctionData && <ArtPieceRendererContainer auctionData={auctionData} />}
       </div>
     );
   }
 }
 
-export default ArtPiece;
+const mapStateToProps = (state, ownProps) => {
+  const { generatorNames } = state;
+  return {
+    name: generatorNames.get(ownProps.auctionData.generator),
+    ...ownProps
+  };
+};
+
+export default connect(mapStateToProps)(ArtPiece);
+

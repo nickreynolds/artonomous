@@ -40,7 +40,7 @@ export function generatorCreators(state = Map(), action) {
 export function generatorNames(state = Map(), action) {
   switch (action.type) {
     case ADD_GENERATOR_NAME:
-      return state.set(action.data.generator, action.data.name);
+      return state.set(action.data.generator, action.data.generatorName);
     default:
       return state;
   }

@@ -46,6 +46,10 @@ const ArtDiv = styled.div`
   margin-left: 10px;
 `;
 
+const GeneratorNameDiv = styled.div`
+  margin-left: 10px;
+`;
+
 class GeneratorsList extends Component {
   state = {
     showInfo: false,
@@ -97,6 +101,7 @@ class GeneratorsList extends Component {
     const soulValue2 = BigNumber("1e18").times(soulValue);
     const showButton = !BigNumber(soulValue).isEqualTo(BigNumber(userStake));
     const maxStake = BigNumber(soulBalance).plus(BigNumber(userStake));
+    console.log("name: ", this.props.name);
     return (
       <GeneratorDiv>
         {stake && (
@@ -113,6 +118,9 @@ class GeneratorsList extends Component {
         )}
         {!this.state.showInfo && (
           <div>
+            <GeneratorNameDiv>
+              {this.props.name}
+            </GeneratorNameDiv>
             <ArtDiv>
               <ArtPieceRendererContainer auctionData={{ generator }} hash={this.props.hash}/>
             </ArtDiv>
@@ -150,7 +158,7 @@ class GeneratorsList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { soulBalance, generatorStakes, generatorUserStakes, account, soulUserRegistryApprovalBalance } = state;
+  const { soulBalance, generatorStakes, generatorNames, generatorUserStakes, account, soulUserRegistryApprovalBalance } = state;
   let userStake;
   if (account && generatorUserStakes && generatorUserStakes.get(ownProps.generator)) {
     userStake = generatorUserStakes.get(ownProps.generator).get(account);
@@ -160,6 +168,7 @@ const mapStateToProps = (state, ownProps) => {
     account,
     soulBalance,
     stake: generatorStakes.get(ownProps.generator),
+    name: generatorNames.get(ownProps.generator),
     userStake,
     soulUserRegistryApprovalBalance,
   };

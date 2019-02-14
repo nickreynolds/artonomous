@@ -37,6 +37,20 @@ export function historicalAuctions(state = Map(), action) {
   }
 }
 
+export function historicalAuctionsByGenerator(state = Map(), action) {
+  switch (action.type) {
+    case ADD_HISTORICAL_AUCTION:
+      let generatorAuctions = state.get(action.data.auction.generator);
+      if (!generatorAuctions) {
+        generatorAuctions = Set();
+      }
+      generatorAuctions = generatorAuctions.add(action.data.auction.blockNumber);
+      return state.set(action.data.auction.generator, generatorAuctions);
+    default:
+      return state;
+  }
+}
+
 export function userToBoughtArts(state = Map(), action) {
   switch (action.type) {
     case ADD_HISTORICAL_AUCTION:
