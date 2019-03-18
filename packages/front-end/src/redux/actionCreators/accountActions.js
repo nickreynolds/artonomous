@@ -1,4 +1,3 @@
-import * as fsapi from "../../fsapi";
 import { getWeb3 } from "../../util/web3/getWeb3";
 import { SoulToken, DaiToken, Artonomous, GeneratorRegistry } from "../../wrappers/contractWrappers";
 export const SET_ACCOUNT = "SET_ACCOUNT";
@@ -27,15 +26,22 @@ export const setSoulUserRegistryApproval = approvalBalance => {
   return { type: SET_SOUL_USER_REGISTRY_APPROVAL, data: { approvalBalance } };
 };
 
+let SoulTransferSub1;
+
 export const getAccount = () => {
-  return async function(dispatch, getState) {
+  console.log("poll account 1.");
+  return async function (dispatch, getState) {
+    console.log("poll account 2.");
     const web3 = await getWeb3();
     const currentBlock = await web3.eth.getBlockNumber();
     const accounts = await web3.eth.getAccounts();
-    if (accounts && accounts.length > 0 && accounts[0]) {
+
+    const prevAccount = getState().account;
+    if (accounts && accounts.length > 0 && accounts[0] && prevAccount !== accounts[0]) {
+      console.log("new account.");
       const account = accounts[0];
       dispatch(setAccount(account));
-      SoulToken.events.Transfer({ filter: { from: account }, fromBlock: currentBlock }, (error, event) => {
+      SoulTransferSub1 = SoulToken.events.Transfer({ filter: { from: account }, fromBlock: currentBlock }, (error, event) => {
         getSoulBalance(account, dispatch);
         getSoulUserRegistryApproval(account, dispatch);
       });

@@ -18,7 +18,6 @@ const GeneratorGrid = styled.div`
 `;
 
 const GridListItem = styled.div`
-  height: 650px;
   flex-basis: 20%;
   -ms-flex: auto;
   width: 400px;

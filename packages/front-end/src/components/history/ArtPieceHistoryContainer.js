@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ArtPiece from "../artPiece/ArtPiece";
 import styled from "styled-components";
 import { Card } from "material-ui";
-import BigNumber from "bignumber.js";
 import { FormattedCurrency } from "../utility/FormattedCurrency";
 
 const HistoryDiv = styled(Card)`

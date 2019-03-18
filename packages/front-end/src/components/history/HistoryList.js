@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
 import { withStyles } from "@material-ui/core/styles";
-import GridList from "material-ui/GridList";
-import GridListTile from "material-ui/GridList/GridTile";
 import ArtPieceHistoryContainer from "./ArtPieceHistoryContainer";
 import styled from "styled-components";
 

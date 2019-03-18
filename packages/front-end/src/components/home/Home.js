@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import NewContractForm from "../utility/NewContractForm";
-import NewContractData from "../utility/NewContractData";
 import ArtPiece from "../artPiece/ArtPiece";
 import styled from "styled-components";
 import { connect } from "react-redux";
@@ -34,7 +32,7 @@ class Home extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.auctionData != this.props.auctionData) {
+    if (prevProps.auctionData !== this.props.auctionData) {
       this.getPrice();
     }
   }

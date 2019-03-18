@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Generator from "../../../contracts/Generator";
-import * as fsapi from "../../fsapi";
 import { getGeneratorInfo } from "../../redux/actionCreators/generatorActions";
 import { connect } from "react-redux";
 import Code from 'react-code-prettify';

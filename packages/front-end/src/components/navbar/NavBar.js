@@ -1,14 +1,9 @@
 import React, { Component } from "react";
-import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from "react-bootstrap";
 import styled from "styled-components";
 import { Link } from "react-router";
-import { ContractData } from "drizzle-react-components";
-import PropTypes from "prop-types";
-import NewContractForm from "../utility/NewContractForm";
-import { DrizzleContext } from "drizzle-react";
 import Balance from "./Balance";
 import Login from "./Login";
-import { getAccount } from "../../redux/actionCreators/accountActions";
+import { getAccount, pollAccount } from "../../redux/actionCreators/accountActions";
 
 import { connect } from "react-redux";
 import { beginGetCurrentAuction, beginGetHistoricalAuctions } from "../../redux/actionCreators/auctionActions";
@@ -47,12 +42,17 @@ const NavLink = styled(Link)`
 `;
 
 class NavBar extends Component {
+  pollAccount = () => {
+    this.props.dispatch(getAccount());
+  }
   componentDidMount() {
     this.props.dispatch(getAccount());
+    setInterval(this.pollAccount, 5000);
     this.props.dispatch(beginGetCurrentAuction());
     this.props.dispatch(beginGetHistoricalAuctions());
     this.props.dispatch(beginGetGenerators());
   }
+
   render() {
     const hasAccount = this.props.account;
     return (

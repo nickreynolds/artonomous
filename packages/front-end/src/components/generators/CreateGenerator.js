@@ -93,9 +93,6 @@ function draw() {
   };
 
   render() {
-    const options = {
-      selectOnLineNumbers: true,
-    };
     return (
       <div>
         <div className="modalWrapper">

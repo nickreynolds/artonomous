@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { ContractData } from "drizzle-react-components";
-import NewContractForm from "../utility/NewContractForm";
 import ArtPieceRendererContainer from "./ArtPieceRendererContainer";
 import { Link } from "react-router";
 import { connect } from "react-redux";
