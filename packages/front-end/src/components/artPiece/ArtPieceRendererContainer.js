@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-import { ContractData } from "drizzle-react-components";
-import NewContractForm from "../utility/NewContractForm";
-import store from "../../store";
-import Generator from "../../../contracts/Generator";
 import ArtPieceRenderer from "./ArtPieceRenderer";
-import { getGeneratorInfo } from "../../redux/actionCreators/generatorActions";
 import { connect } from "react-redux";
-import { getWeb3 } from "../../util/web3/getWeb3";
 
 class ArtPieceRendererContainer extends Component {
   state = { generatorUri: null, generatorName: null, hash: null };

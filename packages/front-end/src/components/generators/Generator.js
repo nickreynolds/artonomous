@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import ArtPieceRendererContainer from "../artPiece/ArtPieceRendererContainer";
-import NewContractForm from "../utility/NewContractForm";
 import styled from "styled-components";
 import GeneratorInfo from "./GeneratorInfo";
 import BigNumber from "bignumber.js";
 import { Slider, Card } from "material-ui";
 import { connect } from "react-redux";
-import { NumericInput } from "../utility/input/Input";
 import { CurrencyInputWithButton } from "../utility/input/InputWithButton";
 import { GeneratorRegistry, SoulToken } from "../../wrappers/contractWrappers";
 import { FormattedCurrency } from "../utility/FormattedCurrency";

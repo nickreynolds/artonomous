@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import GeneratorsList from "../generators/GeneratorsList";
-import { Link } from "react-router";
 import { sha3_256 } from "js-sha3";
 import styled from "styled-components";
 import { RaisedButton } from "material-ui";
