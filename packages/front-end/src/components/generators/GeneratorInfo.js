@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 const CodeDiv = styled.div`
 max-height: 400px;
+overflow-y: scroll;
 `;
 
 class GeneratorInfo extends Component {

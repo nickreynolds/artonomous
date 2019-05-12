@@ -8,16 +8,11 @@ import { connect } from "react-redux";
 import HistoryList from "../history/HistoryList";
 
 const GeneratorsBackground = styled.div`
-  background-color: #a4a4a4;
-  height: 100%;
-  width: 100%;
-  top: 10px;
 `;
 
 const GeneratorHeader = styled.ul`
   list-style-type: none;
   overflow: hidden;
-  background-color: #a4a4a4;
   display: flex;
   align-items: center;
 `;
@@ -27,10 +22,6 @@ const RandomizeContainer = styled.li`
 `;
 const NavSpace = styled.li`
   flex: 1;
-`;
-
-const CreateContainer = styled.li`
-  margin-right: 10px;
 `;
 
 class MyActivity extends Component {
@@ -64,8 +55,7 @@ class MyActivity extends Component {
               randomize
             </RaisedButton>
             <span>
-              {" hash: "}
-              {this.state.hash} {" => seed: "}
+              {" => seed: "}
               {this.state.seed}
             </span>
           </RandomizeContainer>
