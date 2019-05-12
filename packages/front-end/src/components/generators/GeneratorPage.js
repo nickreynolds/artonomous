@@ -5,6 +5,7 @@ import Generator from "./Generator";
 import { RaisedButton } from "material-ui";
 import { sha3_256 } from "js-sha3";
 import hashToRandomSeed from "../../hashToRandomSeed";
+import HistoryList from "../history/HistoryList";
 
 const GeneratorPageDiv = styled.div`
 display: flex;
@@ -17,6 +18,8 @@ margin-top: 30px;
 const RandomizeContainer = styled.div`
   margin-top: 20px;
   padding: 10px 10px 10px 10px;
+`;
+const GeneratorHistory = styled.div`
 `;
 class GeneratorsPage extends Component {
   state = { hash: "", seed: 0 };
@@ -45,22 +48,34 @@ class GeneratorsPage extends Component {
             randomize
             </RaisedButton>
           <span>
-            {" hash: "}
-            {this.state.hash} {" => seed: "}
+            {" => seed: "}
             {this.state.seed}
           </span>
         </RandomizeContainer>
         <GeneratorContainerDiv>
           <Generator generator={this.props.generatorAddress} hash={this.state.hash}/>
         </GeneratorContainerDiv>
+        <GeneratorHistory>
+          History:
+          {this.props.generatorAuctions && (
+            <HistoryList
+              {...this.props}
+              auctionIDs={this.props.generatorAuctions}
+              auctions={this.props.historicalAuctions}
+            />)}
+        </GeneratorHistory>
       </GeneratorPageDiv>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
+  const { historicalAuctionsByGenerator, historicalAuctions } = state;
+  const generatorAuctions = historicalAuctionsByGenerator.get(ownProps.params.generatorAddress)
   return {
-    generatorAddress: ownProps.params.generatorAddress
+    generatorAddress: ownProps.params.generatorAddress,
+    generatorAuctions,
+    historicalAuctions
   };
 };
     

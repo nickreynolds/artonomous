@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import { CurrencyInputWithButton } from "../utility/input/InputWithButton";
 import { GeneratorRegistry, SoulToken } from "../../wrappers/contractWrappers";
 import { FormattedCurrency } from "../utility/FormattedCurrency";
+import { Link } from "react-router";
 
 const GeneratorInfoDiv = styled(Card)`
   display: flex;
@@ -79,7 +80,7 @@ class GeneratorsList extends Component {
       const amountToDeposit = BigNumber(this.state.soulValue).minus(BigNumber(this.props.userStake));
 
       if (BigNumber(this.props.soulUserRegistryApprovalBalance).isLessThan(amountToDeposit)) {
-        await SoulToken.methods.approve(GeneratorRegistry._address, amountToDeposit).send({ from: this.props.account});
+        await SoulToken.methods.approve(GeneratorRegistry._address, amountToDeposit).send({ from: this.props.account });
       }
       await GeneratorRegistry.methods
         .depositStake(this.props.generator, amountToDeposit)
@@ -95,22 +96,23 @@ class GeneratorsList extends Component {
     const { soulBalance, generator, stake, userStake, auctions, historicalAuctions } = this.props;
     const { soulValue } = this.state;
 
-    const soulValue2 = BigNumber("1e18").times(soulValue);
     const showButton = !BigNumber(soulValue).isEqualTo(BigNumber(userStake));
     const maxStake = BigNumber(soulBalance).plus(BigNumber(userStake));
     let totalProceeds = new BigNumber(0);
     if (auctions && historicalAuctions) {
-      auctions.map((id) => {
+      auctions.map(id => {
         const auction = historicalAuctions.get(id);
         const buyPrice = auction.price;
         totalProceeds = totalProceeds.plus(new BigNumber(buyPrice));
       });
     }
+    const generatorLink = "/generator/" + this.props.generator;
+    const showInfoText = this.state.showInfo ? "hide code" : "show code";
     return (
       <GeneratorDiv>
         {stake && (
           <GeneratorInfoDiv>
-            <span onClick={this.onInfoClick}>show info</span>
+            <span onClick={this.onInfoClick}>{showInfoText}</span>
           </GeneratorInfoDiv>
         )}
         <br />
@@ -123,20 +125,15 @@ class GeneratorsList extends Component {
         {!this.state.showInfo && (
           <div>
             <GeneratorNameDiv>
-              {this.props.name}
+              <Link to={generatorLink}>{this.props.name}</Link>
             </GeneratorNameDiv>
             <ArtDiv>
-              <ArtPieceRendererContainer auctionData={{ generator }} hash={this.props.hash}/>
+              <ArtPieceRendererContainer auctionData={{ generator }} hash={this.props.hash} />
             </ArtDiv>
 
             <SliderDiv>
               <InnerSliderDiv>
-                <Slider
-                  value={soulValue}
-                  min={0}
-                  max={maxStake}
-                  onChange={this.handleSoulSliderChange}
-                />
+                <Slider value={soulValue} min={0} max={maxStake.toNumber()} onChange={this.handleSoulSliderChange} />
               </InnerSliderDiv>
             </SliderDiv>
             <InnerButtonDiv />
@@ -144,20 +141,14 @@ class GeneratorsList extends Component {
               placeholder={BigNumber("1e-18").times(soulValue)}
               name="stake"
               buttonText="Update Stake"
-              icon={<span></span>}
+              icon={<span />}
               value={BigNumber("1e-18").times(soulValue)}
               onChange={this.handleSoulInputChange}
               onButtonClick={() => this.handleStakeButtonClicked()}
               showButton={showButton}
             />
-            <span>
-              Total Stake:{" "}
-              {stake && <FormattedCurrency value={stake} type={"SOUL"}/>}
-            </span>
-            <span>
-              Total Proceeds:{" "}
-              {totalProceeds && <FormattedCurrency value={totalProceeds} type={"DAI"} />}
-            </span>
+            <span>Total Stake: {stake && <FormattedCurrency value={stake} type={"SOUL"} />}</span>
+            <span>Total Proceeds: {totalProceeds && <FormattedCurrency value={totalProceeds} type={"DAI"} />}</span>
           </div>
         )}
       </GeneratorDiv>
@@ -166,7 +157,16 @@ class GeneratorsList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { soulBalance, generatorStakes, generatorNames, generatorUserStakes, account, soulUserRegistryApprovalBalance, historicalAuctionsByGenerator, historicalAuctions } = state;
+  const {
+    soulBalance,
+    generatorStakes,
+    generatorNames,
+    generatorUserStakes,
+    account,
+    soulUserRegistryApprovalBalance,
+    historicalAuctionsByGenerator,
+    historicalAuctions,
+  } = state;
   let userStake;
   if (account && generatorUserStakes && generatorUserStakes.get(ownProps.generator)) {
     userStake = generatorUserStakes.get(ownProps.generator).get(account);

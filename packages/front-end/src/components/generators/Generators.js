@@ -7,16 +7,11 @@ import hashToRandomSeed from "../../hashToRandomSeed";
 import { connect } from "react-redux";
 
 const GeneratorsBackground = styled.div`
-  background-color: #a4a4a4;
-  height: 100%;
-  width: 100%;
-  top: 10px;
 `;
 
 const GeneratorHeader = styled.ul`
   list-style-type: none;
   overflow: hidden;
-  background-color: #a4a4a4;
   display: flex;
   align-items: center;
 `;
@@ -67,9 +62,7 @@ class Generators extends Component {
             <RaisedButton variant="contained" onClick={this.randomizeHash}>
               randomize
             </RaisedButton>
-            <span>
-              {" hash: "}
-              {this.state.hash} {" => seed: "}
+            <span>{" => seed: "}
               {this.state.seed}
             </span>
           </RandomizeContainer>
